@@ -1,0 +1,33 @@
+# Unequal step sizes
+
+When we can control the step size, we are lucky: there are just two points to check in the symmetric difference scheme! The middle term cancelled out. With real data, we are not always so lucky: most of the time, data just comes in when it's available. We can get a formula that's just as good as the symmetric difference scheme, even if the step sizes are not equal. The trick is to ask for that cool property you just found, that the formula should be exact for quadtratic polynomials. That is: we are looking for numbers $d_-$, $d_0$, $d_+$ so that 
+
+$$
+f'(x) = d_{-} f(x-k) +d_0 f(x) + d_+ f(x+h)
+$$
+
+for any quadratic polynomial $f(x)=ax^2+bx+c$. Let's derive those values $d_-$, $d_0$, and $d_+$ now. Since we want it to work for any such polynomial, we can get picky: our formula should work in the case when $a=0$, $b=0$, and $c=1$. Therefore, 
+
+$$
+\frac{d}{dx}(c) = 0 = d_- +d_0 + d_+.
+$$
+
+The formula should also work when $a=0$, $b=1$, and $c=0$. Therefore, 
+
+\begin{align*}
+\frac{d}{dx}(bx) = 1 
+&= d_- (x-k ) + d_0 x + d_+(x+h)\\
+&= (d_-+d_0+d_+)x + d_- k + d_+ h.
+\end{align*}
+Since we already know $d_-+d_0+d_+=0$ this means that $0=d_- k + d_+ h$.
+
+You probably guessed what's next: choose $a=1$, $b=0$, and $c=0$. Then,
+
+\begin{align*}
+\frac{d}{dx}(ax^2) = 2x
+&= d_-(x-k)^2 +d_0 x^2 + d_+(x+h)^2\\
+&=-2d_- xk +d_-k^2 + 2 d_+ xh + d_+h^2\\
+0&=d_-k^2 + d_+h^2
+\end{align*}
+
+Now we have three equations, with three unknowns. We can solve!
