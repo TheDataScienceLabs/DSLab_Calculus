@@ -1,0 +1,21 @@
+In addition to the standard equipment (raspberry pi pico, microusb cable, breadboard, jumpers, computer) each student (or team of students) will need the following. Logic chips can be found for less than 40 cents each,  resistors less than 2 cents each.
+
+Each student will need 12 10k resistors, but you might as well give them 20 since they are insanely cheap.
+
+Each student will need one each of:
+
+7404 inverter
+7400 nand
+7432 or
+7402 nor
+7486 xor
+
+They will need two of:
+
+7408 and
+
+and three of:
+
+randomly chosen 74xx chip, back sanded free of labels, labeled "A" or "B" or "C".
+
+One of the 7408 chips and one of the others labeled chips (chosen at random) should be intentionally broken. This can be done safely by connecting an output to ground and driving the output high using the internal logic of the chip -- this will draw too much current, breaking the gate. It may damage the others, or it may leave only one gate broken. In any case, the result should be invisible to the eye.
