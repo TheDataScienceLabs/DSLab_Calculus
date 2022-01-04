@@ -6,7 +6,7 @@ PICO_HWID = "2E8A:0005"
 
 
 def get_pico_port():
-    return next(list_ports.grep(PICO_HWID)).name
+    return next(list_ports.grep(PICO_HWID)).device
 
 
 def serial_lines(port, timeout, message, ending):
