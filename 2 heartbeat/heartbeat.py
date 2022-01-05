@@ -6,7 +6,10 @@ PICO_HWID = "2E8A:0005"
 
 
 def get_pico_port():
-    return next(list_ports.grep(PICO_HWID)).device
+    pico_ports = list(list_ports.grep(PICO_HWID))
+    if len(pico_ports) == 0:
+        raise Exception('No Raspberry Pi Pico was detected. Check to make sure it is plugged in, and that no other programs are accessing it')
+    return pico_ports[0].device
 
 
 def serial_lines(port, timeout, message, ending):
