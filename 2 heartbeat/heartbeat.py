@@ -18,8 +18,15 @@ def serial_lines(port, timeout, message, ending):
     one of them matches ending. If the serial buffer is empty, yield an empty string.
     """
     with serial.Serial(port, timeout=timeout) as s:
-        s.write(str.encode(message + "\r"))
-        s.readline()  # first line is always our message
+        call = str.encode(message + "\r")
+        s.write(call)
+        response = s.readline()  # first line is always our message
+        if response != call + b"\n":
+            raise Exception(
+                f"""The microcontroller did not receive the command correctly.
+                We sent the message {call}, but we received the response {response}.
+                Is there something else reading from this serial port?"""
+            )
         line = s.readline().decode("UTF8").strip()
         while line != ending:
             yield line
