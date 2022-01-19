@@ -9,7 +9,9 @@ PICO_HWID = "2E8A:0005"
 def get_pico_port():
     pico_ports = list(list_ports.grep(PICO_HWID))
     if len(pico_ports) == 0:
-        raise Exception('No Raspberry Pi Pico was detected. Check to make sure it is plugged in, and that no other programs are accessing it')
+        raise Exception(
+            "No Raspberry Pi Pico was detected. Check to make sure it is plugged in, and that no other programs are accessing it"
+        )
     return pico_ports[0].device
 
 
@@ -34,7 +36,7 @@ def serial_lines(port, timeout, message, ending):
             line = s.readline().decode("UTF8").strip()
 
 
-def acquire(rate, y, line, fig, min_frame_time = 0.1):
+def acquire(rate, y, line, fig, min_frame_time=0.1):
     """
     Take in heartbeat data, meanwhile updating the line and figure
     so that you can see the data as it arrives in real time.
