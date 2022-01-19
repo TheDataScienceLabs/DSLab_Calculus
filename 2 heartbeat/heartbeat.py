@@ -41,7 +41,7 @@ def acquire(rate, y, line, fig):
     i = 0
     for entry in serial_lines(
         get_pico_port(),
-        timeout=0.1 / rate,
+        timeout=0.001,
         message=f"{rate},{len(y)}",
         ending="done",
     ):
