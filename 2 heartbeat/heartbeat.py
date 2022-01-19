@@ -1,6 +1,7 @@
 import serial
 from serial.tools import list_ports
 import numpy as np
+import time
 
 PICO_HWID = "2E8A:0005"
 
@@ -33,15 +34,16 @@ def serial_lines(port, timeout, message, ending):
             line = s.readline().decode("UTF8").strip()
 
 
-def acquire(rate, y, line, fig):
+def acquire(rate, y, line, fig, min_frame_time = 0.1):
     """
     Take in heartbeat data, meanwhile updating the line and figure
     so that you can see the data as it arrives in real time.
     """
     i = 0
+    most_recent_draw = time.monotonic()
     for entry in serial_lines(
         get_pico_port(),
-        timeout=0.001,
+        timeout=0.005,
         message=f"{rate},{len(y)}",
         ending="done",
     ):
@@ -49,9 +51,10 @@ def acquire(rate, y, line, fig):
             y[i] = int(entry)
             i += 1
             line.set_ydata(y)
-        else:
+        if time.monotonic() - most_recent_draw > min_frame_time or not entry:
             # the buffer is empty, so we have time to draw.
             fig.canvas.draw()
+            most_recent_draw = time.monotonic()
 
 
 def rolling_centered_average(x, n):
