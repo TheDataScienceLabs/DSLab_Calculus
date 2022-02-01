@@ -35,7 +35,7 @@ def check_finite_difference(approximation, relative_error):
         print(d)
     else:
         print('I agree with your answer for the approximation.')
-    e = (d-8) / 8
+    e = abs(d-8) / 8
     if not np.allclose(relative_error, e):
         print('You got a different answer for the relative error. Here is what I expected:')
         print(e)
