@@ -1,5 +1,5 @@
 """
-These will help studetns check their work as they go, to make sure that their functions do what they should.
+These will help students check their work as they go, to make sure that their functions do what they should.
 """
 
 from autograder import FunctionGrader, FunctionTestCase
