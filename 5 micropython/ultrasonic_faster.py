@@ -16,7 +16,7 @@ start = time.ticks_ms()
 while True:
     # There has to be at least 60ms between measurements,
     # for the sensor to reset itself.
-    time.sleep_ms(60)
+    time.sleep_ms(100)
     led.on()
     
     # A 10 ms pulse tells the sensor to begin a measurement.
