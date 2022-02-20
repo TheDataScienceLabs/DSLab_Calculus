@@ -45,5 +45,9 @@ def exercise_3(mod):
 
 
 def exercise_7(Monomial):
-    # need to check the derivative function, and the prints.
-    pass
+    m = Monomial(2, 3)
+    assert str(m) == "2*x**3"
+    d = m.derivative()
+    assert str(d) == "6*x**2"
+    dd = d.derivative()
+    assert str(dd) == "12*x**1"
