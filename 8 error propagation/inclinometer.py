@@ -57,7 +57,7 @@ class Display(SSD1306_I2C):
         self.text(f"x:{x: .3f}", 0, 10, 1)
         self.text(f"y:{y: .3f}", 0, 20, 1)
         self.text(f"z:{z: .3f}", 0, 30, 1)
-        self.text(f"O:{theta: .3f}", 0, 40, 1)
+        self.text(f"O:{theta: 5.1f}", 0, 40, 1)
         self.text("-", 0, 40, 1)
         self.show()
         
