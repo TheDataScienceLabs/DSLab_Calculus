@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[italicdiff]{physics}
+\usepackage{tikz}
+\usepackage{tabularx}    
+\usepackage{geometry}
+\newgeometry{vmargin={15mm}, hmargin={12mm,17mm}}  
+\usepackage{adjustbox}
+
+\title{Lab record sheet}
+\author{Alden Bradford}
+
+\newcommand\pointer[2]{
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+\node(image) at (0,0) { \includegraphics[width=0.33\textwidth]{#1} };
+\draw[latex-, very thick,red] #2 -- ++(-0.5,0) node[left,black,fill=white]{\small Measure here};
+\end{tikzpicture}
+}
+}
+
+\def\arraystretch{2} % give more room to write
+
+\newcommand{\datatable}{
+\begin{tabularx}{0.6\textwidth}{r|*{8}{X}r}
+ & & & \multicolumn{3}{l}{near} & \multicolumn{3}{l}{far}\\
+Trial& $k$ & $r$  & $a_x$ & $a_y$ & $a_z$ & $a_x$ & $a_y$ & $a_z$\\\hline
+1\\\hline
+2\\\hline
+3\\
+\end{tabularx}}
+
+\begin{document}
+
+\section*{Instructions}
+The tables below are meant as a guide, to be sure you are recording all the necessary information. You are welcome to take more notes than this, but at a minimum you should fill every cell in the table. The pictures show the specific spot on the building you should measure to.
+
+
+\appendix
+
+\section{Armstrong}
+\datatable
+\pointer{armstrong.jpg}{(-0.9, 1.2)}
+
+\section{Arch}
+\datatable
+\pointer{arch.jpg}{(0,0.45)}
+
+\section{Engineering Fountain}
+\datatable
+\pointer{fountain.jpg}{(0.1,1)}
+
+\section{Bell Tower}
+\datatable
+\pointer{belltower.jpg}{(0.1,1.42)}
+
+\section{Math}
+\datatable
+\pointer{math.jpg}{(-0.2,0.62)}
+
+\end{document}

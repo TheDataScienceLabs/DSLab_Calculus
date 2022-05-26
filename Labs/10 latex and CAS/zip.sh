@@ -1,0 +1,1 @@
+zip lab10 lab10.ipynb binomial.png symbol.png
