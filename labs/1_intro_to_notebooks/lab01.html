@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mathematics" href="../2_determine_heart_rate/lab2.html" />
+    <link rel="prev" title="The Data Science Labs on Differential and Integral Calculus" href="../../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -95,6 +97,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../intro.html">
    The Data Science Labs on Differential and Integral Calculus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Intro to Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mathematics
   </a>
  </li>
 </ul>
@@ -226,7 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/labs/1_into_to_notebooks/lab01.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/labs/1_intro_to_notebooks/lab01.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -246,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/1_into_to_notebooks/lab01.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/1_intro_to_notebooks/lab01.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -267,7 +281,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/1_into_to_notebooks/lab01.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/1_intro_to_notebooks/lab01.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -490,11 +504,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-</div>
 </div>
 <p>The text boxes are actually transparent, so you will not really see them unless you go into “edit” mode, by double-clicking on the box. For example, the text you are currently reading is inside a text box. Feel free to double-click on it to see what “edit” mode looks like. To go back to formatted text, press shift-enter.</p>
 <p>While in edit mode, you will notice that the text is written in some coding language. The language is called “markdown.” Markdown allows one to format the text inside the box, for example adding colors and controlling the font types. There are many good tutorials and cheat sheets for Markdown available on the Internet, for example
@@ -566,15 +575,6 @@ Execute the following blocks by pressing (shift-enter) after clicking on the gra
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#
-##
-###
-####
-The number of #s in the half pyramid is 10.
-</pre></div>
-</div>
-</div>
 </div>
 <h3 style="color:red;"><left> Exercise 1</left></h3><p><strong><em>Question 1</em></strong>: What would the expected value of <code class="docutils literal notranslate"><span class="pre">m</span></code> be if the following code was given? How many #s would be on the 5th row?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">lab01</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
@@ -591,11 +591,6 @@ The number of #s in the half pyramid is 10.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>                        <span class="c1"># initialize a with the value of 5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                     <span class="c1"># print out the value of a            </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -624,20 +619,6 @@ The number of #s in the half pyramid is 10.
 <span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-15
-0
-60
-10.0
-2
-25
-7.937253933193772
-True
-8
 </pre></div>
 </div>
 </div>
@@ -679,14 +660,6 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data Science is cool!
-The value of j is Hello World!
-The values of f and g are 2 and 25, respectively.
-The value of h is 7.937.
-</pre></div>
-</div>
-</div>
 </div>
 <h3 style="color:red;"><left> Exercise 3</left></h3><p>When you analyzed the code in <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> earlier, you would have noticed that there are three additional functions in the file. Follow the instructions below to see what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function does.</p>
 <p><strong>Part 1</strong></p>
@@ -717,32 +690,6 @@ The value of h is 7.937.
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># z begins from 45 and decrements by 1 until 41 (not 40). Interval of sequence is (40, 45]</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-3
-4
-------------
-13
-14
-15
-16
-------------
-0
-2
-4
-6
-8
-------------
-45
-44
-43
-42
-41
 </pre></div>
 </div>
 </div>
@@ -779,24 +726,6 @@ The value of h is 7.937.
   <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="n">m</span>                                                 <span class="c1"># sum all the elements of list together</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>                                                      <span class="c1"># print the current values of nextlist</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the values of nextlist is stored in &#39;num&#39; which is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mango
-peach
-orange
-peach
-[&#39;strawberry&#39;, &#39;plum&#39;]
-[&#39;mango&#39;, &#39;strawberry&#39;, &#39;peach&#39;]
-[&#39;plum&#39;, &#39;orange&#39;]
-[&#39;strawberry&#39;, &#39;peach&#39;, &#39;plum&#39;]
-2
-4
-5
-7
-9
-The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
 </pre></div>
 </div>
 </div>
@@ -841,9 +770,6 @@ The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_83_0.png" src="../../_images/lab01_83_0.png" />
-</div>
 </div>
 <p>As default, <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> graphs a line graph. But, you can change this graph to a scatter plot. We can do this by adding an additional input to the function, <code class="docutils literal notranslate"><span class="pre">'ro'</span></code>. Let’s do this.</p>
 <div class="cell docutils container">
@@ -852,9 +778,6 @@ The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                              <span class="c1"># displays the graph as an output</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_85_0.png" src="../../_images/lab01_85_0.png" />
 </div>
 </div>
 <p>You will have noticed that the graph is now a scatter plot, but additionally, the markers are red in color. The first character signifies the color of the marker. In this case, <code class="docutils literal notranslate"><span class="pre">r</span></code> is red. And the second character signifies the shape of the marker. <code class="docutils literal notranslate"><span class="pre">o</span></code> gave us circle markers. Now that we can change the color and shape of the markers, we can add more data to our graphs. You can look here for different marker types and colors <a class="reference external" href="https://www.w3schools.com/python/matplotlib_markers.asp"><strong><em>Matplotlib markers</em></strong></a>.</p>
@@ -873,9 +796,6 @@ The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                              <span class="c1"># displays the graph as an output</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_87_0.png" src="../../_images/lab01_87_0.png" />
 </div>
 </div>
 <h3 style="color:red;"><left> Exercise 6</left></h3><p>Do the following exercises below to implement plotting using matplotlib.</p>
@@ -905,11 +825,6 @@ The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = [5 3 6 8 2 1].
-</pre></div>
-</div>
-</div>
 </div>
 <p>You can also create arrays by using functions like <code class="docutils literal notranslate"><span class="pre">arange()</span></code>, <code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">linspace()</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">arange()</span></code> - creates an array between a range of values, similar to <code class="docutils literal notranslate"><span class="pre">range()</span></code><br>
@@ -927,24 +842,12 @@ The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A1 = [2 6]
-A2 = [0. 0. 0. 0.]
-A3 = [ 2.          4.66666667  7.33333333 10.        ]
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can find the length of the array by using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of the array is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of the array is 2.
 </pre></div>
 </div>
 </div>
@@ -961,15 +864,6 @@ A3 = [ 2.          4.66666667  7.33333333 10.        ]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
-8
-[3 6 8 2]
-[2 6]
-v = [8 2 1]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Why are we learning arrays when the same thing can be done with lists?</p>
 <p>Arrays using NumPy are easier to manipulate. NumPy also includes additional functions for array manipulation.</p>
@@ -983,13 +877,6 @@ v = [8 2 1]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V multiplied by 11: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V squared: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elements of V that equal 5: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V multiplied by 11: [11 22 33 44 55 66 77 88 99]
-V squared: [ 1  4  9 16 25 36 49 64 81]
-Elements of V that equal 5: [False False False False  True False False False False].
 </pre></div>
 </div>
 </div>
@@ -1010,14 +897,6 @@ Elements of V that equal 5: [False False False False  True False False False Fal
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of list3 is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arrays add the each corresponding elements together.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of array3 is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lists create join lists together called concatenation.
-The value of list3 is [4, 6, 8, 1, 3, 7].
-Arrays add the each corresponding elements together.
-The value of array3 is [ 5  9 15].
 </pre></div>
 </div>
 </div>
@@ -1077,11 +956,6 @@ v is velocity (m/s)</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_119_0.png" src="../../_images/lab01_119_0.png" />
-<img alt="../../_images/lab01_119_1.png" src="../../_images/lab01_119_1.png" />
-<img alt="../../_images/lab01_119_2.png" src="../../_images/lab01_119_2.png" />
-</div>
 </div>
 <p>Through this, we can see that choosing a valid number of points to graph a function is very important.</p>
 <p>For the next example, we are going to analyze how an ordered x-coordinate <strong><em>list</em></strong> differs from an unordered <strong><em>list</em></strong>. Run the following code.</p>
@@ -1110,10 +984,6 @@ v is velocity (m/s)</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_121_0.png" src="../../_images/lab01_121_0.png" />
-<img alt="../../_images/lab01_121_1.png" src="../../_images/lab01_121_1.png" />
-</div>
 </div>
 <p>Now let’s graph the same plots, but instead of a line graph, let’s use a scatter plot.</p>
 <div class="cell docutils container">
@@ -1132,10 +1002,6 @@ v is velocity (m/s)</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_123_0.png" src="../../_images/lab01_123_0.png" />
-<img alt="../../_images/lab01_123_1.png" src="../../_images/lab01_123_1.png" />
 </div>
 </div>
 <h3 style="color:red;"><left> Exercise 8</left></h3><p><strong>Part 1</strong></p>
@@ -1165,9 +1031,6 @@ v is velocity (m/s)</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_129_0.png" src="../../_images/lab01_129_0.png" />
-</div>
 </div>
 <h3 style="background-color:lightblue"><left> Write Answer for Exercise 8 Part 2 Below </left></h3><p><strong>Part 3</strong></p>
 <p>To better understand what went wrong in Part 2, let’s zoom in on just the first tenth of the graph. We can do this without changing the plot in any other way, simply by changing the x limits. In order to see exactly which points are shown, let’s make this a scatter plot as well.</p>
@@ -1178,9 +1041,6 @@ v is velocity (m/s)</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/lab01_133_0.png" src="../../_images/lab01_133_0.png" />
 </div>
 </div>
 <p>Now we see that there are only five points being drawn in the first tenth of the interval! We expect there to be ten oscillations here, so that just is not enough. Let’s make an additional plot on top of this one, but sampling at way more points. In the following cell, assign a number to <code class="docutils literal notranslate"><span class="pre">number_of_samples</span></code>. Start with 200, and increase it until the graph shows a smooth, sinusoidal shape.</p>
@@ -1194,14 +1054,6 @@ v is velocity (m/s)</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_detailed</span><span class="p">,</span> <span class="n">y_detailed</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]</span>
-    <span class="n">number_of_samples</span> <span class="o">=</span> <span class="c1"># You need to fill this in.</span>
-                        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -1238,7 +1090,7 @@ v is velocity (m/s)</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./labs/1_into_to_notebooks"
+            path: "./labs/1_intro_to_notebooks"
         },
         predefinedOutput: true
     }
@@ -1249,7 +1101,21 @@ v is velocity (m/s)</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">The Data Science Labs on Differential and Integral Calculus</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../2_determine_heart_rate/lab2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mathematics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

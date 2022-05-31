@@ -102,6 +102,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Intro to Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_intro_to_notebooks/lab01.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Determine your heart rate
  </span>
 </p>
@@ -508,11 +520,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data Science is cool!
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -524,11 +531,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <span class="n">add12</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 + 2 = 3
 </pre></div>
 </div>
 </div>
@@ -558,15 +560,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a - b = 1
-a - b = 21
-a - b = -21
-a - b = -2
-a - b = [17 17 17 17 17]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Parameters can be strings as well.</p>
 <div class="cell docutils container">
@@ -577,12 +570,6 @@ a - b = [17 17 17 17 17]
 
 
 <span class="n">info</span><span class="p">(</span><span class="s2">&quot;Purdue Pete&quot;</span><span class="p">,</span> <span class="s2">&quot;boilerup@purdue.edu&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: Purdue Pete
-Email: boilerup@purdue.edu
 </pre></div>
 </div>
 </div>
@@ -609,12 +596,6 @@ Email: boilerup@purdue.edu
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-The values of d and g are 30 and 41, respectively.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Let’s look at why functions are good at reducing repetition in code.</p>
 <div class="cell docutils container">
@@ -632,14 +613,6 @@ The values of d and g are 30 and 41, respectively.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Repetitive code when functions can be used are unprofessional and take space.
-3
-3
-3
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -653,14 +626,6 @@ The values of d and g are 30 and 41, respectively.
 <span class="n">print3</span><span class="p">()</span>
 <span class="n">print3</span><span class="p">()</span>
 <span class="n">print3</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Functions can help keep your code neat, concise, and easy to read.
-3
-3
-3
 </pre></div>
 </div>
 </div>
@@ -716,12 +681,6 @@ The values of d and g are 30 and 41, respectively.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name: Alden Bradford
-email: bradfoa@purdue.edu
-</pre></div>
-</div>
-</div>
 </div>
 <h3 style="color:red;"><left> Exercise 2 </left></h3>
 <p>Modify <code class="docutils literal notranslate"><span class="pre">student_info.py</span></code> to give your own contact information. You will use this file in the future to put a heading on your lab submissions.</p>
@@ -729,12 +688,6 @@ email: bradfoa@purdue.edu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name: Alden Bradford
-email: bradfoa@purdue.edu
 </pre></div>
 </div>
 </div>
@@ -757,13 +710,6 @@ email: bradfoa@purdue.edu
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hey
-hey
-hey
-</pre></div>
-</div>
-</div>
 </div>
 <p>In the above block, we are not calling the <code class="docutils literal notranslate"><span class="pre">greet</span></code> function directly – instead we are passing it as a variable into the function <code class="docutils literal notranslate"><span class="pre">do_three_times</span></code>, which in turn calls the greet function.</p>
 <p>A really common way to take advantage of this pattern is to pass a function into another one, which checks to see if it is working correctly. Let’s do that now! We have written a couple functions which check to see if the functions <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> and <code class="docutils literal notranslate"><span class="pre">slope</span></code> which you wrote are working correctly. Run the following cell and see! If your functions are not working how they should, go back and change them to make sure you get full points.</p>
@@ -773,18 +719,6 @@ hey
 
 <span class="n">check_trapezoid_area</span><span class="p">(</span><span class="n">trapezoid_area</span><span class="p">)</span>
 <span class="n">check_slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [11],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">lab3_grader</span> <span class="kn">import</span> <span class="n">check_trapezoid_area</span><span class="p">,</span> <span class="n">check_slope</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">check_trapezoid_area</span><span class="p">(</span><span class="n">trapezoid_area</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">check_slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;trapezoid_area&#39; is not defined
 </pre></div>
 </div>
 </div>

@@ -102,6 +102,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Intro to Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../1_intro_to_notebooks/lab01.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Determine your heart rate
  </span>
 </p>
@@ -651,11 +663,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is just a dummy file for testing, it should not be sent to students
-</pre></div>
-</div>
-</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="namespaces">
 <h1>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h1>
@@ -681,20 +688,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>namespace(age=27, grade=22, name=&#39;Alden&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">alden</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27
 </pre></div>
 </div>
 </div>
@@ -705,11 +702,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can see that there are three variables living inside the variable <code class="docutils literal notranslate"><span class="pre">alden</span></code>, and they each have a relatively short name. We have a special name for these variables: they are called “attributes”. We would say <code class="docutils literal notranslate"><span class="pre">age</span></code> is an attribute of <code class="docutils literal notranslate"><span class="pre">alden</span></code>. We access the attributes using the <code class="docutils literal notranslate"><span class="pre">.</span></code> which probably looks familiar to you; we have been using attributes every time we load up a package like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="cell docutils container">
@@ -717,11 +709,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
 </pre></div>
 </div>
 </div>
@@ -737,11 +724,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>That’s what Python is doing “under the hood” when we use the <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword during imports. When we write <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> it’s doing two steps in one, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">np</span> <span class="pre">=</span> <span class="pre">numpy</span></code>.</p>
 <p>Here is a practical way we can use this. Say we had another instructor:</p>
@@ -749,11 +731,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kindyl</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Kindyl&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">kindyl</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>namespace(name=&#39;Kindyl&#39;, age=23, grade=20)
 </pre></div>
 </div>
 </div>
@@ -767,12 +744,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="k">for</span> <span class="n">instructor</span> <span class="ow">in</span> <span class="p">[</span><span class="n">kindyl</span><span class="p">,</span> <span class="n">alden</span><span class="p">]:</span>
     <span class="n">describe</span><span class="p">(</span><span class="n">instructor</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My instructor&#39;s name is Kindyl. They are 23 years old and in grade 20.
-My instructor&#39;s name is Alden. They are 27 years old and in grade 22.
 </pre></div>
 </div>
 </div>
@@ -828,14 +799,6 @@ My instructor&#39;s name is Alden. They are 27 years old and in grade 22.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The GE 1.5 Megawatt Wind Turbine is 100 meters tall and weighs 150000 kilograms. Its low BMI of 15.0 indicates that it is underweight.
-The Eiffel Tower is 324 meters tall and weighs 7300000 kilograms. Oh no! Its BMI is 69.5, so the World Health Organization says it&#39;s obese!
-The Tokyo Skytree is 634 meters tall and weighs 32600000 kilograms. Oh no! Its BMI is 81.1, so the World Health Organization says it&#39;s obese!
-The Burj Khalifa is 830 meters tall and weighs 450000000 kilograms. Oh no! Its BMI is 653.2, so the World Health Organization says it&#39;s obese!
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="a-bit-of-poetry">
@@ -844,31 +807,6 @@ The Burj Khalifa is 830 meters tall and weighs 450000000 kilograms. Oh no! Its B
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
@@ -885,93 +823,11 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;,
- &#39;Out&#39;,
- &#39;SimpleNamespace&#39;,
- &#39;_&#39;,
- &#39;_5&#39;,
- &#39;_6&#39;,
- &#39;_7&#39;,
- &#39;__&#39;,
- &#39;___&#39;,
- &#39;__builtin__&#39;,
- &#39;__builtins__&#39;,
- &#39;__doc__&#39;,
- &#39;__loader__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;__spec__&#39;,
- &#39;_dh&#39;,
- &#39;_i&#39;,
- &#39;_i1&#39;,
- &#39;_i10&#39;,
- &#39;_i11&#39;,
- &#39;_i2&#39;,
- &#39;_i3&#39;,
- &#39;_i4&#39;,
- &#39;_i5&#39;,
- &#39;_i6&#39;,
- &#39;_i7&#39;,
- &#39;_i8&#39;,
- &#39;_i9&#39;,
- &#39;_ih&#39;,
- &#39;_ii&#39;,
- &#39;_iii&#39;,
- &#39;_oh&#39;,
- &#39;alden&#39;,
- &#39;burj_bmi&#39;,
- &#39;burj_height&#39;,
- &#39;burj_name&#39;,
- &#39;burj_weight&#39;,
- &#39;describe&#39;,
- &#39;describe_bmi&#39;,
- &#39;eiffel_tower_bmi&#39;,
- &#39;eiffel_tower_height&#39;,
- &#39;eiffel_tower_name&#39;,
- &#39;eiffel_tower_weight&#39;,
- &#39;exit&#39;,
- &#39;get_ipython&#39;,
- &#39;instructor&#39;,
- &#39;kindyl&#39;,
- &#39;np&#39;,
- &#39;numpy&#39;,
- &#39;quit&#39;,
- &#39;show_info&#39;,
- &#39;skytree_bmi&#39;,
- &#39;skytree_height&#39;,
- &#39;skytree_name&#39;,
- &#39;skytree_weight&#39;,
- &#39;this&#39;,
- &#39;turbine_bmi&#39;,
- &#39;turbine_height&#39;,
- &#39;turbine_name&#39;,
- &#39;turbine_weight&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>In the list above, you probably recognize many of the variable names we have already used in this notebook. There are also several things which you probably don’t recognize, most of them beginning with an <code class="docutils literal notranslate"><span class="pre">_</span></code>. It is a convention in Python that if you don’t want most people to look at a variable, you start it with an <code class="docutils literal notranslate"><span class="pre">_</span></code>. All of the things in the list above are variables we can access. For example, look at the variable <code class="docutils literal notranslate"><span class="pre">In</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">In</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&#39;,
- &#39;from student_info import show_info\nshow_info()&#39;,
- &#39;from types import SimpleNamespace\n\nalden = SimpleNamespace(name=&quot;Alden&quot;, age=27, grade=22)\nprint(alden)&#39;,
- &#39;print(alden.age)&#39;,
- &#39;print(alden.grade)&#39;,
- &#39;import numpy\n\nnumpy.cos(numpy.pi)&#39;,
- &#39;np = numpy\nnp.cos(np.pi)&#39;,
- &#39;kindyl = SimpleNamespace(name=&quot;Kindyl&quot;, age=23, grade=20)\nkindyl&#39;,
- &#39;def describe(instructor):\n    print(&quot;My instructor\&#39;s name is {}. They are {} years old and in grade {}.&quot;.format(instructor.name, instructor.age, instructor.grade))\n    \n\nfor instructor in [kindyl, alden]:\n    describe(instructor)&#39;,
- &#39;eiffel_tower_name = &quot;Eiffel Tower&quot;\neiffel_tower_height = 324\neiffel_tower_weight = 7_300_000\neiffel_tower_bmi = 7_300_000/324**2\n\nturbine_name = &quot;GE 1.5 Megawatt Wind Turbine&quot;\nturbine_height = 100\nturbine_weight = 150_000\nturbine_bmi = 150_000/100**2\n\nburj_name = &quot;Burj Khalifa&quot;\nburj_height = 830\nburj_weight = 450_000_000\nburj_bmi = 450_000_000/830**2\n\nskytree_name = &quot;Tokyo Skytree&quot;\nskytree_height = 634\nskytree_weight = 32_600_000\nskytree_bmi = 32_600_000/634**2\n\ndef describe_bmi(tower_name, tower_height, tower_weight, tower_bmi):\n    message = (&quot;The {} is {} meters tall and weighs {} kilograms. &quot;\n               .format(tower_name, tower_height, tower_weight)\n              )\n    if tower_bmi &lt; 18.5:\n        message += &quot;Its low BMI of {:.1f} indicates that it is underweight.&quot;\n    elif tower_bmi &lt; 25:\n        message += &quot;Its BMI is {:.1f} which is typical for a person, but strange for a building.&quot;\n    elif tower_bmi &lt; 30:\n        message += &quot;Its BMI is {:.1f}, so according to the World Health organization, it\&#39;s overweight.&quot;\n    else:\n        message += &quot;Oh no! Its BMI is {:.1f}, so the World Health Organization says it\&#39;s obese!&quot;\n    message = message.format(tower_bmi)\n    print(message)\n\ndescribe_bmi(turbine_name, turbine_height, turbine_weight, turbine_bmi)\ndescribe_bmi(eiffel_tower_name, eiffel_tower_height, eiffel_tower_weight, eiffel_tower_bmi)\ndescribe_bmi(skytree_name, skytree_height, skytree_weight, skytree_bmi)\ndescribe_bmi(burj_name, burj_height, burj_weight, burj_bmi)&#39;,
- &#39;import this&#39;,
- &#39;dir()&#39;,
- &#39;In&#39;]
 </pre></div>
 </div>
 </div>
@@ -983,22 +839,11 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;__main__&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>What’s the point of this? Just to show that every variable in Python lives in some namespace. When we import a module, all the code inside it is run right away. Then, all its variables are made available in the namespace we loaded. Open up the file <code class="docutils literal notranslate"><span class="pre">example_module.py</span></code> and see what’s written inside. Then, run the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">example_module</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You have loaded the example module! Here is the value in the variable __name__:
-example_module
 </pre></div>
 </div>
 </div>
@@ -1010,33 +855,11 @@ example_module
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;SimpleNamespace&#39;,
- &#39;__builtins__&#39;,
- &#39;__cached__&#39;,
- &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__loader__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;__spec__&#39;,
- &#39;my_favorite_module&#39;,
- &#39;numbers&#39;,
- &#39;share_favorites&#39;,
- &#39;x&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Some things will look familiar, like <code class="docutils literal notranslate"><span class="pre">numbers</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="n">numbers</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>namespace(best=0, second_best=1, third_best=108)
 </pre></div>
 </div>
 </div>
@@ -1048,21 +871,11 @@ example_module
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My favorite numbers are 0, 1, and 108.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Others were put in there for us automatically. We can see that it has its own <code class="docutils literal notranslate"><span class="pre">__name__</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="vm">__name__</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;example_module&#39;
 </pre></div>
 </div>
 </div>
@@ -1074,22 +887,12 @@ example_module
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Welcome to the example module! This string doesn&#39;t do anything, but it&#39;s traditional to start a module with a description of what it is.&quot;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Since that’s a string, and it lives in the variable <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>, it’s called a “docstring”. If you put a string as the first line of any module, or of any function, it gets stored as a docstring. Usually the docstring will contain helpful information about how to use a module or function.</p>
 <p>Notice that every variable in <code class="docutils literal notranslate"><span class="pre">example_module</span></code> is in that namespace, including the modules which were imported inside it. This is great, because it means you can call a module whatever you want when you import it (like when using an abbreviation), and it won’t affect other parts of a big program. We can confirm that we are really getting the same thing either way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="n">my_favorite_module</span> <span class="ow">is</span> <span class="n">np</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1132,26 +935,6 @@ example_module
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lab6_check</span>
 <span class="kn">import</span> <span class="nn">my_module</span>
 <span class="n">lab6_check</span><span class="o">.</span><span class="n">exercise_3</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [22],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">lab6_check</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">my_module</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">lab6_check</span><span class="o">.</span><span class="n">exercise_3</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">DSLab_Calculus</span><span class="o">/</span><span class="n">DSLab_Calculus</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">labs</span><span class="o">/</span><span class="mi">4</span><span class="n">_measure_tall_things</span><span class="o">/</span><span class="n">a_prepare_for_building_inclinometer</span><span class="o">/</span><span class="n">lab6_check</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Check students&#39; work on lab 6.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">chebyshevt</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="kn">import</span> <span class="n">x</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">def</span> <span class="nf">exercise_3</span><span class="p">(</span><span class="n">mod</span><span class="p">):</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
 </pre></div>
 </div>
 </div>
