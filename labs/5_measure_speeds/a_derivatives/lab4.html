@@ -522,7 +522,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Unfortunately, it’s not possible to represent every number exactly in a computer. For numbers which are not whole numbers, Python only keeps a certain number of digits. This way of storing numbers is called <em>floating point</em>, and numbers stored this way are called <em>flaoting point numbers</em>. In Python, the type for floating point numbers is <code class="docutils literal notranslate"><span class="pre">float</span></code>:</p>
+<p>Unfortunately, it’s not possible to represent every number exactly in a computer. For numbers which are not whole numbers, Python only keeps a certain number of digits. This way of storing numbers is called <em>floating point</em>, and numbers stored this way are called <em>floating point numbers</em>. In Python, the type for floating point numbers is <code class="docutils literal notranslate"><span class="pre">float</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
@@ -633,8 +633,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="k">def</span> <span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="c1"># fill in the formula here</span>
-    <span class="n">x1</span> <span class="o">=</span> 
-    <span class="n">x2</span> <span class="o">=</span> 
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
 
 <span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
@@ -669,6 +667,13 @@ const thebe_selector_output = ".output, .cell_output"
 <h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 4 Below </left></h3><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rewrite your function</span>
+<span class="kn">import</span> <span class="nn">lab_4_checker</span>
+
+<span class="k">def</span> <span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -679,6 +684,13 @@ const thebe_selector_output = ".output, .cell_output"
 <h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 5 Below </left></h3><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a better root finding function</span>
+<span class="kn">import</span> <span class="nn">lab_4_checker</span>
+
+<span class="k">def</span> <span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -690,6 +702,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add special cases for a and c</span>
 <span class="k">def</span> <span class="nf">roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
 
 <span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_roots</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
 </pre></div>
@@ -722,7 +736,6 @@ f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">approximation</span> <span class="o">=</span> 
 <span class="n">relative_error</span> <span class="o">=</span> 
-
 <span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_finite_difference</span><span class="p">(</span><span class="n">approximation</span><span class="p">,</span> <span class="n">relative_error</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -756,7 +769,9 @@ f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
 <p>Is this an over-estimate or an under-estimate? Let’s draw a picture to help us see.</p>
 <h3 style="color:red;"><left> Exercise 6 </left></h3>
 <p>Find an equation for the tangent line to <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. Find an equation for the secant line intersecting <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=2.5\)</span>.</p>
-<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 6 Below</left></h3><p>Fill in your formulas for the secant and tangent lines below.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 6 Below</left></h3><p>Tangent line equation: y = 12x - 16
+Secant line equation: y = 15.25(x - 2) + 8</p>
+<p>Fill in your formulas for the secant and tangent lines below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -784,7 +799,24 @@ The correct derivative is 12, and the other terms (most of all the term <span cl
 <p>When we choose <span class="math notranslate nohighlight">\(h\)</span> to be a positive number, we call that a <em>forward difference</em>. What if we try making <span class="math notranslate nohighlight">\(h\)</span> negative, doing a so-called <em>backward difference</em>? Try that now.</p>
 <h3 style="color:red;"><left> Exercise 7 </left></h3>
 <p>Create a similar plot to show what happens if <span class="math notranslate nohighlight">\(h=-0.5\)</span>. Is the slope of the secant line too big, or too small, in this case? Support your claim using your figure. How is this related to the curvature of the function <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
-<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 7 Below </left></h3></div>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 7 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">tangent</span> <span class="o">=</span> 
+<span class="n">secant</span> <span class="o">=</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$x^3$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tangent&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="correcting-the-bias">
 <h2>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">¶</a></h2>
 <p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
@@ -822,7 +854,7 @@ This is still a slight overestimate. However, it's clearly way better for any gi
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="unequal-step-sizes">
 <h1>Unequal step sizes<a class="headerlink" href="#unequal-step-sizes" title="Permalink to this headline">¶</a></h1>
-<p>When we can control the step size, we are lucky: there are just two points to check in the symmetric difference scheme! The middle term cancelled out. With real data, we are not always so lucky: most of the time, data just comes in when it’s available. We can get a formula that’s just as good as the symmetric difference scheme, even if the step sizes are not equal. The trick is to ask for that cool property you just found, that the formula should be exact for quadtratic polynomials. That is: we are looking for numbers <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, <span class="math notranslate nohighlight">\(d_+\)</span> so that</p>
+<p>When we can control the step size, we are lucky: there are just two points to check in the symmetric difference scheme! The middle term cancelled out. With real data, we are not always so lucky: most of the time, data just comes in when it’s available. We can get a formula that’s just as good as the symmetric difference scheme, even if the step sizes are not equal. The trick is to ask for that cool property you just found, that the formula should be exact for quadratic polynomials. That is: we are looking for numbers <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, <span class="math notranslate nohighlight">\(d_+\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[
 f'(x) = d_{-} f(x-k) +d_0 f(x) + d_+ f(x+h)
@@ -947,7 +979,6 @@ f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">symmetric_difference</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1">#write a function here!</span>
-    
     <span class="k">return</span> <span class="n">derivative</span>
 
 
