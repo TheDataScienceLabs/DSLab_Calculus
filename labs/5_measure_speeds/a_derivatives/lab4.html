@@ -1,0 +1,1003 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   The Data Science Labs on Differential and Integral Calculus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Determine your heart rate
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_determine_heart_rate/lab2.html">
+   Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_determine_heart_rate/lab2_part2.html">
+   That’s all for today!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estimate your blood flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Accurately measure the heights of tall and far away things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab6.html">
+   Namespaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab7.html">
+   Objective
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab8.html">
+   Put your inclinometer to use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab9.html">
+   The Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab10.html">
+   A very brief introduction to
+   <span class="math notranslate nohighlight">
+    \(\LaTeX\)
+   </span>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Measure the speeds of nearby things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../b_build_a_tool/lab5.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Design a project of your own
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../final_project/lab11.html">
+   Make a Plan
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/labs/5_measure_speeds/a_derivatives/lab4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AldenMB/DSLab_Calculus"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/a_derivatives/lab4.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/5_measure_speeds/a_derivatives/lab4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming Skills
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-types-of-numbers-in-python">
+   Two types of numbers in Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubles-with-floating-point-numbers">
+   Troubles with floating point numbers
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#catastrophic-cancellation">
+   Catastrophic cancellation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">
+     A practical example of catastrophic cancellation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-differentiation">
+   Numerical differentiation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-difference-schemes">
+   Finite difference schemes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bias-in-the-forward-difference">
+     Bias in the forward difference
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correcting-the-bias">
+     Correcting the bias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unequal-step-sizes">
+   Unequal step sizes
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mathematics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming Skills
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-types-of-numbers-in-python">
+   Two types of numbers in Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubles-with-floating-point-numbers">
+   Troubles with floating point numbers
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#catastrophic-cancellation">
+   Catastrophic cancellation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">
+     A practical example of catastrophic cancellation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-differentiation">
+   Numerical differentiation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-difference-schemes">
+   Finite difference schemes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bias-in-the-forward-difference">
+     Bias in the forward difference
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correcting-the-bias">
+     Correcting the bias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unequal-step-sizes">
+   Unequal step sizes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div style="background-color:lightblue">
+<h1><center>
+    The Data Science Labs on <br/>
+     Differential and Integral Calculus  <br/>
+   <small>by Alden Bradford and Mireille Boutin </small>
+</center></h1>
+    </div><h1><center>
+    Laboratory 4<br/>
+   Floating Point Numbers<br/>
+    <small>Last Updated December 17, 2021 </small>
+</center></h1><h2 style="color:orange;"><left>0. Content </left></h2><div class="section" id="mathematics">
+<h1>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Approximating derivatives using finite difference schemes</p></li>
+<li><p>Approximation bias</p></li>
+</ul>
+</div>
+<div class="section" id="programming-skills">
+<h1>Programming Skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>number types: int, float</p></li>
+<li><p>use of underscore as a numerical separator</p></li>
+<li><p>vectorized computation</p></li>
+</ul>
+<h3 style="background-color:lightblue"><left> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document.</left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">show_info</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;student_info&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="two-types-of-numbers-in-python">
+<h1>Two types of numbers in Python<a class="headerlink" href="#two-types-of-numbers-in-python" title="Permalink to this headline">¶</a></h1>
+<p>One of the benefits of using Python is that it has great support for numbers. This makes it much more friendly for doing math than, for example, Javascript or C. Whole numbers in Python have the type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which is short for Integer. You can check this yourself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python <code class="docutils literal notranslate"><span class="pre">int</span></code>s can be as big as you like, positive or negative. It can get a bit cumbersome writing and reading them, and the comma has a special meaning in Python, so you can’t use it to separate big integers for legibility:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">,</span><span class="mi">789</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That gives us a list of three integers. If you want to refer to the number 123,456,789 you can write it without separations, but it is easier to read if you use the underscore symbol where there would be a comma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">123_456_789</span> <span class="o">==</span> <span class="mi">123456789</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can put underscores wherever you like in a number – python ignores them. You could represent a credit card number, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3782_8224_6310_005</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, it’s not possible to represent every number exactly in a computer. For numbers which are not whole numbers, Python only keeps a certain number of digits. This way of storing numbers is called <em>floating point</em>, and numbers stored this way are called <em>flaoting point numbers</em>. In Python, the type for floating point numbers is <code class="docutils literal notranslate"><span class="pre">float</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Floating point numbers have some quirks you need to be aware of. For example, we know that 0.1+0.2=0.3, but look what Python tells us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is slightly wrong. What is going on here? Floating point numbers are stored in binary, and in binary, 0.1 and 0.2 are infinite repeating decimals. In binary, we would write the number one tenth as 0.0001100110011… and so on forever. We don’t have an infinite amount of memory available on our computers, so Python only stores 53 binary digits, which introduces roundoff error. The relative error is at most <span class="math notranslate nohighlight">\(2^{-53} = 1.11\times 10^{-16}\)</span>, so numbers are not reliable beyond sixteen places. Sure enough, in the example above, we got an error sixteen places after the 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**-</span><span class="mi">53</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happens if you multiply 0.1 and 0.2 by 10, add them, and then divide by 10? Mathematically, <span class="math notranslate nohighlight">\(0.1+0.2 = \frac{0.1(10)+0.2(10)}{10}\)</span>, so do you still get a slightly wrong answer with floating point numbers?</p>
+<h3 style="color:green;"><left> Sandbox </left></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In a later lab we will introduce a tool you can use to do exact arithmetic with Python. But for most purposes, this relative error is no trouble at all.</p>
+<h3 style="color:red;"><left> Exercise 1 </left></h3>
+<p>For each of the following constants, look them up on Wikipedia and report the relative error in their known values. If an error is not given, you can assume the absolute error is <span class="math notranslate nohighlight">\(\pm 1 \)</span> of the last digit given. Note that some times, the absolute error is given in a concise notation, as described here: <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html">https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html</a>. Compare your answers to the relative error in a floating point number. Make sure you are using relative error, not absolute error.</p>
+<ul class="simple">
+<li><p>mass of an electron</p></li>
+<li><p>orbital period of the moon (the Sidereal period, specifically)</p></li>
+<li><p>distance from New York to Los Angeles (you can look this one up on Wolfram Alpha instead of Wikipedia)</p></li>
+<li><p>Freezing point of water (in Kelvin) at atmospheric pressure</p></li>
+</ul>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 1 Below: </left></h3></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="troubles-with-floating-point-numbers">
+<h1>Troubles with floating point numbers<a class="headerlink" href="#troubles-with-floating-point-numbers" title="Permalink to this headline">¶</a></h1>
+<p>Precision is usually not a problem with floating point numbers, with one major exception which we will address later. The main issue you will face is when comparing numbers. Check this out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">/</span><span class="mi">10</span> <span class="o">==</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 2 </left></h3>
+<p>Explain why a few numbers are missing from the printout above. Include the python values of <code class="docutils literal notranslate"><span class="pre">x/10</span></code> and <code class="docutils literal notranslate"><span class="pre">0.1*x</span></code> in your explanation, for some values of <code class="docutils literal notranslate"><span class="pre">x</span></code> (make a new code cell printing the relevant values).</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 2 Below </left></h3><p>There are two main ways to deal with this:</p>
+<ol class="simple">
+<li><p>Whenever possible, use <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> instead of <code class="docutils literal notranslate"><span class="pre">==</span></code> when comparing floating point numbers. This is usually the best thing to do. For example, if a number is decreasing and you want to know when it hits zero, check if it is positive instead of checking if it’s zero. Or, better yet, check if it’s less than 0.0001, keeping as much precision as you need for your purpose and no more.</p></li>
+<li><p>Instead of checking if floats are equal, check if they are close to eachother. For example, the builtin function <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code> can do this for you, or you can use the version in numpy if working with arrays. Here is how that might look:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="catastrophic-cancellation">
+<h1>Catastrophic cancellation<a class="headerlink" href="#catastrophic-cancellation" title="Permalink to this headline">¶</a></h1>
+<p>There is one situation where roundoff error is a really big problem. That is when you are subtracting two numbers which are very close together. This isn’t anything special about floating point numbers, this is just a fact about rounding. Here, have a look:</p>
+<p>\begin{array}{r}
+3.14159265358???\
+-; 3.14159265332???\hline
+0.00000000026???
+\end{array}</p>
+<p>We have used question marks to represent unknown digits, i.e. digits which were lost due to rounding. See how the relative error in the output is much bigger than in either of the inputs: each input has 12 significant figures, but the output has only two significant figures. We can do this a bit more precisely by writing the absolute errors explicitly:</p>
+<p>\begin{align*}
+3.14159265358??? &amp;\rightarrow 3.14159265358 \pm 5\times 10^{-12}\
+3.14159265332??? &amp;\rightarrow 3.14159265332 \pm 5\times 10^{-12}\
+0.00000000026??? &amp;\rightarrow 0.00000000026 \pm \text{(you figure this one out)}\
+\end{align*}</p>
+<h3 style="color:red;"><left> Exercise 3 </left></h3>
+<p>What is the absolute error in the output? What are the relative errors of each of the inputs, and what is the relative error of the output?</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 3 Below </left></h3><h3 style="color:red;"><left> Exercise 4 </left></h3>
+<div class="section" id="a-practical-example-of-catastrophic-cancellation">
+<h2>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Permalink to this headline">¶</a></h2>
+<p>Here we walk you through coding an example where catestrophic cancellation makes a pretty big difference, and something clever you can do to fix it.</p>
+<ol class="simple">
+<li><p>Write a function which takes the coefficients <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> from a polynomial <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> and gives you a list of the roots. Just apply the standard quadratic formula. For now, you can assume that <span class="math notranslate nohighlight">\(b^2-4ac&gt;0\)</span> so you can take the square root, and you can assume <code class="docutils literal notranslate"><span class="pre">a</span></code> is not zero. Have it give the smaller root first (you can use the built in function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> for this).</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 1 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lab_4_checker</span>
+
+<span class="k">def</span> <span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="n">x1</span> <span class="o">=</span> 
+    <span class="n">x2</span> <span class="o">=</span> 
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Factor the polynomial <span class="math notranslate nohighlight">\(x^2-1,000,000.000,001 x +1\)</span> exactly, on paper (note the decimal place in <code class="docutils literal notranslate"><span class="pre">b</span></code>). What should the roots be?</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 2 Below </left></h3><ol class="simple">
+<li><p>Apply your simple root-finding function to this polynomial. What are the relative errors in your computed roots, compared to the true values? Explain why one of these has a larger relative error.</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 3 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># call your root finding function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a simple technique we can apply to reduce the error. Let’s assume for now that <code class="docutils literal notranslate"><span class="pre">b</span></code> is a negative number. So, we get cancellation in the numerator when subtracting <span class="math notranslate nohighlight">\(-b\)</span> and <span class="math notranslate nohighlight">\(\sqrt{b^2-4ac}\)</span>. In this case, just multiply by one in a clever way:</p>
+<p>\begin{align*}
+\frac{-b-\sqrt{b^2-4ac}}{2a}
+&amp;= \frac{-b-\sqrt{b^2-4ac}}{2a} \times \frac{-b+\sqrt{b^2-4ac}}{-b+\sqrt{b^2-4ac}}\
+&amp;= \frac{b^2-(b^2-4ac)}{2a(-b+\sqrt{b^2-4ac})}\
+&amp;= \frac{2c}{-b+\sqrt{b^2-4ac}}
+\end{align*}</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">b</span></code> is negative and <code class="docutils literal notranslate"><span class="pre">-b</span></code> is positive, there is no cancellation here! We can use this formula to compute the “-” root and the original formula to compute the “+” root.</p>
+<ol class="simple">
+<li><p>Assuming <code class="docutils literal notranslate"><span class="pre">b</span></code> is always negative, rewrite your function to use this formula for one root and the standard formula for the other root. Compute the relative errors on the example above, using your new formula.</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 4 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rewrite your function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Figure out a similar formula which works when <code class="docutils literal notranslate"><span class="pre">b</span></code> is always positive. Use both formulas to write a function to compute the roots which is always accurate, and does not suffer from catestrophic cancellation.</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 5 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a better root finding function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Finish off your function by adding a special case for if <code class="docutils literal notranslate"><span class="pre">c</span></code> is exactly zero (don’t want to divide by zero, after all!). We have provided a test you can use to check your work.</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Part 6 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add special cases for a and c</span>
+<span class="k">def</span> <span class="nf">roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+
+<span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_roots</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example shows how catestrophic cancellation can occur even in friendly, well-known functions. This also shows that we can usually deal with it, by doing some clever algebra. This is such a common issue that there are now tools available to identify and fix catestrophic cancellation. If you are curious, check out <a class="reference external" href="http://herbie.uwplse.org/">Herbie</a>, which a friend of mine helped to create.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="numerical-differentiation">
+<h1>Numerical differentiation<a class="headerlink" href="#numerical-differentiation" title="Permalink to this headline">¶</a></h1>
+<p>Now you are prepared to see the major problem we are up against when trying to compute derivatives using floating-point arithmetic. Remember that by definition, the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+\]</div>
+<p>This suggests a simple way to compute a derivative: pick a really small number <span class="math notranslate nohighlight">\(h\)</span>, and compute <span class="math notranslate nohighlight">\(\frac{f(x+h)-f(x)}{h}\)</span>. Since <span class="math notranslate nohighlight">\(h\)</span> is just a small but finite number, this is called the <em>finite difference method</em>.</p>
+<h3 style="color:red;"><left> Exercise 5 </left></h3>
+<p>Let’s see what happens when we apply this procedure blindly. We will apply this formula for <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> at the point <span class="math notranslate nohighlight">\(x=4\)</span>. The correct derivative should be 8. We will compute the relative error in using the finite difference method, for various values of <span class="math notranslate nohighlight">\(h\)</span>. It is easy to get a good spread of values for <span class="math notranslate nohighlight">\(h\)</span>, in a geometric sequence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mf">1e-15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 1</strong></p>
+<p>Make an array giving approximations to <span class="math notranslate nohighlight">\(f'(4)\)</span> for each value of <code class="docutils literal notranslate"><span class="pre">h</span></code>, using the finite difference method. Then, compute the relative error in this approximation using the relative error formula. Tools to check your work are available. You must use arrays and broadcasting to get full credit here.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 5 Part 1 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">approximation</span> <span class="o">=</span> 
+<span class="n">relative_error</span> <span class="o">=</span> 
+
+<span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_finite_difference</span><span class="p">(</span><span class="n">approximation</span><span class="p">,</span> <span class="n">relative_error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 2</strong></p>
+<p>Now that we have computed the relative error, let’s inspect it in a plot. We will use a logarithmic scale for the x and y axes, which will help us to compare very different values. Since we are taking a logarithm, we must look at the absolute value of the relative error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">relative_error</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;step size $h$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;relative error in computing the finite difference&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In light of what you have learned today about catastrophic cancellation, explain the shape of the curve you get. Explain why it is not a good idea to just make <span class="math notranslate nohighlight">\(h\)</span> as small as possible. What is the smallest relative error we can achieve using this method?</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 5 Part 2 Below </left></h3></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="finite-difference-schemes">
+<h1>Finite difference schemes<a class="headerlink" href="#finite-difference-schemes" title="Permalink to this headline">¶</a></h1>
+<p>This shows the basic struggle of computing numerical derivatives: the definition of the derivative requires <code class="docutils literal notranslate"><span class="pre">h</span></code> to be infinitely small, but we can’t practically make it that small. This isn’t just because of catesprophic cancellation, by the way – often when working with real data you are limited in how fast you can collect it. Hence, our goal will be to find ways to get more accurate estimates of the derivative without just making the step size <span class="math notranslate nohighlight">\(h\)</span> tiny. We will consider <span class="math notranslate nohighlight">\(h\)</span> to be fixed, and try to get our estimate as good as possible.</p>
+<div class="section" id="bias-in-the-forward-difference">
+<h2>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Permalink to this headline">¶</a></h2>
+<p>Let’s examine the finite difference method, applied to the function <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. For ease of illustration, let’s choose <span class="math notranslate nohighlight">\(h=0.5\)</span>. Our estimate of <span class="math notranslate nohighlight">\(f'(2)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
+\]</div>
+<p>Is this an over-estimate or an under-estimate? Let’s draw a picture to help us see.</p>
+<h3 style="color:red;"><left> Exercise 6 </left></h3>
+<p>Find an equation for the tangent line to <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. Find an equation for the secant line intersecting <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=2.5\)</span>.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 6 Below</left></h3><p>Fill in your formulas for the secant and tangent lines below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">tangent</span> <span class="o">=</span> 
+<span class="n">secant</span> <span class="o">=</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$x^3$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tangent&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That shows it visually: the slope of the secant line is bigger than the slope of the tangent line. We can see it algebraically too:
+\begin{align*}
+\frac{(2+0.5)^3-2^3}{0.5}
+&amp;=\frac{12(0.5)+6(0.5)^2+(0.5)^3}{0.5}\
+&amp;=12+6(0.5)+(0.5)^2
+\end{align*}
+The correct derivative is 12, and the other terms (most of all the term <span class="math notranslate nohighlight">\(6(0.5)\)</span>) are making it too big.</p>
+<p>When we choose <span class="math notranslate nohighlight">\(h\)</span> to be a positive number, we call that a <em>forward difference</em>. What if we try making <span class="math notranslate nohighlight">\(h\)</span> negative, doing a so-called <em>backward difference</em>? Try that now.</p>
+<h3 style="color:red;"><left> Exercise 7 </left></h3>
+<p>Create a similar plot to show what happens if <span class="math notranslate nohighlight">\(h=-0.5\)</span>. Is the slope of the secant line too big, or too small, in this case? Support your claim using your figure. How is this related to the curvature of the function <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 7 Below </left></h3></div>
+<div class="section" id="correcting-the-bias">
+<h2>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">¶</a></h2>
+<p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
+<p>\begin{align*}
+\frac{1}{2}\left[ \frac{f(x+h) - f(x)}{h} + \frac{f(x-h)-f(x)}{-h} \right]
+&amp;= \frac{f(x+h)-f(x)-f(x-h) + f(x)}{2h}\
+&amp;= \frac{f(x+h)-f(x-h)}{2h}
+\end{align*}</p>
+<p>This is the <em>symmetric difference</em> scheme. You can think of it as a secant line which doesn’t go through a given point, but rather goes through its neighbors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">tangent</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">8</span>
+<span class="n">secant</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.5</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mf">1.5</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span><span class="o">+</span><span class="mf">1.5</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$x^3$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tangent&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>No obvious bias! We can still work out algebraically that it’s not exact:
+$<span class="math notranslate nohighlight">\(
+\frac{(2+0.5)^3 - (2-0.5)^3}{2*(0.5)} = 12.25
+\)</span><span class="math notranslate nohighlight">\(
+This is still a slight overestimate. However, it's clearly way better for any given step size \)</span>h<span class="math notranslate nohighlight">\(. The error gets small really fast, too: if we instead had \)</span>h=10^{-9}<span class="math notranslate nohighlight">\(, the error would be just \)</span>(10^{-9})^2 = 10^{-18}$, which is below the floating-point error. Symmetric difference is better than forward difference!</p>
+<h3 style="color:red;"><left> Exercise 8 </left></h3>
+<p>Work out the symmetric difference exactly on paper for the function <span class="math notranslate nohighlight">\(f(x)=5x^2+3x-7\)</span>, for a variable step size <span class="math notranslate nohighlight">\(h\)</span>, at the point <span class="math notranslate nohighlight">\(x=2\)</span>. Find the relative error algebraically, and comment on it.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 8 Below </left></h3></div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="unequal-step-sizes">
+<h1>Unequal step sizes<a class="headerlink" href="#unequal-step-sizes" title="Permalink to this headline">¶</a></h1>
+<p>When we can control the step size, we are lucky: there are just two points to check in the symmetric difference scheme! The middle term cancelled out. With real data, we are not always so lucky: most of the time, data just comes in when it’s available. We can get a formula that’s just as good as the symmetric difference scheme, even if the step sizes are not equal. The trick is to ask for that cool property you just found, that the formula should be exact for quadtratic polynomials. That is: we are looking for numbers <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, <span class="math notranslate nohighlight">\(d_+\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = d_{-} f(x-k) +d_0 f(x) + d_+ f(x+h)
+\]</div>
+<p>for any quadratic polynomial <span class="math notranslate nohighlight">\(f(x)=ax^2+bx+c\)</span>. Let’s derive those values <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, and <span class="math notranslate nohighlight">\(d_+\)</span> now. For this purpose, we really only need a specific version of this equation:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(0) = d_{-} f(-k) +d_0 f(0) + d_+ f(h) \tag{*}
+\]</div>
+<p>Since it should work for any quadratic polynomial, we can get picky. It should work for specifically the polynomial <span class="math notranslate nohighlight">\(f(x) = (x+k)(x-h)\)</span>. Putting this into our formula (<span class="math notranslate nohighlight">\(*\)</span>) above, we find</p>
+<p>\begin{align*}
+f’(0) = k-h &amp;= d_0(-kh)\
+d_0&amp;=\frac{1}{k} -\frac{1}{h}
+\end{align*}</p>
+<p>The difference scheme should also work for the polynomial <span class="math notranslate nohighlight">\(f(x)=x(x+k)\)</span> at the point <span class="math notranslate nohighlight">\(x=0\)</span>. We can work it out the same way:</p>
+<p>\begin{align*}
+f’(0) = k &amp;= d_+h(h+k)\
+d_+&amp;=\frac{k}{h(h+k)}
+\end{align*}</p>
+<h3 style="color:red;"><left> Exercise 9 </left></h3>
+<p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> which will give you the value of <span class="math notranslate nohighlight">\(d_-\)</span>. You should find that
+$<span class="math notranslate nohighlight">\(
+d_- = \frac{-h}{k(k+h)}.
+\)</span>$</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 9 Below </left></h3><h3 style="color:red;"><left> Exercise 10 </left></h3>
+<p>By choosing <span class="math notranslate nohighlight">\(f(x)=1\)</span> in (<span class="math notranslate nohighlight">\(*\)</span>) we find that <span class="math notranslate nohighlight">\(d_-+d_0+d_+=0\)</span>. Verify that this is the case algebraically.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 10 Below </left></h3>
+<p>Suppose we have three points in time <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_-\)</span>, and <span class="math notranslate nohighlight">\(x_+\)</span> with <span class="math notranslate nohighlight">\(x_-&lt;x_0&lt;x_+\)</span>. Suppose further that we have measured <span class="math notranslate nohighlight">\(f(x_-)\)</span>, <span class="math notranslate nohighlight">\(f(x_0)\)</span>, and <span class="math notranslate nohighlight">\(f(x_+)\)</span>. This gives us a good way to approximate the derivative of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x_0\)</span>. We compute
+\begin{align*}
+k &amp;= x_0-x_-\
+h &amp;= x_+-x_0\
+d_0 &amp;= \frac{1}{k}-\frac{1}{h}\
+d_- &amp;= \frac{-h}{k(k+h)}\
+d_+ &amp;= \frac{k}{h(h+k)}\
+f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
+\end{align*}</p>
+<p>The final exercise for today walks you through the process of creating a vectorized version of this formula, which computes the symmetric difference scheme for unequal step sizes in a way that is</p>
+<ol class="simple">
+<li><p>Efficient (very fast to perform)</p></li>
+<li><p>Easy to read (easy to see that it does what it should).</p></li>
+</ol>
+<h3 style="color:red;"><left> Exercise 11 </left></h3>
+<p>Our function will take two arguments, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, each of which is an array. The idea is that <span class="math notranslate nohighlight">\(y\)</span> will have the <span class="math notranslate nohighlight">\(f(x)\)</span> values corresponding to each <span class="math notranslate nohighlight">\(x\)</span> value. It will produce an array of the same shape which has the symmetric finite difference scheme applied to find the first derivative.</p>
+<p>When working out a procedure, it is a good idea to have an example at hand so you can follow through the steps. Let’s pick some examples for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">50.0</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">34</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the derivative is steeply negative, leveling at the end. That gives us an idea of what we are looking for: our answer will be an array of negative numbers.</p>
+<p>In order to make the function we are writing more legible, we will use the same symbols that are in the derivation we did above. The only issue is that symbols like <code class="docutils literal notranslate"><span class="pre">-</span></code> and <code class="docutils literal notranslate"><span class="pre">+</span></code> can’t be used for variables in Python, so instead we will use <code class="docutils literal notranslate"><span class="pre">xm</span></code> for <span class="math notranslate nohighlight">\(x_-\)</span> and <code class="docutils literal notranslate"><span class="pre">xp</span></code> for <span class="math notranslate nohighlight">\(x_+\)</span>.</p>
+<p>For each number <span class="math notranslate nohighlight">\(x\)</span>, we want to do operations with its neighbor to the left, <span class="math notranslate nohighlight">\(x_-\)</span>. So, let’s build an array which has all the same numbers as <span class="math notranslate nohighlight">\(x\)</span> but shifted one to the right. Since the leftmost <span class="math notranslate nohighlight">\(x\)</span> has no neighbor to the left, we should instead say that value is missing using the special value <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Here is a quick way to do that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">xm</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can see that where <code class="docutils literal notranslate"><span class="pre">x</span></code> has the value <code class="docutils literal notranslate"><span class="pre">7</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">xm</span></code> has the value <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> is the number to the left of <code class="docutils literal notranslate"><span class="pre">7</span></code>. Step by step, what we did here was to make an array the same shape as x but full of the special value <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Then, we took the spots of <code class="docutils literal notranslate"><span class="pre">xm</span></code> starting with the second one, and filled them with values from <code class="docutils literal notranslate"><span class="pre">x</span></code> stopping before the last one of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>The advantage of doing it like this is that we can compute terms involving <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_-\)</span> now, using broadcasting. We said above that <span class="math notranslate nohighlight">\(k=x_0-x_-\)</span>. To compute this is very simple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">xm</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that it even carried through the missing value for us, all automatically.</p>
+<p><strong>Part 1</strong></p>
+<p>Use a similar strategy to make an array for <code class="docutils literal notranslate"><span class="pre">xp</span></code> representing <span class="math notranslate nohighlight">\(x_+\)</span>. Then, use that array to compute <span class="math notranslate nohighlight">\(h\)</span>. Make arrays for <code class="docutils literal notranslate"><span class="pre">ym</span></code> and <code class="docutils literal notranslate"><span class="pre">yp</span></code> in the same way.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 11 Part 1 Below </left></h3><p>Now that we have those variables set up, we can compute the other terms in the computation in a way that clearly shows what they represent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">h</span><span class="p">)</span>
+<span class="n">dm</span> <span class="o">=</span> <span class="o">-</span><span class="n">h</span><span class="o">/</span><span class="p">(</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="p">(</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now each of these variables holds an array, which contains all the values of (for example) <code class="docutils literal notranslate"><span class="pre">d</span></code> which represents <span class="math notranslate nohighlight">\(d_0\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And it is very simple to wrap these up into a final answer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span> <span class="o">=</span> <span class="n">dm</span><span class="o">*</span><span class="n">ym</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">dp</span><span class="o">*</span><span class="n">yp</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">derivative</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What should we do about the missing values? Since we can’t do a symmetric difference, the next best thing is a one-sided difference. Since there are just two of these, we can fill them out manually.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">derivative</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 2</strong></p>
+<p>Set the last entry of <code class="docutils literal notranslate"><span class="pre">derivative</span></code> similarly. Use the slice-from-the-end strategy, so that you don’t need to know how many elements are in the array.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 11 Part 2 Below </left></h3><p><strong>Part 3</strong></p>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> which computes the symmetric difference for unequal step sizes. You can do this by copying code from above.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 11 Part 3 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">symmetric_difference</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1">#write a function here!</span>
+    
+    <span class="k">return</span> <span class="n">derivative</span>
+
+
+<span class="n">lab_4_checker</span><span class="o">.</span><span class="n">check_symmetric_difference</span><span class="p">(</span><span class="n">symmetric_difference</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 4</strong></p>
+<p>In a language like Python (or Julia, or Matlab, for that matter) a so-called “vectorized” procedure goes way faster than looping through the variables, because you can pass all the difficult computation to highly-optimized code (in our case, the code which comes in the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>). This makes a trivial difference for small arrays, but when we start to have hundreds or thousands of entries in our arrays it makes a huge difference. That is one reason why people often prefer to write functions which treat the data as arrays, rather than looping through lists like you would do in other languages like C, Java, or Javascript.</p>
+<p>Another reason is that many people find the code easier to read, and easier to understand, if it is written in a vectorized way.</p>
+<p>Write a few sentences of your thoughts on the matter. Do you find the function <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> you write to be easier to read than if it were done with a loop? Which parts are harder to read, which parts easier? Give your honest opinion.</p>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 11 Part 4 Below </left></h3></div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/5_measure_speeds/a_derivatives"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Mireille Boutin, Alden Bradford<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

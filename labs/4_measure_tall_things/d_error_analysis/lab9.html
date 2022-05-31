@@ -1,0 +1,1236 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Plan &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="A very brief introduction to \(\LaTeX\)" href="../e_symbolic_error/lab10.html" />
+    <link rel="prev" title="Put your inclinometer to use" href="../c_make_the_measurements/lab8.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   The Data Science Labs on Differential and Integral Calculus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Determine your heart rate
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_determine_heart_rate/lab2.html">
+   Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_determine_heart_rate/lab2_part2.html">
+   That’s all for today!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estimate your blood flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Accurately measure the heights of tall and far away things
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../a_prepare_for_building_inclinometer/lab6.html">
+   Namespaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../b_build_an_inclinometer/lab7.html">
+   Objective
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_make_the_measurements/lab8.html">
+   Put your inclinometer to use
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../e_symbolic_error/lab10.html">
+   A very brief introduction to
+   <span class="math notranslate nohighlight">
+    \(\LaTeX\)
+   </span>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Measure the speeds of nearby things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Design a project of your own
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../final_project/lab11.html">
+   Make a Plan
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/labs/4_measure_tall_things/d_error_analysis/lab9.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AldenMB/DSLab_Calculus"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/4_measure_tall_things/d_error_analysis/lab9.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/4_measure_tall_things/d_error_analysis/lab9.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Plan
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-review-of-errors">
+   A review of errors
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-5-pts">
+     <span style="color:red">
+      Exercise 1
+     </span>
+     (5 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 1 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accuracy-and-precision">
+     accuracy and precision
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-ways-of-reporting-errors">
+   Two ways of reporting errors
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-10-pts">
+     <span style="color:red">
+      Exercise 2
+     </span>
+     (10 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 2 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combined-errors-and-significant-figures">
+     combined errors and significant figures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts">
+       <span style="color:red">
+        Exercise 3
+       </span>
+       (5 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 3 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication">
+     multiplication
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts">
+       <span style="color:red">
+        Exercise 4
+       </span>
+       (10 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 4 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-derivative-rule-for-error-propagation">
+   The derivative rule for error propagation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errors-in-linear-functions">
+     errors in linear functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-5-pts">
+       <span style="color:red">
+        Exercise 5
+       </span>
+       (5 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 5 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errors-in-general-functions">
+   errors in general functions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-5-pts">
+     <span style="color:red">
+      Exercise 6
+     </span>
+     (5 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 6 below
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-caution-about-small-derivatives">
+   A caution about small derivatives
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-10-pts">
+     <span style="color:red">
+      Exercise 7
+     </span>
+     (10 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 7 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-make-the-method-work-even-if-the-derivative-is-zero">
+     How to make the method work, even if the derivative is zero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-the-height-measurements">
+   Analyzing the height measurements
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span-20-pts">
+     <span style="color:red">
+      Exercise 8
+     </span>
+     (20 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 8 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errors-in-angle-measurements">
+     Errors in angle measurements
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-span-10-pts">
+       <span style="color:red">
+        Exercise 9
+       </span>
+       (10 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 9 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-partial-derivative-rule">
+     The partial derivative rule
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span-25-pts">
+       <span style="color:red">
+        Exercise 10
+       </span>
+       (25 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-10-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 10 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-final-error-estimate">
+   A final error estimate
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-span-45-pts">
+     <span style="color:red">
+      Exercise 11
+     </span>
+     (45 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-11-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 11 below
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Plan</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Plan
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-review-of-errors">
+   A review of errors
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-5-pts">
+     <span style="color:red">
+      Exercise 1
+     </span>
+     (5 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 1 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accuracy-and-precision">
+     accuracy and precision
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-ways-of-reporting-errors">
+   Two ways of reporting errors
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-10-pts">
+     <span style="color:red">
+      Exercise 2
+     </span>
+     (10 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 2 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combined-errors-and-significant-figures">
+     combined errors and significant figures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts">
+       <span style="color:red">
+        Exercise 3
+       </span>
+       (5 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 3 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication">
+     multiplication
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts">
+       <span style="color:red">
+        Exercise 4
+       </span>
+       (10 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 4 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-derivative-rule-for-error-propagation">
+   The derivative rule for error propagation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errors-in-linear-functions">
+     errors in linear functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-5-pts">
+       <span style="color:red">
+        Exercise 5
+       </span>
+       (5 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 5 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errors-in-general-functions">
+   errors in general functions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-5-pts">
+     <span style="color:red">
+      Exercise 6
+     </span>
+     (5 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 6 below
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-caution-about-small-derivatives">
+   A caution about small derivatives
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-10-pts">
+     <span style="color:red">
+      Exercise 7
+     </span>
+     (10 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 7 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-make-the-method-work-even-if-the-derivative-is-zero">
+     How to make the method work, even if the derivative is zero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-the-height-measurements">
+   Analyzing the height measurements
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span-20-pts">
+     <span style="color:red">
+      Exercise 8
+     </span>
+     (20 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 8 below
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errors-in-angle-measurements">
+     Errors in angle measurements
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-span-10-pts">
+       <span style="color:red">
+        Exercise 9
+       </span>
+       (10 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 9 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-partial-derivative-rule">
+     The partial derivative rule
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span-25-pts">
+       <span style="color:red">
+        Exercise 10
+       </span>
+       (25 pts)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-10-below-span">
+       <span style="background-color:lightblue">
+        Write your answer for exercise 10 below
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-final-error-estimate">
+   A final error estimate
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-span-45-pts">
+     <span style="color:red">
+      Exercise 11
+     </span>
+     (45 pts)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-11-below-span">
+     <span style="background-color:lightblue">
+      Write your answer for exercise 11 below
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div style="background-color:lightblue">
+<h1><center>
+    The Data Science Labs on <br/>
+     Differential and Integral Calculus  <br/>
+   <small>by Alden Bradford and Mireille Boutin </small>
+</center></h1>
+    </div><h1><center>
+    Laboratory 9<br/>
+    Error Propagation part 2<br/>
+    <small>Last Updated March 27, 2022 </small>
+</center></h1><h3 style="background-color:lightblue"><left> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document.</left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">show_info</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;student_info&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="the-plan">
+<h1>The Plan<a class="headerlink" href="#the-plan" title="Permalink to this headline">¶</a></h1>
+<p>In the previous lab, you collected data which will give us the heights of several buildings around campus. You identified several sources of error which may affect the accuracy of your results. This is typical: usually, error comes from more than one source. In this lab, you learn how to incorporate what you know about the errors in your measurements to get a numerical value for the error in your results.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="a-review-of-errors">
+<h1>A review of errors<a class="headerlink" href="#a-review-of-errors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="span-style-color-red-exercise-1-span-5-pts">
+<h2><span style="color:red">Exercise 1</span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-5-pts" title="Permalink to this headline">¶</a></h2>
+<p>In a sentence or two, write down the difference between random and systematic errors. Look at previous labs if you have forgotten.</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 1 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="accuracy-and-precision">
+<h2>accuracy and precision<a class="headerlink" href="#accuracy-and-precision" title="Permalink to this headline">¶</a></h2>
+<p>The distinction between random and systematic errors is often phrased in terms of how accurate a measurement is and how precise a measurement is. Professional scientists and engineers use the words “accuracy” and “precision” to refer to two different, related concepts. <em>Accuracy</em> refers to how close the measurement is to the true value. <em>Precision</em> refers to how close repeated measurements are to each other. This is summarized in the following image – in this metaphor the arrows are our measurements, and the target is the true value.</p>
+<img src=accuracy_and_precision.png width=600>
+<p>In the terms described above, a measurement is accurate if <span class="math notranslate nohighlight">\(|\varepsilon|\)</span> is small. A measurement is precise if <span class="math notranslate nohighlight">\(|\varepsilon|\)</span> is close to its average value. It follows that the accuracy can only be as good as the precision, so we often do want to have good precision. However, as the picture shows, it is possible (and indeed, common) to have lots of precision but not much accuracy. In that case, the precision isn’t really doing you any good. The real goal is accuracy. Don’t lose sight of that!</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="two-ways-of-reporting-errors">
+<h1>Two ways of reporting errors<a class="headerlink" href="#two-ways-of-reporting-errors" title="Permalink to this headline">¶</a></h1>
+<p>So far we have been talking about the error <span class="math notranslate nohighlight">\(\varepsilon\)</span> directly. This is also called the <em>absolute error</em>. This term has nothing to do with absolute value. Absolute error can be positive or negative. The units of absolute error are the same as the units of the measured quantity. A typical ruler has markings down to the 1/16 inch, so interpolating by eye you can make sure the error is less than 1/32 inches. This can be very good for measuring, say, how long your pencil is, since a typical pencil is around 7 inches long. The pencil on my desk is 7 1/8 inches long, <span class="math notranslate nohighlight">\(\pm\)</span> 1/32 inch. I use the symbol <span class="math notranslate nohighlight">\(\pm\)</span> to indicate that I don’t know whether my guess is too high or too low. All I can say for sure is
+$<span class="math notranslate nohighlight">\(
+7\frac{1}{8} -\frac{1}{32}&lt; t &lt; 7\frac{1}{8}+\frac{1}{32}.
+\)</span>$</p>
+<p>A ruler like this would not be as appropriate for measuring how wide the pencil is – it can only tell me it is 1/4 inch wide, <span class="math notranslate nohighlight">\(\pm\)</span> 1/32 inch. To express this idea mathematically, we simply divide the error by the true value <span class="math notranslate nohighlight">\(x\)</span> – or if we don’t know the true value, by our best guess. We write this as
+$<span class="math notranslate nohighlight">\(
+\eta = \frac{\varepsilon}{t} \approx \frac{\varepsilon}{x}, 
+\)</span><span class="math notranslate nohighlight">\(
+using the greek letter eta (\)</span>\eta<span class="math notranslate nohighlight">\() which also makes an &quot;e&quot; sound, though it looks sort of like a lowercase n. This quantity is called the relative error. Unlike the absolute error, the relative error is dimensionless -- it would be the same if we expresed the answer in inches or centimeters or smoots. Relative error is usually expressed as a percentage. For example, the length of my pencil is 7 1/8 inches \)</span>\pm<span class="math notranslate nohighlight">\( 0.44%. The width of my pencil is 1/4 inch \)</span>\pm$ 12.5%. This shows how a ruler is not appropriate for measuring the width of a pencil, but it’s fine for measuring the length – the relative error is significantly different.</p>
+<p>We often want an equation relating <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(x\)</span> using the relative error instead of the absolute error. This is easily achieved by factoring:</p>
+<p>\begin{align*}
+x
+&amp;= t + \varepsilon\
+&amp;= t\left(1+\frac{\varepsilon}{t}\right)\
+&amp;=t(1+\eta)
+\end{align*}</p>
+<div class="section" id="span-style-color-red-exercise-2-span-10-pts">
+<h2><span style="color:red">Exercise 2</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-10-pts" title="Permalink to this headline">¶</a></h2>
+<p>For each of the quantities expressed below, identify whether it is an absolute error or a relative error. Then, convert it to the other type of error. Make sure you are using appropriate units.</p>
+<ol class="simple">
+<li><p>135 pounds <span class="math notranslate nohighlight">\(\pm\)</span> 3 pounds</p></li>
+<li><p>15 PSI <span class="math notranslate nohighlight">\(\pm\)</span> 30%</p></li>
+<li><p>22 hours <span class="math notranslate nohighlight">\(\pm\)</span> 0.5%</p></li>
+<li><p>3 weeks <span class="math notranslate nohighlight">\(\pm\)</span> 4 days</p></li>
+</ol>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 2 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="combined-errors-and-significant-figures">
+<h2>combined errors and significant figures<a class="headerlink" href="#combined-errors-and-significant-figures" title="Permalink to this headline">¶</a></h2>
+<p>Most calculations we do involve more than one number. Each number has its own error associated with it. As an example, suppose I measure the length of one pencil to be <span class="math notranslate nohighlight">\(x_1\)</span>, and another to be <span class="math notranslate nohighlight">\(x_2\)</span> inches long. How long will they be together, put end to end? <span class="math notranslate nohighlight">\(y = x_1+x_2\)</span>, of course. How will the errors relate to each other? They will also add together. We can see this in a formula:</p>
+<p>\begin{align*}
+(x_1+\varepsilon_1)+(x_2+\varepsilon_2) &amp;= y+(\varepsilon_1+\varepsilon_2)\
+&amp;=y+\varepsilon_{total}
+\end{align*}</p>
+<p>The answer is of the form <span class="math notranslate nohighlight">\(y+\varepsilon_{total}\)</span>, where the total error is <span class="math notranslate nohighlight">\(\varepsilon_{total}=\varepsilon_1+\varepsilon_2\)</span>. So, when adding quantities with error, the absolute errors should add together.</p>
+<div class="section" id="span-style-color-red-exercise-3-span-5-pts">
+<h3><span style="color:red">Exercise 3</span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this headline">¶</a></h3>
+<p>I measure the length of a rope by dividing it in two sections (so that I can use my measuring tape, which is shorter than the rope). The first part measures <span class="math notranslate nohighlight">\(311\pm 0.5\)</span> inches, and the second measures <span class="math notranslate nohighlight">\(214 \pm 0.25\)</span> inches. What is the length of the full rope, including the error?</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 3 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="multiplication">
+<h2>multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h2>
+<p>What about if the numbers are multiplied? For example, if you know the length and width of a rectangular sheet of paper, how do you find the error associated with calculating the area? Let’s try the formula again:</p>
+<div class="math notranslate nohighlight">
+\[
+(x_1+\varepsilon_1)(x_2+\varepsilon_2) = x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1 + \varepsilon_1\varepsilon_2.
+\]</div>
+<p>That is not such a tidy formula. There are a couple things we can do to make it easy on ourselves, though. For one thing, in any reasonable computation, the error is much smaller than the actual quantity being measured. It follows that the product of two errors should be much, much smaller than the product of the two quantities. Symbolically, we can write this as <span class="math notranslate nohighlight">\(\varepsilon_1\varepsilon_2&lt;&lt;x_1x_2\)</span>. So, we should be safe ignoring that term in the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+(x_1+\varepsilon_1)(x_2+\varepsilon_2) \approx x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1.
+\]</div>
+<p>We can do better yet. Let’s do just a bit of factoring:</p>
+<p>\begin{align*}
+x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1 &amp;= x_1x_2\left(1+\frac{\varepsilon_2}{x_2}+\frac{\varepsilon_1}{x_1}\right)\
+&amp;=x_1x_2(1+\eta_2+\eta_1)\
+&amp;=x_1x_2(1+\eta_{total})
+\end{align*}</p>
+<p>There is our rule! instead of the <em>absolute</em> errors adding together, the <em>relative</em> errors add when multiplying. This is another reason why relative error is so popular: it is easier to propagate a relative error through a product.</p>
+<div class="section" id="span-style-color-red-exercise-4-span-10-pts">
+<h3><span style="color:red">Exercise 4</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this headline">¶</a></h3>
+<img src=notepad_dimensions.jpg width=300>
+<p>I measured a page from my notepad. The width was <span class="math notranslate nohighlight">\(76\pm 0.25\)</span> mm and the length was <span class="math notranslate nohighlight">\(118.5\pm 0.25\)</span> mm. That means the width has a relative error of <span class="math notranslate nohighlight">\(\frac{0.25}{76}=0.33\%\)</span>.</p>
+<ul class="simple">
+<li><p>Give the relative error of the length</p></li>
+<li><p>Find the area of the notepad, assuming it is a rectangle. Give your answer with a relative error.</p></li>
+<li><p>Besides the error in measuring the length and width, what other major form of error will affect the answer, if we take that as the area of the page?</p></li>
+</ul>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 4 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="the-derivative-rule-for-error-propagation">
+<h1>The derivative rule for error propagation<a class="headerlink" href="#the-derivative-rule-for-error-propagation" title="Permalink to this headline">¶</a></h1>
+<p>We have shared two rules for combining errors, when adding and when multiplying. There is just one more tool you need to be able to propagate errors through a great veriety of computations. That is a general rule for how to propagate an error through a general function.</p>
+<div class="section" id="errors-in-linear-functions">
+<h2>errors in linear functions<a class="headerlink" href="#errors-in-linear-functions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s do the simplest function we can think of first. Suppose you know the absolute error in <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(\varepsilon=0.1\)</span> and we wish to know the error in computing <span class="math notranslate nohighlight">\(y=mx+b\)</span>. Let’s assume for now that <span class="math notranslate nohighlight">\(m\)</span> is positive. The largest <span class="math notranslate nohighlight">\(x\)</span> can possibly be is <span class="math notranslate nohighlight">\(x+0.1\)</span>, so the largest <span class="math notranslate nohighlight">\(y\)</span> can be is <span class="math notranslate nohighlight">\(m (x+0.1)+b= mx+b+0.1m\)</span>. The smallest <span class="math notranslate nohighlight">\(x\)</span> can be is <span class="math notranslate nohighlight">\(x-0.1\)</span>, so the smallest <span class="math notranslate nohighlight">\(y\)</span> can be is <span class="math notranslate nohighlight">\(m (x-0.1) +b = mx+b-0.1m\)</span>. That is, we could write
+$<span class="math notranslate nohighlight">\(
+y= mx+b \pm 0.1m.
+\)</span>$
+The absolute error was multiplied by the slope of the line; the intercept had nothing to do with it.</p>
+<div class="section" id="span-style-color-red-exercise-5-span-5-pts">
+<h3><span style="color:red">Exercise 5</span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-5-pts" title="Permalink to this headline">¶</a></h3>
+<p>The temperature outside is 42 degrees Fahrenheit, plus or minus one degree Fahrenheit. What is the temperature (with absolute error) in degrees Celsius?</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 5 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="errors-in-general-functions">
+<h1>errors in general functions<a class="headerlink" href="#errors-in-general-functions" title="Permalink to this headline">¶</a></h1>
+<p>If our computations are of any value at all, we have to assume that the input error is pretty small, compared with the other numbers in the computation. Therefore, if a function is differentiable, a linear approximation should be pretty good. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x+\varepsilon) \approx f(x) + f'(x)\varepsilon.
+\]</div>
+<p>This lets us propagate errors through any function we can differentiate! Let’s do an example: if we measure <span class="math notranslate nohighlight">\(x=3\pm0.05\)</span>, what is <span class="math notranslate nohighlight">\(y=x^2+6x-3\)</span> with the error? Our best estimate is <span class="math notranslate nohighlight">\(3^2+6\times 3-3=24\)</span>, and the error is <span class="math notranslate nohighlight">\(f'(3)0.05=12*0.05=0.6\)</span>. So, we should report the answer as <span class="math notranslate nohighlight">\(y=24\pm 0.6\)</span>.</p>
+<div class="section" id="span-style-color-red-exercise-6-span-5-pts">
+<h2><span style="color:red">Exercise 6</span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-5-pts" title="Permalink to this headline">¶</a></h2>
+<p>For each function and measurement below, report the value of the result with its error.</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(x=\pi/6\pm 0.2\)</span>, <span class="math notranslate nohighlight">\(y=\sin(x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x=2\pm 0.05\)</span>, <span class="math notranslate nohighlight">\(y=e^x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x=3\pm 0.01\)</span>, <span class="math notranslate nohighlight">\(y=x^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x=3\pm 1\%\)</span>, <span class="math notranslate nohighlight">\(y=x^2\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 6 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="a-caution-about-small-derivatives">
+<h1>A caution about small derivatives<a class="headerlink" href="#a-caution-about-small-derivatives" title="Permalink to this headline">¶</a></h1>
+<p>Here is an example which shows the limitations of this strategy. What if <span class="math notranslate nohighlight">\(x=0\pm 0.1\)</span>, and <span class="math notranslate nohighlight">\(y=\cos(x)\)</span>? This approximation would tell you the error should be <span class="math notranslate nohighlight">\(0.1f'(0)=-0.1\sin(0)=0\)</span>. Is it accurate to say the error is zero in this case? That was a rhetorical question. The answer is no.</p>
+<div class="section" id="span-style-color-red-exercise-7-span-10-pts">
+<h2><span style="color:red">Exercise 7</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-10-pts" title="Permalink to this headline">¶</a></h2>
+<p>Explain why it would be wrong to say the error is zero in this case. What is the smallest number <span class="math notranslate nohighlight">\(y\)</span> could be? What is the biggest number <span class="math notranslate nohighlight">\(y\)</span> could be? Answer in at least 3 sentences.</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 7 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="how-to-make-the-method-work-even-if-the-derivative-is-zero">
+<h2>How to make the method work, even if the derivative is zero<a class="headerlink" href="#how-to-make-the-method-work-even-if-the-derivative-is-zero" title="Permalink to this headline">¶</a></h2>
+<p>This method of error propagation is based on the approximation
+<span class="math notranslate nohighlight">\(
+f(x+\varepsilon) \approx f(x) +f'(x)\varepsilon.
+\)</span>
+If you know Taylor series, you can probably come up with an even better approximation involving <span class="math notranslate nohighlight">\(f''(x)\)</span>. We won’t explore that any further today, but it is good to be aware of it.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="analyzing-the-height-measurements">
+<h1>Analyzing the height measurements<a class="headerlink" href="#analyzing-the-height-measurements" title="Permalink to this headline">¶</a></h1>
+<p>Remember the formula we introduced in the previous lab for the height of a building,
+<span class="math notranslate nohighlight">\(
+h = \frac{r}{\cot \theta -\cot \phi}+k.
+\)</span>
+This depends upon four different values, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>, and <span class="math notranslate nohighlight">\(\phi\)</span>. Besides modeling error, every error in our measurement is due to error in one of these values.</p>
+<div class="section" id="span-style-color-red-exercise-8-span-20-pts">
+<h2><span style="color:red">Exercise 8</span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-8-span-20-pts" title="Permalink to this headline">¶</a></h2>
+<p>Identify three sources of error which affected your measurement of <span class="math notranslate nohighlight">\(r\)</span>, and give an estimate of the magnitude of each error. Identify the biggest source of error in your measurement of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>Give the errors in <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(k\)</span> as both relative and absolute errors.</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 8 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="errors-in-angle-measurements">
+<h2>Errors in angle measurements<a class="headerlink" href="#errors-in-angle-measurements" title="Permalink to this headline">¶</a></h2>
+<p>There are a few things which can affect the precision of <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>. This is compounded by the fact that, depending on how you chose to design your inclinometer, you might be using different components of acceleration to do your computation. We will work through an example together, but keep in mind that your formulas might be different.</p>
+<p>One way to compute the angle would be
+<span class="math notranslate nohighlight">\(
+\theta = \arctan \frac{\sqrt{a_x^2 + a_z^2}}{a_y}.
+\)</span>
+Let’s say you have only three digits for each component – so, the error in each component of acceleration is <span class="math notranslate nohighlight">\(\pm 0.001\)</span> gravities of acceleration. What would be the error in <span class="math notranslate nohighlight">\(\theta\)</span>? Let’s take some derivatives. First, let’s find the error due to <span class="math notranslate nohighlight">\(a_x\)</span>. We will apply the derivative rule. When taking the derivative, we will treat the other numbers as constants. Depending on your background in calculus, you may recognize this as a “partial derivative”. Here is what we find:</p>
+<p>\begin{align*}
+\text{Error due to }a_x &amp;= \frac{\partial \theta}{\partial a_x} \varepsilon_x \
+&amp;= \frac{a_x a_y \varepsilon_x}{ \left(a_y^2 + a_x^2 + a_z^2\right) \sqrt{a_x^2 + a_z^2}}.
+\end{align*}</p>
+<p>Some things make this nicer, like we know that there is one gravity of acceleration total, so <span class="math notranslate nohighlight">\(\left(a_y^2 + a_x^2 + a_z^2\right)=1\)</span>. That lets us simplify to</p>
+<p><span class="math notranslate nohighlight">\(
+\text{Error due to }a_x  = \frac{a_x a_y \varepsilon_x}{\sqrt{a_x^2 + a_z^2}}.
+\)</span></p>
+<div class="section" id="span-style-color-red-exercise-9-span-10-pts">
+<h3><span style="color:red">Exercise 9</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-9-span-10-pts" title="Permalink to this headline">¶</a></h3>
+<p>Write some code to compute this error for the specific values
+\begin{align*}
+a_x &amp;= 0.608\
+a_y &amp;= 0.839\
+a_z &amp;= 0.033\
+\varepsilon_x &amp;= 0.001,
+\end{align*}
+which I collected using my own inclinometer. As always, the number that calculus gives is in radians. Convert the answer to degrees; your answer should be about 0.05 degrees.</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 9 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="the-partial-derivative-rule">
+<h2>The partial derivative rule<a class="headerlink" href="#the-partial-derivative-rule" title="Permalink to this headline">¶</a></h2>
+<p>Of course, the other components of acceleration will also affect the angle measurement. We can just add these to the error, to get an estimate of the total error:</p>
+<p><span class="math notranslate nohighlight">\(
+\varepsilon_\theta = \frac{\partial \theta}{\partial a_x} \varepsilon_x + \frac{\partial \theta}{\partial a_y} \varepsilon_y + \frac{\partial \theta}{\partial a_z} \varepsilon_z.
+\)</span></p>
+<p>We don’t know if the errors <span class="math notranslate nohighlight">\(\varepsilon_x\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_y\)</span>, and <span class="math notranslate nohighlight">\(\varepsilon_z\)</span> are positive or negative. To be safe, we should take the absolute value of each term:</p>
+<p><span class="math notranslate nohighlight">\(
+\varepsilon_\theta = \left|\frac{\partial \theta}{\partial a_x}\right| \varepsilon_x + \left|\frac{\partial \theta}{\partial a_y}\right| \varepsilon_y + \left|\frac{\partial \theta}{\partial a_z}\right| \varepsilon_z.
+\)</span>
+This is the <strong>partial derivative rule</strong> for error propagation.</p>
+<p>Using the same values as exercise 9, this gives <span class="math notranslate nohighlight">\(\varepsilon_\theta = 0.09\)</span> degrees.</p>
+<div class="section" id="span-style-color-red-exercise-10-span-25-pts">
+<h3><span style="color:red">Exercise 10</span> (25 pts)<a class="headerlink" href="#span-style-color-red-exercise-10-span-25-pts" title="Permalink to this headline">¶</a></h3>
+<p>What do you think of this number? When you took your measurements, do you think you managed to orient your inclinometer to within a tenth of a degree?</p>
+<p>In three to five sentences, explain what happened here using the language of accuracy and precision. How precise is this method you used, and how accurate?</p>
+<p>Make a better estimate for <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span>, based on how accurately you think you were holding the inclinometer during measurement. give your estimate in degrees and in radians.</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-10-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 10 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-10-below-span" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="a-final-error-estimate">
+<h1>A final error estimate<a class="headerlink" href="#a-final-error-estimate" title="Permalink to this headline">¶</a></h1>
+<p>Now we have values for <span class="math notranslate nohighlight">\(\varepsilon_r\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_k\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span>, and <span class="math notranslate nohighlight">\(\varepsilon_\phi\)</span> (we can use the same estimate for <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_\phi\)</span>). We can apply the partial derivative rule to find the total error in our measurement of height:</p>
+<p><span class="math notranslate nohighlight">\(
+\varepsilon_h = \left|\frac{\partial h}{\partial r}\right| \varepsilon_r + \left|\frac{\partial h}{\partial k}\right| \varepsilon_k + \left|\frac{\partial h}{\partial \theta}\right| \varepsilon_\theta + \left|\frac{\partial h}{\partial \phi}\right| \varepsilon_\phi.
+\)</span></p>
+<p>Let’s not take all those derivarives by hand. In the next lab, we will show a tool called “Sympy”, which is used for doing symbolic computations in Python. Just as a demonstration, here is how we can use it to find these derivatives without much work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="kn">import</span> <span class="n">r</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">r</span><span class="o">/</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">cot</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">-</span><span class="n">sympy</span><span class="o">.</span><span class="n">cot</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span> <span class="o">+</span> <span class="n">k</span>
+<span class="n">h</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Particularly with some of these trig functions, this can be a good way to prevent arithmetic errors. Here is what we just computed:
+\begin{align*}
+\frac{\partial h}{\partial r} &amp;= \frac{1}{\cot\theta-\cot\phi}\
+\frac{\partial h}{\partial k} &amp;= 1\
+\frac{\partial h}{\partial \theta} &amp;= \frac{r}{\sin^2\theta (\cot\theta-\cot\phi)^2}\
+\frac{\partial h}{\partial \phi} &amp;= -\frac{r}{\sin^2\phi (\cot\theta-\cot\phi)^2}.
+\end{align*}</p>
+<p>Combining these with the partial derivative rule (and assuming <span class="math notranslate nohighlight">\(\varepsilon_\theta = \varepsilon_\phi\)</span>), we get:
+<span class="math notranslate nohighlight">\(
+\varepsilon_h = \frac{1}{\cot\theta-\cot\phi} \varepsilon_r + \varepsilon_k + \frac{r\left(\csc^2\theta+\csc^2\phi\right)}{(\cot\theta-\cot\phi)^2} \varepsilon_\theta.
+\)</span></p>
+<div class="section" id="span-style-color-red-exercise-11-span-45-pts">
+<h2><span style="color:red">Exercise 11</span> (45 pts)<a class="headerlink" href="#span-style-color-red-exercise-11-span-45-pts" title="Permalink to this headline">¶</a></h2>
+<p>Copy the code you wrote in lab 8 to load up the actual values you measured. Use the above formula to find, for each measurement, the error due to <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>. Report all the heights you got together with their combined error. Write a two-paragraph summary of your findings, mentioning which source of error had the biggest effect on your measurement. Which of your measurements was the most precise? The least precise?</p>
+</div>
+<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-11-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 11 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-11-below-span" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/4_measure_tall_things/d_error_analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../c_make_the_measurements/lab8.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Put your inclinometer to use</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../e_symbolic_error/lab10.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A very brief introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Mireille Boutin, Alden Bradford<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

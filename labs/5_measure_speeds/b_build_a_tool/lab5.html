@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Make a Plan" href="../../final_project/lab11.html" />
+    <link rel="prev" title="A very brief introduction to \(\LaTeX\)" href="../../4_measure_tall_things/e_symbolic_error/lab10.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   The Data Science Labs on Differential and Integral Calculus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Determine your heart rate
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_determine_heart_rate/lab2.html">
+   Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../2_determine_heart_rate/lab2_part2.html">
+   That’s all for today!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estimate your blood flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Accurately measure the heights of tall and far away things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab6.html">
+   Namespaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab7.html">
+   Objective
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab8.html">
+   Put your inclinometer to use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab9.html">
+   The Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab10.html">
+   A very brief introduction to
+   <span class="math notranslate nohighlight">
+    \(\LaTeX\)
+   </span>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Measure the speeds of nearby things
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Design a project of your own
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../final_project/lab11.html">
+   Make a Plan
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/labs/5_measure_speeds/b_build_a_tool/lab5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AldenMB/DSLab_Calculus"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/b_build_a_tool/lab5.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/5_measure_speeds/b_build_a_tool/lab5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming Skills
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#embedded-systems">
+   Embedded Systems
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sensor">
+   The sensor
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wire-it-up">
+     Wire it up
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-level-shifter-doing">
+     What is the level shifter doing?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-software">
+     The software
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improving-the-sensor-code">
+   Improving the sensor code
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-indexing">
+   Boolean indexing
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mathematics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming Skills
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#embedded-systems">
+   Embedded Systems
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sensor">
+   The sensor
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wire-it-up">
+     Wire it up
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-level-shifter-doing">
+     What is the level shifter doing?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-software">
+     The software
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improving-the-sensor-code">
+   Improving the sensor code
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-indexing">
+   Boolean indexing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div style="background-color:lightblue">
+<h1><center>
+    The Data Science Labs on <br/>
+     Differential and Integral Calculus  <br/>
+   <small>by Alden Bradford and Mireille Boutin </small>
+</center></h1>
+    </div><h1><center>
+    Laboratory 5<br/>
+    Introduction to Micropython<br/>
+    Self-Directed Investigation
+    <p style="font-size: 16px"> Last Updated on February 7, 2022</p>
+</center></h1><h2 style="color:orange;"><left>0. Content </left></h2><div class="section" id="mathematics">
+<h1>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Difference schemes versus interpolation</p></li>
+</ul>
+</div>
+<div class="section" id="programming-skills">
+<h1>Programming Skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Data cleaning</p></li>
+<li><p>the While loop</p></li>
+<li><p>Boolean masks</p></li>
+</ul>
+</div>
+<div class="section" id="embedded-systems">
+<h1>Embedded Systems<a class="headerlink" href="#embedded-systems" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Microcontroller programming</p></li>
+<li><p>Time-based signaling</p></li>
+</ul>
+<h3 style="background-color:lightblue"><left> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document.</left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">show_info</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;student_info&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="the-sensor">
+<h1>The sensor<a class="headerlink" href="#the-sensor" title="Permalink to this headline">¶</a></h1>
+<p>Today we will start out with an ultrasonic distance sensor, called the SR04. It has a simple interface using only two pins. It sends out a very high-frequency sound (at a much higher frequency than anyone can hear) and listens for an echo. We can use the time delay between when the “chirp” happens and when we hear the echo to figure out how far away something is.</p>
+<p>To use this sensor, you will need:</p>
+<ol class="simple">
+<li><p>A Raspberry Pi Pico</p></li>
+<li><p>A level shifter</p></li>
+<li><p>An SR04 distance sensor</p></li>
+<li><p>A breadboard</p></li>
+<li><p>at least a dozen jumper wires of several colors.</p></li>
+<li><p>A micro USB cable</p></li>
+</ol>
+<p>Start by gathering the parts!</p>
+<div class="section" id="wire-it-up">
+<h2>Wire it up<a class="headerlink" href="#wire-it-up" title="Permalink to this headline">¶</a></h2>
+<p>Insert the pico, level shifter, and SR04 into the bread board so that the jumper wires you have will reach between them. You will also want the micro USB port to be accessible, and you will need the SR04 to be pointed outward.</p>
+<p>Then, use jumper wires to make the following connections:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Pico</strong></p></th>
+<th class="head"><p><strong>Level shifter</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND (low voltage side)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>LV3</p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>LV4</p></td>
+</tr>
+<tr class="row-odd"><td><p>3V3(OUT)</p></td>
+<td><p>LV</p></td>
+</tr>
+<tr class="row-even"><td><p>VBUS</p></td>
+<td><p>HV</p></td>
+</tr>
+<tr class="row-odd"><td><p>(any GP pin)</p></td>
+<td><p>LV1</p></td>
+</tr>
+<tr class="row-even"><td><p>(any other GP pin)</p></td>
+<td><p>LV2</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>SR04</strong></p></th>
+<th class="head"><p><strong>Level shifter</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND (high voltage side)</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>VCC</p></td>
+<td><p>HV</p></td>
+</tr>
+<tr class="row-even"><td><p>TRIG</p></td>
+<td><p>HV1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECHO</p></td>
+<td><p>HV2</p></td>
+</tr>
+</tbody>
+</table>
+<p>The level shifter and SR04 are labeled with their pins. Remember that you can look up the names of the pins on the Raspberry Pi Pico by consulting its datasheet.</p>
+<p><strong>Before you plug the Raspberry Pi Pico into your computer</strong> (which will supply power to your circuit), get your circuit checked by an instructor. If you have it wired incorrectly, you could damage the computer’s USB port.</p>
+</div>
+<div class="section" id="what-is-the-level-shifter-doing">
+<h2>What is the level shifter doing?<a class="headerlink" href="#what-is-the-level-shifter-doing" title="Permalink to this headline">¶</a></h2>
+<p>The Raspberry Pi Pico runs all its circuits at 3.3 volts, while the SR04 runs at 5 volts. Luckily, we do have 5 volts available for it (the USB standard includes a 5 volt pin) so we can drive the ultrasonic sensor as long as the Pico is connected to a computer. The level shifter is in charge of translating between the voltage levels, which is why it has a low voltage side connected to 3V3, and a high voltage side connected to VBUS (which refers to the USB cable). We only need to do level shifting to two pins, and it is good practice to connect pins you are not using to ground.</p>
+</div>
+<div class="section" id="the-software">
+<h2>The software<a class="headerlink" href="#the-software" title="Permalink to this headline">¶</a></h2>
+<p>Once you have it wired up, open the file <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code> in Thonny. There are a few things I would like to point out to you in that file.</p>
+<ol class="simple">
+<li><p>We use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. A while loop is just like a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, repeating everything in the body of the loop. Instead of taking values from a list or a range, it just keeps going until its argument is <code class="docutils literal notranslate"><span class="pre">False</span></code>. By saying <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>, we are telling it to do everything in the body of the loop, over and over, forever (or until we stop it manually). In order to stop this script, you will need to hit the “Stop” button in Thonny.</p></li>
+<li><p>The Raspberry Pi Pico runs a different version of Python called Micropython. Micropython is designed specifically for microcontrollers. It does not have many of the modules you are used to, like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, since the Pico does not have enough memory or processing power to make good use of them. Instead, it has libraries for interfacing with hardware, like the <code class="docutils literal notranslate"><span class="pre">machine</span></code> library we will use to control the pins on the Pico. Also, the <code class="docutils literal notranslate"><span class="pre">time</span></code> library in Micropython supports millisecond and microsecond <code class="docutils literal notranslate"><span class="pre">sleep</span></code> functions, which can count out much more precise units of time than you can in normal Python.</p></li>
+<li><p>Near the start we define two variables <code class="docutils literal notranslate"><span class="pre">trig</span></code> and <code class="docutils literal notranslate"><span class="pre">echo</span></code>. Each of those takes an integer, which refers to the pin you are using to connect with the SR04. Change the script so that <code class="docutils literal notranslate"><span class="pre">trig</span></code> corresponds to the GP port where you connected LV1, and <code class="docutils literal notranslate"><span class="pre">echo</span></code> with the GP port where you connected LV2. <strong>Note:</strong> the pins are numbered in python according to the green number on the datasheet. For example, the pin numbered in grey on the datasheet as <code class="docutils literal notranslate"><span class="pre">11</span></code> says <code class="docutils literal notranslate"><span class="pre">GP8</span></code> on it, so we would refer to that in Python as pin 8.</p></li>
+</ol>
+<p>As we work through this lab, you will learn what each part of this code does. Before we get into it, go ahead and run the script and see for yourself what it is doing. Move something in front of the sensor, see if you can make the numbers change.</p>
+<p>Now that you have a feel for what this script does, let’s bring some of the data in here. Make a new file called <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">measurement.txt</span></code> and save it in your lab 5 directory. Copy and paste the output from Thonny into that file and save it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;initial measurement.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">measurement</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we have loaded the file using <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. It loaded it as a 2-dimensional array, with rows and columns. We can ask it what shape the measurement is (how many rows, and how many columns):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that it has read two columns. The first column has the time (in milliseconds) when each measurement was taken, after the scrept started. The second column tells us how long it was (in microseconds) between the chirp and the echo.</p>
+<p>Let’s pull these apart using multidimensional slicing. This is just like normal slicing, but we can give more than one argument to the slice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we are saying “give me every row, and the first column. Assign that to the variable <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>.” You do a slice to get the second column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">=</span> <span class="c1"># fill in here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The echo tell us the time, in microseconds, between the chirp and the echo.</p>
+<h3 style="color:red;"><left> Exercise 1 (5 pts)</left></h3>
+<p>Look up the speed of sound, and say where you found it. Use it to compute distance from the echo time. Remember that the sound waves have to go out, bounce off an object, and return in order to be heard – so you will need to divide by two to compensate for this. Pick reasonable units for the range of distances we are working with.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 1 Below </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="c1"># fill in here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 2 (5 pts)</left></h3>
+<p>Make a plot showing the distance over time. Since there was a variable amount of time between measurements (the sensor starts after the previous echo stops, and the echos take a variable amount of time) you will have to use the time stamps to get the x-axis scaled correctly. To get full credit, include axis labels with the correct units.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 2 Below </left></h3></div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="improving-the-sensor-code">
+<h1>Improving the sensor code<a class="headerlink" href="#improving-the-sensor-code" title="Permalink to this headline">¶</a></h1>
+<p>You may have noticed that some of the measurements are absurdly large. This is because some times the sensor does not hear the echo, either because it was too distorted or the object was too far away. We can make our code much better. Let’s look at the portions of the loop, bit by bit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This portion is responsible for the delay between measurements. The data sheet for the SR04 says this has to be at least 60 milliseconds, to give time for the sensor to reset itself. Turning the LED on is just for aesthetics.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trig</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">trig</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This portion turns the trigger pin on for 10 microseconds. That’s the signal for the SR04 to begin a measurement.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pulse</span> <span class="o">=</span> <span class="n">time_pulse_us</span><span class="p">(</span><span class="n">echo</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1_000_000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is responsible for taking the measurement. Note that <code class="docutils literal notranslate"><span class="pre">us</span></code> is a common way of writing <span class="math notranslate nohighlight">\(\mu s\)</span>, short for microseconds. Our measurements are in units of microseconds.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">pulse</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This portion gets the current time, and sends the measurement out to Thonny to print. <code class="docutils literal notranslate"><span class="pre">ms</span></code> stands for milliseconds; the time stamps are in units of milliseconds.</p>
+<p>It looks like if we want the sensor to give us better readings, we have to modify the <code class="docutils literal notranslate"><span class="pre">time_pulse_us</span></code> function call.</p>
+<h3 style="color:red;"><left> Exercise 3 (5 pts)</left></h3>
+<p>Look in <a class="reference external" href="https://docs.micropython.org/en/latest/library/machine.html">the official documentation for Micropython</a> to find what the parameters of <code class="docutils literal notranslate"><span class="pre">time_pulse_us</span></code> do. Pick a sensible choice for the parameter <code class="docutils literal notranslate"><span class="pre">timeout_us</span></code>. Make sure your choice is based on the measurement you have taken. What range of distances are you going to measure? What range of possible echo times does that correspond to? Explain your choice here, and modify <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code> to use your choice.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 3 Below </left></h3>
+<p>Now that we have chosen that parameter sensibly, the microcontroller will spend less time waiting for an echo which will never arrive, and more time giving us useful information.</p>
+<p>Make a measurement using your new version of <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code>, and save it as <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">mesurement.txt</span></code>. Load it here, into the same variables <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load in the data from second_measurement.txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="boolean-indexing">
+<h1>Boolean indexing<a class="headerlink" href="#boolean-indexing" title="Permalink to this headline">¶</a></h1>
+<p>As you learned from reading the documentation, <code class="docutils literal notranslate"><span class="pre">time_pulse_us</span></code> indicates failed readings with a negative number. We would like a way to easily remove those negative numbers from our array. We could have the microcontroller only send data if it is good (if <code class="docutils literal notranslate"><span class="pre">time_pulse_us</span></code> gave a positive number) but I don’t like that solution for three reasons:</p>
+<ol class="simple">
+<li><p>It’s more things for the microcontroller to be thinking about. I would prefer that the microcontroller be getting me a new reading, rather than working out logic for when to send or not-send.</p></li>
+<li><p>It may be useful for us to know what times the sensor failed to give a reading. Also, it is better that the microcontroller is still communicating with us whenever possible, so we can tell if something has gone wrong.</p></li>
+<li><p>In general, it’s good to separate the steps of data collection from data analysis. By dropping the bad values here, we maintain a strict separation.</p></li>
+</ol>
+<p>The easiest way to drop drop the negative values from our list is using a tool called Boolean indexing. Here is how it works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that by slicing <code class="docutils literal notranslate"><span class="pre">x</span></code> using an array of the same size, holding only <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values, we get a new array with only some of the  values from <code class="docutils literal notranslate"><span class="pre">x</span></code>, specifically the ones corresponding to a <code class="docutils literal notranslate"><span class="pre">True</span></code> value in <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>That would be a tedious way to do things, unless we had a good way to get an array of the same size as <code class="docutils literal notranslate"><span class="pre">x</span></code> full of <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values. Luckily with broadcasting, this is also easy. Check it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we do a comparison with <code class="docutils literal notranslate"><span class="pre">x</span></code>, it broadcasts across the array. We can even combine these, using <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>, and <code class="docutils literal notranslate"><span class="pre">not</span></code> statements. There is one caveat: the usual Python symbols won’t work, because what we mean might be ambiguous. In order to be explicit, we use the so-called “bitwise” versions of those statements. If you have used a language like C or Javascript, these will look familiar:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>normal Python operator</p></th>
+<th class="head"><p>bitwise operator</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>We can use them like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="k">2</span> == 1) &amp; (x&gt;3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we can use these as an index for the array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">%</span><span class="k">2</span> == 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s a fast way to get only the elements we want, and it’s compact and explicit.</p>
+<h3 style="color:red;"><left> Exercise 4 (5 pts) </left></h3>
+<p>Here is a naive way we might try to get only the positive measurements. Figure out why it does not work, and explain it. Find a better way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="n">echo</span><span class="p">[</span><span class="n">echo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span><span class="p">[</span><span class="n">echo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 4 Below </left></h3><p>Make a new file called <code class="docutils literal notranslate"><span class="pre">derivative.py</span></code>. Copy and paste the function <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> (which you wrote last week) into that file. At the top of the file, write the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>That line is necessary so that Python knows you are using Numpy in the file. We will use this function to clean the data even further, and plot derivatives of our function. In order to demonstrate a strategy for cleaning data, I will show you using a signal I recorded. Then, you will be asked to repeat the process using your own data. I am ignoring the units for now – you will be asked to figure them out below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;example data cleaning.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">good_readings</span> <span class="o">=</span> <span class="n">echo</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span><span class="p">[</span><span class="n">good_readings</span><span class="p">]</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="n">echo</span><span class="p">[</span><span class="n">good_readings</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">echo</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see there are still some strange jumps happening in the data. We should be able to identify them as the points with a very high derivative – or even better, a very small second derivative. Let’s plot the derivative and second derivative using the function you wrote last time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">derivative</span> <span class="kn">import</span> <span class="n">symmetric_difference</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_derivative</span> <span class="o">=</span> <span class="n">symmetric_difference</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">echo</span><span class="p">)</span>
+<span class="n">second_derivative</span> <span class="o">=</span> <span class="n">symmetric_difference</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">first_derivative</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">first_derivative</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">second_derivative</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see four big spikes in the second derivative, right where we saw those spikes in the original graph.</p>
+<h3 style="color:red;"><left> Exercise 5 (5 pts)</left></h3>
+<p>Explain why a sharp vertical spike in the original function corresponds to a large but negative second derivative.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Below </left></h3><p>We can use that to filter our measurement, and get a better graph of position and velocity. Notice that we need to recompute the derivative, since we used the neighbors of each point to compute the derivative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spikes</span> <span class="o">=</span> <span class="n">second_derivative</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.02</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span><span class="p">[</span><span class="o">~</span><span class="n">spikes</span><span class="p">]</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="n">echo</span><span class="p">[</span><span class="o">~</span><span class="n">spikes</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_derivative</span> <span class="o">=</span> <span class="n">symmetric_difference</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">echo</span><span class="p">)</span>
+<span class="n">second_derivative</span> <span class="o">=</span> <span class="n">symmetric_difference</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">first_derivative</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">curve</span> <span class="ow">in</span> <span class="p">[</span><span class="n">echo</span><span class="p">,</span> <span class="n">first_derivative</span><span class="p">,</span> <span class="n">second_derivative</span><span class="p">]:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">curve</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 6 (5 pts)</left></h3>
+<p>The time stamp is measured in milliseconds. In the example above I ignored the units for distance, but you can use the speed-of-sound formula you applied above to scale your distance values appropriately. Given the units you used for distance, what should the units for velocity be? What about acceleration? Explain your answer in at least two sentences.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 6 Below </left></h3><h3 style="color:red;"><left> Exercise 7 (10 pts)</left></h3>
+<p>Repeat this procedure using your own measurement, first scaling the echo to give units of distance. If you have any “spikes” as I did, choose an appropriate cutoff for the second derivative to remove them. Produce plots of the function value, first derivative, and second derivative. Put axis labels on your plots including units</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 7 Below </left></h3><h3 style="color:red;"><left> Exercise 8 (10 pts)</left></h3>
+<p>For each curve below, produce a plot of the same shape by moving an object in front of the ultrasonic distance sensor. You can change the scale by adjusting the x and y limits on your plot. Try and get it as close as you can, but don’t spend too long on this – as long as the shape is close, you will receive full credit.</p>
+<p><img alt="part 1" src="../../../_images/exercise_8_0.png" />
+<img alt="part 2" src="../../../_images/exercise_8_1.png" />
+<img alt="part 3" src="../../../_images/exercise_8_2.png" /></p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 8 Below </left></h3><h3 style="color:red;"><left> Exercise 9 (5 pts)</left></h3>
+<p>Choose one of the curves from exercise 8. Move an object in front of the sensor to make the same curve, but using the plot of the derivative this time.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 9 Below </left></h3><h3 style="color:red;"><left> Exercise 10 (10 pts)</left></h3>
+<p>Load up a measurement you took using the heart rate monitor. Try your symmetric difference formula on it. Compare that to the result you got from taking the derivative of the interpolating polynomial. Which method do you think gave a better result? Explain your choice in 3-5 sentences.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 10 Below </left></h3><h3 style="color:red;"><left> Exercise 11 (35 pts)</left></h3>
+<p>Get one of the heart rate sensors. Working with a partner, figure out a procedure to answer each of these questions:</p>
+<ol class="simple">
+<li><p>If you jog up and down the hallway briefly, how does your pulse rate change?</p></li>
+<li><p>If you measure your systolic amplitude with your finger above your shoulders versus below your waist, can you detect a difference? How big is the difference? Is there anything else which may be affecting this?</p></li>
+<li><p>Is your ratio b/a different from your classmates’? Does this ratio change depending on your heart rate / posture / other variables?</p></li>
+</ol>
+<p>You will be graded on the following rubric:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Score</strong></p></th>
+<th class="head"><p><strong>7 pts</strong></p></th>
+<th class="head"><p><strong>4 pts</strong></p></th>
+<th class="head"><p><strong>1 pt</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Choice of strategy</p></td>
+<td><p>The method chosen is well-suited to the question.</p></td>
+<td><p>The method for answering at least one question has a major source of error which was not accounted for.</p></td>
+<td><p>None of the strategies were well-suited to the question posed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Description of procedure</p></td>
+<td><p>The procedure was explained thoroughly enough that another student in this class could easily replicate what you did.</p></td>
+<td><p>I can tell what you did, but some parts were unclear. Or, it is not explained at the level where another student would be able to follow it.</p></td>
+<td><p>It is not clear what steps you took or how you acquired your data.</p></td>
+</tr>
+<tr class="row-even"><td><p>Explanation of theory</p></td>
+<td><p>The theory behind what you are doing is explained so that a calculus 2 student who has not taken this course would be able to understand your computations.</p></td>
+<td><p>There is some explanation of the theory behind what you are doing, but it would be hard to follow for someone who is not currently taking this class.</p></td>
+<td><p>The theory is described incorrectly.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Presentation</p></td>
+<td><p>The results are shared using informative plots with clear labels. All figures have accompanying text indicating what they show.</p></td>
+<td><p>The results are described well, but some of the figures are hard to interpret.</p></td>
+<td><p>It is not clear what the answer to each question is.</p></td>
+</tr>
+<tr class="row-even"><td><p>Good coding practice</p></td>
+<td><p>Code is organized into blocks for clarity. If something unusual is being done, there is a comment giving some context. Formatting is consistent. Functions are used where appropriate.</p></td>
+<td><p>Code is clear enough, but has inconsistent formatting or excessive commenting. There are multiple places where a function would be appropriate to organize the code, but functions are not used.</p></td>
+<td><p>It is unclear what the code is doing in several places. It is not clear that the code does what is intended. Formatting makes the code hard to read.</p></td>
+</tr>
+</tbody>
+</table>
+<p>You don’t have to turn in all the code you use – in particular, it would be a good idea to collect your data in a separate document. This document should have a clear description of what you did in other documents, though, and you should present your findings here. It’s okay if you and your partner write the same thing for this exercise. You should work together. Be creative – it’s okay to share inconclusive results, as long as you describe in detail why your findings are inconclusive.</p>
+<p><strong>Write the name of your lab partner here:</strong></p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 11 Below </left></h3></div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/5_measure_speeds/b_build_a_tool"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../4_measure_tall_things/e_symbolic_error/lab10.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">A very brief introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../final_project/lab11.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Make a Plan</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Mireille Boutin, Alden Bradford<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

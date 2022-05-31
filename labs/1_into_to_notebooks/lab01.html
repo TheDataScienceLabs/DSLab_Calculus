@@ -1,0 +1,1274 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   The Data Science Labs on Differential and Integral Calculus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Determine your heart rate
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_determine_heart_rate/lab2.html">
+   Mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_determine_heart_rate/lab2_part2.html">
+   That’s all for today!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estimate your blood flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_estimate_blood_flow/lab3.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Accurately measure the heights of tall and far away things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/a_prepare_for_building_inclinometer/lab6.html">
+   Namespaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/b_build_an_inclinometer/lab7.html">
+   Objective
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/c_make_the_measurements/lab8.html">
+   Put your inclinometer to use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/d_error_analysis/lab9.html">
+   The Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/e_symbolic_error/lab10.html">
+   A very brief introduction to
+   <span class="math notranslate nohighlight">
+    \(\LaTeX\)
+   </span>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Measure the speeds of nearby things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_measure_speeds/b_build_a_tool/lab5.html">
+   Mathematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Design a project of your own
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../final_project/lab11.html">
+   Make a Plan
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/labs/1_into_to_notebooks/lab01.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AldenMB/DSLab_Calculus"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/1_into_to_notebooks/lab01.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/1_into_to_notebooks/lab01.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming Skills
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#embedded-systems">
+   Embedded Systems
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-libraries">
+   Python Libraries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-operations">
+   Basic Operations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formatting">
+   Formatting
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
+   For Loops
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib-interface">
+   Matplotlib Interface
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-arrays">
+   NumPy Arrays
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-visualizations">
+   Function Visualizations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mathematics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming Skills
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#embedded-systems">
+   Embedded Systems
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-libraries">
+   Python Libraries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-operations">
+   Basic Operations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formatting">
+   Formatting
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
+   For Loops
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib-interface">
+   Matplotlib Interface
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-arrays">
+   NumPy Arrays
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-visualizations">
+   Function Visualizations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div style="background-color:lightblue">
+<h1><center>
+    The Data Science Labs on <br/>
+     Differential and Integral Calculus  <br/>
+   <small>by Alden Bradford and Mireille Boutin </small>
+</center></h1>
+    </div><h1><center>
+    Laboratory 1<br/>
+    Introduction to Jupyter Notebook and Python 3 - Discretizing Functions and Aliasing<br/>
+    <p style="font-size: 16px"> Last Updated on January 7, 2022</p>
+</center></h1><h2 style="color:orange;"><left>00. Content </left></h2><div class="section" id="mathematics">
+<h1>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>functions</p></li>
+<li><p>sampling</p></li>
+<li><p>aliasing</p></li>
+</ul>
+</div>
+<div class="section" id="programming-skills">
+<h1>Programming Skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>REPL system</p></li>
+<li><p>editing code/Markdown boxes</p></li>
+<li><p>Markdown</p></li>
+<li><p>Importing libraries</p></li>
+<li><p>Importing files</p></li>
+<li><p>NumPy Python library</p></li>
+<li><p>Matplotlib Python library</p></li>
+<li><p>Functions</p></li>
+<li><p>Variables values, types and basic operations</p></li>
+<li><p>Lists and arrays</p></li>
+<li><p>line plot, title, axes labels</p></li>
+<li><p>For loops</p></li>
+</ul>
+</div>
+<div class="section" id="embedded-systems">
+<h1>Embedded Systems<a class="headerlink" href="#embedded-systems" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+<h2 style="color:orange;"><left>0. Required Hardware </left></h2> <ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+<h2 style="color:orange;"><left>1. Introduction</left></h2><p>Welcome to the first of “The Data Science Labs on Differential and Integral Calculus!”</p>
+<p>You are reading an interactive textbook. As you read the text, you will be asked to perform certain tasks and answer some questions. You will write your answers directly in this textbook.</p>
+<p>The textbook contains text and (Python) code written in “boxes.” The boxes containing code are gray. You can run a gray box of code by holding the “shift” key while pressing the “enter” key (shift-enter). The output of the code will then be displayed below the code. Some of these boxes are labeled as “Sandbox”. Feel free to use the sandboxes as a place to experiment with functions and see the capabilities of Python as you read about them. No code or text in the sandboxes will be graded. Here is an example.</p>
+<h3 style="color:green;"><left> Sandbox </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The text boxes are actually transparent, so you will not really see them unless you go into “edit” mode, by double-clicking on the box. For example, the text you are currently reading is inside a text box. Feel free to double-click on it to see what “edit” mode looks like. To go back to formatted text, press shift-enter.</p>
+<p>While in edit mode, you will notice that the text is written in some coding language. The language is called “markdown.” Markdown allows one to format the text inside the box, for example adding colors and controlling the font types. There are many good tutorials and cheat sheets for Markdown available on the Internet, for example
+<a href="https://www.datacamp.com/community/tutorials/markdown-in-jupyter-notebook" > this one</a>. But you should be able to type your own text box by simply copying and pasting the code of other text boxes on this page. To run the markdown code (so to see the resulting text), press (shift-enter).</p>
+<p>Please continue by reading all the text boxes you encounter below, and running all the code boxes (shift-enter) as you encounter them.</p>
+<p>If you are asked to answer a question, there will be a designated text box below a light blue highlighted cell for you to type in your answer.  To begin typing, double-click the box to enter the edit mode. Type your answer using the Markdown language.  When finished typing, type shift-enter; this will run your code and display your answer as formatted text.</p>
+<p>Let’s try it out. Below is a “text box” containing some Markdown code. Double-click on it and write your name and email in place of the one that is already there. Keep the code that makes the text higlights in blue. When you are done editing the text, press shift-enter to see the result.</p>
+<h3 style="background-color:lightblue"><left> Write your name and email below: </left></h3>
+<p>First Name, Last Name, Email</p>
+<h2 style="color:orange;"><left>2. Laboratory Ethics</left></h2><p>“I pledge to behave ethically and with honesty in this course. I may discuss approaches for a solution with others, but my submitted lab report will be my own work, including all
+code. I will not make my finished reports available to other students, even after the semester is over. In particular, I will not post my labs on the Internet or make my files available to other people. I will not be a cheater.”</p>
+<h2 style="color:orange;"><left>3. About Python and Jupyter </left></h2><p>Python is a programming language with a simple, easy to learn, and easy to read syntax. It is a free and open source software that includes many handy libraries for doing mathematics. The labs in this course use Python 3.</p>
+<p>The document you are reading is a “Jupyter” file called a “Jupiter notebook.” Jupyter (formerly IPython) is a system that allows you to embed Python code within a web document.  Jupyter is called a “REPL” system. REPL stands for “Read, Evaluate, Print, Loop.” In concrete terms, this means that Jupyter files are executed piece-by-piece. Each piece is put in a box. The user executes a box by pressing shift-enter. The output is returned to the user right below the box. This makes Jupyter notebooks interactive.</p>
+</div>
+<div class="section" id="python-libraries">
+<h1>Python Libraries<a class="headerlink" href="#python-libraries" title="Permalink to this headline">¶</a></h1>
+<p>In this lab, two Python libraries will be heavily used, <strong><em>NumPy</em></strong> and <strong><em>Matplotlib</em></strong>.</p>
+<p><a class="reference external" href="https://numpy.org"><strong><em>NumPy</em></strong></a> supports multi-dimensional arrays and matrices, and provides numerous mathematical functions to be operated on these arrays and matrices.</p>
+<p><a class="reference external" href="https://matplotlib.org"><strong><em>Matplotlib</em></strong></a> is a plotting library, and in this lab, we will be mainly using <strong><em>matplotlib.pyplot</em></strong>, which provides a MATLAB-like way of plotting. You can refer to <a class="reference external" href="https://matplotlib.org/tutorials/introductory/pyplot.html">Pyplot Tutorial</a> for more detailed instructions.</p>
+<p>These libraries need to be imported before one can access the attributes and functions within these libraries.
+Let’s import these libraries. For simplicity, we will rename numpy as “np” and matplotlib.pyplot as “plt”. This is a common convention.
+Execute the following blocks by pressing (shift-enter) after clicking on the gray box of code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the modules were imported using the syntax <span class="math notranslate nohighlight">\(\mathtt{\quad import\quad [module\_name] \quad as \quad [alias]}\)</span>. We used the alias “np” for numpy, and “plt”  for matplotlib.pyplot. This means that, from now on, we can  simply type “np” in place of numpy, and “plt” in place of matplotlib.pyplot.</p>
+<p>Note that <strong>np</strong> and <strong>plt</strong> are the conventional aliases of <strong>NumPy</strong> and <strong>matplotlib.pyplot</strong>, respectively, and we will be following the conventions throughout this and the remaining labs.</p>
+<p>For this lab, we will also need functions from the <strong>math</strong> library. In addition, we will need some functions that have been defined specifically for this lab. These are written inside a python files called <strong><em><a class="reference external" href="http://lab01.py">lab01.py</a></em></strong>, which is located inside the Lab01 directory. Let’s import both of these as well. Execute the following blocks by pressing (shift-enter).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">lab01</span> <span class="k">as</span> <span class="nn">lab01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Throughout the course of these labs, you’ll be given files which, like <a class="reference external" href="http://lab01.py">lab01.py</a>, contain certain functions that you will need to complete the experiments. You should not need to edit the files, you will only be asked to import their functions and use them based on a specific syntax that will be given to you.</p>
+<p>Please execute the following block of code. This will set some parameters for the plots you will produce below. It will also automatically reload all external modules.  This will prevent you from having to reload <a class="reference external" href="http://lab01.py">lab01.py</a> every time you use it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make sure the plot is displayed in this notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># specify the size of the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># for auto-reloading extenrnal modules</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<p>Functions are groups of code that always run together. When you call a function, you execute the code that is associated within that function. Functions can take inputs, manipulate the inputs, and return an output.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> contains a function named <code class="docutils literal notranslate"><span class="pre">pyramid</span></code>. The function simply takes an integer value <code class="docutils literal notranslate"><span class="pre">x</span></code>, displays a half pyramid of # symbols with  <code class="docutils literal notranslate"><span class="pre">x</span></code> rows (using the value  of <code class="docutils literal notranslate"><span class="pre">x</span></code> given), and returns the total number of #s in the half pyramid. In this case, the returned value is stored in a variable named <code class="docutils literal notranslate"><span class="pre">k</span></code>. In the example below, we inputted the value <code class="docutils literal notranslate"><span class="pre">4</span></code> into the function, created a half pyramid with the input value <code class="docutils literal notranslate"><span class="pre">k=4</span></code> as the number of rows, and returned the resulting number of # symbols in the half pyramid.</p>
+<p>You can view the content of the function <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> by opening the <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> file. Take a look at it!</p>
+<p>Now let’s evaluate the function <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> and print the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">lab01</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of #s in the half pyramid is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#
+##
+###
+####
+The number of #s in the half pyramid is 10.
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 1</left></h3><p><strong><em>Question 1</em></strong>: What would the expected value of <code class="docutils literal notranslate"><span class="pre">m</span></code> be if the following code was given? How many #s would be on the 5th row?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">lab01</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong><em>Question 2</em></strong>: Use the pyramid function to build a half-pyramid with 10 rows and compute the number of # symbols in the half pyramid.</p>
+<h3 style="background-color:lightblue"><left> Write Answer to Question 1 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer to Question 2 Below </left></h3></div>
+<div class="section" id="basic-operations">
+<h1>Basic Operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h1>
+<p>Python 3 provides basic types including integers, floats, strings, and booleans. We can assign a value of any of these types to a variable.</p>
+<p>For instance, if we want the variable called <span class="math notranslate nohighlight">\(\mathtt{a}\)</span> to hold the value of 5. This is referred to as initializing a variable with a value.</p>
+<p>We can also use a function called <span class="math notranslate nohighlight">\(\mathtt{print()}\)</span> to print out a specified input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>                        <span class="c1"># initialize a with the value of 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                     <span class="c1"># print out the value of a            </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Basic operations like adding, subtracting, multiplying, and dividing can be used to manipulate these variables and/or values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>                         <span class="c1"># initialize a with the value of 5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>                    <span class="c1"># assign a + 10 to b</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">5</span>                     <span class="c1"># subtract a by 5</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="mi">4</span>                     <span class="c1"># multibly b by 4</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">/</span> <span class="n">a</span>                    <span class="c1"># divide 50 by a</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">b</span> <span class="o">//</span> <span class="mi">7</span>                    <span class="c1"># integer division, result is the division without the succeeding numbers after the decimal</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>                    <span class="c1"># a to the power of 2</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>            <span class="c1"># add 3 to d and take it to the 0.5 power</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">f</span> <span class="o">==</span> <span class="mi">2</span>                    <span class="c1"># return True if f is 2, otherwise return False </span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">d</span> <span class="o">%</span> <span class="mi">13</span>                    <span class="c1"># d modulo 13, result is the remainder</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+15
+0
+60
+10.0
+2
+25
+7.937253933193772
+True
+8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most of these operations are probably familiar to you, though the last two are typically only used in computing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">==</span></code> tests if the term to its right has the same value as the term to its left. If they are the same, it gives the value <code class="docutils literal notranslate"><span class="pre">True</span></code> and if they are different it gives the value <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">%</span></code> is the “modulo” function, which gives the remainder after division. For example, since 14/4 is three with a remainder of 2, the expression <code class="docutils literal notranslate"><span class="pre">14%4</span></code> gives the value <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>Try some other operations on your own! For example, try printing the roots of <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> using the quadratic formula and some specified values for <span class="math notranslate nohighlight">\(a,b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>. This portion is a sandbox, and is not graded. Just play around a bit!</p>
+<h3 style="color:green;"><left> Sandbox </left></h3><h3 style="color:red;"><left> Exercise 2</left></h3><p><strong>Part 1</strong></p>
+<p>Code the following operations.</p>
+<ol class="simple">
+<li><p>Initialize the variable <code class="docutils literal notranslate"><span class="pre">xyz</span></code> to the value <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p></li>
+<li><p>Take the third power of <code class="docutils literal notranslate"><span class="pre">xyz</span></code> and store it in a new variable called <code class="docutils literal notranslate"><span class="pre">abc</span></code>.</p></li>
+<li><p>Create another variable called <code class="docutils literal notranslate"><span class="pre">okay</span></code> and copy the value of <code class="docutils literal notranslate"><span class="pre">xyz</span></code> to it.</p></li>
+<li><p>Multiply <code class="docutils literal notranslate"><span class="pre">okay</span></code> by 14 and store it in <code class="docutils literal notranslate"><span class="pre">okay</span></code>.</p></li>
+<li><p>Take the remainder of <code class="docutils literal notranslate"><span class="pre">okay</span> <span class="pre">/</span> <span class="pre">5</span></code> and store it in <code class="docutils literal notranslate"><span class="pre">rem</span></code>.</p></li>
+<li><p>Add together <code class="docutils literal notranslate"><span class="pre">okay</span></code>, <code class="docutils literal notranslate"><span class="pre">xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">rem</span></code>, and <code class="docutils literal notranslate"><span class="pre">abc</span></code> and store it in a variable called <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p></li>
+<li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p></li>
+</ol>
+<p><strong>Part 2</strong></p>
+<p>Answer the following questions.</p>
+<p><strong><em>Question 1</em></strong>: What is 8 % 9?<br>
+<strong><em>Question 2</em></strong>: What operation would help you decide whether a given number is even or odd?</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 2 Part 1 Below </left></h3>
+You may create additional boxes as needed by clicking the "+" sign in the menu above this window or by hovering your mouse at the bottom of a cell. This will create a box of code, by default. If you want to switch it to a box of Markdown, in order to write text, then select "Markdown" from the dropdown menu above this window. <h3 style="background-color:lightblue"><left> Write Answers for Exercise 2 Part 2 Below </left></h3></div>
+<div class="section" id="formatting">
+<h1>Formatting<a class="headerlink" href="#formatting" title="Permalink to this headline">¶</a></h1>
+<p>A variable can also be initialized by a string. A string can also be formatted for output. When formatting a string, the <span class="math notranslate nohighlight">\(\mathtt{format()}\)</span> function replaces <span class="math notranslate nohighlight">\(\mathtt{\{\}}\)</span> with its specified inputs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span>                             <span class="c1"># assign j to a string</span>
+<span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;The value of j is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;The values of f and g are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">, respectively.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="n">str3</span> <span class="o">=</span> <span class="s2">&quot;The value of h is </span><span class="si">{:.3f}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>   <span class="c1"># formats the value of h to be rounded to 3 decimal places</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Science is cool!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data Science is cool!
+The value of j is Hello World!
+The values of f and g are 2 and 25, respectively.
+The value of h is 7.937.
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 3</left></h3><p>When you analyzed the code in <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> earlier, you would have noticed that there are three additional functions in the file. Follow the instructions below to see what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function does.</p>
+<p><strong>Part 1</strong></p>
+<p>Code the following operations.</p>
+<ol class="simple">
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function from the file like we did earlier. The <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function takes an integer as an input and returns an integer as an output. Assign the input to the value <code class="docutils literal notranslate"><span class="pre">7</span></code> and the output of the function to a variable named <code class="docutils literal notranslate"><span class="pre">num</span></code>.</p></li>
+<li><p>Manipulate the value of <code class="docutils literal notranslate"><span class="pre">num</span></code> in one line of code by first adding <code class="docutils literal notranslate"><span class="pre">51</span></code>, then dividing that value by <code class="docutils literal notranslate"><span class="pre">7</span></code>, and multiplying that value by <code class="docutils literal notranslate"><span class="pre">3</span></code>. Assign this new number to the variable <code class="docutils literal notranslate"><span class="pre">new_num</span></code>. <strong>Don’t forget to use parentheses when appropriate.</strong></p></li>
+<li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">num</span></code> to 2 decimal places and the value of <code class="docutils literal notranslate"><span class="pre">new_num</span></code> to the 5th decimal. Follow the output of <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">num</span> <span class="pre">is</span> <span class="pre">___</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">new_num</span> <span class="pre">is</span> <span class="pre">___.&quot;</span></code>.</p></li>
+</ol>
+<p><strong>Part 2</strong></p>
+<p>Answer the following question.</p>
+<p><strong><em>Question 1</em></strong>: Describe what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function outputted. How did the value we inputted into the function get manipulated?</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 3 Part 1 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 3 Part 2 Below </left></h3></div>
+<div class="section" id="for-loops">
+<h1>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h1>
+<p><em>For</em> loops help us iterate through a range of values or lists. These will be very helpful in analyzing data in future labs.</p>
+<p>To help us understand <em>for</em> loops we will use a function called <span class="math notranslate nohighlight">\(\mathtt{range()}\)</span>. This function creates a sequence of values given a set of numbers as its inputs. <span class="math notranslate nohighlight">\(\mathtt{range(i, j, k)}\)</span> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the closed interval start value, <code class="docutils literal notranslate"><span class="pre">j</span></code> is the open interval end value, and <code class="docutils literal notranslate"><span class="pre">k</span></code> is the stepping size.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>           <span class="c1"># i begins from 0 as default, and ends at 4 (not 5). Interval of sequence is [0, 5) </span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>   <span class="c1"># j begins from 13 and increments by 1 until 16 (not 17). Interval of sequence is [13,17)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>    <span class="c1"># k begins from 0 and increments by 2 until 8 (not 10). Interval of sequence is [0, 10)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># z begins from 45 and decrements by 1 until 41 (not 40). Interval of sequence is (40, 45]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+------------
+13
+14
+15
+16
+------------
+0
+2
+4
+6
+8
+------------
+45
+44
+43
+42
+41
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 4</left></h3><p>What would you expect the sequences for the following <code class="docutils literal notranslate"><span class="pre">range()</span></code> functions be?</p>
+<p><strong><em>Question 1</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(2,</span> <span class="pre">14,</span> <span class="pre">1)</span></code> <br>
+<strong><em>Question 2</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(2,</span> <span class="pre">14,</span> <span class="pre">3)</span></code> <br>
+<strong><em>Question 3</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(14,</span> <span class="pre">2,</span> <span class="pre">-6)</span></code> <br>
+<strong><em>Question 4</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(11)</span></code><br>
+<strong><em>Question 5</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(7,</span> <span class="pre">15)</span></code></p>
+<h3 style="background-color:lightblue"><left> Write Answers for Exercise 4 Below </left></h3></div>
+<div class="section" id="lists">
+<h1>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h1>
+<p><em>Lists</em> are used to store multiple items in a single variable.</p>
+<p><em>Lists</em> are indexed by starting with 0. So, an element at index 0 of a <em>list</em> is the first element of the <em>list</em>, index 1 is the second element, index 2 is the third element,… and so on until the end of list.</p>
+<p>Examples of some lists are shown below.</p>
+<p>For accessing sections of the list, we can splice the list by indexing. Essentially, we are obtaining a sublist. The basic slicing syntax is <code class="docutils literal notranslate"><span class="pre">list[i:j:k]</span></code>, where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the starting index, <code class="docutils literal notranslate"><span class="pre">j</span></code> is the stopping index, and <code class="docutils literal notranslate"><span class="pre">k</span></code> is the step. If the starting index is <span class="math notranslate nohighlight">\(\mathtt{0}\)</span>, it can be ignored. If the ending index is the length of the list, you can ignore it. If the step size is <span class="math notranslate nohighlight">\(\mathtt{1}\)</span>, it can also be ignored. The indexing interval rules are similar to that of the <span class="math notranslate nohighlight">\(\mathtt{range()}\)</span> we had done earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thislist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mango&quot;</span><span class="p">,</span> <span class="s2">&quot;strawberry&quot;</span><span class="p">,</span> <span class="s2">&quot;peach&quot;</span><span class="p">,</span> <span class="s2">&quot;plum&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>   <span class="c1"># initialize thislist with strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>                                              <span class="c1"># value of thislist at index 0 (first element)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>                                              <span class="c1"># value of thislist at index 2 (third element)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>                                             <span class="c1"># 1st element from the end of list                      </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>                                             <span class="c1"># 3rd element from the end of list</span>
+<span class="n">sublist</span> <span class="o">=</span> <span class="n">thislist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>                                       <span class="c1"># sublist of every other element starting from index 1 to 3 </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sublist</span><span class="p">)</span>                                          
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[:</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>                                           <span class="c1"># sublist from index 0 to 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">1</span><span class="p">])</span>                                           <span class="c1"># sublist from index 3 to end of list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thislist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>                                            <span class="c1"># sublist from index 1 to 3</span>
+
+<span class="n">nextlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>                                      <span class="c1"># initialize nextlist with integers</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">nextlist</span><span class="p">:</span>                                              <span class="c1"># iterate through all the elements of nextlist</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="n">m</span>                                                 <span class="c1"># sum all the elements of list together</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>                                                      <span class="c1"># print the current values of nextlist</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the values of nextlist is stored in &#39;num&#39; which is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mango
+peach
+orange
+peach
+[&#39;strawberry&#39;, &#39;plum&#39;]
+[&#39;mango&#39;, &#39;strawberry&#39;, &#39;peach&#39;]
+[&#39;plum&#39;, &#39;orange&#39;]
+[&#39;strawberry&#39;, &#39;peach&#39;, &#39;plum&#39;]
+2
+4
+5
+7
+9
+The sum of the values of nextlist is stored in &#39;num&#39; which is 27.
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 5</left></h3><p>Follow the instructions below:</p>
+<p><strong>Part 1</strong></p>
+<ul class="simple">
+<li><p>Initialize a <em>list</em> of integers with the values of 10, 45, 6, 90, 5, 87, 56.</p></li>
+<li><p>Calculate the average of this <em>list</em> using a <em>for</em> loop.</p></li>
+<li><p>Print the average. <em>Format</em> the average and have it rounded to the 2nd decimal point.</p></li>
+</ul>
+<p><strong>Part 2</strong></p>
+<ul class="simple">
+<li><p>Create a sublist of <em>list</em> that includes every other element starting from index 0, including the last element.</p></li>
+<li><p>Print this sublist.</p></li>
+</ul>
+<p><strong>Part 3</strong></p>
+<ul class="simple">
+<li><p>Create a <em>for</em> loop that prints out the odd numbers between 1 and 21, including 1 and not including 21.</p></li>
+</ul>
+<p><strong>Part 4</strong></p>
+<ul class="simple">
+<li><p>Create a <em>for</em> loop that prints out the values 36, 29, 22, 15, 8 in this order.</p></li>
+</ul>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Part 1 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Part 2 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Part 3 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Part 4 Below </left></h3></div>
+<div class="section" id="matplotlib-interface">
+<h1>Matplotlib Interface<a class="headerlink" href="#matplotlib-interface" title="Permalink to this headline">¶</a></h1>
+<p>So now that we know how to create <em>lists</em>. We can now use these <em>lists</em> to create graphs.</p>
+<p>Earlier, we imported the Matplotlib library using the instructive, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>. Matplotlib is a low level graph plotting library. You will notice that <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> has an extension to it, <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>. <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> is a submodule of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> that will help us plot our graphs.</p>
+<p>Let’s look at how this can be done.</p>
+<p>Often when we have a graph, we will have a set of <code class="docutils literal notranslate"><span class="pre">x</span></code> coordinates and a set of <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates. In this case, we are going to define <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as lists. These lists have to be of equal length, and each coordinate value corresponds to the same indices. For instance, in the example below, the coordinates that will be graphed are <code class="docutils literal notranslate"><span class="pre">(1,1),</span> <span class="pre">(2,2),</span> <span class="pre">(3,3),</span> <span class="pre">(4,4),</span> <span class="pre">(5,5),</span> <span class="pre">(6,6),</span> <span class="pre">and</span> <span class="pre">(7,7)</span></code>. When using the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function, a line graph will be drawn. <strong>Remember that in future labs, you should be more descriptive in your variable names when describing the dependent and independent variables of a data set that you are plotting.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>                               <span class="c1"># x coordinate list</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>                               <span class="c1"># y coordinate list</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>                                          <span class="c1"># plots x by y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;X vs. Y&quot;</span><span class="p">)</span>                                    <span class="c1"># adds a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>                                         <span class="c1"># adds a label on the x axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>                                         <span class="c1"># adds a label on the y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                              <span class="c1"># displays the graph as an output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_83_0.png" src="../../_images/lab01_83_0.png" />
+</div>
+</div>
+<p>As default, <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> graphs a line graph. But, you can change this graph to a scatter plot. We can do this by adding an additional input to the function, <code class="docutils literal notranslate"><span class="pre">'ro'</span></code>. Let’s do this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>                                    <span class="c1"># plots x by y as a scatter plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                              <span class="c1"># displays the graph as an output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_85_0.png" src="../../_images/lab01_85_0.png" />
+</div>
+</div>
+<p>You will have noticed that the graph is now a scatter plot, but additionally, the markers are red in color. The first character signifies the color of the marker. In this case, <code class="docutils literal notranslate"><span class="pre">r</span></code> is red. And the second character signifies the shape of the marker. <code class="docutils literal notranslate"><span class="pre">o</span></code> gave us circle markers. Now that we can change the color and shape of the markers, we can add more data to our graphs. You can look here for different marker types and colors <a class="reference external" href="https://www.w3schools.com/python/matplotlib_markers.asp"><strong><em>Matplotlib markers</em></strong></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>                               <span class="c1"># x coordinate list</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>                              <span class="c1"># y1 coordinate list</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>                        <span class="c1"># y2 coordinate list</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mf">3.75</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">6.75</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">]</span>                 <span class="c1"># y3 coordinate list</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;b^&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">)</span>         <span class="c1"># plots x by y as a scatter plot and a line graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span> <span class="s1">&#39;y2&#39;</span><span class="p">,</span> <span class="s1">&#39;y3&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>       <span class="c1"># legend, in lower right position</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;X vs. Y&quot;</span><span class="p">)</span>                                    <span class="c1"># adds a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>                                         <span class="c1"># adds a label on the x axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>                                         <span class="c1"># adds a label on the y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                              <span class="c1"># displays the graph as an output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_87_0.png" src="../../_images/lab01_87_0.png" />
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 6</left></h3><p>Do the following exercises below to implement plotting using matplotlib.</p>
+<p><strong>Part 1</strong></p>
+<ol class="simple">
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">1.5,</span> <span class="pre">2,</span> <span class="pre">2.5,</span> <span class="pre">3,</span> <span class="pre">2.5,</span> <span class="pre">2,</span> <span class="pre">1.5,</span> <span class="pre">1</span></code>.</p></li>
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">x2</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">1.625,</span> <span class="pre">1.625,</span> <span class="pre">1.75,</span> <span class="pre">1.75,</span> <span class="pre">1.625</span></code>.</p></li>
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">x3</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">2.25,</span> <span class="pre">2.25,</span> <span class="pre">2.375,</span> <span class="pre">2.375,</span> <span class="pre">2.25</span></code>.</p></li>
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">x4</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">1.5,</span> <span class="pre">2.5,</span> <span class="pre">2.375,</span> <span class="pre">1.625,</span> <span class="pre">1.5</span></code>.</p></li>
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">y1</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">2,</span> <span class="pre">2.5,</span> <span class="pre">3,</span> <span class="pre">2.5,</span> <span class="pre">2,</span> <span class="pre">1.5,</span> <span class="pre">1,</span> <span class="pre">1.5,</span> <span class="pre">2</span></code>.</p></li>
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">y2</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">2.5,</span> <span class="pre">2.25,</span> <span class="pre">2.25,</span> <span class="pre">2.5,</span> <span class="pre">2.5</span></code>.</p></li>
+<li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">y3</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">1.75,</span> <span class="pre">1.75,</span> <span class="pre">1.5,</span> <span class="pre">1.5,</span> <span class="pre">1.75</span></code>.</p></li>
+<li><p>On the same graph, plot <code class="docutils literal notranslate"><span class="pre">x1</span></code> by <code class="docutils literal notranslate"><span class="pre">y1</span></code> as a solid yellow line, and <code class="docutils literal notranslate"><span class="pre">x2</span></code> by <code class="docutils literal notranslate"><span class="pre">y2</span></code>, <code class="docutils literal notranslate"><span class="pre">x3</span></code> by <code class="docutils literal notranslate"><span class="pre">y2</span></code>, and <code class="docutils literal notranslate"><span class="pre">x4</span></code> by <code class="docutils literal notranslate"><span class="pre">y3</span></code> as solid black lines. <em>Hint: You can use the link about markers to find the appropriate colors and marker shapes.</em></p></li>
+<li><p>Make sure to <em>show</em> the plot as an output.</p></li>
+</ol>
+<p>Follow the coordinates for the <code class="docutils literal notranslate"><span class="pre">x1</span></code> by <code class="docutils literal notranslate"><span class="pre">y1</span></code> plot. Notice that the values are drawn and connected in the order they show up in the list from left to right. Essentially, all we are doing is connecting the dots when drawing these graphs.</p>
+<p><strong>Part 2</strong></p>
+<p>Now that you know how to plot on matplotlib, In a similar manner as in <strong>Part 1</strong>, in a new block of code, draw your first initial in block letters. Make your output a line that is <strong><em>not</em></strong> solid and a color that we have <strong><em>not</em></strong> used already.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 6 Part 1 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 6 Part 2 Below </left></h3></div>
+<div class="section" id="numpy-arrays">
+<h1>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h1>
+<p>Arrays are very similar to lists. To build one-dimensional arrays we use the NumPy library that we had imported earlier: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>. To create an array, we can use the following code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>     <span class="c1"># initialize A with array [5, 3, 6, 8, 2, 1]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A = </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = [5 3 6 8 2 1].
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also create arrays by using functions like <code class="docutils literal notranslate"><span class="pre">arange()</span></code>, <code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">linspace()</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">arange()</span></code> - creates an array between a range of values, similar to <code class="docutils literal notranslate"><span class="pre">range()</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">zeros()</span></code> - creates an array of zeros <br>
+<code class="docutils literal notranslate"><span class="pre">linspace()</span></code> - creates an array of linearly spaced values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>    <span class="c1"># (start, stop, stepping size)</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>            <span class="c1"># number of elements            </span>
+<span class="n">A3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># (start, stop, number of elements)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A1 =&quot;</span><span class="p">,</span> <span class="n">A1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A2 =&quot;</span><span class="p">,</span> <span class="n">A2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A3 =&quot;</span><span class="p">,</span> <span class="n">A3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A1 = [2 6]
+A2 = [0. 0. 0. 0.]
+A3 = [ 2.          4.66666667  7.33333333 10.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can find the length of the array by using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of the array is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of the array is 2.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The indexing rules for an array are the same rules that we had used earlier for lists. Similar to lists, we can create subarrays with index manipulation. Here are some examples to corroborate this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>                         <span class="c1"># 4th element in A, index 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>                        <span class="c1"># 3rd to last element in A, index 3 </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>                     <span class="c1"># index 1-4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>                    <span class="c1"># index 4, 2</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v =&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>                    <span class="c1"># index 3, 4, 5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+8
+[3 6 8 2]
+[2 6]
+v = [8 2 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why are we learning arrays when the same thing can be done with lists?</p>
+<p>Arrays using NumPy are easier to manipulate. NumPy also includes additional functions for array manipulation.</p>
+<p>It is also possible to use basic operations on an entire array. This is like evaluating functions at several points at once. This is easier than creating <em>for</em> loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">V1</span> <span class="o">=</span> <span class="n">V</span> <span class="o">*</span> <span class="mi">11</span>                                           <span class="c1"># y = x * 11</span>
+<span class="n">V2</span> <span class="o">=</span> <span class="n">V</span> <span class="o">**</span> <span class="mi">2</span>                                           <span class="c1"># y = x ^ 2</span>
+<span class="n">V3</span> <span class="o">=</span> <span class="n">V</span> <span class="o">==</span> <span class="mi">5</span>                                           
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V multiplied by 11: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V squared: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elements of V that equal 5: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V multiplied by 11: [11 22 33 44 55 66 77 88 99]
+V squared: [ 1  4  9 16 25 36 49 64 81]
+Elements of V that equal 5: [False False False False  True False False False False].
+</pre></div>
+</div>
+</div>
+</div>
+<p>The addition with lists is different than addition with arrays.</p>
+<p>Let’s test this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">array1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+
+<span class="n">list3</span> <span class="o">=</span> <span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span>
+<span class="n">array3</span> <span class="o">=</span> <span class="n">array1</span> <span class="o">+</span> <span class="n">array2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lists create join lists together called concatenation.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of list3 is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arrays add the each corresponding elements together.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of array3 is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lists create join lists together called concatenation.
+The value of list3 is [4, 6, 8, 1, 3, 7].
+Arrays add the each corresponding elements together.
+The value of array3 is [ 5  9 15].
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try some other basic operations on arrays. What happens when you subtract arrays? When you divide an array by a scalar? When you multiply two arrays?</p>
+<h3 style="color:green;"><left> Sandbox </left></h3><h3 style="color:red;"><left> Exercise 7</left></h3><p><strong>Part 1</strong></p>
+<p>The equation for calculating kinetic energy is given by<br>
+$<span class="math notranslate nohighlight">\(
+KE = \frac{mv^2}{2}
+\)</span>$
+where <br>
+KE is kinetic energy (J) <br>
+m is mass (kg), <br>
+v is velocity (m/s)</p>
+<p>Given that an object has a mass of 20 kg, how much kinetic energy does this object have at the given velocities between the inteval [0, 7] using 8 linearly-spaced points.</p>
+<ol class="simple">
+<li><p>Use a NumPy array to calculate the kinetic energy at the different velocities.</p></li>
+<li><p>Create a scatterplot plotting <code class="docutils literal notranslate"><span class="pre">Velocity</span> <span class="pre">(m/s)</span></code> by <code class="docutils literal notranslate"><span class="pre">Kinetic</span> <span class="pre">Energy</span> <span class="pre">(J)</span></code>. <em>Make sure to include an appropriate title and axes labels.</em></p></li>
+</ol>
+<p><strong>Part 2</strong></p>
+<p><strong><em>Question 1</em></strong>: What kind of relationship do the variables have? Linear? Quadratic? Cubic? Exponential? <br>
+<strong><em>Question 2</em></strong>: Using your graph that you made, estimate what the kinetic energy of the object is when it is moving at a speed of 4.5 m/s.</p>
+<p><strong>Part 3</strong></p>
+<p>In Exercise 5, we used lists to find and print the average of 10, 45, 6, 90, 5, 87, 56. Now, let’s use an array to find the average. Use this link <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html"><strong><em>NumPy Math Functions</em></strong></a> to find a function that may help you. <em>Do <strong>not</strong> use the average() function. Hint: think about what you need to do to find the average of a set of numbers step-by-step and see what function fits each step, if possible.</em> <strong>You must use array notation.</strong></p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 7 Part 1 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 7 Part 2 Below </left></h3><h3 style="background-color:lightblue"><left> Write Answer for Exercise 7 Part 3 Below </left></h3></div>
+<div class="section" id="function-visualizations">
+<h1>Function Visualizations<a class="headerlink" href="#function-visualizations" title="Permalink to this headline">¶</a></h1>
+<p>In <strong>Exercise 7, Part 1</strong> we learned how to discretize an interval of a function using NumPy operations.</p>
+<p>Let’s look at how the number of points we choose within an interval affects the output of a function. In this example, we are going to look at <span class="math notranslate nohighlight">\(\mathtt{sin(x)}\)</span> by dividing the interval [0, 2pi] into 5, 10, and 50 points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>                          <span class="c1"># 5 linearly-spaced elements within the interval of [0, 2pi]</span>
+<span class="n">sin5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t5</span><span class="p">)</span>                                            <span class="c1"># Map these 5 points to sin(x)</span>
+<span class="n">t10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>                        <span class="c1"># 10 linearly-spaced elements within the interval of [0, 2pi]</span>
+<span class="n">sin10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t10</span><span class="p">)</span>                                          <span class="c1"># Map these 10 points to sin(x) </span>
+<span class="n">t50</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>                        <span class="c1"># 50 linearly-spaced elements within the interval of [0, 2pi]</span>
+<span class="n">sin50</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t50</span><span class="p">)</span>                                          <span class="c1"># Map these 50 points to sin(x)</span>
+
+<span class="c1"># Graph for 5 points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t5</span><span class="p">,</span> <span class="n">sin5</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;sin(x) discretized at 5 points&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Graph for 10 points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t10</span><span class="p">,</span> <span class="n">sin10</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;sin(x) discretized at 10 points&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Graph for 50 points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t50</span><span class="p">,</span> <span class="n">sin50</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;sin(x) discretized at 50 points&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_119_0.png" src="../../_images/lab01_119_0.png" />
+<img alt="../../_images/lab01_119_1.png" src="../../_images/lab01_119_1.png" />
+<img alt="../../_images/lab01_119_2.png" src="../../_images/lab01_119_2.png" />
+</div>
+</div>
+<p>Through this, we can see that choosing a valid number of points to graph a function is very important.</p>
+<p>For the next example, we are going to analyze how an ordered x-coordinate <strong><em>list</em></strong> differs from an unordered <strong><em>list</em></strong>. Run the following code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>       <span class="c1"># Ordered</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>       <span class="c1"># Unordered</span>
+
+
+<span class="c1"># y = x ^3</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">**</span> <span class="mi">3</span>
+
+<span class="c1"># Ordered Graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;m-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ordered x-coordinates&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Unordered Graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s2">&quot;c-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Unordered x-coordinates&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_121_0.png" src="../../_images/lab01_121_0.png" />
+<img alt="../../_images/lab01_121_1.png" src="../../_images/lab01_121_1.png" />
+</div>
+</div>
+<p>Now let’s graph the same plots, but instead of a line graph, let’s use a scatter plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ordered Graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;mo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ordered x-coordinates&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Unordered Graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s2">&quot;co&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Unordered x-coordinates&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_123_0.png" src="../../_images/lab01_123_0.png" />
+<img alt="../../_images/lab01_123_1.png" src="../../_images/lab01_123_1.png" />
+</div>
+</div>
+<h3 style="color:red;"><left> Exercise 8</left></h3><p><strong>Part 1</strong></p>
+<p>In the previous example, we looked at the generation of plots from ordered and unordered x-coordinates.</p>
+<ol class="simple">
+<li><p>Explain why the second line graph plot looks like it does.</p></li>
+<li><p>To create a line graph, what format do the x-coordinates need to be in?</p></li>
+<li><p>Did creating a scatterplot give us valid results?</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 8 Part 1 Below </left></h3>
+<p><strong>Part 2</strong></p>
+<p>Consider the function <span class="math notranslate nohighlight">\(y = \sin(100 x)\)</span>.</p>
+<ol class="simple">
+<li><p>What is the period of the function?</p></li>
+<li><p>What is the frequency of the function?</p></li>
+<li><p>If we graph this function on the interval <span class="math notranslate nohighlight">\([0, \pi]\)</span>, how many oscillations will we see? Describe in words how you expect the plot to look.</p></li>
+<li><p>Run the cell below, which creates a graph of the equation between the interval [<span class="math notranslate nohighlight">\(\mathtt{0, \pi}\)</span>].</p></li>
+<li><p>Does the graph match what you expected it to be? Why or why not?</p></li>
+</ol>
+<p>In the next part we will explore what went wrong here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_129_0.png" src="../../_images/lab01_129_0.png" />
+</div>
+</div>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 8 Part 2 Below </left></h3><p><strong>Part 3</strong></p>
+<p>To better understand what went wrong in Part 2, let’s zoom in on just the first tenth of the graph. We can do this without changing the plot in any other way, simply by changing the x limits. In order to see exactly which points are shown, let’s make this a scatter plot as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab01_133_0.png" src="../../_images/lab01_133_0.png" />
+</div>
+</div>
+<p>Now we see that there are only five points being drawn in the first tenth of the interval! We expect there to be ten oscillations here, so that just is not enough. Let’s make an additional plot on top of this one, but sampling at way more points. In the following cell, assign a number to <code class="docutils literal notranslate"><span class="pre">number_of_samples</span></code>. Start with 200, and increase it until the graph shows a smooth, sinusoidal shape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_samples</span> <span class="o">=</span> <span class="c1"># You need to fill this in.</span>
+<span class="n">x_detailed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">number_of_samples</span><span class="p">)</span>
+<span class="n">y_detailed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">x_detailed</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_detailed</span><span class="p">,</span> <span class="n">y_detailed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]</span>
+    <span class="n">number_of_samples</span> <span class="o">=</span> <span class="c1"># You need to fill this in.</span>
+                        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can see what was going on: the points are coming from the correct function, but they are being sampled in a way which gives a misleading picture. Let’s see the same plot, but zoomed out to show the whole interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_detailed</span><span class="p">,</span> <span class="n">y_detailed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This phenomenon is called <em>aliasing</em>. There are actually lots of things called aliasing; it means a different thing in computer programming, and a different thing in radio engineering. This is what aliasing means in computer graphics and signal processing: if you sample a periodic function at too low a frequency, you can get a very misleading effect. You have to be careful to avoid this, by always ensuring that you have a high enough number of samples.</p>
+<p>Now answer the following questions.</p>
+<ol class="simple">
+<li><p>We did not specify how many samples to take in our initial plot. Why were there only five points in our zoomed-in plot? <em>Hint</em>: look up the function <code class="docutils literal notranslate"><span class="pre">linspace</span></code> in the official NumPy documentation here: <a class="reference external" href="https://numpy.org/doc/stable/">https://numpy.org/doc/stable/</a></p></li>
+<li><p>Look up the “wagon wheel effect.” What does that have to do with aliasing, and with this example specifically?</p></li>
+<li><p>Look up the “Nyquist frequency.” Explain how you can use the concept of the Nyquist frequency to make a good choice for the number of samples you take.</p></li>
+</ol>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 8 Part 3 Below </left></h3></div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/1_into_to_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Mireille Boutin, Alden Bradford<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
