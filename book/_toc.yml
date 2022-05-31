@@ -23,7 +23,7 @@ parts:
   - file: labs/4_measure_tall_things/e_symbolic_error/lab10.ipynb
 - caption: Measure the speeds of nearby things
   chapters:
-  - file: labs/5_measure_speeds/a_derivates/lab4.ipynb
+  - file: labs/5_measure_speeds/a_derivatives/lab4.ipynb
   - file: labs/5_measure_speeds/b_build_a_tool/lab5.ipynb
 - caption: Design a project of your own
   chapters:
