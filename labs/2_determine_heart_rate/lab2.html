@@ -518,12 +518,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>You use a tire pressure gauge to figure out the pressure in your car tires. It only has a marking every 2 PSI, so you do your best to estimate the value to the nearest PSI.</p></li>
 <li><p>You use a GPS system to track how long your commute is, but it only takes into account longitude and latitude, not elevation.</p></li>
 </ol>
-<h3 style="background-color:lightblue"><left> Write Answers Below </left></h3><ol class="simple">
-<li><p>Measurement error because it is an error that occurs with how the instrument reads the temperature</p></li>
-<li><p>Roundoff error because while it is a poor design, the error lies with estimating to the nearest PSI rather than changing instruments</p></li>
-<li><p>Measurement error because it is an error that occurs due to how the instrument is designed</p></li>
-</ol>
-</div>
+<h3 style="background-color:lightblue"><left> Write Answers Below </left></h3></div>
 <div class="section" id="two-ways-errors-behave">
 <h1>Two ways errors behave<a class="headerlink" href="#two-ways-errors-behave" title="Permalink to this headline">¶</a></h1>
 <p>We usually represent error with a variable either as <span class="math notranslate nohighlight">\(e\)</span> (short for error), or in Greek with the lower case letter epsilon which makes the same sound, written as either <span class="math notranslate nohighlight">\(\epsilon\)</span> or <span class="math notranslate nohighlight">\(\varepsilon\)</span>. This lets us represent how any measured quantity <span class="math notranslate nohighlight">\(x\)</span> is related to its “true value” <span class="math notranslate nohighlight">\(t\)</span>:
@@ -553,22 +548,11 @@ and the term \)</span>\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}<
 <li><p>You use a tire pressure gauge to figure out the pressure in your car tires. It only has a marking every 2 PSI, so you do your best to estimate the value to the nearest PSI.</p></li>
 <li><p>You use a GPS system to track how long your commute is, but it only takes into account longitude and lattitude, not elevation.</p></li>
 </ol>
-<h3 style="background-color:lightblue"><left> Write Answers Below </left></h3><ol class="simple">
-<li><p>This source of error is random error because the leveling of the book would change every time and may sometimes be level, meaning that the positive and negative of epsilon would about even each other out.</p></li>
-<li><p>This source of error is systematic error because the book will consistently not be level in the same direction, causing epsilon to never balance out.</p></li>
-<li><p>This source of error is systematic error because the sun will always shine directly on the thermometer if it stays in the same spot, which means epsilon will never balance out.</p></li>
-<li><p>This source of error is random error because eye-balling the pressure will cause it to be occasionally too much and occasionally too little, meaning that epsilon will mostly balance out.</p></li>
-<li><p>This source of error is systematic error because the GPS system will always overlook elevation, meaning the reading will always be less than it should be causing epsilon to never balance out.</p></li>
-</ol>
-<h2 style="color:orange;"><left>2. Data Acquisition </left></h2><p>You will collect data today using the <a class="reference external" href="https://pulsesensor.com/pages/about-us">Pulse Sensor</a>, which shines a bright light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
+<h3 style="background-color:lightblue"><left> Write Answers Below </left></h3><h2 style="color:orange;"><left>2. Data Acquisition </left></h2><p>You will collect data today using the <a class="reference external" href="https://pulsesensor.com/pages/about-us">Pulse Sensor</a>, which shines a bright light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
 <p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code. Have a look at the script <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. It does a very simple thing: it listens for a message containing a sample rate and a number of samples. Then, with the frequency given in the message, it measures the voltage on a specific pin and sends a message with that measurement. It does this the specified number of times, and then sends the message <code class="docutils literal notranslate"><span class="pre">&quot;done&quot;</span></code>.</p>
 <h3 style="color:red;"><left> Exercise 3 </left></h3>
 <p>Before moving on, we should decide on a sampling frequency – that is, how often do you want to know your approximate blood pressure? As we saw in Lab 1, it would be easy to get the wrong impression from an oscillating signal if you don’t sample frequently enough. Considering the range of possible heart rates for adults, how would you choose the sampling rate?  Write your choice below, along with your reasoning for choosing that sampling rate.</p>
-<h3 style="background-color:lightblue"><left> Write Answer Below </left></h3><p>NOTE: Include a link regarding the possible heart rates for adults or tell the students to look it up?</p>
-<p>Since the range of possible heart rates for adults is 60 to 100 beats per minute, the sampling rate should be approximately twice a second, since this would allow for finding one beat per minute or two beats per minute, accounting for 60 to 120 beats per minute.</p>
-<hr class="docutils" />
-<p>Time it took to complete up to this point: 26 minutes.</p>
-</div>
+<h3 style="background-color:lightblue"><left> Write Answer Below </left></h3></div>
 </div>
 <div class="section" id="loading-firmware-onto-the-microcontroller">
 <h1>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this headline">¶</a></h1>
@@ -617,10 +601,6 @@ and the term \)</span>\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}<
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "f61733ae1c42473db014693ed53bc7c1", "version_major": 2, "version_minor": 0}
-</script></div>
 </div>
 <p>Now, touch the pad of your finger to the side of the heart monitor with a picture of a heart on it.
 Your finger should be barely touching it – don’t apply pressure. Once you have it situated correctly, run the following cell to acquire data. This cell has a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop in it, which will just run forever unless we do something to stop it. Once you have found your pulse, hit the “stop” button at the top of the page to leave the loop. What it shows will be stored.</p>
@@ -631,40 +611,6 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
         <span class="n">acquire</span><span class="p">(</span><span class="n">rate</span> <span class="o">=</span> <span class="n">sampling_rate</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done acquiring!&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>         <span class="n">acquire</span><span class="p">(</span><span class="n">rate</span> <span class="o">=</span> <span class="n">sampling_rate</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done acquiring!&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/Desktop/DSLab_Calculus/book/labs/2_determine_heart_rate/heartbeat.py:47,</span> in <span class="ni">acquire</span><span class="nt">(rate, y, line, fig, min_frame_time)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">most_recent_draw</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">serial_lines</span><span class="p">(</span>
-<span class="ne">---&gt; </span><span class="mi">47</span>     <span class="n">get_pico_port</span><span class="p">(),</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>     <span class="n">timeout</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">ending</span><span class="o">=</span><span class="s2">&quot;done&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>     <span class="k">if</span> <span class="n">entry</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>         <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-
-<span class="nn">File ~/Desktop/DSLab_Calculus/book/labs/2_determine_heart_rate/heartbeat.py:12,</span> in <span class="ni">get_pico_port</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">pico_ports</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">list_ports</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="n">PICO_HWID</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pico_ports</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="s2">&quot;No Raspberry Pi Pico was detected. Check to make sure it is plugged in, and that no other programs are accessing it&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">return</span> <span class="n">pico_ports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">device</span>
-
-<span class="ne">Exception</span>: No Raspberry Pi Pico was detected. Check to make sure it is plugged in, and that no other programs are accessing it
 </pre></div>
 </div>
 </div>
