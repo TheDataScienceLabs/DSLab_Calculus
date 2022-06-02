@@ -525,11 +525,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data Science is cool!
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -541,11 +536,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <span class="n">add12</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 + 2 = 3
 </pre></div>
 </div>
 </div>
@@ -575,15 +565,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a - b = 1
-a - b = 21
-a - b = -21
-a - b = -2
-a - b = [17 17 17 17 17]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Parameters can be strings as well.</p>
 <div class="cell docutils container">
@@ -594,12 +575,6 @@ a - b = [17 17 17 17 17]
 
 
 <span class="n">info</span><span class="p">(</span><span class="s2">&quot;Purdue Pete&quot;</span><span class="p">,</span> <span class="s2">&quot;boilerup@purdue.edu&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: Purdue Pete
-Email: boilerup@purdue.edu
 </pre></div>
 </div>
 </div>
@@ -626,12 +601,6 @@ Email: boilerup@purdue.edu
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-The values of d and g are 30 and 41, respectively.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Let’s look at why functions are good at reducing repetition in code.</p>
 <div class="cell docutils container">
@@ -649,14 +618,6 @@ The values of d and g are 30 and 41, respectively.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Repetitive code when functions can be used are unprofessional and take space.
-3
-3
-3
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -670,14 +631,6 @@ The values of d and g are 30 and 41, respectively.
 <span class="n">print3</span><span class="p">()</span>
 <span class="n">print3</span><span class="p">()</span>
 <span class="n">print3</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Functions can help keep your code neat, concise, and easy to read.
-3
-3
-3
 </pre></div>
 </div>
 </div>
@@ -715,37 +668,6 @@ The values of d and g are 30 and 41, respectively.
 <li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
 </ul>
 <h3 style="background-color:lightblue"><left> Write Answers for Exercise 1 Below </left></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE: changed text box from Markdown to Code</span>
-
-<span class="kn">import</span> <span class="nn">math</span>
-
-<span class="k">def</span> <span class="nf">trapezoid_area</span><span class="p">(</span><span class="n">base1</span><span class="p">,</span> <span class="n">base2</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-    <span class="n">area</span> <span class="o">=</span> <span class="p">((</span><span class="n">base1</span> <span class="o">+</span> <span class="n">base2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">height</span>
-    <span class="k">return</span> <span class="n">area</span>
-
-<span class="k">def</span> <span class="nf">slope</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
-    <span class="n">slopeval</span> <span class="o">=</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">slopeval</span>
-
-<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">arrsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">meanval</span> <span class="o">=</span> <span class="n">arrsum</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">meanval</span>
-
-<span class="k">def</span> <span class="nf">std</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">val</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">value</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="functions-make-code-reusable">
 <h1>Functions make code reusable<a class="headerlink" href="#functions-make-code-reusable" title="Permalink to this headline">¶</a></h1>
@@ -764,12 +686,6 @@ The values of d and g are 30 and 41, respectively.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name: Alden Bradford
-email: bradfoa@purdue.edu
-</pre></div>
-</div>
-</div>
 </div>
 <h3 style="color:red;"><left> Exercise 2 </left></h3>
 <p>Modify <code class="docutils literal notranslate"><span class="pre">student_info.py</span></code> to give your own contact information. You will use this file in the future to put a heading on your lab submissions.</p>
@@ -777,12 +693,6 @@ email: bradfoa@purdue.edu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name: Julia Long
-email: long389@purdue.edu
 </pre></div>
 </div>
 </div>
@@ -805,13 +715,6 @@ email: long389@purdue.edu
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hey
-hey
-hey
-</pre></div>
-</div>
-</div>
 </div>
 <p>In the above block, we are not calling the <code class="docutils literal notranslate"><span class="pre">greet</span></code> function directly – instead we are passing it as a variable into the function <code class="docutils literal notranslate"><span class="pre">do_three_times</span></code>, which in turn calls the greet function.</p>
 <p>A really common way to take advantage of this pattern is to pass a function into another one, which checks to see if it is working correctly. Let’s do that now! We have written a couple functions which check to see if the functions <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> and <code class="docutils literal notranslate"><span class="pre">slope</span></code> which you wrote are working correctly. Run the following cell and see! If your functions are not working how they should, go back and change them to make sure you get full points.</p>
@@ -821,12 +724,6 @@ hey
 
 <span class="n">check_trapezoid_area</span><span class="p">(</span><span class="n">trapezoid_area</span><span class="p">)</span>
 <span class="n">check_slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>all 3 tests passed successfully. Good job!
-all 3 tests passed successfully. Good job!
 </pre></div>
 </div>
 </div>
@@ -862,7 +759,7 @@ all 3 tests passed successfully. Good job!
     <span class="n">maxima</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
     <span class="n">maxima</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">increasing</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">decreasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  
     <span class="n">peak_indices</span> <span class="o">=</span> <span class="n">maxima</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">averaged</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[</span><span class="n">maxima</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-    <span class="n">peak_times</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">]</span>
+    <span class="n">peak_times</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">]</span>
     <span class="n">gaps</span> <span class="o">=</span> <span class="n">peak_times</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">peak_times</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">gaps</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">gaps</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
 </pre></div>
@@ -886,7 +783,7 @@ all 3 tests passed successfully. Good job!
 <p>Since you have the period of your heartbeat signal, you can extract just one cycle of the initial signal. In the following cell, fill in a start time which gives you a good window capturing one full heart beat.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">period</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">cycle</span> <span class="o">=</span> <span class="n">heartbeat</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 <span class="n">cycle_t</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
@@ -895,20 +792,6 @@ all 3 tests passed successfully. Good job!
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_29746</span><span class="o">/</span><span class="mf">2745341538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">start_time</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">period</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">cycle</span> <span class="o">=</span> <span class="n">heartbeat</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">cycle_t</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;time&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -923,14 +806,6 @@ all 3 tests passed successfully. Good job!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_29746/1847614210.py&quot;</span><span class="gt">, line </span><span class="mi">3</span>
-    <span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span> <span class="p">)</span>
-                                                      <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">interpolant</span></code> represents a list of coefficients of a polynomial. We can also call it as a function. Let’s use that to show how well it lines up with the data we measured:</p>
 <div class="cell docutils container">
@@ -938,18 +813,6 @@ all 3 tests passed successfully. Good job!
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_29746</span><span class="o">/</span><span class="mf">1394099672.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -991,7 +854,7 @@ all 3 tests passed successfully. Good job!
 </div>
 <h3 style="color:red;"><left> Exercise 5 </left></h3>
 <p>Interpret the plot above. After what point do we see diminishing returns on the model’s fit? What is the smallest degree of polynomial which has a reasonably low mean square error, in your opinion? Write in complete sentences here, as if you were describing the plot in a professional report.</p>
-</div>
+<h3 style="background-color:lightblue"><left> Write Answers for Exercise 5 Below </left></h3></div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exploring-the-data-using-the-polynomial-model">
 <h1>Exploring the data using the polynomial model<a class="headerlink" href="#exploring-the-data-using-the-polynomial-model" title="Permalink to this headline">¶</a></h1>
@@ -1015,19 +878,6 @@ all 3 tests passed successfully. Good job!
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_29746</span><span class="o">/</span><span class="mf">702933639.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1056,7 +906,7 @@ all 3 tests passed successfully. Good job!
 </div>
 </div>
 </div>
-<h3 style="color:red;"><left> Exercise 5 </left></h3>
+<h3 style="color:red;"><left> Exercise 6 </left></h3>
 <p>Remember the closed interval method from calculus 1, where you find all the critical numbers of a function within its interval, and plug those into the function to find the maximum and minimum values. Write a function which does exactly that, to a polynomial interpolant.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1086,7 +936,7 @@ all 3 tests passed successfully. Good job!
 </div>
 </div>
 <p>The ratio b/a is based off the maximum and minimum values of the second derivative. Specifically, it is their ratio. Since the photoplethysmogram is concave up in some places and concave down in others, the maximum will be positive and the minimum will be negative. Since we are more familiar working with positive numbers, people usually compute <span class="math notranslate nohighlight">\(-b/a\)</span>, where <span class="math notranslate nohighlight">\(b\)</span> is the minimum value of the second derivative and <span class="math notranslate nohighlight">\(a\)</span> is the maximum value of the second derivative.</p>
-<h3 style="color:red;"><left> Exercise 6 </left></h3>
+<h3 style="color:red;"><left> Exercise 7 </left></h3>
 <p>Write a function to compute the ratio b/a. You should still be able to reuse the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code> (ask for help if you need a hint for how to do this).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1103,7 +953,7 @@ all 3 tests passed successfully. Good job!
 <div class="tex2jax_ignore mathjax_ignore section" id="measure-yourself">
 <h1>Measure yourself!<a class="headerlink" href="#measure-yourself" title="Permalink to this headline">¶</a></h1>
 <p>Let’s look at where we are. Today, you have learned about writing functions. You have written functions which identify the period of a heartbeat signal, interpolate it with a polynomial, and compute two medically interesting values from it. We saw that by reusing old code, we can save ourselves a lot of time. That is a lot! Well done.</p>
-<h3 style="color:red;"><left> Exercise 7 </left></h3>
+<h3 style="color:red;"><left> Exercise 8 </left></h3>
 <p>In the remaining time, you should put the tools you have used to work. Make a new Jupyter notebook, copying code from lab 2, to capture some new pulse data (remember, it is good practice to separate data acquisition from data analysis!). Then, analyze it here using the functions you have written. Here are three questions you can consider:</p>
 <ol class="simple">
 <li><p>If you jog up and down the hallway briefly, how does your pulse rate change?</p></li>
