@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Mathematics &#8212; The Data Science Labs on Differential and Integral Calculus</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +107,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../intro.html">
-   The Data Science Labs on Differential and Integral Calculus
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    The Data Science Labs on Differential and Integral Calculus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Intro to Notebooks
  </span>
@@ -207,107 +222,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/labs/5_measure_speeds/a_derivatives/lab4.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/AldenMB/DSLab_Calculus"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/a_derivatives/lab4.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/5_measure_speeds/a_derivatives/lab4.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/5_measure_speeds/a_derivatives/lab4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/AldenMB/DSLab_Calculus"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/a_derivatives/lab4.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/labs/5_measure_speeds/a_derivatives/lab4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Mathematics
@@ -369,12 +486,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Mathematics</h1>
@@ -452,7 +568,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div style="background-color:lightblue">
@@ -465,15 +582,15 @@ const thebe_selector_output = ".output, .cell_output"
     Laboratory 4<br/>
    Floating Point Numbers<br/>
     <small>Last Updated December 17, 2021 </small>
-</center></h1><h2 style="color:orange;"><left>0. Content </left></h2><div class="section" id="mathematics">
-<h1>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h1>
+</center></h1><h2 style="color:orange;"><left>0. Content </left></h2><section id="mathematics">
+<h1>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Approximating derivatives using finite difference schemes</p></li>
 <li><p>Approximation bias</p></li>
 </ul>
-</div>
-<div class="section" id="programming-skills">
-<h1>Programming Skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="programming-skills">
+<h1>Programming Skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>number types: int, float</p></li>
 <li><p>use of underscore as a numerical separator</p></li>
@@ -487,9 +604,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="two-types-of-numbers-in-python">
-<h1>Two types of numbers in Python<a class="headerlink" href="#two-types-of-numbers-in-python" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="two-types-of-numbers-in-python">
+<h1>Two types of numbers in Python<a class="headerlink" href="#two-types-of-numbers-in-python" title="Permalink to this headline">#</a></h1>
 <p>One of the benefits of using Python is that it has great support for numbers. This makes it much more friendly for doing math than, for example, Javascript or C. Whole numbers in Python have the type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which is short for Integer. You can check this yourself:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,9 +681,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>distance from New York to Los Angeles (you can look this one up on Wolfram Alpha instead of Wikipedia)</p></li>
 <li><p>Freezing point of water (in Kelvin) at atmospheric pressure</p></li>
 </ul>
-<h3 style="background-color:lightblue"><left> Write Answer for Exercise 1 Below: </left></h3></div>
-<div class="tex2jax_ignore mathjax_ignore section" id="troubles-with-floating-point-numbers">
-<h1>Troubles with floating point numbers<a class="headerlink" href="#troubles-with-floating-point-numbers" title="Permalink to this headline">¶</a></h1>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 1 Below: </left></h3></section>
+<section class="tex2jax_ignore mathjax_ignore" id="troubles-with-floating-point-numbers">
+<h1>Troubles with floating point numbers<a class="headerlink" href="#troubles-with-floating-point-numbers" title="Permalink to this headline">#</a></h1>
 <p>Precision is usually not a problem with floating point numbers, with one major exception which we will address later. The main issue you will face is when comparing numbers. Check this out:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,9 +720,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="catastrophic-cancellation">
-<h1>Catastrophic cancellation<a class="headerlink" href="#catastrophic-cancellation" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="catastrophic-cancellation">
+<h1>Catastrophic cancellation<a class="headerlink" href="#catastrophic-cancellation" title="Permalink to this headline">#</a></h1>
 <p>There is one situation where roundoff error is a really big problem. That is when you are subtracting two numbers which are very close together. This isn’t anything special about floating point numbers, this is just a fact about rounding. Here, have a look:</p>
 <p>\begin{array}{r}
 3.14159265358???\
@@ -621,8 +738,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h3 style="color:red;"><left> Exercise 3 </left></h3>
 <p>What is the absolute error in the output? What are the relative errors of each of the inputs, and what is the relative error of the output?</p>
 <h3 style="background-color:lightblue"><left> Write Answer for Exercise 3 Below </left></h3><h3 style="color:red;"><left> Exercise 4 </left></h3>
-<div class="section" id="a-practical-example-of-catastrophic-cancellation">
-<h2>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Permalink to this headline">¶</a></h2>
+<section id="a-practical-example-of-catastrophic-cancellation">
+<h2>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Permalink to this headline">#</a></h2>
 <p>Here we walk you through coding an example where catestrophic cancellation makes a pretty big difference, and something clever you can do to fix it.</p>
 <ol class="simple">
 <li><p>Write a function which takes the coefficients <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> from a polynomial <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> and gives you a list of the roots. Just apply the standard quadratic formula. For now, you can assume that <span class="math notranslate nohighlight">\(b^2-4ac&gt;0\)</span> so you can take the square root, and you can assume <code class="docutils literal notranslate"><span class="pre">a</span></code> is not zero. Have it give the smaller root first (you can use the built in function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> for this).</p></li>
@@ -711,10 +828,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>This example shows how catestrophic cancellation can occur even in friendly, well-known functions. This also shows that we can usually deal with it, by doing some clever algebra. This is such a common issue that there are now tools available to identify and fix catestrophic cancellation. If you are curious, check out <a class="reference external" href="http://herbie.uwplse.org/">Herbie</a>, which a friend of mine helped to create.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="numerical-differentiation">
-<h1>Numerical differentiation<a class="headerlink" href="#numerical-differentiation" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="numerical-differentiation">
+<h1>Numerical differentiation<a class="headerlink" href="#numerical-differentiation" title="Permalink to this headline">#</a></h1>
 <p>Now you are prepared to see the major problem we are up against when trying to compute derivatives using floating-point arithmetic. Remember that by definition, the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -755,12 +872,12 @@ f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <p>In light of what you have learned today about catastrophic cancellation, explain the shape of the curve you get. Explain why it is not a good idea to just make <span class="math notranslate nohighlight">\(h\)</span> as small as possible. What is the smallest relative error we can achieve using this method?</p>
-<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 5 Part 2 Below </left></h3></div>
-<div class="tex2jax_ignore mathjax_ignore section" id="finite-difference-schemes">
-<h1>Finite difference schemes<a class="headerlink" href="#finite-difference-schemes" title="Permalink to this headline">¶</a></h1>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 5 Part 2 Below </left></h3></section>
+<section class="tex2jax_ignore mathjax_ignore" id="finite-difference-schemes">
+<h1>Finite difference schemes<a class="headerlink" href="#finite-difference-schemes" title="Permalink to this headline">#</a></h1>
 <p>This shows the basic struggle of computing numerical derivatives: the definition of the derivative requires <code class="docutils literal notranslate"><span class="pre">h</span></code> to be infinitely small, but we can’t practically make it that small. This isn’t just because of catesprophic cancellation, by the way – often when working with real data you are limited in how fast you can collect it. Hence, our goal will be to find ways to get more accurate estimates of the derivative without just making the step size <span class="math notranslate nohighlight">\(h\)</span> tiny. We will consider <span class="math notranslate nohighlight">\(h\)</span> to be fixed, and try to get our estimate as good as possible.</p>
-<div class="section" id="bias-in-the-forward-difference">
-<h2>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Permalink to this headline">¶</a></h2>
+<section id="bias-in-the-forward-difference">
+<h2>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Permalink to this headline">#</a></h2>
 <p>Let’s examine the finite difference method, applied to the function <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. For ease of illustration, let’s choose <span class="math notranslate nohighlight">\(h=0.5\)</span>. Our estimate of <span class="math notranslate nohighlight">\(f'(2)\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -816,9 +933,9 @@ The correct derivative is 12, and the other terms (most of all the term <span cl
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="correcting-the-bias">
-<h2>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="correcting-the-bias">
+<h2>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">#</a></h2>
 <p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
 <p>\begin{align*}
 \frac{1}{2}\left[ \frac{f(x+h) - f(x)}{h} + \frac{f(x-h)-f(x)}{-h} \right]
@@ -850,10 +967,10 @@ $<span class="math notranslate nohighlight">\(
 This is still a slight overestimate. However, it's clearly way better for any given step size \)</span>h<span class="math notranslate nohighlight">\(. The error gets small really fast, too: if we instead had \)</span>h=10^{-9}<span class="math notranslate nohighlight">\(, the error would be just \)</span>(10^{-9})^2 = 10^{-18}$, which is below the floating-point error. Symmetric difference is better than forward difference!</p>
 <h3 style="color:red;"><left> Exercise 8 </left></h3>
 <p>Work out the symmetric difference exactly on paper for the function <span class="math notranslate nohighlight">\(f(x)=5x^2+3x-7\)</span>, for a variable step size <span class="math notranslate nohighlight">\(h\)</span>, at the point <span class="math notranslate nohighlight">\(x=2\)</span>. Find the relative error algebraically, and comment on it.</p>
-<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 8 Below </left></h3></div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="unequal-step-sizes">
-<h1>Unequal step sizes<a class="headerlink" href="#unequal-step-sizes" title="Permalink to this headline">¶</a></h1>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 8 Below </left></h3></section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="unequal-step-sizes">
+<h1>Unequal step sizes<a class="headerlink" href="#unequal-step-sizes" title="Permalink to this headline">#</a></h1>
 <p>When we can control the step size, we are lucky: there are just two points to check in the symmetric difference scheme! The middle term cancelled out. With real data, we are not always so lucky: most of the time, data just comes in when it’s available. We can get a formula that’s just as good as the symmetric difference scheme, even if the step sizes are not equal. The trick is to ask for that cool property you just found, that the formula should be exact for quadratic polynomials. That is: we are looking for numbers <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, <span class="math notranslate nohighlight">\(d_+\)</span> so that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -991,7 +1108,7 @@ f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 <p>In a language like Python (or Julia, or Matlab, for that matter) a so-called “vectorized” procedure goes way faster than looping through the variables, because you can pass all the difficult computation to highly-optimized code (in our case, the code which comes in the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>). This makes a trivial difference for small arrays, but when we start to have hundreds or thousands of entries in our arrays it makes a huge difference. That is one reason why people often prefer to write functions which treat the data as arrays, rather than looping through lists like you would do in other languages like C, Java, or Javascript.</p>
 <p>Another reason is that many people find the code easier to read, and easier to understand, if it is written in a vectorized way.</p>
 <p>Write a few sentences of your thoughts on the matter. Do you find the function <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> you write to be easier to read than if it were done with a loop? Which parts are harder to read, which parts easier? Give your honest opinion.</p>
-<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 11 Part 4 Below </left></h3></div>
+<h3 style="background-color:lightblue;"><left> Write Answer for Exercise 11 Part 4 Below </left></h3></section>
 
     <script type="text/x-thebe-config">
     {
@@ -1015,9 +1132,11 @@ f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../../4_measure_tall_things/e_symbolic_error/lab10.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1033,24 +1152,28 @@ f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mireille Boutin, Alden Bradford<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Mireille Boutin, Alden Bradford<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

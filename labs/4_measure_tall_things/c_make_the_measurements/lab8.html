@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Put your inclinometer to use &#8212; The Data Science Labs on Differential and Integral Calculus</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +107,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../intro.html">
-   The Data Science Labs on Differential and Integral Calculus
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    The Data Science Labs on Differential and Integral Calculus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Intro to Notebooks
  </span>
@@ -207,107 +222,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/labs/4_measure_tall_things/c_make_the_measurements/lab8.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/AldenMB/DSLab_Calculus"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/4_measure_tall_things/c_make_the_measurements/lab8.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/4_measure_tall_things/c_make_the_measurements/lab8.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/4_measure_tall_things/c_make_the_measurements/lab8.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/AldenMB/DSLab_Calculus"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/4_measure_tall_things/c_make_the_measurements/lab8.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/labs/4_measure_tall_things/c_make_the_measurements/lab8.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Put your inclinometer to use
@@ -520,12 +637,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Put your inclinometer to use</h1>
@@ -754,7 +870,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div style="background-color:lightblue">
@@ -775,54 +892,54 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="put-your-inclinometer-to-use">
-<h1>Put your inclinometer to use<a class="headerlink" href="#put-your-inclinometer-to-use" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="put-your-inclinometer-to-use">
+<h1>Put your inclinometer to use<a class="headerlink" href="#put-your-inclinometer-to-use" title="Permalink to this headline">#</a></h1>
 <p>Today, you will gather some data using the inclinometer you built before break. <strong>You should work in groups of 2 or 3 today. You should collaborate on your answers. For this lab, it is okay if your answers are identical to your group mates’ answers.</strong> Get into a group now, and write the names of your group members here.</p>
 <h3 style="background-color:lightblue"><left> Write the names of your group members below.</left></h3><p>(put your group members’ names here)</p>
-<div class="section" id="review-the-method-for-measuring-heights-using-an-inclinometer-and-rope">
-<h2>Review the method for measuring heights using an inclinometer and rope<a class="headerlink" href="#review-the-method-for-measuring-heights-using-an-inclinometer-and-rope" title="Permalink to this headline">¶</a></h2>
+<section id="review-the-method-for-measuring-heights-using-an-inclinometer-and-rope">
+<h2>Review the method for measuring heights using an inclinometer and rope<a class="headerlink" href="#review-the-method-for-measuring-heights-using-an-inclinometer-and-rope" title="Permalink to this headline">#</a></h2>
 <p>Attached is the document <code class="docutils literal notranslate"><span class="pre">trig_handout.pdf</span></code>, which describes a method for measuring the height of an object using only an inclinometer and a rope. Read it and get familiar with the method. Then work with your group members to answer the following questions:</p>
-<div class="section" id="span-style-color-red-exercise-1-span-10-pts">
-<h3><span style="color:red">Exercise 1</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-10-pts" title="Permalink to this headline">¶</a></h3>
+<section id="span-style-color-red-exercise-1-span-10-pts">
+<h3><span style="color:red">Exercise 1</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-10-pts" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Why is it not necessary to measure your distance from the base of the object you are measuring?</p></li>
 <li><p>Why is it important that the same person make the measurement at the near and far ends of the rope?</p></li>
 <li><p>What would happen if the rope were not straight, or not pointed toward the object you are measuring?</p></li>
 </ul>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span">
-<h3><span style="background-color:lightblue">Write your answer for exercise 1 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="review-the-types-of-errors">
-<h2>Review the types of errors<a class="headerlink" href="#review-the-types-of-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 1 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-1-below-span" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="review-the-types-of-errors">
+<h2>Review the types of errors<a class="headerlink" href="#review-the-types-of-errors" title="Permalink to this headline">#</a></h2>
 <p>Look back at lab 2, where we first introduced error analysis. Work with your group members to answer the following questions:</p>
-<div class="section" id="span-style-color-red-exercise-2-span-10-pts">
-<h3><span style="color:red">Exercise 2</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-10-pts" title="Permalink to this headline">¶</a></h3>
+<section id="span-style-color-red-exercise-2-span-10-pts">
+<h3><span style="color:red">Exercise 2</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-10-pts" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>What are the four types of errors described in lab 2? Just list their names.</p></li>
 <li><p>Identify at least five sources of error which might apply to the procedure for measuring the heights of buildings. You should include at least one example of a modeling error and at least two examples of measurement errors.</p></li>
 <li><p>For each type of error you identified, describe a way you can reduce the effect of that error.</p></li>
 </ul>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span">
-<h3><span style="background-color:lightblue">Write your answer for exercise 2 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="measure-a-rope">
-<h2>Measure a rope<a class="headerlink" href="#measure-a-rope" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 2 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-2-below-span" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="measure-a-rope">
+<h2>Measure a rope<a class="headerlink" href="#measure-a-rope" title="Permalink to this headline">#</a></h2>
 <p>We have ropes available for you. Their lengths are unknown. You will have to figure out how long your rope is. A tape measure available, but it is not as long as your rope (long tape measures are expensive and bulky).</p>
-<div class="section" id="span-style-color-red-exercise-3-span-10-pts">
-<h3><span style="color:red">Exercise 3</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-10-pts" title="Permalink to this headline">¶</a></h3>
+<section id="span-style-color-red-exercise-3-span-10-pts">
+<h3><span style="color:red">Exercise 3</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-10-pts" title="Permalink to this headline">#</a></h3>
 <p>Work with your group to figure out a method you can use to measure the length of your rope. Describe your method here. Carry out your procedure, and write down the length you find. Finally, give an estimate of the error in your measurement. How close to the true length is the length you measured? How do you know?</p>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span">
-<h3><span style="background-color:lightblue">Write your answer for exercise 3 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="gather-data">
-<h1>Gather data<a class="headerlink" href="#gather-data" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 3 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-3-below-span" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gather-data">
+<h1>Gather data<a class="headerlink" href="#gather-data" title="Permalink to this headline">#</a></h1>
 <p>Attached is the file <code class="docutils literal notranslate"><span class="pre">lab_record_sheet.pdf</span></code>. It has pictures of five buildings, and a table for you to fill in. Print this out. You will record the measurer’s height, the length of rope, and the components of acceleration from your inclinometer. You will only need one inclinometer; choose one from your group to use. <strong>Record the acceleration components directly, not the angle</strong> for reasons which will become clear next week. You need to get at least three measurements of at least three buildings – a minimum of nine measurements. You can measure them in whatever order you like. If you have time, measure all five buildings but <strong>don’t spend more than an hour measuring buildings</strong>. If you only have three buildings measured after an hour, that’s fine. Here are some tips which you may find useful:</p>
 <ul class="simple">
 <li><p>Measure each group members’s height, up to their eyeball. This will be easier to do before you go out, since you can use a tape measure. You may find it helpful to write the measurer’s name on the sheet, and fill in the height later.</p></li>
@@ -832,15 +949,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Your answers will be more accurate if you place the near end of the rope close to the object you are measuring, and the far end far away.</p></li>
 </ul>
 <p><strong>Before you go</strong>, describe the procedure you will use to your instructor. Once you have explained your procedure, go ahead and start measuring!</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="fill-in-a-table">
-<h1>Fill in a table<a class="headerlink" href="#fill-in-a-table" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="span-style-color-red-exercise-4-span-10-pts">
-<h2><span style="color:red">Exercise 4</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this headline">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fill-in-a-table">
+<h1>Fill in a table<a class="headerlink" href="#fill-in-a-table" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-red-exercise-4-span-10-pts">
+<h2><span style="color:red">Exercise 4</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this headline">#</a></h2>
 <p>Open the file <code class="docutils literal notranslate"><span class="pre">building_heights.csv</span></code> using a spreadsheet editor such as Libreoffice Calc, and fill in the cells with the data you acquired. Make sure to save it as a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. Then, run the cell below which will load and display your answers.</p>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span">
-<h2><span style="background-color:lightblue">Write your answer for exercise 4 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 4 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-4-below-span" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -860,48 +977,48 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="describe-your-experience">
-<h1>Describe your experience<a class="headerlink" href="#describe-your-experience" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="describe-your-experience">
+<h1>Describe your experience<a class="headerlink" href="#describe-your-experience" title="Permalink to this headline">#</a></h1>
 <p>Any time you gather data, it is good to produce a written reflection on what happened. Together with your group members, answer the following questions:</p>
-<div class="section" id="span-style-color-red-exercise-5-span-15-pts">
-<h2><span style="color:red">Exercise 5</span> (15 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-15-pts" title="Permalink to this headline">¶</a></h2>
+<section id="span-style-color-red-exercise-5-span-15-pts">
+<h2><span style="color:red">Exercise 5</span> (15 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-15-pts" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Approximately how long did you spend on each part of the process? Did any parts take longer than expected?</p></li>
 <li><p>Did any surprises occur while you were gathering data? Did you notice any sources of error which you did not expect?</p></li>
 <li><p>Which of your measurements do you suspect to be the most accurate? Which do you suspect to be the least accurate?</p></li>
 </ul>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span">
-<h2><span style="background-color:lightblue">Write your answer for exercise 5 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="compute-some-answers">
-<h1>Compute some answers<a class="headerlink" href="#compute-some-answers" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 5 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-5-below-span" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="compute-some-answers">
+<h1>Compute some answers<a class="headerlink" href="#compute-some-answers" title="Permalink to this headline">#</a></h1>
 <p>Remember the formula we found in <code class="docutils literal notranslate"><span class="pre">trig_handout.pdf</span></code>:
 \[
 h = \frac{r}{\cot \theta -\cot \phi}+k.
 \]
 It has terms <span class="math notranslate nohighlight">\(\cot\theta\)</span> and <span class="math notranslate nohighlight">\(\cot\phi\)</span>. We will need to compute these from the data you gathered – the components of acceleration. Together with your team mates, answer the following questions.</p>
-<div class="section" id="span-style-color-red-exercise-6-span-10-pts">
-<h2><span style="color:red">Exercise 6</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this headline">¶</a></h2>
+<section id="span-style-color-red-exercise-6-span-10-pts">
+<h2><span style="color:red">Exercise 6</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>How can you compute <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> from the acceleration components? Give a formula and explain why it works.</p></li>
 <li><p>Since you have a formula for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>, you can compute <span class="math notranslate nohighlight">\(\cot\theta\)</span> and <span class="math notranslate nohighlight">\(\cot\phi\)</span>. However, there is a more direct way. Find it. If you need a hint, consult the document <code class="docutils literal notranslate"><span class="pre">avoiding_trig_calculations.pdf</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span">
-<h2><span style="background-color:lightblue">Write your answer for exercise 6 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="check-if-your-angles-are-reasonable">
-<h2>Check if your angles are reasonable<a class="headerlink" href="#check-if-your-angles-are-reasonable" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="span-style-color-red-exercise-7-span-10-pts">
-<h3><span style="color:red">Exercise 7</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-10-pts" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 6 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-6-below-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="check-if-your-angles-are-reasonable">
+<h2>Check if your angles are reasonable<a class="headerlink" href="#check-if-your-angles-are-reasonable" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-red-exercise-7-span-10-pts">
+<h3><span style="color:red">Exercise 7</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-10-pts" title="Permalink to this headline">#</a></h3>
 <p>Use the first formula you found in exercise 6 to compute <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> for the data you collected. Note that the components of acceleration are available in numpy arrays, <code class="docutils literal notranslate"><span class="pre">near_ax</span></code>, <code class="docutils literal notranslate"><span class="pre">near_ay</span></code>, etc. Then, write two to three sentences about whether you think your answers are reasonable. If you think your answers are not reasonable, figure out what went wrong.</p>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span">
-<h3><span style="background-color:lightblue">Write your answer for exercise 7 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 7 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-7-below-span" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write some code here to find theta and phi</span>
@@ -910,16 +1027,16 @@ It has terms <span class="math notranslate nohighlight">\(\cot\theta\)</span> an
 </div>
 </div>
 <p>(write your statement about the reasonableness of your answers here)</p>
-</div>
-</div>
-<div class="section" id="find-the-heights">
-<h2>Find the heights<a class="headerlink" href="#find-the-heights" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="span-style-color-red-exercise-8-span-10-pts">
-<h3><span style="color:red">Exercise 8</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-8-span-10-pts" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="find-the-heights">
+<h2>Find the heights<a class="headerlink" href="#find-the-heights" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-red-exercise-8-span-10-pts">
+<h3><span style="color:red">Exercise 8</span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-8-span-10-pts" title="Permalink to this headline">#</a></h3>
 <p>Compute the height <span class="math notranslate nohighlight">\(h\)</span> of each building using the second formula from exercise 6. Then, comment on whether your answers are reasonable. Based on the range of values you got, how precise do you think your answers are? Next time, we will explore a way to figure out exactly how accurate your answers are. For now, take an educated guess and explain how you made your guess.</p>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span">
-<h3><span style="background-color:lightblue">Write your answer for exercise 8 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span">
+<h3><span style="background-color:lightblue">Write your answer for exercise 8 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-8-below-span" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute h here</span>
@@ -928,14 +1045,14 @@ It has terms <span class="math notranslate nohighlight">\(\cot\theta\)</span> an
 </div>
 </div>
 <p>(comment on reasonableness here)</p>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="reflect-on-the-lab">
-<h1>Reflect on the lab<a class="headerlink" href="#reflect-on-the-lab" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="reflect-on-the-lab">
+<h1>Reflect on the lab<a class="headerlink" href="#reflect-on-the-lab" title="Permalink to this headline">#</a></h1>
 <p><strong>Answer this part on your own – your answer should be different from your team mates’.</strong></p>
-<div class="section" id="span-style-color-red-exercise-9-span-15-pts">
-<h2><span style="color:red">Exercise 9</span> (15 pts)<a class="headerlink" href="#span-style-color-red-exercise-9-span-15-pts" title="Permalink to this headline">¶</a></h2>
+<section id="span-style-color-red-exercise-9-span-15-pts">
+<h2><span style="color:red">Exercise 9</span> (15 pts)<a class="headerlink" href="#span-style-color-red-exercise-9-span-15-pts" title="Permalink to this headline">#</a></h2>
 <p>How did the lab today go? Write two paragraphs explaining how you feel about it. Any answer which has at least two full paragraphs will receive full credit. If you need an idea, here are some things you could discuss:</p>
 <ul class="simple">
 <li><p>Which parts did you feel you did well? How did you contribute to your group?</p></li>
@@ -943,11 +1060,11 @@ It has terms <span class="math notranslate nohighlight">\(\cot\theta\)</span> an
 <li><p>Are there any topics we discussed today which you feel you don’t fully understand yet? Where is there room for you to grow?</p></li>
 <li><p>What parts of the lab can the instructors improve? Do you have any suggestions?</p></li>
 </ul>
-</div>
-<div class="section" id="span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span">
-<h2><span style="background-color:lightblue">Write your answer for exercise 9 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+<section id="span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span">
+<h2><span style="background-color:lightblue">Write your answer for exercise 9 below</span><a class="headerlink" href="#span-style-background-color-lightblue-write-your-answer-for-exercise-9-below-span" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -971,9 +1088,11 @@ It has terms <span class="math notranslate nohighlight">\(\cot\theta\)</span> an
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../b_build_an_inclinometer/lab7.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -989,24 +1108,28 @@ It has terms <span class="math notranslate nohighlight">\(\cot\theta\)</span> an
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mireille Boutin, Alden Bradford<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Mireille Boutin, Alden Bradford<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
