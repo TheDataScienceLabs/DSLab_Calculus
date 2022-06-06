@@ -3,7 +3,7 @@ from ssd1306 import SSD1306_I2C
 import time
 
 
-i2c = I2C(id=1, sda=Pin(18), scl=Pin(19), freq=3_400_000)
+i2c = I2C(id=1, sda=Pin(18), scl=Pin(19), freq=400_000)
 screen = SSD1306_I2C(128, 64, i2c)
 
 while True:
