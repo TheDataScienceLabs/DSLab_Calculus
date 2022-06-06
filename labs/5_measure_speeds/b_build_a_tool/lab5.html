@@ -698,7 +698,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>We see that it has read two columns. The first column has the time (in milliseconds) when each measurement was taken, after the scrept started. The second column tells us how long it was (in microseconds) between the chirp and the echo.</p>
+<p>We see that it has read two columns. The first column has the time (in milliseconds) when each measurement was taken, after the script started. The second column tells us how long it was (in microseconds) between the chirp and the echo.</p>
 <p>Let’s pull these apart using multidimensional slicing. This is just like normal slicing, but we can give more than one argument to the slice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,6 +757,7 @@ title="Print to PDF"
 <h3 style="color:red;"><left> Exercise 3 (5 pts)</left></h3>
 <p>Look in <a class="reference external" href="https://docs.micropython.org/en/latest/library/machine.html">the official documentation for Micropython</a> to find what the parameters of <code class="docutils literal notranslate"><span class="pre">time_pulse_us</span></code> do. Pick a sensible choice for the parameter <code class="docutils literal notranslate"><span class="pre">timeout_us</span></code>. Make sure your choice is based on the measurement you have taken. What range of distances are you going to measure? What range of possible echo times does that correspond to? Explain your choice here, and modify <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code> to use your choice.</p>
 <h3 style="background-color:lightblue"><left> Write Answer for Exercise 3 Below </left></h3>
+<p>18000 microseconds would be a sensible option as it allows for the sensor to read up to 10 feet as, according to the speed of light, it would take a bit less than 9000 ms to travel 10 feet in one direction.</p>
 <p>Now that we have chosen that parameter sensibly, the microcontroller will spend less time waiting for an echo which will never arrive, and more time giving us useful information.</p>
 <p>Make a measurement using your new version of <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code>, and save it as <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">mesurement.txt</span></code>. Load it here, into the same variables <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
 <div class="cell docutils container">
@@ -914,7 +915,8 @@ title="Print to PDF"
 <p>We can see four big spikes in the second derivative, right where we saw those spikes in the original graph.</p>
 <h3 style="color:red;"><left> Exercise 5 (5 pts)</left></h3>
 <p>Explain why a sharp vertical spike in the original function corresponds to a large but negative second derivative.</p>
-<h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Below </left></h3><p>We can use that to filter our measurement, and get a better graph of position and velocity. Notice that we need to recompute the derivative, since we used the neighbors of each point to compute the derivative.</p>
+<h3 style="background-color:lightblue"><left> Write Answer for Exercise 5 Below </left></h3><p>A sharp vertical spike in the original function corresponds to a large but negative second derivative because negative values in a second derivative function indicate downward concavity in the original function.</p>
+<p>We can use that to filter our measurement, and get a better graph of position and velocity. Notice that we need to recompute the derivative, since we used the neighbors of each point to compute the derivative.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spikes</span> <span class="o">=</span> <span class="n">second_derivative</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.02</span>
