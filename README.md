@@ -2,6 +2,8 @@
 
 A set of labs suitable for students enrolled in their second calculus class.
 
+See the web version here: [https://thedatasciencelabs.github.io/DSLab_Calculus](https://thedatasciencelabs.github.io/DSLab_Calculus)
+
 ## Usage
 
 ### Building the book
