@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Mathematics &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    <title>Two types of numbers in Python &#8212; The Data Science Labs on Differential and Integral Calculus</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Mathematics" href="../b_build_a_tool/lab5.html" />
+    <link rel="next" title="The sensor" href="../b_build_a_tool/lab5.html" />
     <link rel="prev" title="A very brief introduction to \(\LaTeX\)" href="../../4_measure_tall_things/e_symbolic_error/lab10.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -123,7 +123,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../1_intro_to_notebooks/lab01.html">
-   Mathematics
+   Python Libraries
   </a>
  </li>
 </ul>
@@ -135,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../2_determine_heart_rate/lab2.html">
-   Mathematics
+   Types of error
   </a>
  </li>
  <li class="toctree-l1">
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
-   Mathematics
+   The most useful way to organize code is the function
   </a>
  </li>
 </ul>
@@ -199,12 +199,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Mathematics
+   Two types of numbers in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../b_build_a_tool/lab5.html">
-   Mathematics
+   The sensor
   </a>
  </li>
 </ul>
@@ -427,16 +427,6 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Mathematics
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#programming-skills">
-   Programming Skills
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#two-types-of-numbers-in-python">
    Two types of numbers in Python
   </a>
  </li>
@@ -493,7 +483,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Mathematics</h1>
+                <h1>Two types of numbers in Python</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -505,16 +495,6 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Mathematics
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#programming-skills">
-   Programming Skills
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#two-types-of-numbers-in-python">
    Two types of numbers in Python
   </a>
  </li>
@@ -579,18 +559,16 @@ title="Print to PDF"
    <small>by Alden Bradford and Mireille Boutin </small>
 </center></h1>
     </div><h1><center>
-    Laboratory 4<br/>
-   Floating Point Numbers<br/>
-    <small>Last Updated December 17, 2021 </small>
-</center></h1><h2 style="color:orange;"><left>0. Content </left></h2><section id="mathematics">
-<h1>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">#</a></h1>
+    Laboratory 5a<br/>
+    Preparation to Building a Distance Measurement Tool<br/>
+    Floating Point Numbers and Numerical Differentiation<br/>
+    <font size="3"> Last Updated on June 7, 2022</font>  
+</center></h1><h2 style="color:orange;"><left>0. Content </left></h2><p><font size="5">Mathematics</font></p>
 <ul class="simple">
 <li><p>Approximating derivatives using finite difference schemes</p></li>
 <li><p>Approximation bias</p></li>
 </ul>
-</section>
-<section id="programming-skills">
-<h1>Programming Skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">#</a></h1>
+<p><font size="5">Programming Skills</font></p>
 <ul class="simple">
 <li><p>number types: int, float</p></li>
 <li><p>use of underscore as a numerical separator</p></li>
@@ -604,7 +582,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="two-types-of-numbers-in-python">
 <h1>Two types of numbers in Python<a class="headerlink" href="#two-types-of-numbers-in-python" title="Permalink to this headline">#</a></h1>
 <p>One of the benefits of using Python is that it has great support for numbers. This makes it much more friendly for doing math than, for example, Javascript or C. Whole numbers in Python have the type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which is short for Integer. You can check this yourself:</p>
@@ -1147,7 +1124,7 @@ f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
     <a class='right-next' id="next-link" href="../b_build_a_tool/lab5.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mathematics</p>
+        <p class="prev-next-title">The sensor</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
