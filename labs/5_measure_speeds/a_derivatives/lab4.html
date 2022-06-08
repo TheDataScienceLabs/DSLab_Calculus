@@ -923,17 +923,21 @@ title="Print to PDF"
 <section id="span-style-color-orange-3-catastrophic-cancellation-span">
 <h1><span style="color:orange;"> 3. Catastrophic Cancellation </span><a class="headerlink" href="#span-style-color-orange-3-catastrophic-cancellation-span" title="Permalink to this headline">#</a></h1>
 <p>There is one situation where roundoff error is a really big problem. That is when you are subtracting two numbers which are very close together. This isn’t anything special about floating point numbers, this is just a fact about rounding. Here, have a look:</p>
-<p>\begin{array}{r}
-3.14159265358???\
--; 3.14159265332???\hline
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{r}
+3.14159265358???\\
+-\; 3.14159265332???\\\hline
 0.00000000026???
-\end{array}</p>
+\end{array}
+\end{split}\]</div>
 <p>We have used question marks to represent unknown digits, i.e. digits which were lost due to rounding. See how the relative error in the output is much bigger than in either of the inputs: each input has 12 significant figures, but the output has only two significant figures. We can do this a bit more precisely by writing the absolute errors explicitly:</p>
-<p>\begin{align*}
-3.14159265358??? &amp;\rightarrow 3.14159265358 \pm 5\times 10^{-12}\
-3.14159265332??? &amp;\rightarrow 3.14159265332 \pm 5\times 10^{-12}\
-0.00000000026??? &amp;\rightarrow 0.00000000026 \pm \text{(you figure this one out)}\
-\end{align*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+3.14159265358??? &amp;\rightarrow 3.14159265358 \pm 5\times 10^{-12}\\
+3.14159265332??? &amp;\rightarrow 3.14159265332 \pm 5\times 10^{-12}\\
+0.00000000026??? &amp;\rightarrow 0.00000000026 \pm \text{(you figure this one out)}\\
+\end{align*}\]</div>
 <section id="span-style-color-red-exercise-3-span">
 <h2><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h2>
 <p>What is the absolute error in the output? What are the relative errors of each of the inputs, and what is the relative error of the output?</p>
@@ -974,12 +978,13 @@ title="Print to PDF"
 </div>
 </div>
 <p>Here is a simple technique we can apply to reduce the error. Let’s assume for now that <code class="docutils literal notranslate"><span class="pre">b</span></code> is a negative number. So, we get cancellation in the numerator when subtracting <span class="math notranslate nohighlight">\(-b\)</span> and <span class="math notranslate nohighlight">\(\sqrt{b^2-4ac}\)</span>. In this case, just multiply by one in a clever way:</p>
-<p>\begin{align*}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \frac{-b-\sqrt{b^2-4ac}}{2a}
-&amp;= \frac{-b-\sqrt{b^2-4ac}}{2a} \times \frac{-b+\sqrt{b^2-4ac}}{-b+\sqrt{b^2-4ac}}\
-&amp;= \frac{b^2-(b^2-4ac)}{2a(-b+\sqrt{b^2-4ac})}\
+&amp;= \frac{-b-\sqrt{b^2-4ac}}{2a} \times \frac{-b+\sqrt{b^2-4ac}}{-b+\sqrt{b^2-4ac}}\\
+&amp;= \frac{b^2-(b^2-4ac)}{2a(-b+\sqrt{b^2-4ac})}\\
 &amp;= \frac{2c}{-b+\sqrt{b^2-4ac}}
-\end{align*}</p>
+\end{align*}\]</div>
 <p>Since <code class="docutils literal notranslate"><span class="pre">b</span></code> is negative and <code class="docutils literal notranslate"><span class="pre">-b</span></code> is positive, there is no cancellation here! We can use this formula to compute the “-” root and the original formula to compute the “+” root.</p>
 <ol class="simple">
 <li><p>Assuming <code class="docutils literal notranslate"><span class="pre">b</span></code> is always negative, rewrite your function to use this formula for one root and the standard formula for the other root. Compute the relative errors on the example above, using your new formula.</p></li>
@@ -1113,13 +1118,14 @@ Secant line equation: y = 15.25(x - 2) + 8</p>
 </div>
 </div>
 </div>
-<p>That shows it visually: the slope of the secant line is bigger than the slope of the tangent line. We can see it algebraically too:
-\begin{align*}
+<p>That shows it visually: the slope of the secant line is bigger than the slope of the tangent line. We can see it algebraically too:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \frac{(2+0.5)^3-2^3}{0.5}
-&amp;=\frac{12(0.5)+6(0.5)^2+(0.5)^3}{0.5}\
+&amp;=\frac{12(0.5)+6(0.5)^2+(0.5)^3}{0.5}\\
 &amp;=12+6(0.5)+(0.5)^2
-\end{align*}
-The correct derivative is 12, and the other terms (most of all the term <span class="math notranslate nohighlight">\(6(0.5)\)</span>) are making it too big.</p>
+\end{align*}\]</div>
+<p>The correct derivative is 12, and the other terms (most of all the term <span class="math notranslate nohighlight">\(6(0.5)\)</span>) are making it too big.</p>
 <p>When we choose <span class="math notranslate nohighlight">\(h\)</span> to be a positive number, we call that a <em>forward difference</em>. What if we try making <span class="math notranslate nohighlight">\(h\)</span> negative, doing a so-called <em>backward difference</em>? Try that now.</p>
 </section>
 <section id="span-style-color-red-exercise-7-span">
@@ -1146,11 +1152,12 @@ The correct derivative is 12, and the other terms (most of all the term <span cl
 <section id="correcting-the-bias">
 <h2>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">#</a></h2>
 <p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
-<p>\begin{align*}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \frac{1}{2}\left[ \frac{f(x+h) - f(x)}{h} + \frac{f(x-h)-f(x)}{-h} \right]
-&amp;= \frac{f(x+h)-f(x)-f(x-h) + f(x)}{2h}\
+&amp;= \frac{f(x+h)-f(x)-f(x-h) + f(x)}{2h}\\
 &amp;= \frac{f(x+h)-f(x-h)}{2h}
-\end{align*}</p>
+\end{align*}\]</div>
 <p>This is the <em>symmetric difference</em> scheme. You can think of it as a secant line which doesn’t go through a given point, but rather goes through its neighbors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1193,15 +1200,17 @@ f'(x) = d_{-} f(x-k) +d_0 f(x) + d_+ f(x+h)
 f'(0) = d_{-} f(-k) +d_0 f(0) + d_+ f(h) \tag{*}
 \]</div>
 <p>Since it should work for any quadratic polynomial, we can get picky. It should work for specifically the polynomial <span class="math notranslate nohighlight">\(f(x) = (x+k)(x-h)\)</span>. Putting this into our formula (<span class="math notranslate nohighlight">\(*\)</span>) above, we find</p>
-<p>\begin{align*}
-f’(0) = k-h &amp;= d_0(-kh)\
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+f'(0) = k-h &amp;= d_0(-kh)\\
 d_0&amp;=\frac{1}{k} -\frac{1}{h}
-\end{align*}</p>
+\end{align*}\]</div>
 <p>The difference scheme should also work for the polynomial <span class="math notranslate nohighlight">\(f(x)=x(x+k)\)</span> at the point <span class="math notranslate nohighlight">\(x=0\)</span>. We can work it out the same way:</p>
-<p>\begin{align*}
-f’(0) = k &amp;= d_+h(h+k)\
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+f'(0) = k &amp;= d_+h(h+k)\\
 d_+&amp;=\frac{k}{h(h+k)}
-\end{align*}</p>
+\end{align*}\]</div>
 <section id="span-style-color-red-exercise-9-h3">
 <h2><span style="color:red;"> Exercise 9 </h3><a class="headerlink" href="#span-style-color-red-exercise-9-h3" title="Permalink to this headline">#</a></h2>
 <p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> which will give you the value of <span class="math notranslate nohighlight">\(d_-\)</span>. You should find that
@@ -1212,15 +1221,16 @@ d_- = \frac{-h}{k(k+h)}.
 <section id="span-style-color-red-exercise-10-span">
 <h2><span style="color:red;"> Exercise 10 </span><a class="headerlink" href="#span-style-color-red-exercise-10-span" title="Permalink to this headline">#</a></h2>
 <p>By choosing <span class="math notranslate nohighlight">\(f(x)=1\)</span> in (<span class="math notranslate nohighlight">\(*\)</span>) we find that <span class="math notranslate nohighlight">\(d_-+d_0+d_+=0\)</span>. Verify that this is the case algebraically.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 10 Below </h3><p>Suppose we have three points in time <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_-\)</span>, and <span class="math notranslate nohighlight">\(x_+\)</span> with <span class="math notranslate nohighlight">\(x_-&lt;x_0&lt;x_+\)</span>. Suppose further that we have measured <span class="math notranslate nohighlight">\(f(x_-)\)</span>, <span class="math notranslate nohighlight">\(f(x_0)\)</span>, and <span class="math notranslate nohighlight">\(f(x_+)\)</span>. This gives us a good way to approximate the derivative of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x_0\)</span>. We compute
-\begin{align*}
-k &amp;= x_0-x_-\
-h &amp;= x_+-x_0\
-d_0 &amp;= \frac{1}{k}-\frac{1}{h}\
-d_- &amp;= \frac{-h}{k(k+h)}\
-d_+ &amp;= \frac{k}{h(h+k)}\
-f’(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
-\end{align*}</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 10 Below </h3><p>Suppose we have three points in time <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_-\)</span>, and <span class="math notranslate nohighlight">\(x_+\)</span> with <span class="math notranslate nohighlight">\(x_-&lt;x_0&lt;x_+\)</span>. Suppose further that we have measured <span class="math notranslate nohighlight">\(f(x_-)\)</span>, <span class="math notranslate nohighlight">\(f(x_0)\)</span>, and <span class="math notranslate nohighlight">\(f(x_+)\)</span>. This gives us a good way to approximate the derivative of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x_0\)</span>. We compute</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+k &amp;= x_0-x_-\\
+h &amp;= x_+-x_0\\
+d_0 &amp;= \frac{1}{k}-\frac{1}{h}\\
+d_- &amp;= \frac{-h}{k(k+h)}\\
+d_+ &amp;= \frac{k}{h(h+k)}\\
+f'(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
+\end{align*}\]</div>
 <p>The final exercise for today walks you through the process of creating a vectorized version of this formula, which computes the symmetric difference scheme for unequal step sizes in a way that is</p>
 <ol class="simple">
 <li><p>Efficient (very fast to perform)</p></li>

@@ -920,25 +920,27 @@ title="Print to PDF"
 <p><strong>Part 2</strong></p>
 <p>Create the following functions for the following formulas. Do not use any of python’s NumPy functions, with the exception of the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function.</p>
 <ol class="simple">
-<li><p>Arithmetic Mean
-\begin{align*}
-\mu
-&amp;= \frac{1}{n}\sum_{i=1}^n a_i\
-&amp;= \frac{a_1+a_2+\dots+a_n}{n}
-\end{align*}</p></li>
+<li><p>Arithmetic Mean</p></li>
 </ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mu 
+&amp;= \frac{1}{n}\sum_{i=1}^n a_i\\
+&amp;= \frac{a_1+a_2+\dots+a_n}{n}
+\end{align*}\]</div>
 <ul class="simple">
 <li><p>Name: <code class="docutils literal notranslate"><span class="pre">mean</span></code></p></li>
 <li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
 </ul>
 <ol class="simple">
-<li><p>Standard Deviation (You must utilize your <code class="docutils literal notranslate"><span class="pre">mean</span></code> function from Question 1)
-\begin{align*}
-\sigma
-&amp;= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\mu)^2}\
-&amp;= \sqrt{\frac{(x_1-\mu)^2+(x_2-\mu)^2+\dots+(x_n-\mu)^2}{n-1}}
-\end{align*}</p></li>
+<li><p>Standard Deviation (You must utilize your <code class="docutils literal notranslate"><span class="pre">mean</span></code> function from Question 1)</p></li>
 </ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sigma 
+&amp;= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\mu)^2}\\
+&amp;= \sqrt{\frac{(x_1-\mu)^2+(x_2-\mu)^2+\dots+(x_n-\mu)^2}{n-1}}
+\end{align*}\]</div>
 <ul class="simple">
 <li><p>Name: <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
 <li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>

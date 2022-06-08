@@ -891,12 +891,13 @@ $<span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(
 using the greek letter eta (\)</span>\eta<span class="math notranslate nohighlight">\() which also makes an &quot;e&quot; sound, though it looks sort of like a lowercase n. This quantity is called the relative error. Unlike the absolute error, the relative error is dimensionless -- it would be the same if we expressed the answer in inches or centimeters or smoots. Relative error is usually expressed as a percentage. For example, the length of my pencil is 7 1/8 inches \)</span>\pm<span class="math notranslate nohighlight">\( 0.44%. The width of my pencil is 1/4 inch \)</span>\pm$ 12.5%. This shows how a ruler is not appropriate for measuring the width of a pencil, but it’s fine for measuring the length – the relative error is significantly different.</p>
 <p>We often want an equation relating <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(x\)</span> using the relative error instead of the absolute error. This is easily achieved by factoring:</p>
-<p>\begin{align*}
-x
-&amp;= t + \varepsilon\
-&amp;= t\left(1+\frac{\varepsilon}{t}\right)\
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+x 
+&amp;= t + \varepsilon\\
+&amp;= t\left(1+\frac{\varepsilon}{t}\right)\\
 &amp;=t(1+\eta)
-\end{align*}</p>
+\end{align*}\]</div>
 <section id="span-style-color-red-exercise-2-span-10-pts">
 <h2><span style="color:red"> Exercise 2 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-10-pts" title="Permalink to this headline">#</a></h2>
 <p>For each of the quantities expressed below, identify whether it is an absolute error or a relative error. Then, convert it to the other type of error. Make sure you are using appropriate units.</p>
@@ -910,10 +911,11 @@ x
 <section id="combined-errors-and-significant-figures">
 <h2>Combined errors and significant figures<a class="headerlink" href="#combined-errors-and-significant-figures" title="Permalink to this headline">#</a></h2>
 <p>Most calculations we do involve more than one number. Each number has its own error associated with it. As an example, suppose I measure the length of one pencil to be <span class="math notranslate nohighlight">\(x_1\)</span>, and another to be <span class="math notranslate nohighlight">\(x_2\)</span> inches long. How long will they be together, put end to end? <span class="math notranslate nohighlight">\(y = x_1+x_2\)</span>, of course. How will the errors relate to each other? They will also add together. We can see this in a formula:</p>
-<p>\begin{align*}
-(x_1+\varepsilon_1)+(x_2+\varepsilon_2) &amp;= y+(\varepsilon_1+\varepsilon_2)\
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+(x_1+\varepsilon_1)+(x_2+\varepsilon_2) &amp;= y+(\varepsilon_1+\varepsilon_2)\\
 &amp;=y+\varepsilon_{total}
-\end{align*}</p>
+\end{align*}\]</div>
 <p>The answer is of the form <span class="math notranslate nohighlight">\(y+\varepsilon_{total}\)</span>, where the total error is <span class="math notranslate nohighlight">\(\varepsilon_{total}=\varepsilon_1+\varepsilon_2\)</span>. So, when adding quantities with error, the absolute errors should add together.</p>
 </section>
 <section id="span-style-color-red-exercise-3-span-5-pts">
@@ -933,11 +935,12 @@ x
 (x_1+\varepsilon_1)(x_2+\varepsilon_2) \approx x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1.
 \]</div>
 <p>We can do better yet. Let’s do just a bit of factoring:</p>
-<p>\begin{align*}
-x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1 &amp;= x_1x_2\left(1+\frac{\varepsilon_2}{x_2}+\frac{\varepsilon_1}{x_1}\right)\
-&amp;=x_1x_2(1+\eta_2+\eta_1)\
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1 &amp;= x_1x_2\left(1+\frac{\varepsilon_2}{x_2}+\frac{\varepsilon_1}{x_1}\right)\\
+&amp;=x_1x_2(1+\eta_2+\eta_1)\\
 &amp;=x_1x_2(1+\eta_{total})
-\end{align*}</p>
+\end{align*}\]</div>
 <p>There is our rule! instead of the <em>absolute</em> errors adding together, the <em>relative</em> errors add when multiplying. This is another reason why relative error is so popular: it is easier to propagate a relative error through a product.</p>
 </section>
 <section id="span-style-color-red-exercise-4-span-10-pts">
@@ -1022,10 +1025,11 @@ This depends upon four different values, <span class="math notranslate nohighlig
 \theta = \arctan \frac{\sqrt{a_x^2 + a_z^2}}{a_y}.
 \)</span>
 Let’s say you have only three digits for each component – so, the error in each component of acceleration is <span class="math notranslate nohighlight">\(\pm 0.001\)</span> gravities of acceleration. What would be the error in <span class="math notranslate nohighlight">\(\theta\)</span>? Let’s take some derivatives. First, let’s find the error due to <span class="math notranslate nohighlight">\(a_x\)</span>. We will apply the derivative rule. When taking the derivative, we will treat the other numbers as constants. Depending on your background in calculus, you may recognize this as a “partial derivative”. Here is what we find:</p>
-<p>\begin{align*}
-\text{Error due to }a_x &amp;= \frac{\partial \theta}{\partial a_x} \varepsilon_x \
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\text{Error due to }a_x &amp;= \frac{\partial \theta}{\partial a_x} \varepsilon_x \\
 &amp;= \frac{a_x a_y \varepsilon_x}{ \left(a_y^2 + a_x^2 + a_z^2\right) \sqrt{a_x^2 + a_z^2}}.
-\end{align*}</p>
+\end{align*}\]</div>
 <p>Some things make this nicer, like we know that there is one gravity of acceleration total, so <span class="math notranslate nohighlight">\(\left(a_y^2 + a_x^2 + a_z^2\right)=1\)</span>. That lets us simplify to</p>
 <p><span class="math notranslate nohighlight">\(
 \text{Error due to }a_x  = \frac{a_x a_y \varepsilon_x}{\sqrt{a_x^2 + a_z^2}}.
@@ -1033,14 +1037,15 @@ Let’s say you have only three digits for each component – so, the error in e
 </section>
 <section id="span-style-color-red-exercise-9-span-10-pts">
 <h2><span style="color:red"> Exercise 9 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-9-span-10-pts" title="Permalink to this headline">#</a></h2>
-<p>Write some code to compute this error for the specific values
-\begin{align*}
-a_x &amp;= 0.608\
-a_y &amp;= 0.839\
-a_z &amp;= 0.033\
+<p>Write some code to compute this error for the specific values</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+a_x &amp;= 0.608\\
+a_y &amp;= 0.839\\
+a_z &amp;= 0.033\\
 \varepsilon_x &amp;= 0.001,
-\end{align*}
-which I collected using my own inclinometer. As always, the number that calculus gives is in radians. Convert the answer to degrees; your answer should be about 0.05 degrees.</p>
+\end{align*}\]</div>
+<p>which I collected using my own inclinometer. As always, the number that calculus gives is in radians. Convert the answer to degrees; your answer should be about 0.05 degrees.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 9 Below </h3></section>
 <section id="the-partial-derivative-rule">
 <h2>The partial derivative rule<a class="headerlink" href="#the-partial-derivative-rule" title="Permalink to this headline">#</a></h2>
@@ -1108,13 +1113,14 @@ This is the <strong>partial derivative rule</strong> for error propagation.</p>
 </div>
 </div>
 </div>
-<p>Particularly with some of these trig functions, this can be a good way to prevent arithmetic errors. Here is what we just computed:
-\begin{align*}
-\frac{\partial h}{\partial r} &amp;= \frac{1}{\cot\theta-\cot\phi}\
-\frac{\partial h}{\partial k} &amp;= 1\
-\frac{\partial h}{\partial \theta} &amp;= \frac{r}{\sin^2\theta (\cot\theta-\cot\phi)^2}\
+<p>Particularly with some of these trig functions, this can be a good way to prevent arithmetic errors. Here is what we just computed:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{\partial h}{\partial r} &amp;= \frac{1}{\cot\theta-\cot\phi}\\
+\frac{\partial h}{\partial k} &amp;= 1\\
+\frac{\partial h}{\partial \theta} &amp;= \frac{r}{\sin^2\theta (\cot\theta-\cot\phi)^2}\\
 \frac{\partial h}{\partial \phi} &amp;= -\frac{r}{\sin^2\phi (\cot\theta-\cot\phi)^2}.
-\end{align*}</p>
+\end{align*}\]</div>
 <p>Combining these with the partial derivative rule (and assuming <span class="math notranslate nohighlight">\(\varepsilon_\theta = \varepsilon_\phi\)</span>), we get:
 <span class="math notranslate nohighlight">\(
 \varepsilon_h = \frac{1}{\cot\theta-\cot\phi} \varepsilon_r + \varepsilon_k + \frac{r\left(\csc^2\theta+\csc^2\phi\right)}{(\cot\theta-\cot\phi)^2} \varepsilon_\theta.
