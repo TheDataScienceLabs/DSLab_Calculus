@@ -459,6 +459,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
+     <span style="color:red;">
+      Exercise 1
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#two-ways-errors-behave">
      Two ways errors behave
     </a>
@@ -475,6 +482,13 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
+     <span style="color:red;">
+      Exercise 2
+     </span>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -484,6 +498,13 @@ title="Print to PDF"
    </span>
   </a>
   <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
+     <span style="color:red;">
+      Exercise 3
+     </span>
+    </a>
+   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">
      Loading firmware onto the microcontroller
@@ -552,6 +573,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
+     <span style="color:red;">
+      Exercise 1
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#two-ways-errors-behave">
      Two ways errors behave
     </a>
@@ -568,6 +596,13 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
+     <span style="color:red;">
+      Exercise 2
+     </span>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -577,6 +612,13 @@ title="Print to PDF"
    </span>
   </a>
   <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
+     <span style="color:red;">
+      Exercise 3
+     </span>
+    </a>
+   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">
      Loading firmware onto the microcontroller
@@ -672,7 +714,9 @@ title="Print to PDF"
 <li><p>definitional error. This is perhaps the most frequently overlooked source of error, and its definition gets a bit philosophical. Usually we can’t get to a level where it is important in the physical sciences, though it is frequently important in the social sciences. As an example, consider the old unit of length, the barleycorn. This is still used today to measure shoe sizes. Its definition could not be simpler: it’s the length of a grain of barley, roughly 1/3 of an inch or 8.5 millimeters. There is a problem here though: barley has some natural variablility of size, from 6.4 millimeters at the smallest to 13 millimeters at the longest <a class="reference external" href="https://www.agriculturejournals.cz/publicFiles/10118.pdf">(see this study if you want to know more about barley)</a>. So, depending on which type of barley you are using, your shoe could wind up being a bad fit. It’s not a matter of the barley being a bad tool for measuring length in barleycorns: you can always tell exactly how long something is in barleycorns by lining up a row of barley, and you will be correct by definition. It’s a problem with the definition of the length unit – the definition has some error built in. This usually doesn’t affect us when making distance measurements, since we have better definitions now for length, based off the speed of light and our definition of time. However, for very sensitive measurements, it is still sometimes an issue. Furthermore, for more abstractly defined quantities (such as intelligence, or anxiety, or pain) the definition still has a significant amount of error built in which can sometimes be the biggest source of error in a computation.</p></li>
 </ul>
 <p>This is a relatively simple taxonomy of errors, but it encompasses most of the important sources of error you are likely to encounter. If you can think of a source of error which does not fit this taxonomy, we would like to hear about it (email mboutin at purdue dot you know what). As we will see, you could waste a lot of effort reducing the error from one source only to find that a different source is introducing way more error, making your efforts fruitless. Therefore, it is important to be aware of how each source of error could creep in.</p>
-<h3 style="color:red;"><left> Exercise 1 </left></h3>
+</section>
+<section id="span-style-color-red-exercise-1-span">
+<h2><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this headline">#</a></h2>
 <p>For each source of error listed, classify it according to the taxonomy above. Explain why it fits into the category you chose.</p>
 <ol class="simple">
 <li><p>You have a thermometer in your garden which you use to tell the temperature in the morning. The sun shines directly on the thermometer, making it read a temperature higher than the air temperature.</p></li>
@@ -700,7 +744,10 @@ and the term \)</span>\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}<
 <p>Unfortunately, we are often not so lucky as to only have random error. Very often there is some bias in our measurement which causes it to be usually positive or usually negative, so it does not help much to use the repeated measurement procedure described above. In this case we say there is a <em>systematic</em> error.</p>
 <p>For example, let’s say you decide to save some computer cycles in a computation by truncating your numbers – instead of rounding (which could take some additional time, depending on how your computer is set up) you decide to just drop the least significant digits. The effect of this is that you will always be making the number smaller. It’s just like if you always decided to round down. In the terms outlined above, <span class="math notranslate nohighlight">\(\varepsilon\)</span> is always negative in this case.</p>
 <p>As another example, suppose you are weighing precise amounts of material in a chemistry lab on a sensitive scale, but you don’t have a cover over the scale and there is a slight downdraft at the work bench. You are leaning over the scale when you hit the tare button, shielding the scale from the air current. The air would push down on the scale a bit during the weighting, causing your estimated weight <span class="math notranslate nohighlight">\(x\)</span> to usually be a little bit bigger than <span class="math notranslate nohighlight">\(t\)</span>. It would still vary randomly, but since <span class="math notranslate nohighlight">\(\varepsilon\)</span> would usually be positive we would say that this is a systematic error in the positive direction.</p>
-<h3 style="color:red;"><left> Exercise 2 </left></h3>
+</section>
+</section>
+<section id="span-style-color-red-exercise-2-span">
+<h2><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this headline">#</a></h2>
 <p>For each source of error described, classify it as a random or a systematic error. If it is a systematic error, say whether it is in the positive or negative direction. Justify your answers with a brief sentence or two.</p>
 <ol class="simple">
 <li><p>You are measuring your height against a wall by placing a book on your head and seeing where the book touches the wall, measuring the length along the wall from the floor with a tape measure. Unfortunately, you cannot guarantee that the book is completely level.</p></li>
@@ -711,14 +758,15 @@ and the term \)</span>\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}<
 </ol>
 <h3 style="background-color:lightblue"><left> Write Answers Below </left></h3></section>
 </section>
-</section>
 <section id="span-style-color-orange-2-data-acquisition-span">
 <h1><span style="color:orange;"> 2. Data Acquisition </span><a class="headerlink" href="#span-style-color-orange-2-data-acquisition-span" title="Permalink to this headline">#</a></h1>
 <p>You will collect data today using the <a class="reference external" href="https://pulsesensor.com/pages/about-us">Pulse Sensor</a>, which shines a bright light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
 <p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code. Have a look at the script <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. It does a very simple thing: it listens for a message containing a sample rate and a number of samples. Then, with the frequency given in the message, it measures the voltage on a specific pin and sends a message with that measurement. It does this the specified number of times, and then sends the message <code class="docutils literal notranslate"><span class="pre">&quot;done&quot;</span></code>.</p>
-<h3 style="color:red;"><left> Exercise 3 </left></h3>
+<section id="span-style-color-red-exercise-3-span">
+<h2><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h2>
 <p>Before moving on, we should decide on a sampling frequency – that is, how often do you want to know your approximate blood pressure? As we saw in Lab 1, it would be easy to get the wrong impression from an oscillating signal if you don’t sample frequently enough. Considering the range of possible heart rates for adults, how would you choose the sampling rate?  Write your choice below, along with your reasoning for choosing that sampling rate.</p>
-<h3 style="background-color:lightblue"><left> Write Answer Below </left></h3><section id="loading-firmware-onto-the-microcontroller">
+<h3 style="background-color:lightblue"><left> Write Answer Below </left></h3></section>
+<section id="loading-firmware-onto-the-microcontroller">
 <h2>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this headline">#</a></h2>
 <p>Open up Thonny. <a class="reference external" href="https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3">Follow the directions here</a> to install the Micropython firmware on the Pico. The following page at that link has directions for testing to make sure it’s working.</p>
 <p>Use Thonny’s file manager to transfer <code class="docutils literal notranslate"><span class="pre">main.py</span></code> to the Pico. Now, whenever you plug in the pico, it will run <code class="docutils literal notranslate"><span class="pre">main.py</span></code>.</p>
