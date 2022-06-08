@@ -779,7 +779,7 @@ title="Print to PDF"
 </section>
 <section id="span-style-color-orange-1-functions-in-python-span">
 <h1><span style="color:orange;"> 1. Functions in Python </span><a class="headerlink" href="#span-style-color-orange-1-functions-in-python-span" title="Permalink to this headline">#</a></h1>
-<h3 style="background-color:lightblue"><left> Write your name and email below: </left></h3>
+<h3 style="background-color:lightblue"> Write your name and email below: </h3>
 <p>First Name, Last Name, email</p>
 <section id="the-most-useful-way-to-organize-code-is-the-function">
 <h2>The most useful way to organize code is the function<a class="headerlink" href="#the-most-useful-way-to-organize-code-is-the-function" title="Permalink to this headline">#</a></h2>
@@ -943,8 +943,7 @@ title="Print to PDF"
 <li><p>Name: <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
 <li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
 </ul>
-<h3 style="background-color:lightblue"><left> Write Answers for Exercise 1 Below </left></h3>
-</section>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3></section>
 <section id="functions-make-code-reusable">
 <h2>Functions make code reusable<a class="headerlink" href="#functions-make-code-reusable" title="Permalink to this headline">#</a></h2>
 <p>One of the most important things about functions is that they can allow us to reproduce a task we did before, very reliably.</p>
@@ -1103,7 +1102,7 @@ title="Print to PDF"
 <section id="span-style-color-red-exercise-3-span">
 <h2><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h2>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to make plots showing the interpolants of degrees 3 through 15. Which ones fit best? Try larger values too. What if you have an interpolant of degree 30? 100?</p>
-<h3 style="background-color:lightblue"><left> Write Answers for Exercise 3 Below </left></h3><section id="quantifying-the-fit">
+<h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3><section id="quantifying-the-fit">
 <h3>Quantifying the fit<a class="headerlink" href="#quantifying-the-fit" title="Permalink to this headline">#</a></h3>
 <p>Beyond a certain point, the polynomial can snake through each point we give it, capturing all the noise. That defeats the purpose of the fit! It is good practice to choose as low a degree as possible while still matching the data well. This is called the <em>parsimony principle</em>. We can quantify this with the so-called “mean square error” of a fit: the average value of the difference between the interpolant and the measured value. If the measured values are <span class="math notranslate nohighlight">\(y_i\)</span> and we are measuring how well an interpolant <span class="math notranslate nohighlight">\(f(x_i)\)</span> agrees, then the mean square error is given by the formula
 <span class="math notranslate nohighlight">\(
@@ -1114,7 +1113,7 @@ title="Print to PDF"
 <section id="span-style-color-red-exercise-4-span">
 <h2><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this headline">#</a></h2>
 <p>Write a function which takes an interpolant and returns the mean square error. Then, read and run the cell below it, which will use the code you wrote to make a plot of how the polynomial degree relates to the mean square error.</p>
-<h3 style="background-color:lightblue"><left> Write Answers for Exercise 4 Below </left></h3><div class="cell docutils container">
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_square_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">):</span>
     <span class="c1"># put your answer here!</span>
@@ -1142,7 +1141,7 @@ title="Print to PDF"
 <section id="span-style-color-red-exercise-5-span">
 <h2><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this headline">#</a></h2>
 <p>Interpret the plot above. After what point do we see diminishing returns on the model’s fit? What is the smallest degree of polynomial which has a reasonably low mean square error, in your opinion? Write in complete sentences here, as if you were describing the plot in a professional report.</p>
-<h3 style="background-color:lightblue"><left> Write Answers for Exercise 5 Below </left></h3></section>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3></section>
 <section id="exploring-the-data-using-the-polynomial-model">
 <h2>Exploring the data using the polynomial model<a class="headerlink" href="#exploring-the-data-using-the-polynomial-model" title="Permalink to this headline">#</a></h2>
 <p>Now that we have a good model for the behavior of each cycle, we can start asking questions of our model. We can ask things like, “What is the largest value of the function on the interval?” Here is an example of how we might do that. Suppose we have the following interpolant:</p>
