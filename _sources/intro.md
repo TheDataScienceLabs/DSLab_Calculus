@@ -1,4 +1,5 @@
-# The Data Science Labs on Differential and Integral Calculus
+# Introduction to the Course
+## The Data Science Labs on Differential and Integral Calculus
 **By Alden Bradford and Mireille Boutin with Kindyl King and Naazneen Rana**
 
 Welcome to MA16290, The Data Science Labs on Differential and Integral Calculus! This is a one credit course to accompany Calculus 2, during which you will discover applications of differential and integral calculus to data science. You will also learn to program in Python and to use Arduino sensors and microprocessors to acquire data. This course is intended to be taken in tangent with Calculus 2 and participating will allow you to earn honors credit for Calculus 2.
