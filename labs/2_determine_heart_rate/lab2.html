@@ -715,18 +715,20 @@ title="Print to PDF"
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3></section>
 <section id="two-ways-errors-behave">
 <h3>Two ways errors behave<a class="headerlink" href="#two-ways-errors-behave" title="Permalink to this headline">#</a></h3>
-<p>We usually represent error with a variable either as <span class="math notranslate nohighlight">\(e\)</span> (short for error), or in Greek with the lower case letter epsilon which makes the same sound, written as either <span class="math notranslate nohighlight">\(\epsilon\)</span> or <span class="math notranslate nohighlight">\(\varepsilon\)</span>. This lets us represent how any measured quantity <span class="math notranslate nohighlight">\(x\)</span> is related to its “true value” <span class="math notranslate nohighlight">\(t\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>We usually represent error with a variable either as <span class="math notranslate nohighlight">\(e\)</span> (short for error), or in Greek with the lower case letter epsilon which makes the same sound, written as either <span class="math notranslate nohighlight">\(\epsilon\)</span> or <span class="math notranslate nohighlight">\(\varepsilon\)</span>. This lets us represent how any measured quantity <span class="math notranslate nohighlight">\(x\)</span> is related to its “true value” <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 x = t + \varepsilon.
-\)</span>$
-This is sometimes called <em>the most famous equation of measurement theory</em>.</p>
+\end{align*}\]</div>
+<p>This is sometimes called <em>the most famous equation of measurement theory</em>.</p>
 <section id="random-error">
 <h4>Random error<a class="headerlink" href="#random-error" title="Permalink to this headline">#</a></h4>
-<p>Our goal is usually to make the total error small. For some types of error, <span class="math notranslate nohighlight">\(\varepsilon\)</span> is on average zero; the error is just as often positive as it is negative. A consequence of this is that if you took lots and lots of measurements (say <span class="math notranslate nohighlight">\(x_1=t+\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(x_2=t+\varepsilon_2\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>, <span class="math notranslate nohighlight">\(x_k=t+\varepsilon_k\)</span>) then you could take the average
-$<span class="math notranslate nohighlight">\(
+<p>Our goal is usually to make the total error small. For some types of error, <span class="math notranslate nohighlight">\(\varepsilon\)</span> is on average zero; the error is just as often positive as it is negative. A consequence of this is that if you took lots and lots of measurements (say <span class="math notranslate nohighlight">\(x_1=t+\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(x_2=t+\varepsilon_2\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>, <span class="math notranslate nohighlight">\(x_k=t+\varepsilon_k\)</span>) then you could take the average</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \frac{x_1+x_2+\dots+x_k}{k} = t + \frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}
-\)</span><span class="math notranslate nohighlight">\(
-and the term \)</span>\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}<span class="math notranslate nohighlight">\( would tend to be much smaller than each \)</span>\varepsilon_i<span class="math notranslate nohighlight">\( on its own, since the positive and negative terms would mostly cancel each other out. This is really useful, since it gives us a way of reducing the total error, getting a better estimate of the value \)</span>t<span class="math notranslate nohighlight">\(. If this is the case, we say that the error in \)</span>x$ is <em>random</em>. This technique for reducing random error <a class="reference external" href="https://www.math.purdue.edu/~bradfoa/misc_files/arithmetic_mean.pdf">was invented in the 1700s.</a> (See  for example page 121 of “Studies in the History of Statistics and Probability,” by M.G. Kendall, 1960.)</p>
+\end{align*}\]</div>
+<p>and the term <span class="math notranslate nohighlight">\(\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}\)</span> would tend to be much smaller than each <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> on its own, since the positive and negative terms would mostly cancel each other out. This is really useful, since it gives us a way of reducing the total error, getting a better estimate of the value <span class="math notranslate nohighlight">\(t\)</span>. If this is the case, we say that the error in <span class="math notranslate nohighlight">\(x\)</span> is <em>random</em>. This technique for reducing random error <a class="reference external" href="https://www.math.purdue.edu/~bradfoa/misc_files/arithmetic_mean.pdf">was invented in the 1700s.</a> (See  for example page 121 of “Studies in the History of Statistics and Probability,” by M.G. Kendall, 1960.)</p>
 </section>
 <section id="systematic-error">
 <h4>Systematic error<a class="headerlink" href="#systematic-error" title="Permalink to this headline">#</a></h4>
