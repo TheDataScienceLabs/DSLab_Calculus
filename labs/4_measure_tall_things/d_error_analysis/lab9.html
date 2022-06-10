@@ -949,11 +949,12 @@ x_1x_2 +x_1\varepsilon_2 + x_2\varepsilon_1 &amp;= x_1x_2\left(1+\frac{\varepsil
 <p>We have shared two rules for combining errors, when adding and when multiplying. There is just one more tool you need to be able to propagate errors through a great variety of computations. That is a general rule for how to propagate an error through a general function.</p>
 <section id="errors-in-linear-functions">
 <h3>Errors in linear functions<a class="headerlink" href="#errors-in-linear-functions" title="Permalink to this headline">#</a></h3>
-<p>Let’s do the simplest function we can think of first. Suppose you know the absolute error in <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(\varepsilon=0.1\)</span> and we wish to know the error in computing <span class="math notranslate nohighlight">\(y=mx+b\)</span>. Let’s assume for now that <span class="math notranslate nohighlight">\(m\)</span> is positive. The largest <span class="math notranslate nohighlight">\(x\)</span> can possibly be is <span class="math notranslate nohighlight">\(x+0.1\)</span>, so the largest <span class="math notranslate nohighlight">\(y\)</span> can be is <span class="math notranslate nohighlight">\(m (x+0.1)+b= mx+b+0.1m\)</span>. The smallest <span class="math notranslate nohighlight">\(x\)</span> can be is <span class="math notranslate nohighlight">\(x-0.1\)</span>, so the smallest <span class="math notranslate nohighlight">\(y\)</span> can be is <span class="math notranslate nohighlight">\(m (x-0.1) +b = mx+b-0.1m\)</span>. That is, we could write
-\[
+<p>Let’s do the simplest function we can think of first. Suppose you know the absolute error in <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(\varepsilon=0.1\)</span> and we wish to know the error in computing <span class="math notranslate nohighlight">\(y=mx+b\)</span>. Let’s assume for now that <span class="math notranslate nohighlight">\(m\)</span> is positive. The largest <span class="math notranslate nohighlight">\(x\)</span> can possibly be is <span class="math notranslate nohighlight">\(x+0.1\)</span>, so the largest <span class="math notranslate nohighlight">\(y\)</span> can be is <span class="math notranslate nohighlight">\(m (x+0.1)+b= mx+b+0.1m\)</span>. The smallest <span class="math notranslate nohighlight">\(x\)</span> can be is <span class="math notranslate nohighlight">\(x-0.1\)</span>, so the smallest <span class="math notranslate nohighlight">\(y\)</span> can be is <span class="math notranslate nohighlight">\(m (x-0.1) +b = mx+b-0.1m\)</span>. That is, we could write</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 y= mx+b \pm 0.1m.
-\]
-The absolute error was multiplied by the slope of the line; the intercept had nothing to do with it.</p>
+\end{align*}\]</div>
+<p>The absolute error was multiplied by the slope of the line; the intercept had nothing to do with it.</p>
 </section>
 <section id="span-style-color-red-exercise-5-span-5-pts">
 <h3><span style="color:red"> Exercise 5 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-5-pts" title="Permalink to this headline">#</a></h3>
