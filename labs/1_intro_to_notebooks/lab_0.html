@@ -766,14 +766,16 @@ e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
 \frac{pq}{p+q} = \frac{1}{\frac{1}{p} + \frac{1}{q}}
 \]</div>
 <p>If you are in “text mode” (the smaller in-line text you get with <code class="docutils literal notranslate"><span class="pre">$</span></code>) the fractions are smaller, and if you are in “display mode” they are bigger. If you want to override that, you could use the command <code class="docutils literal notranslate"><span class="pre">\tfrac</span></code> which always does the smaller-style fraction, or the command <code class="docutils literal notranslate"><span class="pre">\dfrac</span></code> which always does the display style fraction.</p>
-<p>When you have expressions involving fractions, they are often quite a bit taller than a single character. This can lead to ugly expressions:
-$<span class="math notranslate nohighlight">\(
+<p>When you have expressions involving fractions, they are often quite a bit taller than a single character. This can lead to ugly expressions:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 1 = \sum_{n=1}^\infty (\frac{1}{2})^n
-\)</span><span class="math notranslate nohighlight">\(
-We would prefer if the parentheses knew what was inside them, so they can get bigger. We can do that with the commands `\left` and `\right`, which turn normal parentheses into scaling parentheses.
-\)</span><span class="math notranslate nohighlight">\(
+\end{align*}\]</div>
+<p>We would prefer if the parentheses knew what was inside them, so they can get bigger. We can do that with the commands <code class="docutils literal notranslate"><span class="pre">\left</span></code> and <code class="docutils literal notranslate"><span class="pre">\right</span></code>, which turn normal parentheses into scaling parentheses.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 1 = \sum_{n=1}^\infty \left( \frac{1}{2} \right)^n
-\)</span>$</p>
+\end{align*}\]</div>
 </section>
 <section id="getting-help">
 <h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">#</a></h2>
