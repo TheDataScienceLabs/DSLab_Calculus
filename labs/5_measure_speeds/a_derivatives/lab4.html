@@ -1165,11 +1165,12 @@ Secant line equation: y = 15.25(x - 2) + 8</p>
 </div>
 </div>
 </div>
-<p>No obvious bias! We can still work out algebraically that it’s not exact:
-$<span class="math notranslate nohighlight">\(
+<p>No obvious bias! We can still work out algebraically that it’s not exact:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 \frac{(2+0.5)^3 - (2-0.5)^3}{2*(0.5)} = 12.25
-\)</span><span class="math notranslate nohighlight">\(
-This is still a slight overestimate. However, it's clearly way better for any given step size \)</span>h<span class="math notranslate nohighlight">\(. The error gets small really fast, too: if we instead had \)</span>h=10^{-9}<span class="math notranslate nohighlight">\(, the error would be just \)</span>(10^{-9})^2 = 10^{-18}$, which is below the floating-point error. Symmetric difference is better than forward difference!</p>
+\end{align*}\]</div>
+<p>This is still a slight overestimate. However, it’s clearly way better for any given step size <span class="math notranslate nohighlight">\(h\)</span>. The error gets small really fast, too: if we instead had <span class="math notranslate nohighlight">\(h=10^{-9}\)</span>, the error would be just <span class="math notranslate nohighlight">\((10^{-9})^2 = 10^{-18}\)</span>, which is below the floating-point error. Symmetric difference is better than forward difference!</p>
 </section>
 <section id="span-style-color-red-exercise-8-span">
 <h3><span style="color:red;"> Exercise 8 </span><a class="headerlink" href="#span-style-color-red-exercise-8-span" title="Permalink to this headline">#</a></h3>
@@ -1202,10 +1203,11 @@ d_+&amp;=\frac{k}{h(h+k)}
 \end{align*}\]</div>
 <section id="span-style-color-red-exercise-9-h3">
 <h3><span style="color:red;"> Exercise 9 </h3><a class="headerlink" href="#span-style-color-red-exercise-9-h3" title="Permalink to this headline">#</a></h3>
-<p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> which will give you the value of <span class="math notranslate nohighlight">\(d_-\)</span>. You should find that
-$<span class="math notranslate nohighlight">\(
+<p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> which will give you the value of <span class="math notranslate nohighlight">\(d_-\)</span>. You should find that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 d_- = \frac{-h}{k(k+h)}.
-\)</span>$</p>
+\end{align*}\]</div>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 9 Below </h3></section>
 <section id="span-style-color-red-exercise-10-span">
 <h3><span style="color:red;"> Exercise 10 </span><a class="headerlink" href="#span-style-color-red-exercise-10-span" title="Permalink to this headline">#</a></h3>
