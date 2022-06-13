@@ -517,6 +517,34 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span">
+   <span style="color:orange;">
+    3. Analysis
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
+     <span style="color:red;">
+      Exercise 4
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
+     <span style="color:red;">
+      Exercise 5
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#that-s-all-for-today">
+     That’s all for today!
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -622,6 +650,34 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#acquiring-data">
      Acquiring data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span">
+   <span style="color:orange;">
+    3. Analysis
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
+     <span style="color:red;">
+      Exercise 4
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
+     <span style="color:red;">
+      Exercise 5
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#that-s-all-for-today">
+     That’s all for today!
     </a>
    </li>
   </ul>
@@ -827,6 +883,157 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 <p>Have a look at the file you just made (you should be able to open it right here in Jupyterlab). You should see a long list of numbers.</p>
 <p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, the rest of this lab continues in a separate jupyter notebook, called Part 2.</p>
+</section>
+</section>
+<section id="span-style-color-orange-3-analysis-span">
+<h2><span style="color:orange;"> 3. Analysis </span><a class="headerlink" href="#span-style-color-orange-3-analysis-span" title="Permalink to this headline">#</a></h2>
+<p>In the previous notebook, we created a file with your measured heartbeat. In this notebook, you will analyze that data which you collected. Here is how to load that data back into Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;heartbeat.txt&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>  <span class="c1"># show me just the first 20 entries</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A good first step for understanding data is to visualize it – that is, make a plot. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> makes this easy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately the x-axis is all wrong – it is just counting measurements one by one, not giving us the actual time of each measurement. To fix this, we can make an array which has the time each measurement was taken.</p>
+<section id="span-style-color-red-exercise-4-span">
+<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this headline">#</a></h3>
+<p>Make an array called <code class="docutils literal notranslate"><span class="pre">t</span></code> which has the time corresponding to each measurement. If you feel stuck, look at the previous notebook for inspiration.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span>  <span class="c1"># ANSWER HERE</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will zoom in to see just the first second. You can use the command <code class="docutils literal notranslate"><span class="pre">plt.xlim</span></code>. To understand what the command does and the required arguments, we can call  <span class="math notranslate nohighlight">\(\mathtt{help()}\)</span>, Python’s built in help system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we see that to call this function, we just need to give it a left and right endpoint as arguments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is some jaggedness to the signal. This is present because the Pulse Sensor has some noise in its circuitry – it introduces some random error. We can get rid of it using the same trick we always use to manage random error: averaging. Specifically, we can average each point with its neighbors. The following code averages each point with its ten nearest neighbors on each side, then plots the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">heartbeat</span> <span class="kn">import</span> <span class="n">rolling_centered_average</span>
+
+<span class="n">averaged</span> <span class="o">=</span> <span class="n">rolling_centered_average</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the signal is smoother, but there is still some unwanted jiggle to it. Increase the number of terms in the average until it goes up and down smoothly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">averaged</span> <span class="o">=</span> <span class="n">rolling_centered_average</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">)</span>  <span class="c1"># You fill in an appropriate number</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our main objective is to identify the frequency of this signal – that is, the heart rate. To do that, let’s see if we can mark the local maxima. Here is an example of a function which will identify those points where the function is increasing (where the current value is bigger than the previous). It may give a warning about invalid values – that’s because we don’t have any good average values for the values at the ends, so they are filled in with the “not a number” value, <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">increasing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+    <span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span>
+<span class="p">)</span>  <span class="c1"># this creates an array filled with False</span>
+<span class="n">increasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">averaged</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">increasing</span><span class="p">],</span> <span class="n">averaged</span><span class="p">[</span><span class="n">increasing</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see where it is decreasing by looking at the complement. Make a plot similar to the above, showing where the function is decreasing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decreasing</span> <span class="o">=</span> <span class="o">~</span><span class="n">increasing</span>
+
+<span class="c1"># You make a plot here, similar to the above (this is not graded, but will help make sure everything is working)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now it is just a matter of finding where the switch occurs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxima</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">maxima</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">increasing</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">decreasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">maxima</span><span class="p">],</span> <span class="n">averaged</span><span class="p">[</span><span class="n">maxima</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can remove any smaller wobbles by using a threshold – only counting maxima above a certain value. This will get us only those top peaks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peak_indices</span> <span class="o">=</span> <span class="n">maxima</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">averaged</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[</span><span class="n">maxima</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">],</span> <span class="n">averaged</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have identified the peaks, we can take the times these have occurred and compute the BPM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peak_times</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">]</span>
+<span class="n">peak_times</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-red-exercise-5-span">
+<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this headline">#</a></h3>
+<p>Use the peak times to compute your BPM.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3></section>
+<section id="that-s-all-for-today">
+<h3>That’s all for today!<a class="headerlink" href="#that-s-all-for-today" title="Permalink to this headline">#</a></h3>
+<p>Well done! Today we learned a bit about the terminology of error analysis, we learned how to interface with a microcontroller using Python, and we developed a procedure for computing the BPM from a photoplethysmogram sensor. In next week’s lab, we will learn how to make that process automatic, and do a more sophisticated analysis of the data you collected today.</p>
+<p>Make sure you save the code you wrote today, because you will need it next week (you can hit the save button at the top of the notebook). Then, make sure to submit <strong>both</strong> notebooks you used today to Gradescope.</p>
 </section>
 </section>
 </section>
