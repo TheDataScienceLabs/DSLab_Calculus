@@ -17,15 +17,15 @@ parts:
   - file: labs/3_estimate_blood_flow/lab3.ipynb
 - caption: Accurately measure the heights of tall and far away things
   chapters:
-  - file: labs/4_measure_tall_things/a_prepare_for_building_inclinometer/lab6.ipynb
-  - file: labs/4_measure_tall_things/b_build_an_inclinometer/lab7.ipynb
-  - file: labs/4_measure_tall_things/c_make_the_measurements/lab8.ipynb
-  - file: labs/4_measure_tall_things/d_error_analysis/lab9.ipynb
-  - file: labs/4_measure_tall_things/e_symbolic_error/lab10.ipynb
+  - file: labs/4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.ipynb
+  - file: labs/4_measure_tall_things/b_build_an_inclinometer/lab4b.ipynb
+  - file: labs/4_measure_tall_things/c_make_the_measurements/lab4c.ipynb
+  - file: labs/4_measure_tall_things/d_error_analysis/lab4d.ipynb
+  - file: labs/4_measure_tall_things/e_symbolic_error/lab4e.ipynb
 - caption: Measure the speeds of nearby things
   chapters:
-  - file: labs/5_measure_speeds/a_derivatives/lab4.ipynb
-  - file: labs/5_measure_speeds/b_build_a_tool/lab5.ipynb
+  - file: labs/5_measure_speeds/a_derivatives/lab5a.ipynb
+  - file: labs/5_measure_speeds/b_build_a_tool/lab5b.ipynb
 - caption: Design a project of your own
   chapters:
-  - file: labs/final_project/lab11.ipynb
+  - file: labs/final_project/labfinal.ipynb
