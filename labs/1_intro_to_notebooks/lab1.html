@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Laboratory 2 - Part 1" href="../2_determine_heart_rate/lab2.html" />
-    <link rel="prev" title="Laboratory 0" href="lab0.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,14 +118,14 @@ const thebe_selector_output = ".output, .cell_output"
   Intro to Notebooks
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lab0.html">
    Laboratory 0
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab01.html">
    Laboratory 1
   </a>
  </li>
@@ -280,7 +278,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/1_intro_to_notebooks/lab01.ipynb"
+        <a href="https://mybinder.org/v2/gh/AldenMB/DSLab_Calculus/main?urlpath=tree/book/labs/1_intro_to_notebooks/lab1.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -340,7 +338,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/1_intro_to_notebooks/lab01.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/AldenMB/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/1_intro_to_notebooks/lab1.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -368,7 +366,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/labs/1_intro_to_notebooks/lab01.ipynb"
+        <a href="../../_sources/labs/1_intro_to_notebooks/lab1.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -812,7 +810,7 @@ Execute the following blocks by pressing (shift-enter) after clicking on the gra
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">lab1</span> <span class="k">as</span> <span class="nn">lab1</span>
+<span class="kn">import</span> <span class="nn">lab01</span> <span class="k">as</span> <span class="nn">lab01</span>
 </pre></div>
 </div>
 </div>
@@ -837,12 +835,12 @@ Execute the following blocks by pressing (shift-enter) after clicking on the gra
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
 <p>Functions are groups of code that always run together. When you call a function, you execute the code that is associated within that function. Functions can take inputs, manipulate the inputs, and return an output.</p>
-<p>The file <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code> contains a function named <code class="docutils literal notranslate"><span class="pre">pyramid</span></code>. The function simply takes an integer value <code class="docutils literal notranslate"><span class="pre">x</span></code>, displays a half pyramid of # symbols with  <code class="docutils literal notranslate"><span class="pre">x</span></code> rows (using the value  of <code class="docutils literal notranslate"><span class="pre">x</span></code> given), and returns the total number of #s in the half pyramid. In this case, the returned value is stored in a variable named <code class="docutils literal notranslate"><span class="pre">k</span></code>. In the example below, we inputted the value <code class="docutils literal notranslate"><span class="pre">4</span></code> into the function, created a half pyramid with the input value <code class="docutils literal notranslate"><span class="pre">k=4</span></code> as the number of rows, and returned the resulting number of # symbols in the half pyramid.</p>
-<p>You can view the content of the function <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> by opening the <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code> file. Take a look at it!</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> contains a function named <code class="docutils literal notranslate"><span class="pre">pyramid</span></code>. The function simply takes an integer value <code class="docutils literal notranslate"><span class="pre">x</span></code>, displays a half pyramid of # symbols with  <code class="docutils literal notranslate"><span class="pre">x</span></code> rows (using the value  of <code class="docutils literal notranslate"><span class="pre">x</span></code> given), and returns the total number of #s in the half pyramid. In this case, the returned value is stored in a variable named <code class="docutils literal notranslate"><span class="pre">k</span></code>. In the example below, we inputted the value <code class="docutils literal notranslate"><span class="pre">4</span></code> into the function, created a half pyramid with the input value <code class="docutils literal notranslate"><span class="pre">k=4</span></code> as the number of rows, and returned the resulting number of # symbols in the half pyramid.</p>
+<p>You can view the content of the function <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> by opening the <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> file. Take a look at it!</p>
 <p>Now let’s evaluate the function <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> and print the result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">lab1</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">lab01</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of #s in the half pyramid is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -852,7 +850,7 @@ Execute the following blocks by pressing (shift-enter) after clicking on the gra
 <section id="span-style-color-red-exercise-1-span">
 <h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this headline">#</a></h3>
 <p><strong><em>Question 1</em></strong>: What would the expected value of <code class="docutils literal notranslate"><span class="pre">m</span></code> be if the following code was given? How many #s would be on the 5th row?</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">lab1</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">lab01</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong><em>Question 2</em></strong>: Use the pyramid function to build a half-pyramid with 10 rows and compute the number of # symbols in the half pyramid.</p>
@@ -940,7 +938,7 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </section>
 <section id="span-style-color-red-exercise-3-span">
 <h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h3>
-<p>When you analyzed the code in <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code> earlier, you would have noticed that there are three additional functions in the file. Follow the instructions below to see what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function does.</p>
+<p>When you analyzed the code in <code class="docutils literal notranslate"><span class="pre">lab01.py</span></code> earlier, you would have noticed that there are three additional functions in the file. Follow the instructions below to see what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function does.</p>
 <p><strong>Part 1</strong></p>
 <p>Code the following operations.</p>
 <ol class="simple">
@@ -1397,20 +1395,6 @@ v is velocity (m/s)</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lab0.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Laboratory 0</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../2_determine_heart_rate/lab2.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Laboratory 2 - Part 1</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
