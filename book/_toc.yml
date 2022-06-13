@@ -11,7 +11,7 @@ parts:
 - caption: Determine your heart rate
   chapters:
   - file: labs/2_determine_heart_rate/lab2.ipynb
-  - file: labs/2_determine_heart_rate/lab2_part2.ipynb
+  #- file: labs/2_determine_heart_rate/lab2_part2.ipynb
 - caption: Estimate your blood flow
   chapters:
   - file: labs/3_estimate_blood_flow/lab3.ipynb
