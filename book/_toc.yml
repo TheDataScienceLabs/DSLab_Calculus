@@ -6,7 +6,7 @@ root: intro
 parts:
 - caption: Intro to Notebooks
   chapters:
-  - file: labs/1_intro_to_notebooks/lab_0.ipynb
+  - file: labs/1_intro_to_notebooks/lab0.ipynb
   - file: labs/1_intro_to_notebooks/lab01.ipynb
 - caption: Determine your heart rate
   chapters:
