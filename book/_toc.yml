@@ -7,7 +7,7 @@ parts:
 - caption: Intro to Notebooks
   chapters:
   - file: labs/1_intro_to_notebooks/lab0.ipynb
-  - file: labs/1_intro_to_notebooks/lab01.ipynb
+  - file: labs/1_intro_to_notebooks/lab1.ipynb
 - caption: Determine your heart rate
   chapters:
   - file: labs/2_determine_heart_rate/lab2.ipynb
