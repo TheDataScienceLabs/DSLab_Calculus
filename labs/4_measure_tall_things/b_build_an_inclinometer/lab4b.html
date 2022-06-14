@@ -490,11 +490,13 @@ title="Print to PDF"
      (20 pts)
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hook-it-up">
-     Hook it up
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-a-clock">
+   Display a clock
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts">
      <span style="color:red">
@@ -679,11 +681,13 @@ title="Print to PDF"
      (20 pts)
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hook-it-up">
-     Hook it up
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-a-clock">
+   Display a clock
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts">
      <span style="color:red">
@@ -800,21 +804,37 @@ title="Print to PDF"
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this headline">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
-<li><p>Type here</p></li>
+<li><p>Averaging</p></li>
 </ul>
 <p><font size="5"> Programming Skills </font></p>
 <ul class="simple">
-<li><p>Type here</p></li>
+<li><p>Button pressing</p></li>
+<li><p>Use a screen to display values</p></li>
+<li><p>Display a clock</p></li>
+<li><p>Use an accelerometer</p></li>
+<li><p>Program averaging</p></li>
+<li><p>Program components to work together</p></li>
+<li><p>Make an inclinometer</p></li>
+<li><p>Running a Pi on battery power</p></li>
+<li><p>Use a voltage regulator</p></li>
 </ul>
 <p><font size="5"> Embedded Systems </font></p>
 <ul class="simple">
-<li><p>Type here</p></li>
+<li><p>Thonny and Micropython</p></li>
 </ul>
 </section>
 <section id="span-style-color-orange-0-required-hardware-span">
 <h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Type here</p></li>
+<li><p>Microcontroller: Raspberry Pi Pico</p></li>
+<li><p>Button</p></li>
+<li><p>OLED (clock)</p></li>
+<li><p>LSM9DS0 (accelerometer)</p></li>
+<li><p>7805 voltage regulator</p></li>
+<li><p>9-volt battery</p></li>
+<li><p>Wires</p></li>
+<li><p>Breadboard</p></li>
+<li><p>USB connector</p></li>
 </ul>
 <h3 style="background-color:lightblue"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -876,8 +896,9 @@ title="Print to PDF"
 <h3><span style="color:red"> Exercise 2 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-20-pts" title="Permalink to this headline">#</a></h3>
 <p>Read the three programs carefully. In three to four paragraphs, reflect on the way the code is organized in each. What are their relative merits? What might make one or another of these programs easier to read, modify or extend? Which ones would be easiest to split apart into multiple smaller modules? Which ones are more aesthetically pleasing? Give your honest assessment, since many of these questions are matters of opinion. Be sure to refer to specific lines from the programs in your answer.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3></section>
-<section id="hook-it-up">
-<h3>Hook it up<a class="headerlink" href="#hook-it-up" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="display-a-clock">
+<h2>Display a clock<a class="headerlink" href="#display-a-clock" title="Permalink to this headline">#</a></h2>
 <p>The wiring is very simple for this one. There are only four wires to use: power, ground, and the two I2C wires. <strong>Unplug your microcontroller from the computer</strong> and wire up the display. If you are uncertain about your wiring, then ask for an instructor to check it over. If you are confident in your wiring you can continue.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -900,7 +921,6 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</section>
 <section id="span-style-color-red-exercise-3-span-5-pts">
 <h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this headline">#</a></h3>
 <p>Copy the file <a class="reference external" href="http://localhost:8888/files/Desktop/DSLab_Calculus/book/labs/4_measure_tall_things/b_build_an_inclinometer/ssd1306.py?_xsrf=2%7C2a67df47%7Cb3931781ca5fd7ba0b392d1cbc806968%7C1653932365">ssd1306.py</a> onto your Pico using Thonny, which provides a class for interacting with the specific OLED displays we are using. Then, pick your favorite of the clock programs and run it. You will have to modify the line which sets up the I2C bus according to whichever specific SCL and SDA pins you are using – remember to use the number labeled with GP on the datasheet, and set the <code class="docutils literal notranslate"><span class="pre">id</span></code> according to whether you are using I2C bus 0 or 1. Once you have it running, just write a note below indicating that you have done so.</p>
