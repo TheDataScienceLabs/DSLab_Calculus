@@ -442,6 +442,16 @@ title="Print to PDF"
     1. Two Types of Numbers in Python
    </span>
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integers">
+   Integers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floats">
+   Floats
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
@@ -620,6 +630,16 @@ title="Print to PDF"
    <span style="color:orange;">
     1. Two Types of Numbers in Python
    </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integers">
+   Integers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floats">
+   Floats
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -810,6 +830,9 @@ title="Print to PDF"
 </section>
 <section id="span-style-color-orange-1-two-types-of-numbers-in-python-span">
 <h2><span style="color:orange;"> 1. Two Types of Numbers in Python </span><a class="headerlink" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="integers">
+<h2>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">#</a></h2>
 <p>One of the benefits of using Python is that it has great support for numbers. This makes it much more friendly for doing math than, for example, Javascript or C. Whole numbers in Python have the type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which is short for Integer. You can check this yourself:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -842,40 +865,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Unfortunately, it’s not possible to represent every number exactly in a computer. For numbers which are not whole numbers, Python only keeps a certain number of digits. This way of storing numbers is called <em>floating point</em>, and numbers stored this way are called <em>floating point numbers</em>. In Python, the type for floating point numbers is <code class="docutils literal notranslate"><span class="pre">float</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Floating point numbers have some quirks you need to be aware of. For example, we know that 0.1+0.2=0.3, but look what Python tells us:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>It is slightly wrong. What is going on here? Floating point numbers are stored in binary, and in binary, 0.1 and 0.2 are infinite repeating decimals. In binary, we would write the number one tenth as 0.0001100110011… and so on forever. We don’t have an infinite amount of memory available on our computers, so Python only stores 53 binary digits, which introduces roundoff error. The relative error is at most <span class="math notranslate nohighlight">\(2^{-53} = 1.11\times 10^{-16}\)</span>, so numbers are not reliable beyond sixteen places. Sure enough, in the example above, we got an error sixteen places after the 3.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**-</span><span class="mi">53</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>What happens if you multiply 0.1 and 0.2 by 10, add them, and then divide by 10? Mathematically, <span class="math notranslate nohighlight">\(0.1+0.2 = \frac{0.1(10)+0.2(10)}{10}\)</span>, so do you still get a slightly wrong answer with floating point numbers?</p>
-<h3 style="color:green;"><left> Sandbox </left></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>In a later lab we will introduce a tool you can use to do exact arithmetic with Python. But for most purposes, this relative error is no trouble at all.</p>
+</section>
+<section id="floats">
+<h2>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">#</a></h2>
+<p>The other type of number was mentioned in Lab 4e, floating point numbers. As explained previously, floats are used to represent non-whole numbers like decimals. However, they do present some error since Python can only store a certain amount of digits. For most purposes, this relative error is no trouble at all, and if it is posing a problem then the tool introduced last time, SymPy, can be implemented to avoid this.</p>
 <section id="span-style-color-red-exercise-1-span">
 <h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this headline">#</a></h3>
 <p>For each of the following constants, look them up on Wikipedia and report the relative error in their known values. If an error is not given, you can assume the absolute error is <span class="math notranslate nohighlight">\(\pm 1 \)</span> of the last digit given. Note that some times, the absolute error is given in a concise notation, as described here: <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html">https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html</a>. Compare your answers to the relative error in a floating point number. Make sure you are using relative error, not absolute error.</p>
