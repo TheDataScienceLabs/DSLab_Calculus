@@ -948,6 +948,7 @@ title="Print to PDF"
 </section>
 <section id="a-practical-example-of-catastrophic-cancellation">
 <h3>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Permalink to this headline">#</a></h3>
+<p>Before continuing, download <a class="reference external" href="http://localhost:8889/files/Desktop/DSLab_Calculus/book/labs/5_measure_speeds/a_derivatives/lab_5a_checker.ipynb?_xsrf=2%7C2a67df47%7Cb3931781ca5fd7ba0b392d1cbc806968%7C1653932365">lab_5a_checker.py</a> to be able to check if your code works properly.</p>
 <p>Here we walk you through coding an example where catestrophic cancellation makes a pretty big difference, and something clever you can do to fix it.</p>
 <ol class="simple">
 <li><p>Write a function which takes the coefficients <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> from a polynomial <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> and gives you a list of the roots. Just apply the standard quadratic formula. For now, you can assume that <span class="math notranslate nohighlight">\(b^2-4ac&gt;0\)</span> so you can take the square root, and you can assume <code class="docutils literal notranslate"><span class="pre">a</span></code> is not zero. Have it give the smaller root first (you can use the built in function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> for this).</p></li>
@@ -958,6 +959,7 @@ title="Print to PDF"
 
 <span class="k">def</span> <span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="c1"># fill in the formula here</span>
+    
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
 
 <span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
@@ -1324,8 +1326,8 @@ f'(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">symmetric_difference</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1">#write a function here!</span>
+    
     <span class="k">return</span> <span class="n">derivative</span>
-
 
 <span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_symmetric_difference</span><span class="p">(</span><span class="n">symmetric_difference</span><span class="p">)</span>
 </pre></div>
