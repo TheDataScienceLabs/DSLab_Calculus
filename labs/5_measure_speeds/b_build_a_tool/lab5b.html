@@ -861,7 +861,7 @@ title="Print to PDF"
 <li><p>Near the start we define two variables <code class="docutils literal notranslate"><span class="pre">trig</span></code> and <code class="docutils literal notranslate"><span class="pre">echo</span></code>. Each of those takes an integer, which refers to the pin you are using to connect with the SR04. Change the script so that <code class="docutils literal notranslate"><span class="pre">trig</span></code> corresponds to the GP port where you connected LV1, and <code class="docutils literal notranslate"><span class="pre">echo</span></code> with the GP port where you connected LV2. <strong>Note:</strong> the pins are numbered in python according to the green number on the datasheet. For example, the pin numbered in grey on the datasheet as <code class="docutils literal notranslate"><span class="pre">11</span></code> says <code class="docutils literal notranslate"><span class="pre">GP8</span></code> on it, so we would refer to that in Python as pin 8.</p></li>
 </ol>
 <p>As we work through this lab, you will learn what each part of this code does. Before we get into it, go ahead and run the script and see for yourself what it is doing. Move something in front of the sensor, see if you can make the numbers change.</p>
-<p>Now that you have a feel for what this script does, let’s bring some of the data in here. Make a new file called <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">measurement.txt</span></code> and save it in your lab 5 directory. Copy and paste the output from Thonny into that file and save it.</p>
+<p>Now that you have a feel for what this script does, let’s bring some of the data in here. Make a new file called <code class="docutils literal notranslate"><span class="pre">initial_measurement.txt</span></code> and save it in your lab 5 directory. Copy and paste the output from Thonny into that file and save it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -872,7 +872,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;initial measurement.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;initial_measurement.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">measurement</span>
 </pre></div>
 </div>
