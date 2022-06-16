@@ -613,33 +613,6 @@ title="Print to PDF"
       Exercise 11
      </span>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-1">
-       Part 1
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-2">
-       Part 2
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-3">
-       Part 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-4">
-       Part 4
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-5">
-       Part 5
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -853,33 +826,6 @@ title="Print to PDF"
       Exercise 11
      </span>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-1">
-       Part 1
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-2">
-       Part 2
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-3">
-       Part 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-4">
-       Part 4
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-5">
-       Part 5
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -978,7 +924,7 @@ title="Print to PDF"
 <li><p>mass of an electron</p></li>
 <li><p>orbital period of the moon (the Sidereal period, specifically)</p></li>
 <li><p>distance from New York to Los Angeles (you can look this one up on Wolfram Alpha instead of Wikipedia)</p></li>
-<li><p>Freezing point of water (in Kelvin) at atmospheric pressure</p></li>
+<li><p>freezing point of water (in Kelvin) at atmospheric pressure</p></li>
 </ul>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below: </h3></section>
 </section>
@@ -1190,7 +1136,7 @@ f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
 </section>
 <section id="span-style-color-orange-5-finite-difference-schemes-span">
 <h2><span style="color:orange;"> 5. Finite Difference Schemes </span><a class="headerlink" href="#span-style-color-orange-5-finite-difference-schemes-span" title="Permalink to this headline">#</a></h2>
-<p>This shows the basic struggle of computing numerical derivatives: the definition of the derivative requires <code class="docutils literal notranslate"><span class="pre">h</span></code> to be infinitely small, but we can’t practically make it that small. This isn’t just because of catesprophic cancellation, by the way – often when working with real data you are limited in how fast you can collect it. Hence, our goal will be to find ways to get more accurate estimates of the derivative without just making the step size <span class="math notranslate nohighlight">\(h\)</span> tiny. We will consider <span class="math notranslate nohighlight">\(h\)</span> to be fixed, and try to get our estimate as good as possible.</p>
+<p>This shows the basic struggle of computing numerical derivatives: the definition of the derivative requires <code class="docutils literal notranslate"><span class="pre">h</span></code> to be infinitely small, but we can’t practically make it that small. This isn’t just because of catastrophic cancellation, by the way – often when working with real data you are limited in how fast you can collect it. Hence, our goal will be to find ways to get more accurate estimates of the derivative without just making the step size <span class="math notranslate nohighlight">\(h\)</span> tiny. We will consider <span class="math notranslate nohighlight">\(h\)</span> to be fixed, and try to get our estimate as good as possible.</p>
 <section id="bias-in-the-forward-difference">
 <h3>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Permalink to this headline">#</a></h3>
 <p>Let’s examine the finite difference method, applied to the function <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. For ease of illustration, let’s choose <span class="math notranslate nohighlight">\(h=0.5\)</span>. Our estimate of <span class="math notranslate nohighlight">\(f'(2)\)</span> is</p>
@@ -1202,16 +1148,17 @@ f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
 </section>
 <section id="span-style-color-red-exercise-6-span">
 <h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#span-style-color-red-exercise-6-span" title="Permalink to this headline">#</a></h3>
-<p>Find an equation for the tangent line to <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. Find an equation for the secant line intersecting <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=2.5\)</span>.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 6 Below </h3><p>Tangent line equation: y = 12x - 16
-Secant line equation: y = 15.25(x - 2) + 8</p>
-<p>Fill in your formulas for the secant and tangent lines below.</p>
+<p><strong>Part 1</strong></p>
+<p>Find an equation for the tangent line to <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>.</p>
+<p><strong>Part 2</strong></p>
+<p>Find an equation for the secant line intersecting <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=2.5\)</span>.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 6 Below </h3><p>Fill in the formulas you found for the secant and tangent lines below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
-<span class="n">tangent</span> <span class="o">=</span> 
-<span class="n">secant</span> <span class="o">=</span> 
+<span class="n">tangent</span> <span class="o">=</span> <span class="c1">#fill in here</span>
+<span class="n">secant</span> <span class="o">=</span> <span class="c1">#fill in here</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$x^3$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tangent&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span>
@@ -1235,13 +1182,16 @@ Secant line equation: y = 15.25(x - 2) + 8</p>
 </section>
 <section id="span-style-color-red-exercise-7-span">
 <h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#span-style-color-red-exercise-7-span" title="Permalink to this headline">#</a></h3>
-<p>Create a similar plot to show what happens if <span class="math notranslate nohighlight">\(h=-0.5\)</span>. Is the slope of the secant line too big, or too small, in this case? Support your claim using your figure. How is this related to the curvature of the function <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 7 Below </h3><div class="cell docutils container">
+<p><strong>Part 1</strong></p>
+<p>Create a similar plot to show what happens if <span class="math notranslate nohighlight">\(h=-0.5\)</span>.</p>
+<p><strong>Part 2</strong></p>
+<p>Is the slope of the secant line too big, or too small, in this case? Support your claim using your figure. How is this related to the curvature of the function <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 7 Part 1 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
-<span class="n">tangent</span> <span class="o">=</span> 
-<span class="n">secant</span> <span class="o">=</span> 
+<span class="n">tangent</span> <span class="o">=</span> <span class="c1">#fill in here</span>
+<span class="n">secant</span> <span class="o">=</span> <span class="c1">#fill in here</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$x^3$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tangent&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span>
@@ -1253,7 +1203,7 @@ Secant line equation: y = 15.25(x - 2) + 8</p>
 </div>
 </div>
 </div>
-</section>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 7 Part 2 Below </h3></section>
 <section id="correcting-the-bias">
 <h3>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">#</a></h3>
 <p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
@@ -1295,7 +1245,7 @@ Secant line equation: y = 15.25(x - 2) + 8</p>
 </section>
 <section id="span-style-color-orange-6-unequal-step-sizes-span">
 <h2><span style="color:orange;"> 6. Unequal Step Sizes </span><a class="headerlink" href="#span-style-color-orange-6-unequal-step-sizes-span" title="Permalink to this headline">#</a></h2>
-<p>In exercise 8 you should have found that the symmetric difference scheme gave exactly the right answer. This is not just a coincidence. Whenever your function is a quadratic polynomial, the symmetric finite difference scheme gives exactly the correct answer. A scheme with this property is called <strong>second-order accurate</strong>.</p>
+<p>In Exercise 8 you should have found that the symmetric difference scheme gave exactly the right answer. This is not just a coincidence. Whenever your function is a quadratic polynomial, the symmetric finite difference scheme gives exactly the correct answer. A scheme with this property is called <strong>second-order accurate</strong>.</p>
 <p>The symmetric finite difference scheme is a very powerful way to estimate derivatives. It’s a second-order accurate scheme, and it only uses two points to estimate the derivative. Unfortunately, it only works when the step sizes are equal, that is, when the samples are evenly spaced. Frequently we are not so lucky as to have evenly spaced samples. Data often arrive whenever they are available, and we have to deal with that. Fortunately, we can still get a second-order accurate scheme, even if the step sizes are unequal. In this section, we will develop a second-order accurate scheme to estimate the derivative of a function at a point <span class="math notranslate nohighlight">\(x=b\)</span> using nearby points <span class="math notranslate nohighlight">\(x=a\)</span> to the left and <span class="math notranslate nohighlight">\(x=c\)</span> to the right, so <span class="math notranslate nohighlight">\(a&lt;b&lt;c\)</span>. That is, we will find numbers <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1321,7 +1271,7 @@ b-c &amp;= \alpha (a-b)(a-c)\\
 &amp;= \frac{1}{c-a}-\frac{1}{b-a}
 \end{align*}\]</div>
 <p>By choosing <span class="math notranslate nohighlight">\(f\)</span> carefully, we were able to get the value of <span class="math notranslate nohighlight">\(\alpha\)</span> directly. The trick was to choose <span class="math notranslate nohighlight">\(f\)</span> so that the terms <span class="math notranslate nohighlight">\(f(a)\)</span> and <span class="math notranslate nohighlight">\(f(c)\)</span> worked out to be zero.</p>
-<p>We will work out how to find <span class="math notranslate nohighlight">\(\alpha\)</span> together as another example. Then, you will be asked to choose <span class="math notranslate nohighlight">\(f\)</span> to give you <span class="math notranslate nohighlight">\(\gamma\)</span>. Since I want <span class="math notranslate nohighlight">\(f(a)=0\)</span> and <span class="math notranslate nohighlight">\(f(c)=0\)</span>, I will choose <span class="math notranslate nohighlight">\(f(x)=(x-a)(x-c)\)</span>. This quadratic has zeros at <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=c\)</span>, just what I want. Then I can fill out the values as before.</p>
+<p>We will work out how to find <span class="math notranslate nohighlight">\(\alpha\)</span> together as another example. Then, you will be asked to choose <span class="math notranslate nohighlight">\(f\)</span> to give you <span class="math notranslate nohighlight">\(\gamma\)</span>. Since I want <span class="math notranslate nohighlight">\(f(a)=0\)</span> and <span class="math notranslate nohighlight">\(f(c)=0\)</span>, I will choose <span class="math notranslate nohighlight">\(f(x)=(x-a)(x-c)\)</span>. This quadratic has zeros at <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=c\)</span>, which is just what I want. Then I can fill out the values as before.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 f'(x) &amp;= 2x-a-c\\
@@ -1434,8 +1384,7 @@ f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
 </div>
 </div>
 <p>Numpy even automatically filled in the values at the ends with <code class="docutils literal notranslate"><span class="pre">nan</span></code>, because we don’t have neighbors there to compute the symmetric difference.</p>
-<section id="part-1">
-<h4>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">#</a></h4>
+<p><strong>Part 1</strong></p>
 <p>Compute <code class="docutils literal notranslate"><span class="pre">gamma</span></code> as well, using broadcasting.</p>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 1 Below </h3><p>We also need the values of <span class="math notranslate nohighlight">\(f(a)\)</span>, <span class="math notranslate nohighlight">\(f(b)\)</span>, and <span class="math notranslate nohighlight">\(f(c)\)</span>. We will build those just like we built <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
 <div class="cell docutils container">
@@ -1448,11 +1397,9 @@ f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
 </div>
 </div>
 </div>
-</section>
-<section id="part-2">
-<h4>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">#</a></h4>
+<p><strong>Part 2</strong></p>
 <p>Build an array <code class="docutils literal notranslate"><span class="pre">fc</span></code> which holds the values of <span class="math notranslate nohighlight">\(f(c)\)</span>.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 2 Below </h3><p>Now that we have all of our variables set up, computing the derivative is as simple as applying the formula (<span class="math notranslate nohighlight">\(*\)</span>).</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 2 Below </h3><p>Now that we have all of our variables set up, computing the derivative is as simple as applying the formula (<span class="math notranslate nohighlight">\(*\)</span>) from above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">fa</span><span class="o">+</span><span class="n">beta</span><span class="o">*</span><span class="n">fb</span><span class="o">+</span><span class="n">gamma</span><span class="o">*</span><span class="n">fc</span>
@@ -1470,13 +1417,9 @@ f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
 </div>
 </div>
 </div>
-</section>
-<section id="part-3">
-<h4>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">#</a></h4>
+<p><strong>Part 3</strong></p>
 <p>Set the last entry of <code class="docutils literal notranslate"><span class="pre">derivative</span></code> similarly. Use negative indices, so that you don’t need to know how many elements are in the array.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 3 Below </h3></section>
-<section id="part-4">
-<h4>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">#</a></h4>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 3 Below </h3><p><strong>Part 4</strong></p>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> which computes the symmetric difference for unequal step sizes. You can do this by copying code line-by-line from above – all the code we wrote should work just fine using an arbitrary <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1490,14 +1433,11 @@ f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
 </div>
 </div>
 </div>
-</section>
-<section id="part-5">
-<h4>Part 5<a class="headerlink" href="#part-5" title="Permalink to this headline">#</a></h4>
+<p><strong>Part 5</strong></p>
 <p>In a language like Python (or Julia, or Matlab, for that matter) a so-called “vectorized” procedure goes way faster than looping through the variables, because you can pass all the difficult computation to highly-optimized code (in our case, the code which comes in the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>). The difference in speed is very small for arrays without very many entries, but when we start to have hundreds or thousands of entries in our arrays it makes a huge difference. That is one reason why people often prefer to write functions which treat the data as arrays, rather than looping through lists like you would do in other languages like C, Java, or Javascript.</p>
 <p>Another reason is that many people find the code easier to read, and easier to understand, if it is written in a vectorized way.</p>
 <p>Write a few sentences of your thoughts on the matter. Do you find the function <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> you wrote to be easier to read than if it were done with a loop? Which parts are harder to read, which parts easier? Give your honest opinion.</p>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 4 Below </h3></section>
-</section>
 </section>
 </section>
 
