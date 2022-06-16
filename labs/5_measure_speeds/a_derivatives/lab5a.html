@@ -570,6 +570,23 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma">
+     A quick way to figure out
+     <span class="math notranslate nohighlight">
+      \(\alpha\)
+     </span>
+     ,
+     <span class="math notranslate nohighlight">
+      \(\beta\)
+     </span>
+     , and
+     <span class="math notranslate nohighlight">
+      \(\gamma\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-h3">
      <span style="color:red;">
       Exercise 9
@@ -583,12 +600,46 @@ title="Print to PDF"
      </span>
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes">
+   The symmetric finite difference method with unequal step sizes
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-h3">
      <span style="color:red;">
       Exercise 11
      </span>
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-1">
+       Part 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-2">
+       Part 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-3">
+       Part 3
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-4">
+       Part 4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-5">
+       Part 5
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -759,6 +810,23 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma">
+     A quick way to figure out
+     <span class="math notranslate nohighlight">
+      \(\alpha\)
+     </span>
+     ,
+     <span class="math notranslate nohighlight">
+      \(\beta\)
+     </span>
+     , and
+     <span class="math notranslate nohighlight">
+      \(\gamma\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-h3">
      <span style="color:red;">
       Exercise 9
@@ -772,12 +840,46 @@ title="Print to PDF"
      </span>
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes">
+   The symmetric finite difference method with unequal step sizes
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-h3">
      <span style="color:red;">
       Exercise 11
      </span>
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-1">
+       Part 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-2">
+       Part 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-3">
+       Part 3
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-4">
+       Part 4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#part-5">
+       Part 5
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -1193,55 +1295,87 @@ Secant line equation: y = 15.25(x - 2) + 8</p>
 </section>
 <section id="span-style-color-orange-6-unequal-step-sizes-span">
 <h2><span style="color:orange;"> 6. Unequal Step Sizes </span><a class="headerlink" href="#span-style-color-orange-6-unequal-step-sizes-span" title="Permalink to this headline">#</a></h2>
-<p>When we can control the step size, we are lucky: there are just two points to check in the symmetric difference scheme! The middle term cancelled out. With real data, we are not always so lucky: most of the time, data just comes in when it’s available. We can get a formula that’s just as good as the symmetric difference scheme, even if the step sizes are not equal. The trick is to ask for that cool property you just found, that the formula should be exact for quadratic polynomials. That is: we are looking for numbers <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, <span class="math notranslate nohighlight">\(d_+\)</span> so that</p>
+<p>In exercise 8 you should have found that the symmetric difference scheme gave exactly the right answer. This is not just a coincidence. Whenever your function is a quadratic polynomial, the symmetric finite difference scheme gives exactly the correct answer. A scheme with this property is called <strong>second-order accurate</strong>.</p>
+<p>The symmetric finite difference scheme is a very powerful way to estimate derivatives. It’s a second-order accurate scheme, and it only uses two points to estimate the derivative. Unfortunately, it only works when the step sizes are equal, that is, when the samples are evenly spaced. Frequently we are not so lucky as to have evenly spaced samples. Data often arrive whenever they are available, and we have to deal with that. Fortunately, we can still get a second-order accurate scheme, even if the step sizes are unequal. In this section, we will develop a second-order accurate scheme to estimate the derivative of a function at a point <span class="math notranslate nohighlight">\(x=b\)</span> using nearby points <span class="math notranslate nohighlight">\(x=a\)</span> to the left and <span class="math notranslate nohighlight">\(x=c\)</span> to the right, so <span class="math notranslate nohighlight">\(a&lt;b&lt;c\)</span>. That is, we will find numbers <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[
-f'(x) = d_{-} f(x-k) +d_0 f(x) + d_+ f(x+h)
+f'(b) = \alpha f(a) + \beta f(b) + \gamma f(c) \tag{$*$}
 \]</div>
-<p>for any quadratic polynomial <span class="math notranslate nohighlight">\(f(x)=ax^2+bx+c\)</span>. Let’s derive those values <span class="math notranslate nohighlight">\(d_-\)</span>, <span class="math notranslate nohighlight">\(d_0\)</span>, and <span class="math notranslate nohighlight">\(d_+\)</span> now. For this purpose, we really only need a specific version of this equation:</p>
-<div class="math notranslate nohighlight">
-\[
-f'(0) = d_{-} f(-k) +d_0 f(0) + d_+ f(h) \tag{*}
-\]</div>
-<p>Since it should work for any quadratic polynomial, we can get picky. It should work for specifically the polynomial <span class="math notranslate nohighlight">\(f(x) = (x+k)(x-h)\)</span>. Putting this into our formula (<span class="math notranslate nohighlight">\(*\)</span>) above, we find</p>
+<p>whenever <span class="math notranslate nohighlight">\(f(x)\)</span> is a quadratic polynomial. These numbers should depend on <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>, but they shouldn’t depend on <span class="math notranslate nohighlight">\(f\)</span>. There are many ways we could figure out the formulas for <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>. Next we will walk you through one of the simplest ways.</p>
+<section id="a-quick-way-to-figure-out-alpha-beta-and-gamma">
+<h3>A quick way to figure out <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>.<a class="headerlink" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma" title="Permalink to this headline">#</a></h3>
+<p>We know that <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> will not depend on <span class="math notranslate nohighlight">\(f\)</span>. For some values of <span class="math notranslate nohighlight">\(f\)</span>, the values of <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> will be obvious. For example, let’s say we choose <span class="math notranslate nohighlight">\(f(x)=(x-b)(x-c)\)</span>. We can just evaluate each term in (<span class="math notranslate nohighlight">\(*\)</span>) directly.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-f'(0) = k-h &amp;= d_0(-kh)\\
-d_0&amp;=\frac{1}{k} -\frac{1}{h}
+f'(x) &amp;= 2x-b-c\\
+f'(b) &amp;= b-c\\
+f(a) &amp;= (a-b)(a-c)\\
+f(b) &amp;= (b-b)(b-c)=0\\
+f(c) &amp;= (c-b)(c-c)=0
 \end{align*}\]</div>
-<p>The difference scheme should also work for the polynomial <span class="math notranslate nohighlight">\(f(x)=x(x+k)\)</span> at the point <span class="math notranslate nohighlight">\(x=0\)</span>. We can work it out the same way:</p>
+<p>By substituting these values, equation (<span class="math notranslate nohighlight">\(*\)</span>) becomes</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-f'(0) = k &amp;= d_+h(h+k)\\
-d_+&amp;=\frac{k}{h(h+k)}
+b-c &amp;= \alpha (a-b)(a-c)\\
+\alpha &amp;= \frac{b-c}{(a-b)(a-c)}\\
+&amp;= \frac{1}{c-a}-\frac{1}{b-a}
 \end{align*}\]</div>
+<p>By choosing <span class="math notranslate nohighlight">\(f\)</span> carefully, we were able to get the value of <span class="math notranslate nohighlight">\(\alpha\)</span> directly. The trick was to choose <span class="math notranslate nohighlight">\(f\)</span> so that the terms <span class="math notranslate nohighlight">\(f(a)\)</span> and <span class="math notranslate nohighlight">\(f(c)\)</span> worked out to be zero.</p>
+<p>We will work out how to find <span class="math notranslate nohighlight">\(\alpha\)</span> together as another example. Then, you will be asked to choose <span class="math notranslate nohighlight">\(f\)</span> to give you <span class="math notranslate nohighlight">\(\gamma\)</span>. Since I want <span class="math notranslate nohighlight">\(f(a)=0\)</span> and <span class="math notranslate nohighlight">\(f(c)=0\)</span>, I will choose <span class="math notranslate nohighlight">\(f(x)=(x-a)(x-c)\)</span>. This quadratic has zeros at <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=c\)</span>, just what I want. Then I can fill out the values as before.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+f'(x) &amp;= 2x-a-c\\
+f'(b) &amp;= 2b-a-c\\
+f(a) &amp;= (a-a)(a-c)=0\\
+f(b) &amp;= (b-a)(b-c)\\
+f(c) &amp;= (c-a)(c-c)=0
+\end{align*}\]</div>
+<p>By substituting these values, equation (<span class="math notranslate nohighlight">\(*\)</span>) becomes</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+2b-a-c &amp;= \beta(b-a)(b-c)\\
+\beta &amp;= \frac{2b-a-c}{(b-a)(b-c)}\\
+&amp;= \frac{1}{b-a}-\frac{1}{c-b}
+\end{align*}\]</div>
+</section>
 <section id="span-style-color-red-exercise-9-h3">
 <h3><span style="color:red;"> Exercise 9 </h3><a class="headerlink" href="#span-style-color-red-exercise-9-h3" title="Permalink to this headline">#</a></h3>
-<p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> which will give you the value of <span class="math notranslate nohighlight">\(d_-\)</span>. You should find that</p>
+<p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> so that when you substitute <span class="math notranslate nohighlight">\(f(x)\)</span> into (<span class="math notranslate nohighlight">\(*\)</span>), you find the value of <span class="math notranslate nohighlight">\(\gamma\)</span> using the method demonstrated above. For your choice of <span class="math notranslate nohighlight">\(f(x)\)</span>, copy the following table into your answer and fill it out.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align*<span class="nb">}</span>
+f&#39;(x) <span class="nb">&amp;</span>=     <span class="k">\\</span>
+f&#39;(b) <span class="nb">&amp;</span>=     <span class="k">\\</span>
+f(a)  <span class="nb">&amp;</span>=     <span class="k">\\</span>
+f(b)  <span class="nb">&amp;</span>=     <span class="k">\\</span>
+f(c)  <span class="nb">&amp;</span>= 
+<span class="k">\end</span><span class="nb">{</span>align*<span class="nb">}</span>
+</pre></div>
+</div>
+<p>Then, substitute the values into (<span class="math notranslate nohighlight">\(*\)</span>) and write that equation in your answer as well. Solve the equation for <span class="math notranslate nohighlight">\(\gamma\)</span> in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>. You should find that</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-d_- = \frac{-h}{k(k+h)}.
+\gamma = \frac{1}{c-b}-\frac{1}{c-a}.
 \end{align*}\]</div>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 9 Below </h3></section>
 <section id="span-style-color-red-exercise-10-span">
 <h3><span style="color:red;"> Exercise 10 </span><a class="headerlink" href="#span-style-color-red-exercise-10-span" title="Permalink to this headline">#</a></h3>
-<p>By choosing <span class="math notranslate nohighlight">\(f(x)=1\)</span> in (<span class="math notranslate nohighlight">\(*\)</span>) we find that <span class="math notranslate nohighlight">\(d_-+d_0+d_+=0\)</span>. Verify that this is the case algebraically.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 10 Below </h3><p>Suppose we have three points in time <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_-\)</span>, and <span class="math notranslate nohighlight">\(x_+\)</span> with <span class="math notranslate nohighlight">\(x_-&lt;x_0&lt;x_+\)</span>. Suppose further that we have measured <span class="math notranslate nohighlight">\(f(x_-)\)</span>, <span class="math notranslate nohighlight">\(f(x_0)\)</span>, and <span class="math notranslate nohighlight">\(f(x_+)\)</span>. This gives us a good way to approximate the derivative of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x_0\)</span>. We compute</p>
+<p>Substitute <span class="math notranslate nohighlight">\(f(x)=1\)</span> in (<span class="math notranslate nohighlight">\(*\)</span>). What relationship do you find between <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>? Substitute the formulas we found for <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> into that expression to verify that our answers are correct.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 10 Below </h3></section>
+</section>
+<section id="the-symmetric-finite-difference-method-with-unequal-step-sizes">
+<h2>The symmetric finite difference method with unequal step sizes<a class="headerlink" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes" title="Permalink to this headline">#</a></h2>
+<p>Suppose we have three x-values <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> with <span class="math notranslate nohighlight">\(a&lt;b&lt;c\)</span>. Suppose further that we have measured <span class="math notranslate nohighlight">\(f(a)\)</span>, <span class="math notranslate nohighlight">\(f(b)\)</span>, and <span class="math notranslate nohighlight">\(f(c)\)</span>. We now have a good way to approximate the derivative of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(b\)</span>. We compute</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-k &amp;= x_0-x_-\\
-h &amp;= x_+-x_0\\
-d_0 &amp;= \frac{1}{k}-\frac{1}{h}\\
-d_- &amp;= \frac{-h}{k(k+h)}\\
-d_+ &amp;= \frac{k}{h(h+k)}\\
-f'(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
+\alpha &amp;=\frac{1}{c-a}-\frac{1}{b-a}\\
+\beta  &amp;=\frac{1}{b-a}-\frac{1}{c-b}\\
+\gamma &amp;=\frac{1}{c-b}-\frac{1}{c-a}\\
+f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
 \end{align*}\]</div>
 <p>The final exercise for today walks you through the process of creating a vectorized version of this formula, which computes the symmetric difference scheme for unequal step sizes in a way that is</p>
 <ol class="simple">
 <li><p>Efficient (very fast to perform)</p></li>
 <li><p>Easy to read (easy to see that it does what it should).</p></li>
 </ol>
-</section>
 <section id="span-style-color-red-exercise-11-h3">
 <h3><span style="color:red;"> Exercise 11 </h3><a class="headerlink" href="#span-style-color-red-exercise-11-h3" title="Permalink to this headline">#</a></h3>
 <p>Our function will take two arguments, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, each of which is an array. The idea is that <span class="math notranslate nohighlight">\(y\)</span> will have the <span class="math notranslate nohighlight">\(f(x)\)</span> values corresponding to each <span class="math notranslate nohighlight">\(x\)</span> value. It will produce an array of the same shape which has the symmetric finite difference scheme applied to find the first derivative.</p>
@@ -1257,53 +1391,71 @@ f'(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 </div>
 </div>
 <p>We can see that the derivative is steeply negative, leveling at the end. That gives us an idea of what we are looking for: our answer will be an array of negative numbers.</p>
-<p>In order to make the function we are writing more legible, we will use the same symbols that are in the derivation we did above. The only issue is that symbols like <code class="docutils literal notranslate"><span class="pre">-</span></code> and <code class="docutils literal notranslate"><span class="pre">+</span></code> can’t be used for variables in Python, so instead we will use <code class="docutils literal notranslate"><span class="pre">xm</span></code> for <span class="math notranslate nohighlight">\(x_-\)</span> and <code class="docutils literal notranslate"><span class="pre">xp</span></code> for <span class="math notranslate nohighlight">\(x_+\)</span>.</p>
-<p>For each number <span class="math notranslate nohighlight">\(x\)</span>, we want to do operations with its neighbor to the left, <span class="math notranslate nohighlight">\(x_-\)</span>. So, let’s build an array which has all the same numbers as <span class="math notranslate nohighlight">\(x\)</span> but shifted one to the right. Since the leftmost <span class="math notranslate nohighlight">\(x\)</span> has no neighbor to the left, we should instead say that value is missing using the special value <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Here is a quick way to do that:</p>
+<p>In order to make the function we are writing more legible, we will use the same symbols that are in the derivation we did above. Since we want <span class="math notranslate nohighlight">\(f'(x)\)</span> and our approximation gives us <span class="math notranslate nohighlight">\(f'(b)\)</span>, we can just choose <span class="math notranslate nohighlight">\(b=x\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="n">xm</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">x</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we can see that where <code class="docutils literal notranslate"><span class="pre">x</span></code> has the value <code class="docutils literal notranslate"><span class="pre">7</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">xm</span></code> has the value <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> is the number to the left of <code class="docutils literal notranslate"><span class="pre">7</span></code>. Step by step, what we did here was to make an array the same shape as x but full of the special value <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Then, we took the spots of <code class="docutils literal notranslate"><span class="pre">xm</span></code> starting with the second one, and filled them with values from <code class="docutils literal notranslate"><span class="pre">x</span></code> stopping before the last one of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>The advantage of doing it like this is that we can compute terms involving <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_-\)</span> now, using broadcasting. We said above that <span class="math notranslate nohighlight">\(k=x_0-x_-\)</span>. To compute this is very simple:</p>
+<p>We want <span class="math notranslate nohighlight">\(a\)</span> to be the number to the left of <span class="math notranslate nohighlight">\(b\)</span>. So, let’s build an array which has all the same numbers as <span class="math notranslate nohighlight">\(x\)</span> but shifted one to the right. Since the leftmost <span class="math notranslate nohighlight">\(x\)</span> has no neighbor to the left, we should instead say that value is missing using the special value <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Here is a quick way to do that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">xm</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can see that it even carried through the missing value for us, all automatically.</p>
-<p><strong>Part 1</strong></p>
-<p>Use a similar strategy to make an array for <code class="docutils literal notranslate"><span class="pre">xp</span></code> representing <span class="math notranslate nohighlight">\(x_+\)</span>. Then, use that array to compute <span class="math notranslate nohighlight">\(h\)</span>. Make arrays for <code class="docutils literal notranslate"><span class="pre">ym</span></code> and <code class="docutils literal notranslate"><span class="pre">yp</span></code> in the same way.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 1 Below </h3><p>Now that we have those variables set up, we can compute the other terms in the computation in a way that clearly shows what they represent.</p>
+<p>Now we can see that where <code class="docutils literal notranslate"><span class="pre">b</span></code> has the value <code class="docutils literal notranslate"><span class="pre">7</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">a</span></code> has the value <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> is the number to the left of <code class="docutils literal notranslate"><span class="pre">7</span></code>. Each column corresponds to the values of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> at one place in our answer.</p>
+<p>Step by step, what we did here was to make an array the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code> but full of the special value <code class="docutils literal notranslate"><span class="pre">nan</span></code>. Then, we took the spots of <code class="docutils literal notranslate"><span class="pre">a</span></code> starting after the first one, and filled them with values from <code class="docutils literal notranslate"><span class="pre">x</span></code> stopping before the last value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>We will do the same thing to write <code class="docutils literal notranslate"><span class="pre">c</span></code>, but shifting the values in the other direction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">h</span><span class="p">)</span>
-<span class="n">dm</span> <span class="o">=</span> <span class="o">-</span><span class="n">h</span><span class="o">/</span><span class="p">(</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">dp</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="p">(</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">c</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now each of these variables holds an array, which contains all the values of (for example) <code class="docutils literal notranslate"><span class="pre">d</span></code> which represents <span class="math notranslate nohighlight">\(d_0\)</span>:</p>
+<p>Now that we have those variables set up, we can compute <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">beta</span></code>, and <code class="docutils literal notranslate"><span class="pre">gamma</span></code> without needing any loops. Numpy will automatically compute each column for us using broadcasting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>And it is very simple to wrap these up into a final answer:</p>
+<p>Numpy even automatically filled in the values at the ends with <code class="docutils literal notranslate"><span class="pre">nan</span></code>, because we don’t have neighbors there to compute the symmetric difference.</p>
+<section id="part-1">
+<h4>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">#</a></h4>
+<p>Compute <code class="docutils literal notranslate"><span class="pre">gamma</span></code> as well, using broadcasting.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 1 Below </h3><p>We also need the values of <span class="math notranslate nohighlight">\(f(a)\)</span>, <span class="math notranslate nohighlight">\(f(b)\)</span>, and <span class="math notranslate nohighlight">\(f(c)\)</span>. We will build those just like we built <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span> <span class="o">=</span> <span class="n">dm</span><span class="o">*</span><span class="n">ym</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">dp</span><span class="o">*</span><span class="n">yp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">fa</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">fb</span> <span class="o">=</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="part-2">
+<h4>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">#</a></h4>
+<p>Build an array <code class="docutils literal notranslate"><span class="pre">fc</span></code> which holds the values of <span class="math notranslate nohighlight">\(f(c)\)</span>.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 2 Below </h3><p>Now that we have all of our variables set up, computing the derivative is as simple as applying the formula (<span class="math notranslate nohighlight">\(*\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">fa</span><span class="o">+</span><span class="n">beta</span><span class="o">*</span><span class="n">fb</span><span class="o">+</span><span class="n">gamma</span><span class="o">*</span><span class="n">fc</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">derivative</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1318,11 +1470,15 @@ f'(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 </div>
 </div>
 </div>
-<p><strong>Part 2</strong></p>
-<p>Set the last entry of <code class="docutils literal notranslate"><span class="pre">derivative</span></code> similarly. Use the slice-from-the-end strategy, so that you don’t need to know how many elements are in the array.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 2 Below </h3><p><strong>Part 3</strong></p>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> which computes the symmetric difference for unequal step sizes. You can do this by copying code from above.</p>
-<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 3 Below </h3><div class="cell docutils container">
+</section>
+<section id="part-3">
+<h4>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">#</a></h4>
+<p>Set the last entry of <code class="docutils literal notranslate"><span class="pre">derivative</span></code> similarly. Use negative indices, so that you don’t need to know how many elements are in the array.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 3 Below </h3></section>
+<section id="part-4">
+<h4>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">#</a></h4>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> which computes the symmetric difference for unequal step sizes. You can do this by copying code line-by-line from above – all the code we wrote should work just fine using an arbitrary <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">symmetric_difference</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1">#write a function here!</span>
@@ -1334,11 +1490,14 @@ f'(x_0) &amp;\approx d_- f(x_-) +d_0 f(x_0) + d_+ f(x_+)
 </div>
 </div>
 </div>
-<p><strong>Part 4</strong></p>
-<p>In a language like Python (or Julia, or Matlab, for that matter) a so-called “vectorized” procedure goes way faster than looping through the variables, because you can pass all the difficult computation to highly-optimized code (in our case, the code which comes in the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>). This makes a trivial difference for small arrays, but when we start to have hundreds or thousands of entries in our arrays it makes a huge difference. That is one reason why people often prefer to write functions which treat the data as arrays, rather than looping through lists like you would do in other languages like C, Java, or Javascript.</p>
+</section>
+<section id="part-5">
+<h4>Part 5<a class="headerlink" href="#part-5" title="Permalink to this headline">#</a></h4>
+<p>In a language like Python (or Julia, or Matlab, for that matter) a so-called “vectorized” procedure goes way faster than looping through the variables, because you can pass all the difficult computation to highly-optimized code (in our case, the code which comes in the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>). The difference in speed is very small for arrays without very many entries, but when we start to have hundreds or thousands of entries in our arrays it makes a huge difference. That is one reason why people often prefer to write functions which treat the data as arrays, rather than looping through lists like you would do in other languages like C, Java, or Javascript.</p>
 <p>Another reason is that many people find the code easier to read, and easier to understand, if it is written in a vectorized way.</p>
-<p>Write a few sentences of your thoughts on the matter. Do you find the function <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> you write to be easier to read than if it were done with a loop? Which parts are harder to read, which parts easier? Give your honest opinion.</p>
+<p>Write a few sentences of your thoughts on the matter. Do you find the function <code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code> you wrote to be easier to read than if it were done with a loop? Which parts are harder to read, which parts easier? Give your honest opinion.</p>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 11 Part 4 Below </h3></section>
+</section>
 </section>
 </section>
 
