@@ -15,7 +15,7 @@ parts:
 - caption: Estimate your blood flow
   chapters:
   - file: labs/3_estimate_blood_flow/lab3.ipynb
-- caption: Accurately measure the heights of tall and far away things
+- caption: Measure the heights of tall and far away things
   chapters:
   - file: labs/4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.ipynb
   - file: labs/4_measure_tall_things/b_build_an_inclinometer/lab4b.ipynb
