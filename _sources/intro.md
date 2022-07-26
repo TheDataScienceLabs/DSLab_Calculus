@@ -1,4 +1,4 @@
-# Introduction
+# About this Book
 ## The Data Science Labs on Differential and Integral Calculus
 **By Alden Bradford and Mireille Boutin with Kindyl King and Naazneen Rana**
 
