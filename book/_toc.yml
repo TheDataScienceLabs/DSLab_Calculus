@@ -4,7 +4,7 @@
 format: jb-book
 root: intro
 parts:
-- caption: Intro to Notebooks
+- caption: Introduction
   chapters:
   - file: labs/1_intro_to_notebooks/lab0.ipynb
   - file: labs/1_intro_to_notebooks/lab1.ipynb
