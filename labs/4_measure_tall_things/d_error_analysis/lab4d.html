@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 10: How Accurate is Your Height Measurement? (Error Propagation, Derivative Rule for Error Propagation) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    <title>Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Week 11: Analyzing the Error Using Symbolic Method (Symbolic Computation Using SymPy)" href="../e_symbolic_error/lab4e.html" />
+    <link rel="next" title="Week 11: Analyzing the Error Using Symbolic Method (SymPy)" href="../e_symbolic_error/lab4e.html" />
     <link rel="prev" title="Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer" href="../c_make_the_measurements/lab4c.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -140,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../2_determine_heart_rate/lab2.html">
-   Week 3: Finding Local Maxima in PPG Signal
+   Week 3: Finding Local Max in PPG Signal
   </a>
  </li>
 </ul>
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
-   Week 4: Estimate Your Blood Flow from PPG Data
+   Week 4: Estimate Blood Flow from PPG Data
   </a>
  </li>
 </ul>
@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../a_prepare_for_building_inclinometer/lab4a.html">
-   Week 5: Preparation to Build an Inclinometer (Namespaces, Modules, and Objects)
+   Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
   </a>
  </li>
  <li class="toctree-l1">
@@ -179,12 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Week 10: How Accurate is Your Height Measurement? (Error Propagation, Derivative Rule for Error Propagation)
+   Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../e_symbolic_error/lab4e.html">
-   Week 11: Analyzing the Error Using Symbolic Method (Symbolic Computation Using SymPy)
+   Week 11: Analyzing the Error Using Symbolic Method (SymPy)
   </a>
  </li>
 </ul>
@@ -196,12 +196,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">
-   Week 12: Prepare to Build a Distance Measurement Tool (Floating Point Numbers and Numerical Differentiation)
+   Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">
-   Week 13: Build a Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
+   Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
   </a>
  </li>
 </ul>
@@ -636,7 +636,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Week 10: How Accurate is Your Height Measurement? (Error Propagation, Derivative Rule for Error Propagation)</h1>
+                <h1>Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -861,8 +861,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="week-10-how-accurate-is-your-height-measurement-error-propagation-derivative-rule-for-error-propagation">
-<h1>Week 10: How Accurate is Your Height Measurement? (Error Propagation, Derivative Rule for Error Propagation)<a class="headerlink" href="#week-10-how-accurate-is-your-height-measurement-error-propagation-derivative-rule-for-error-propagation" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-10-how-accurate-is-your-height-measurement-derivative-rule-for-error-propagation">
+<h1>Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)<a class="headerlink" href="#week-10-how-accurate-is-your-height-measurement-derivative-rule-for-error-propagation" title="Permalink to this headline">#</a></h1>
 <p><font size="6"> Laboratory 4d  </font> <br>
 <font size="3"> Last updated July 26, 2022 </font></p>
 <section id="span-style-color-orange-00-content-span">
@@ -1209,7 +1209,7 @@ This is the <strong>partial derivative rule</strong> for error propagation.</p>
     <a class='right-next' id="next-link" href="../e_symbolic_error/lab4e.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 11: Analyzing the Error Using Symbolic Method (Symbolic Computation Using SymPy)</p>
+        <p class="prev-next-title">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
