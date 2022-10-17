@@ -36,3 +36,7 @@ To begin editing this lab, click on the download icon in the top right of the sc
 To turn in the labs on Brightspace, you will have to export the file as a PDF. To do this, navigate to *File*, *Save and Export Notebook as*, and then click on *PDF*. This will be further explained in Laboratory 0.
 
 If you have any questions or are experiencing any difficulties during these labs, please ask your TA for assistance.
+
+## Acknowledgements
+
+The development of this course was supported by Purdue’s College of Engineering and Purdue's Department of Mathematics. We thank Prof. Alina Alexeenko, Prof. Eric Nauman , Prof.  Kristina Bross, Prof. Milind Kulkarni, and Prof. Uli Walther for their invaluable input and support. Thank you to Julia Long for help with proofreading and formatting. 
