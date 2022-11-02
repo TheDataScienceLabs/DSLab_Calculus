@@ -15,7 +15,7 @@ naive_cases  = [
     FunctionTestCase('integer square', kwargs = {'a': 1, 'b':2, 'c':1}, retval = [-1, -1]),
     FunctionTestCase('roots are two three', kwargs = {'a': 1, 'b':-5, 'c':6}, retval = [2, 3]),
     FunctionTestCase('no b', kwargs = {'a':1, 'b':0, 'c':-49}, retval = [-7, 7]),
-    FunctionTestCase('golden ratio', kwargs = {'a':1, 'b':-1, 'c':-1}, retval = [(1-math.sqrt(5))/2, (1+math.sqrt(5))/2]),
+    FunctionTestCase('golden ratio', kwargs = {'a':1, 'b':-1, 'c':-1}, retval = [(1-(5**(1/2)))/2, (1+(5**(1/2)))/2]),
     FunctionTestCase('negative a', kwargs = {'a':-35, 'b':-2, 'c':1}, retval = [-1/5, 1/7])
 ]
 
