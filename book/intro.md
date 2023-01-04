@@ -4,13 +4,9 @@
 
 Welcome to MA16290, The Data Science Labs on Differential and Integral Calculus! This is a one credit course to accompany Calculus 2, during which you will discover applications of differential and integral calculus to data science. You will also learn to program in Python and to use Arduino sensors and microprocessors to acquire data.
 
-This course requires no work outside of the lab. It has no homework, no quizzes, no tests, and no exams. All work is performed during the 150 minutes spent in the lab each week. During that time, our friendly TAs are there to assist you and answer all your questions.
+This course requires no work outside of the lab. It has no homework, no quizzes, no tests, and no exams. All work is performed during the 150 minutes spent in the lab each week. During that time, our friendly undergraduate instructors are there to assist you and answer all your questions.
 
 Calculus 1 is a pre-requisite and Calculus 2 is a co-requisite for taking this course. No prior experience with Python is necessary.
-
-Fall 2022 schedule:
-<br>&emsp;&emsp;Wednesday 5:30-8:00 P.M. CRN 25496
-<br>&emsp;&emsp;Thursday 5:30-8:00 P.M. CRN 26495
 
 Purdue students: You can earn Honors credit for Calculus 2 by taking this lab. See syllabus for details.
 <br>
@@ -35,8 +31,8 @@ To begin editing this lab, click on the download icon in the top right of the sc
 
 To turn in the labs on Brightspace, you will have to export the file as a PDF. To do this, navigate to *File*, *Save and Export Notebook as*, and then click on *PDF*. This will be further explained in Laboratory 0.
 
-If you have any questions or are experiencing any difficulties during these labs, please ask your TA for assistance.
+If you have any questions or are experiencing any difficulties during these labs, please ask the instructor for assistance.
 
 ## Acknowledgements
 
-The development of this course was supported by Purdue’s College of Engineering and Purdue's Department of Mathematics. We thank Prof. Alina Alexeenko, Prof. Eric Nauman , Prof.  Kristina Bross, Prof. Milind Kulkarni, and Prof. Uli Walther for their invaluable input and support. Thank you to Julia Long for help with proofreading and formatting. 
+The development of this course was supported by Purdue’s College of Engineering and Purdue's Department of Mathematics. We thank Prof. Alina Alexeenko, Prof. Eric Nauman , Prof.  Kristina Bross, Prof. Milind Kulkarni, Prof. Uli Walther and Dr. Natasha Duncan for their invaluable input and support. Thank you to Julia Long for help with proofreading and formatting. 
