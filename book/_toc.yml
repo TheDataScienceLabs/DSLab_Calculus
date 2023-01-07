@@ -29,3 +29,6 @@ parts:
 - caption: Design a project of your own
   chapters:
   - file: labs/final_project/labfinal.ipynb
+- caption: Extra Materials 
+  chapters: 
+  - file: extra_materials/intro_to_breadboards/intro_to_breadboards.ipynb
