@@ -24,7 +24,7 @@ def serial_lines(port, num_samp, message, timeout):
         # Then make an utf-8 encoded version of the string
         call = str.encode(message + "\r")
         s.write(call)
-        #response = s.readline()
+        response = s.readline()
         line = s.readline().decode("UTF8").strip()
         for k in range(num_samp):
             yield line
