@@ -9,51 +9,51 @@
     <title>Week 3: Finding Local Max in PPG Signal &#8212; The Data Science Labs on Differential and Integral Calculus</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -88,19 +88,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -108,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../intro.html">
+                <a class="reference internal" href="../../../intro.html">
                     About this Course
                 </a>
             </li>
@@ -120,12 +120,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../1_intro_to_notebooks/lab0.html">
+  <a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">
    Week 1: Course Intro, Markdown, Latex
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../1_intro_to_notebooks/lab1.html">
+  <a class="reference internal" href="../../1_intro_to_notebooks/lab1.html">
    Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
   </a>
  </li>
@@ -137,7 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="lab2.html">
+  <a class="reference internal" href="../lab2.html">
    Week 3: Finding Local Max in PPG Signal
   </a>
  </li>
@@ -149,27 +149,27 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">
+  <a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">
    Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">
+  <a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">
    Week 6-7: Build an Inclinometer (Objects on Hardware)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_measure_tall_things/c_make_the_measurements/lab4c.html">
+  <a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">
    Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_measure_tall_things/d_error_analysis/lab4d.html">
+  <a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">
    Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_measure_tall_things/e_symbolic_error/lab4e.html">
+  <a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">
    Week 11: Analyzing the Error Using Symbolic Method (SymPy)
   </a>
  </li>
@@ -181,12 +181,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../5_measure_speeds/a_derivatives/lab5a.html">
+  <a class="reference internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">
    Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../5_measure_speeds/b_build_a_tool/lab5b.html">
+  <a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">
    Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
   </a>
  </li>
@@ -198,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../final_project/labfinal.html">
+  <a class="reference internal" href="../../final_project/labfinal.html">
    Weeks 14-15: Final Project
   </a>
  </li>
@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
+  <a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
    Extra Materials: Introduction to Breadboards
   </a>
  </li>
@@ -273,7 +273,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/TheDataScienceLabs/DSLab_Calculus/main?urlpath=tree/book/labs/2_determine_heart_rate/lab2_old.ipynb"
+        <a href="https://mybinder.org/v2/gh/TheDataScienceLabs/DSLab_Calculus/main?urlpath=tree/book/labs/2_determine_heart_rate/old_files/lab2_old.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,7 +283,7 @@ title="Launch on Binder"
 
 <span class="headerbtn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img src="../../../_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
@@ -333,7 +333,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/2_determine_heart_rate/lab2_old.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/2_determine_heart_rate/old_files/lab2_old.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -361,7 +361,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/labs/2_determine_heart_rate/lab2_old.ipynb"
+        <a href="../../../_sources/labs/2_determine_heart_rate/old_files/lab2_old.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -816,12 +816,12 @@ x = t + \varepsilon.
 <p>There are three wires on the Pulse Sensor, and three connections we have to make. We will use tiny metal clips which are sitting inside the bread board. The clips are arranged in rows – see the example your instructor has taken apart.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
 <p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/pico_datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with a “+” on the Pulse Sensor. Connect the wire labeled “-” to the pin labeled “AGND”. Connect the pin labeled “ADC0” to the other wire, which is labeled “S”. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
-<p><img alt="img" src="../../_images/pico_on_breadboard_png.png" />
-<img alt="img" src="../../_images/hr_sensor_labels_png.png" />
-<img alt="img" src="../../_images/hr_sensor_pad_png.png" /></p>
+<p><img alt="img" src="labs/2_determine_heart_rate/old_files/pico_on_breadboard_png.png" />
+<img alt="img" src="labs/2_determine_heart_rate/old_files/hr_sensor_labels_png.png" />
+<img alt="img" src="labs/2_determine_heart_rate/old_files/hr_sensor_pad_png.png" /></p>
 <p><strong>At this point, check with your instructor to make sure you have it configured correctly.</strong> If it is wired incorrectly, there is a chance that powering it on could damage either the Pico or the Pulse Sensor.</p>
 <p>Once you have checked with your instructor, you can plug the Pico into your computer and move on to the next step.</p>
-<p><img alt="img" src="../../_images/connected_hr_sensor_png.png" /></p>
+<p><img alt="img" src="labs/2_determine_heart_rate/old_files/connected_hr_sensor_png.png" /></p>
 </section>
 <section id="acquiring-data">
 <h3>Acquiring data<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h3>
@@ -868,7 +868,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 <p>Re-run the above cell as many times as you need to get a good, clean measurement which shows a clear heartbeat pattern. On me, it looks something like this:</p>
-<p><img alt="img" src="../../_images/example_heartbeat.png" /></p>
+<p><img alt="img" src="labs/2_determine_heart_rate/old_files/example_heartbeat.png" /></p>
 <p>Once you have a good measurement, run the following cell to save your measurement to a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1047,7 +1047,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./labs/2_determine_heart_rate"
+            path: "./labs/2_determine_heart_rate/old_files"
         },
         predefinedOutput: true
     }
@@ -1082,7 +1082,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
