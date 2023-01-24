@@ -832,7 +832,7 @@ Copy and paste <a class="reference external" href="https://github.com/TheDataSci
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">heartbeat</span> <span class="kn">import</span> <span class="n">acquire</span>
+<span class="kn">from</span> <span class="nn">heartbeat_new</span> <span class="kn">import</span> <span class="n">acquire</span>
 <span class="o">%</span><span class="k">matplotlib</span> widget
 
 <span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Options: 50, 100, 200, 400, 800, 1000, 1600, 3200</span>
@@ -845,7 +845,7 @@ Copy and paste <a class="reference external" href="https://github.com/TheDataSci
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">line</span><span class="p">,</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sampling_duration</span><span class="p">)</span>
-<span class="c1">#plt.ylim(0, 2**16)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">25000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
