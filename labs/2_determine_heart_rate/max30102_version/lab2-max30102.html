@@ -863,6 +863,15 @@ cd ..
 </div>
 </div>
 </div>
+<p>Next, run the following block to download the <a class="reference external" href="http://heartbeat.py">heartbeat.py</a> module, which we will use later</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/heartbeat.py
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="wiring-it-up">
 <h3>Wiring it up<a class="headerlink" href="#wiring-it-up" title="Permalink to this headline">#</a></h3>
@@ -878,8 +887,7 @@ cd ..
 </section>
 <section id="acquiring-data">
 <h2>Acquiring data!<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h2>
-<p><strong>Read this carefully!</strong> Now we are ready to acquire the data. Be careful while following these steps, as not following them properly could lead to the lab failing to acquire data. Open Thonny and save <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/main.py">main.py</a>. Then, run the code using the <code class="docutils literal notranslate"><span class="pre">run</span></code> button in Thonny. The run button will look like a green arrow, located towards the top of your application. Once you press run, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> from  a couple seconds afterwards. The <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> button can be found in the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu at the top of the application. This will allow our program here to pick up the connection, putting the data directly into a plot.</p>
-<p>Next, download <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/heartbeat.py">heartbeat.py</a>, make sure it is in the same folder as this lab, and run the following cell.</p>
+<p><strong>Read this carefully!</strong> Now we are ready to acquire the data. Be careful while following these steps, as not following them properly could lead to the lab failing to acquire data. Open Thonny and save <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/main.py">main.py</a>. Then, run the code using the <code class="docutils literal notranslate"><span class="pre">run</span></code> button in Thonny. The run button will look like a green arrow, located towards the top of your application. Once you press run, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> from  a couple seconds afterwards. The <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> button can be found in the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu at the top of the application. This will allow our program here to pick up the connection, putting the data directly into a plot. Go ahead and run the following block to start our graph</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -927,7 +935,7 @@ cd ..
 </div>
 <p>This sensor sometimes has difficulty getting a reading for some people. While we do not know exactly what factors contribute to this, there are plenty of reasons it might not work, including skin quality, natural oil, applied oils, and even skin color might be impacting the results. As such, if you are not able to get a reading after a few tries, use the <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/example_heartbeat.txt">example_heartbeat.txt</a> file for the rest of the lab.</p>
 <p>Have a look at the file you just made - or the example file, if needed (you should be able to open it right here in Jupyterlab). You should see a long list of numbers.</p>
-<p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, we have saved a copy of your results above to a file named ‘og_heartbeat.txt’</p>
+<p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, we have saved another copy of your results above to a file named ‘heartbeat.txt’</p>
 </section>
 <section id="span-style-color-orange-3-analysis-span">
 <h2><span style="color:orange;"> 3. Analysis </span><a class="headerlink" href="#span-style-color-orange-3-analysis-span" title="Permalink to this headline">#</a></h2>
