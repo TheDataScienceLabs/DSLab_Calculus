@@ -1,4 +1,4 @@
-# main.py for MAX30102
+# main.py
 # reference code:
 # https://github.com/n-elia/MAX30102-MicroPython-driver.git
 
@@ -22,6 +22,10 @@ def main():
 
     # Sensor instance
     sensor = MAX30102(i2c=i2c)  # An I2C instance is required
+    
+    # Status LED
+    onboard_led = Pin(25, Pin.OUT)
+    onboard_led.value(0)
 
     # Scan I2C bus to ensure that the sensor is connected
     if sensor.i2c_address not in i2c.scan():
@@ -88,13 +92,15 @@ def main():
     sensor.set_fifo_average(SAMPLE_AVG)
     
     # Set the sample rate
-    SAMPLE_RATE = 64 #int(input('SAMPLE_RATE = ')) # Set the variable value by the user.
+    SAMPLE_RATE = 200 #int(input('SAMPLE_RATE = ')) # Set the variable value by the user.
     sensor.set_sample_rate(SAMPLE_RATE)
     
     print("Starting data acquisition...")
     
     sleep(0.5)
     
+    # turning on led
+    onboard_led.value(1)
     while True:                    
         # The check() method has to be continuously polled, to check if
         # there are new readings into the sensor's FIFO queue. When new
@@ -111,11 +117,12 @@ def main():
             ir_reading = sensor.pop_ir_from_storage()
 
             # Print the acquired data (so that it can be plotted with a Serial Plotter)
-            print(-red_reading+50000) # it is IR in the sensor purchased, it can be different in other sensor
+            print(-red_reading+30000) # it is IR in the sensor purchased, it can be different in other sensor
                 
 
 
 
 if __name__ == '__main__':
     main()
+
 

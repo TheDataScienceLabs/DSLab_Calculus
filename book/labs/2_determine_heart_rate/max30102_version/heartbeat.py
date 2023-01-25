@@ -3,6 +3,7 @@
 import serial
 from serial.tools import list_ports
 import time
+import numpy as np
 
 PICO_HWID = "2E8A:0005"  # Vendor Product ID for Raspberry Pi Pico
 
@@ -45,11 +46,30 @@ def acquire(rate, y, line, fig, num_samp, min_frame_time=0.1):
         timeout = 0.5
     ):
         if entry:
-            #y[i] = int(entry)
-            y[i] = int(''.join(c for c in entry if (c in "0123456789"))
+            y[i] = int(entry)
             i += 1
             line.set_ydata(y)
         if time.monotonic() - most_recent_draw > min_frame_time or not entry:
             # the buffer is empty, so we have time to draw.
             fig.canvas.draw()
             most_recent_draw = time.monotonic()
+
+            
+def rolling_centered_average(x, n):
+    """
+    Compute a rolling average of n samples, centered. This fills the outside terms
+    where there are not enough neighbors with NaN, to preserve the shape.
+
+    arguments
+    ---------
+    x: array - the points to be averaged.
+    n: int - the number to include in each average.
+
+    returns
+    -------
+    out: array - the centered rolling averages, with NaN at either end filling our to the
+    same shape as x.
+    """
+    out = np.full_like(x, np.nan)
+    out[(n - 1) // 2 : -(n // 2)] = np.convolve(x, np.ones(n), mode="valid") / n
+    return out
