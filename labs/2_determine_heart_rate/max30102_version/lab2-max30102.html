@@ -512,9 +512,16 @@ title="Print to PDF"
      </span>
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">
+   Loading firmware onto the microcontroller
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">
-     Loading firmware onto the microcontroller
+    <a class="reference internal nav-link" href="#make-sure-to-read-the-next-steps-carefully">
+     (Make sure to read the next steps carefully!!)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -522,12 +529,12 @@ title="Print to PDF"
      Wiring it up
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#acquiring-data">
-     Acquiring data
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acquiring-data">
+   Acquiring data!
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span">
@@ -649,9 +656,16 @@ title="Print to PDF"
      </span>
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">
+   Loading firmware onto the microcontroller
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">
-     Loading firmware onto the microcontroller
+    <a class="reference internal nav-link" href="#make-sure-to-read-the-next-steps-carefully">
+     (Make sure to read the next steps carefully!!)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -659,12 +673,12 @@ title="Print to PDF"
      Wiring it up
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#acquiring-data">
-     Acquiring data
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acquiring-data">
+   Acquiring data!
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span">
@@ -820,41 +834,59 @@ x = t + \varepsilon.
 <section id="span-style-color-orange-2-data-acquisition-span">
 <h2><span style="color:orange;"> 2. Data Acquisition </span><a class="headerlink" href="#span-style-color-orange-2-data-acquisition-span" title="Permalink to this headline">#</a></h2>
 <p>You will collect data today using the <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/max30102.pdf">MAX30102 heart rate sensor module</a>, which shines an invisible infrared light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
-<p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code. Have a look at the script <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/main.py">main.py</a>. It simply reads data from the sensor and prints out the values it reads.</p>
+<p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code.</p>
 <section id="span-style-color-red-exercise-3-span">
 <h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h3>
 <p>Before moving on, we should decide on a sampling frequency – that is, how often do you want to know your approximate blood pressure? As we saw in Lab 1, it would be easy to get the wrong impression from an oscillating signal if you don’t sample frequently enough. Considering the range of possible heart rates for adults, how would you choose the sampling rate?  Write your choice below, along with your reasoning for choosing that sampling rate.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
+</section>
 <section id="loading-firmware-onto-the-microcontroller">
-<h3>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this headline">#</a></h3>
+<h2>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this headline">#</a></h2>
+<section id="make-sure-to-read-the-next-steps-carefully">
+<h3>(Make sure to read the next steps carefully!!)<a class="headerlink" href="#make-sure-to-read-the-next-steps-carefully" title="Permalink to this headline">#</a></h3>
 <p>Open up Thonny. <a class="reference external" href="https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3">Follow the directions here</a> to install the Micropython firmware on the Pico. The following page at that link has directions for testing to make sure it’s working.</p>
-<p>Open Thonny, then click the ‘View’ dropdown menu at the top, and find the ‘Files’ option, and select it. This will open a window on the side that you can use to transfer files onto your Pico. Download the max30102 folder, and transfer it onto the Raspberry Pi Pico.
-Copy and paste <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/main.py">this code</a> to the Pico, and save it as <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. Now, whenever you plug in the pico, it will run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> automatically.</p>
+<p>Firstly, copy and paste <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/main.py">this code</a> into thonny, and save it onto the Pico as <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. Now, whenever you plug in the pico, it will run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> automatically.</p>
+<p>Next up, run the following cell. This will download a folder onto your computer called <code class="docutils literal notranslate"><span class="pre">max30102/</span></code>. After you have done that, pull up thonny, and on the top bar under ‘View’, select ‘Files’. This will bring up a bar on the side that you can use to transfer the file onto your Pico. Navigate to your where your <code class="docutils literal notranslate"><span class="pre">max30102/</span></code> file is saved, right click it, then press ‘Upload to /’. This will copy the file onto your Pico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+if [ -d &quot;./max30102/&quot; ]; then
+    rm -r &quot;./max30102&quot;
+fi
+mkdir max30102
+cd max30102
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/max30102/circular_buffer.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/max30102/__init__.py
+cd ..
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="wiring-it-up">
 <h3>Wiring it up<a class="headerlink" href="#wiring-it-up" title="Permalink to this headline">#</a></h3>
 <p>We have the computer talking to the microcontroller, now we just need the Pulse Sensor talking to the microcontroller. To do this, we will use a “bread board”. The name “bread board” comes from the old days of electronics when people would prototype their projects by nailing them to a cutting board. With a modern bread board, you don’t need nails.</p>
-<p>There are four wires on the Pulse Sensor, and four connections we have to make. We will use tiny metal clips which are sitting inside the bread board. The clips are arranged in rows – see the example your instructor has taken apart.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
-<p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/pico_datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with “VIN” on the Pulse Sensor. Connect the pin labeled “GND” on the sensor to a  “GND” on the breadboard. Connect the pin labeled “SDA” to the first pin on the pico, labelled “I2C0 SDA” in blue on the pinout diagram. Then similarly, connect the pin labeled “SCL” to the second pin on the pico, labelled “I2C0 SCL”, also in blue. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
+<p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with “VIN” on the Pulse Sensor. Connect the pin labeled “GND” on the sensor to a  “GND” on the breadboard. Connect the pin labeled “SDA” to the first pin on the pico, labelled “I2C0 SDA” in blue on the pinout diagram. Then similarly, connect the pin labeled “SCL” to the second pin on the pico, labelled “I2C0 SCL”, also in blue. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
 <p><img alt="sensor pins" src="../../../_images/sensor_pins.png" />
 <img alt="wiring example" src="../../../_images/wiring_example.jpg" />
 <img alt="capacitor placement" src="../../../_images/capacitor_placement.jpg" /></p>
 <p><strong>At this point, check with your instructor to make sure you have it configured correctly.</strong> If it is wired incorrectly, there is a chance that powering it on could damage either the Pico or the Pulse Sensor.</p>
 <p>Once you have checked with your instructor, you can plug the Pico into your computer and move on to the next step.</p>
 </section>
+</section>
 <section id="acquiring-data">
-<h3>Acquiring data<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h3>
-<p>Now we are ready to acquire the data! Open Thonny and run <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. then, from the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu in Thonny, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code>. This will allow our program here to pick up the connection, putting the data directly into a plot.</p>
-<p>Download <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/heartbeat.py">heartbeat.py</a> and run the following cell. That will create an empty plot which we will fill in using another cell below. Notice that the sampling rate is not specified – you have to fill it in.</p>
+<h2>Acquiring data!<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h2>
+<p><strong>Read this carefully!</strong> Now we are ready to acquire the data. Open Thonny and run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> by pressing the green play button near the top. Then, from the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu in the top toolbar in Thonny, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code>. This will allow our program here to pick up the connection, putting the data directly into a plot.</p>
+<p>Next, download <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/heartbeat.py">heartbeat.py</a>, make sure it is in the same folder as this lab, and run the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">heartbeat_new</span> <span class="kn">import</span> <span class="n">acquire</span>
+<span class="kn">from</span> <span class="nn">heartbeat</span> <span class="kn">import</span> <span class="n">acquire</span>
 <span class="o">%</span><span class="k">matplotlib</span> widget
 
-<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Options: 50, 100, 200, 400, 800, 1000, 1600, 3200</span>
+<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">sampling_duration</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># seconds</span>
 <span class="n">number_of_samples</span> <span class="o">=</span> <span class="n">sampling_rate</span> <span class="o">*</span> <span class="n">sampling_duration</span>
 
@@ -864,14 +896,13 @@ Copy and paste <a class="reference external" href="https://github.com/TheDataSci
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">line</span><span class="p">,</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sampling_duration</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">25000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">9000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">)</span> <span class="c1"># adjust this if you can&#39;t see the graph</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, touch the pad of your finger to the side of the heart monitor with a picture of a heart on it.
-Your finger should be barely touching it – don’t apply pressure. Once you have it situated correctly, run the following cell to acquire data. This cell has a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop in it, which will just run forever unless we do something to stop it. Once you have found your pulse, hit the “stop” button at the top of the page to leave the loop. What it shows will be stored.</p>
+<p>Next, run the following cell. Notice that this cell has a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop in it, which will continue to acquire data until we decide to stop it. Place your finger on the sensor module, and see if you can see your pulse show up on the graph above. Once the graph of your heartrate looks pretty constant, go ahead and click the stop button at the top of this window (the dark gray square)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -884,8 +915,8 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 <p>Re-run the above cell as many times as you need to get a good, clean measurement which shows a clear heartbeat pattern. On me, it looks something like this:</p>
-<p><img alt="example heartbeat" src="../../../_images/example_heartbeat.png" /></p>
-<p>Once you have a good measurement, run the following cell to save your measurement to a file.</p>
+<p><img alt="example heartbeat" src="../../../_images/data_example.png" /></p>
+<p><strong>This is important:</strong> Once you have a good measurement, run the following cell to save your measurement to a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;heartbeat.txt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -893,10 +924,9 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 </div>
-<p>This sensor sometimes has difficulty getting a reading for some people. While we do not know exactly what factors contribute to this, there are plenty of reasons it might not work, including skin quality, natural oil, applied oils, and even skin color might be impacting the results. As such, if you are not able to get a reading after a few tries, use the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/example_heartbeat.txt">example_heartbeat.txt</a> file for the rest of the lab.</p>
+<p>This sensor sometimes has difficulty getting a reading for some people. While we do not know exactly what factors contribute to this, there are plenty of reasons it might not work, including skin quality, natural oil, applied oils, and even skin color might be impacting the results. As such, if you are not able to get a reading after a few tries, use the <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/example_heartbeat.txt">example_heartbeat.txt</a> file for the rest of the lab.</p>
 <p>Have a look at the file you just made - or the example file, if needed (you should be able to open it right here in Jupyterlab). You should see a long list of numbers.</p>
 <p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, save a copy of the data under the name <code class="docutils literal notranslate"><span class="pre">og_heartbeat.txt</span></code> before continuing the lab.</p>
-</section>
 </section>
 <section id="span-style-color-orange-3-analysis-span">
 <h2><span style="color:orange;"> 3. Analysis </span><a class="headerlink" href="#span-style-color-orange-3-analysis-span" title="Permalink to this headline">#</a></h2>
@@ -924,10 +954,10 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <p>Unfortunately the x-axis is all wrong – it is just counting measurements one by one, not giving us the actual time of each measurement. To fix this, we can make an array which has the time each measurement was taken.</p>
 <section id="span-style-color-red-exercise-4-span">
 <h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this headline">#</a></h3>
-<p>Make an array called <code class="docutils literal notranslate"><span class="pre">t</span></code> which has the time corresponding to each measurement. If you feel stuck, look at the previous notebook for inspiration.</p>
+<p>Make an array called <code class="docutils literal notranslate"><span class="pre">t</span></code> which has the time corresponding to each measurement. We need an array that can function as the values for the x-axis. If you feel stuck, look at the previous notebook for inspiration.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span>  <span class="c1"># ANSWER HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="c1"># create your array here</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -972,7 +1002,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">averaged</span> <span class="o">=</span> <span class="n">rolling_centered_average</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">)</span>  <span class="c1"># You fill in an appropriate number</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="c1">#plt.xlim(0.1, 2.1)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -987,7 +1017,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <span class="n">increasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">averaged</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">increasing</span><span class="p">],</span> <span class="n">averaged</span><span class="p">[</span><span class="n">increasing</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1045,7 +1075,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <section id="that-s-all-for-today">
 <h3>That’s all for today!<a class="headerlink" href="#that-s-all-for-today" title="Permalink to this headline">#</a></h3>
 <p>Well done! Today we learned a bit about the terminology of error analysis, we learned how to interface with a microcontroller using Python, and we developed a procedure for computing the BPM from a photoplethysmogram sensor. In next week’s lab, we will learn how to make that process automatic, and do a more sophisticated analysis of the data you collected today.</p>
-<p>Make sure you save the code you wrote today, because you will need it next week (you can hit the save button at the top of the notebook). Then, make sure to submit <strong>both</strong> notebooks you used today to Gradescope.</p>
+<p>Make sure you save the code you wrote today, because you will need it next week (you can hit the save button at the top of the notebook). Then, make sure to submit your notebook you used today to Gradescope.</p>
 </section>
 </section>
 </section>
