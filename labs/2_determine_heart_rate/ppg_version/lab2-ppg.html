@@ -835,12 +835,12 @@ x = t + \varepsilon.
 <p>There are three wires on the Pulse Sensor, and three connections we have to make. We will use tiny metal clips which are sitting inside the bread board. The clips are arranged in rows – see the example your instructor has taken apart.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
 <p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/pico_datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with a “+” on the Pulse Sensor. Connect the wire labeled “-” to the pin labeled “AGND”. Connect the pin labeled “ADC0” to the other wire, which is labeled “S”. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
-<p><img alt="img" src="../../../_images/pico_on_breadboard_png" />
-<img alt="img" src="../../../_images/hr_sensor_labels_png" />
-<img alt="img" src="../../../_images/hr_sensor_pad_png" /></p>
+<p><img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/pico_on_breadboard_png?raw=true" />
+<img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/hr_sensor_labels_png?raw=true" />
+<img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/hr_sensor_pad_png?raw=true" /></p>
 <p><strong>At this point, check with your instructor to make sure you have it configured correctly.</strong> If it is wired incorrectly, there is a chance that powering it on could damage either the Pico or the Pulse Sensor.</p>
 <p>Once you have checked with your instructor, you can plug the Pico into your computer and move on to the next step.</p>
-<p><img alt="img" src="../../../_images/connected_hr_sensor_png" /></p>
+<p><img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/connected_hr_sensor_png?raw=true" /></p>
 </section>
 <section id="acquiring-data">
 <h3>Acquiring data<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h3>
@@ -888,7 +888,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 <p>Re-run the above cell as many times as you need to get a good, clean measurement which shows a clear heartbeat pattern. On me, it looks something like this:</p>
-<p><img alt="img" src="../../../_images/example_heartbeat.png" /></p>
+<p><img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/example_heartbeat.png?raw=true" /></p>
 <p>Once you have a good measurement, run the following cell to save your measurement to a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
