@@ -151,6 +151,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Estimate your blood flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_estimate_blood_flow/lab3_old.html">
+   Week 4: Estimate Blood Flow from PPG Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Measure the heights of tall and far away things
  </span>
 </p>
@@ -825,9 +837,9 @@ Copy and paste <a class="reference external" href="https://github.com/TheDataSci
 <p>There are four wires on the Pulse Sensor, and four connections we have to make. We will use tiny metal clips which are sitting inside the bread board. The clips are arranged in rows – see the example your instructor has taken apart.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
 <p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/pico_datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with “VIN” on the Pulse Sensor. Connect the pin labeled “GND” on the sensor to a  “GND” on the breadboard. Connect the pin labeled “SDA” to the first pin on the pico, labelled “I2C0 SDA” in blue on the pinout diagram. Then similarly, connect the pin labeled “SCL” to the second pin on the pico, labelled “I2C0 SCL”, also in blue. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
-<img src="sensor_pins.png" alt="Sensor pins" style="width: 400px;"/>
-<img src="wiring_example.jpg" alt="Wiring example" style="width: 400px;"/>
-<img src="capacitor_placement.jpg" alt="Capacitor placement" style="width: 400px;"/>
+<p><img alt="sensor pins" src="../../../_images/sensor_pins.png" />
+<img alt="wiring example" src="../../../_images/wiring_example.jpg" />
+<img alt="capacitor placement" src="../../../_images/capacitor_placement.jpg" /></p>
 <p><strong>At this point, check with your instructor to make sure you have it configured correctly.</strong> If it is wired incorrectly, there is a chance that powering it on could damage either the Pico or the Pulse Sensor.</p>
 <p>Once you have checked with your instructor, you can plug the Pico into your computer and move on to the next step.</p>
 </section>
@@ -872,7 +884,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 <p>Re-run the above cell as many times as you need to get a good, clean measurement which shows a clear heartbeat pattern. On me, it looks something like this:</p>
-<p><img alt="img" src="labs/2_determine_heart_rate/max30102_version/example_heartbeat.png" /></p>
+<p><img alt="example heartbeat" src="../../../_images/example_heartbeat.png" /></p>
 <p>Once you have a good measurement, run the following cell to save your measurement to a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

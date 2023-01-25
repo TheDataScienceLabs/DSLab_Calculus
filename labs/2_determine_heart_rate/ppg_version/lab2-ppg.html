@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html" />
+    <link rel="next" title="Week 4: Estimate Blood Flow from PPG Data" href="../../3_estimate_blood_flow/lab3_old.html" />
     <link rel="prev" title="Week 3: Finding Local Max in PPG Signal (Using MAX30102)" href="../max30102_version/lab2-max30102.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -146,6 +146,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estimate your blood flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../3_estimate_blood_flow/lab3_old.html">
+   Week 4: Estimate Blood Flow from PPG Data
   </a>
  </li>
 </ul>
@@ -823,12 +835,12 @@ x = t + \varepsilon.
 <p>There are three wires on the Pulse Sensor, and three connections we have to make. We will use tiny metal clips which are sitting inside the bread board. The clips are arranged in rows – see the example your instructor has taken apart.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
 <p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/pico_datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with a “+” on the Pulse Sensor. Connect the wire labeled “-” to the pin labeled “AGND”. Connect the pin labeled “ADC0” to the other wire, which is labeled “S”. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
-<p><img alt="img" src="../../../_images/pico_on_breadboard_png.png" />
-<img alt="img" src="../../../_images/hr_sensor_labels_png.png" />
-<img alt="img" src="../../../_images/hr_sensor_pad_png.png" /></p>
+<p><img alt="img" src="../../../_images/pico_on_breadboard_png" />
+<img alt="img" src="../../../_images/hr_sensor_labels_png" />
+<img alt="img" src="../../../_images/hr_sensor_pad_png" /></p>
 <p><strong>At this point, check with your instructor to make sure you have it configured correctly.</strong> If it is wired incorrectly, there is a chance that powering it on could damage either the Pico or the Pulse Sensor.</p>
 <p>Once you have checked with your instructor, you can plug the Pico into your computer and move on to the next step.</p>
-<p><img alt="img" src="../../../_images/connected_hr_sensor_png.png" /></p>
+<p><img alt="img" src="../../../_images/connected_hr_sensor_png" /></p>
 </section>
 <section id="acquiring-data">
 <h3>Acquiring data<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h3>
@@ -880,7 +892,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 <p>Re-run the above cell as many times as you need to get a good, clean measurement which shows a clear heartbeat pattern. On me, it looks something like this:</p>
-<p><img alt="img" src="../../../_images/example_heartbeat.png" /></p>
+<p><img alt="img" src="../../../_images/example_heartbeat1.png" /></p>
 <p>Once you have a good measurement, run the following cell to save your measurement to a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1080,10 +1092,10 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
             <p class="prev-next-title">Week 3: Finding Local Max in PPG Signal (Using MAX30102)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html" title="next page">
+    <a class='right-next' id="next-link" href="../../3_estimate_blood_flow/lab3_old.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</p>
+        <p class="prev-next-title">Week 4: Estimate Blood Flow from PPG Data</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
