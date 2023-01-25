@@ -12,11 +12,11 @@ If you'd like to develop and/or build the The Data Science Labs on Differential 
 
 1. Clone this repository
 2. Run `pip install -r requirements.txt` (it is recommended you do this within a virtual environment)
-3. (Optional) Edit the books source files located in the `ds_labs_calculus/` directory
-4. Run `jupyter-book clean ds_labs_calculus/` to remove any existing builds
-5. Run `jupyter-book build ds_labs_calculus/`
+3. (Optional) Edit the books source files located in the `DSLab_Calculus/` directory
+4. Run `jupyter-book clean book` to remove any existing builds
+5. Run `jupyter-book build book`
 
-A fully-rendered HTML version of the book will be built in `ds_labs_calculus/_build/html/`.
+A fully-rendered HTML version of the book will be built in `DSLab_Calculus/_build/html/`.
 
 ### Hosting the book
 

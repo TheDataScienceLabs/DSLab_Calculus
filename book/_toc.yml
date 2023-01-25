@@ -10,8 +10,8 @@ parts:
   - file: labs/1_intro_to_notebooks/lab1.ipynb
 - caption: Determine your heart rate
   chapters:
-  - file: labs/2_determine_heart_rate/lab2.ipynb
-  #- file: labs/2_determine_heart_rate/lab2_part2.ipynb
+  - file: labs/2_determine_heart_rate/max30102_version/lab2-max30102.ipynb
+  - file: labs/2_determine_heart_rate/ppg_version/lab2-ppg.ipynb
 - caption: Estimate your blood flow
   chapters:
   - file: labs/3_estimate_blood_flow/lab3.ipynb
