@@ -1,0 +1,2334 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 4: Estimate Blood Flow from PPG Data &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    About this Course
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_intro_to_notebooks/lab0.html">
+   Week 1: Course Intro, Markdown, Latex
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_intro_to_notebooks/lab1.html">
+   Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Determine your heart rate
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_determine_heart_rate/max30102_version/lab2-max30102.html">
+   Week 3: Finding Local Max in PPG Signal (Using MAX30102)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_determine_heart_rate/ppg_version/lab2-ppg.html">
+   Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Measure the heights of tall and far away things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">
+   Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">
+   Week 6-7: Build an Inclinometer (Objects on Hardware)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/c_make_the_measurements/lab4c.html">
+   Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/d_error_analysis/lab4d.html">
+   Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_measure_tall_things/e_symbolic_error/lab4e.html">
+   Week 11: Analyzing the Error Using Symbolic Method (SymPy)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Measure the speeds of nearby things
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_measure_speeds/a_derivatives/lab5a.html">
+   Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_measure_speeds/b_build_a_tool/lab5b.html">
+   Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Design a project of your own
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../final_project/labfinal.html">
+   Weeks 14-15: Final Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
+   Extra Materials: Introduction to Breadboards
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/TheDataScienceLabs/DSLab_Calculus/main?urlpath=tree/book/labs/3_estimate_blood_flow/lab3.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/3_estimate_blood_flow/lab3.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/labs/3_estimate_blood_flow/lab3.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Week 4: Estimate Blood Flow from PPG Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
+     <span style="color:orange;">
+      00. Content
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
+     <span style="color:orange;">
+      0. Required Hardware
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-1-functions-in-python-span">
+     <span style="color:orange;">
+      1. Functions in Python
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-most-useful-way-to-organize-code-is-the-function">
+       The most useful way to organize code is the function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
+       <span style="color:red;">
+        Exercise 1
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions-make-code-reusable">
+       Functions make code reusable
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
+       <span style="color:red;">
+        Exercise 2
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions-make-it-easy-to-check-your-work">
+       Functions make it easy to check your work
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#reusing-code-from-last-week">
+         Reusing code from last week
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-2-using-functions-with-data-span">
+     <span style="color:orange;">
+      2. Using Functions with Data
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looking-deeper-with-polynomials">
+       Looking deeper with polynomials
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
+       <span style="color:red;">
+        Exercise 3
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantifying-the-fit">
+         Quantifying the fit
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
+       <span style="color:red;">
+        Exercise 4
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
+       <span style="color:red;">
+        Exercise 5
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exploring-the-data-using-the-polynomial-model">
+       Exploring the data using the polynomial model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span">
+       <span style="color:red;">
+        Exercise 6
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#interpretation-and-code-reuse">
+         Interpretation and code reuse
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span">
+       <span style="color:red;">
+        Exercise 7
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-optional-exercise-8-span">
+       <span style="color:red;">
+        Optional Exercise 8
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measure-yourself">
+       Measure yourself!
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Week 4: Estimate Blood Flow from PPG Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     <span style="color:orange;">
+      00. Content
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     <span style="color:orange;">
+      0. Required Hardware
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     <span style="color:orange;">
+      1. Functions in Python
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       The most useful way to organize code is the function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       <span style="color:red;">
+        Exercise 1
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Functions make code reusable
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       <span style="color:red;">
+        Exercise 2
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Functions make it easy to check your work
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id10">
+         Reusing code from last week
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     <span style="color:orange;">
+      2. Using Functions with Data
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Looking deeper with polynomials
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       <span style="color:red;">
+        Exercise 3
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id14">
+         Quantifying the fit
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       <span style="color:red;">
+        Exercise 4
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       <span style="color:red;">
+        Exercise 5
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id17">
+       Exploring the data using the polynomial model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       <span style="color:red;">
+        Exercise 6
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id19">
+         Interpretation and code reuse
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id20">
+       <span style="color:red;">
+        Exercise 7
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       <span style="color:red;">
+        Optional Exercise 8
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       Measure yourself!
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Week 4: Estimate Blood Flow from PPG Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Week 4: Estimate Blood Flow from PPG Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
+     <span style="color:orange;">
+      00. Content
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
+     <span style="color:orange;">
+      0. Required Hardware
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-1-functions-in-python-span">
+     <span style="color:orange;">
+      1. Functions in Python
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-most-useful-way-to-organize-code-is-the-function">
+       The most useful way to organize code is the function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
+       <span style="color:red;">
+        Exercise 1
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions-make-code-reusable">
+       Functions make code reusable
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
+       <span style="color:red;">
+        Exercise 2
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions-make-it-easy-to-check-your-work">
+       Functions make it easy to check your work
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#reusing-code-from-last-week">
+         Reusing code from last week
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-orange-2-using-functions-with-data-span">
+     <span style="color:orange;">
+      2. Using Functions with Data
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looking-deeper-with-polynomials">
+       Looking deeper with polynomials
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
+       <span style="color:red;">
+        Exercise 3
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantifying-the-fit">
+         Quantifying the fit
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
+       <span style="color:red;">
+        Exercise 4
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
+       <span style="color:red;">
+        Exercise 5
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exploring-the-data-using-the-polynomial-model">
+       Exploring the data using the polynomial model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span">
+       <span style="color:red;">
+        Exercise 6
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#interpretation-and-code-reuse">
+         Interpretation and code reuse
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span">
+       <span style="color:red;">
+        Exercise 7
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-style-color-red-optional-exercise-8-span">
+       <span style="color:red;">
+        Optional Exercise 8
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measure-yourself">
+       Measure yourself!
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Week 4: Estimate Blood Flow from PPG Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     <span style="color:orange;">
+      00. Content
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     <span style="color:orange;">
+      0. Required Hardware
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     <span style="color:orange;">
+      1. Functions in Python
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       The most useful way to organize code is the function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       <span style="color:red;">
+        Exercise 1
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Functions make code reusable
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       <span style="color:red;">
+        Exercise 2
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Functions make it easy to check your work
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id10">
+         Reusing code from last week
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     <span style="color:orange;">
+      2. Using Functions with Data
+     </span>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Looking deeper with polynomials
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       <span style="color:red;">
+        Exercise 3
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id14">
+         Quantifying the fit
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       <span style="color:red;">
+        Exercise 4
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       <span style="color:red;">
+        Exercise 5
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id17">
+       Exploring the data using the polynomial model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       <span style="color:red;">
+        Exercise 6
+       </span>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id19">
+         Interpretation and code reuse
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id20">
+       <span style="color:red;">
+        Exercise 7
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       <span style="color:red;">
+        Optional Exercise 8
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       Measure yourself!
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="week-4-estimate-blood-flow-from-ppg-data">
+<h1>Week 4: Estimate Blood Flow from PPG Data<a class="headerlink" href="#week-4-estimate-blood-flow-from-ppg-data" title="Permalink to this headline">#</a></h1>
+<p><font size="6"> Laboratory 3: Intro to Functions, Polynomial Fitting </font> <br>
+<font size="3"> Last updated January 28, 2023 </font></p>
+<section id="span-style-color-orange-00-content-span">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this headline">#</a></h2>
+<p><font size="5"> Mathematics </font></p>
+<ul class="simple">
+<li><p>Empirical mean</p></li>
+<li><p>Empirical standard deviation</p></li>
+<li><p>Slope</p></li>
+</ul>
+<p><font size="5"> Programming Skills </font></p>
+<ul class="simple">
+<li><p>Functions</p></li>
+</ul>
+<p><font size="5"> Embedded Systems </font></p>
+<ul class="simple">
+<li><p>Thonny and Micropython</p></li>
+</ul>
+</section>
+<section id="span-style-color-orange-0-required-hardware-span">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Microcontroller: Raspberry Pi Pico</p></li>
+<li><p>Pulse sensor</p></li>
+<li><p>Breadboard</p></li>
+<li><p>USB connector</p></li>
+<li><p>Capacitor</p></li>
+</ul>
+</section>
+<section id="span-style-color-orange-1-functions-in-python-span">
+<h2><span style="color:orange;"> 1. Functions in Python </span><a class="headerlink" href="#span-style-color-orange-1-functions-in-python-span" title="Permalink to this headline">#</a></h2>
+<h3 style="background-color:lightblue"> Write your name and email below: </h3>
+<p>First Name, Last Name, email</p>
+<section id="the-most-useful-way-to-organize-code-is-the-function">
+<h3>The most useful way to organize code is the function<a class="headerlink" href="#the-most-useful-way-to-organize-code-is-the-function" title="Permalink to this headline">#</a></h3>
+<p>Up to now, we have been relying on functions other people have written to achieve our goals. One of the most important roles of a computer programmer is writing good functions.</p>
+<p>For this lab, we are going to learn how to write functions. As a refresher, last lab we discussed how functions are groups of code that always run together. When you call a function, you execute the code that is associated within that function. Functions can take inputs, manipulate the inputs, and return an output.</p>
+<p>Why use functions? Functions help reduce repetitive code. Functions also make your code easier to read.</p>
+<p>We define/create a function by using the key word <code class="docutils literal notranslate"><span class="pre">def</span></code>, the name of the function, parameters enclosed within <code class="docutils literal notranslate"><span class="pre">()</span></code>, and <code class="docutils literal notranslate"><span class="pre">:</span></code> signifying the end of the header. A function also has the ability to return a value via the command <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<p>Here are two examples of a simple function that prints something.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name</span><span class="p">():</span>  <span class="c1"># Function Header</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Science is cool!&quot;</span><span class="p">)</span>  <span class="c1"># Function Body</span>
+
+
+<span class="n">name</span><span class="p">()</span>  <span class="c1"># Function Call</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add12</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 + 2 = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+
+<span class="n">add12</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="n">add_int</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also pass information into functions so that you can manipulate the parameters of the function within the function. Parameters are enclosed within the <code class="docutils literal notranslate"><span class="pre">()</span></code> part of the function header. You can pass as many parameters as you would like within the function header. The order of the parameters are significant and should match the order in the function’s header.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># Function Header passes in parameters a and b</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a - b = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+
+<span class="n">subtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Function call passes 2 as &#39;a&#39; and 1 as &#39;b&#39;, 2 - 1 = 1</span>
+<span class="n">subtract</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 25 - 4 = 21</span>
+<span class="n">subtract</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>  <span class="c1"># 4 - 25 = -21</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">subtract</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># Remember that order of the inputs into the parameters matter!</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+<span class="n">subtract</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parameters can be strings as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Email: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">email</span><span class="p">))</span>
+
+
+<span class="n">info</span><span class="p">(</span><span class="s2">&quot;Purdue Pete&quot;</span><span class="p">,</span> <span class="s2">&quot;boilerup@purdue.edu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The neat thing about functions is that you could also return a value from a function utilizing the key word <code class="docutils literal notranslate"><span class="pre">return</span></code>. You must remember to store the returned value from the function into a variable if you want to save it. Remember that when you call a function, it’s like the function call is replaced by the code within the body of the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">return5</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">5</span>
+
+
+<span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">c</span>  <span class="c1"># return the value of a * b</span>
+
+
+<span class="n">e</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># d = 5 * 6</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="n">return5</span><span class="p">()</span>  <span class="c1"># d = (9 * 4) + (5)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">return5</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The values of d and g are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">, respectively.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">g</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at why functions are good at reducing repetition in code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repetitive code when functions can be used are unprofessional and take space.&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of having repeating lines of code to create the output you want, you can use functions to shorten and organize them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print3</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Functions can help keep your code neat, concise, and easy to read.&quot;</span><span class="p">)</span>
+<span class="n">print3</span><span class="p">()</span>
+<span class="n">print3</span><span class="p">()</span>
+<span class="n">print3</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-red-exercise-1-span">
+<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this headline">#</a></h3>
+<p><strong>Part 1</strong></p>
+<p>Create the following functions. <br></p>
+<ol class="simple">
+<li><p>Function named <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> that has parameters of <code class="docutils literal notranslate"><span class="pre">base1</span></code>, <code class="docutils literal notranslate"><span class="pre">base2</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> as its parameters and returns the area of a trapezoid.</p></li>
+<li><p>Function named <code class="docutils literal notranslate"><span class="pre">slope</span></code> that calculates the slope of the straight line passing through the two points in the plane. The parameters are <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, and <code class="docutils literal notranslate"><span class="pre">y2</span></code> and the function returns the slope.</p></li>
+</ol>
+<p><strong>Part 2</strong></p>
+<p>Create the following functions for the following formulas. Do not use any of python’s NumPy functions, with the exception of the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function.</p>
+<ol class="simple">
+<li><p>Arithmetic Mean</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mu 
+&amp;= \frac{1}{n}\sum_{i=1}^n a_i\\
+&amp;= \frac{a_1+a_2+\dots+a_n}{n}
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Name: <code class="docutils literal notranslate"><span class="pre">mean</span></code></p></li>
+<li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
+</ul>
+<ol class="simple">
+<li><p>Standard Deviation (You must utilize your <code class="docutils literal notranslate"><span class="pre">mean</span></code> function from Question 1)</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sigma 
+&amp;= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\mu)^2}\\
+&amp;= \sqrt{\frac{(x_1-\mu)^2+(x_2-\mu)^2+\dots+(x_n-\mu)^2}{n-1}}
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Name: <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
+<li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
+</ul>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">trapezoid_area</span><span class="p">(</span><span class="n">base1</span><span class="p">,</span> <span class="n">base2</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="p">((</span><span class="n">base1</span> <span class="o">+</span> <span class="n">base2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">height</span>
+    <span class="k">return</span> <span class="n">area</span>
+
+<span class="k">def</span> <span class="nf">slope</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="n">slopeval</span> <span class="o">=</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">slopeval</span>
+
+<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">arrsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">meanval</span> <span class="o">=</span> <span class="n">arrsum</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">meanval</span>
+
+<span class="k">def</span> <span class="nf">std</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">val</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-make-code-reusable">
+<h3>Functions make code reusable<a class="headerlink" href="#functions-make-code-reusable" title="Permalink to this headline">#</a></h3>
+<p>One of the most important things about functions is that they can allow us to reproduce a task we did before, very reliably.</p>
+<p>At the start of each lab, you must include your first name, last name, and email address. We can easily automate that process with functions. Run the following cell in order to download student_info.py. Afterwards, open it and make sure it is saved inside the same directory. Once you have read that, you should not be surprised by what the following cell does.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/student_info.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this makes it so that changes to the imported module are automatically updated in this document.</span>
+<span class="c1"># usually not necessary, but if we are making changes, this is helpful.</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+
+<span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-red-exercise-2-span">
+<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this headline">#</a></h3>
+<p>Modify <code class="docutils literal notranslate"><span class="pre">student_info.py</span></code> to give your own contact information. You will use this file in the future to put a heading on your lab submissions.</p>
+<p>Check to make sure it is working by running the cell below. It should show your contact information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-make-it-easy-to-check-your-work">
+<h3>Functions make it easy to check your work<a class="headerlink" href="#functions-make-it-easy-to-check-your-work" title="Permalink to this headline">#</a></h3>
+<p>One of the great things about Python, which is not something every language can do, is that you can pass functions around as variables. You can put a function into another function, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_three_times</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">()</span>
+    <span class="n">f</span><span class="p">()</span>
+    <span class="n">f</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hey&#39;</span><span class="p">)</span>
+
+<span class="n">do_three_times</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above block, we are not calling the <code class="docutils literal notranslate"><span class="pre">greet</span></code> function directly – instead we are passing it as a variable into the function <code class="docutils literal notranslate"><span class="pre">do_three_times</span></code>, which in turn calls the greet function.</p>
+<p>A really common way to take advantage of this pattern is to pass a function into another one, which checks to see if it is working correctly. Let’s do that now! We have written a couple functions which check to see if the functions <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> and <code class="docutils literal notranslate"><span class="pre">slope</span></code> which you wrote are working correctly. Run the following cells to download lab3_grader.py and <a class="reference external" href="http://autograder.py">autograder.py</a> (which will be used in later labs!). Afterwards, run the cell that checks your functions and see if you have all of the tests passed correctly! If your functions are not working how they should, go back and change them to make sure you get full points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/autograder.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/lab3_grader.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lab3_grader</span> <span class="kn">import</span> <span class="n">check_trapezoid_area</span><span class="p">,</span> <span class="n">check_slope</span>
+
+<span class="n">check_trapezoid_area</span><span class="p">(</span><span class="n">trapezoid_area</span><span class="p">)</span>
+<span class="n">check_slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reusing-code-from-last-week">
+<h4>Reusing code from last week<a class="headerlink" href="#reusing-code-from-last-week" title="Permalink to this headline">#</a></h4>
+<p>We wish to explore the heartbeat data we collected in the previous lab further. To do so, let’s copy that code into a new function. In the following cell, fill in the <code class="docutils literal notranslate"><span class="pre">heartbeat</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> variables with your heart beat array (and corresponding time) from last week. Then, fill out the missing parts of the function <code class="docutils literal notranslate"><span class="pre">get_period</span></code> with the steps you performed last week (it’s okay to copy and paste). If your heartbeat measurements from last lab were not up to par or something went wrong while measuring, run the following cell in order to load the example_heartbeat.txt that you can use in order to correctly fill out the next few exercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/example_heartbeat.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heartbeat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;example_heartbeat.txt&#39;</span><span class="p">)</span> <span class="c1">#filled in</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">))</span> <span class="o">/</span> <span class="mi">200</span> <span class="c1">#filled in</span>
+
+
+<span class="k">def</span> <span class="nf">get_period</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a hearbeat signal, what is the period of the heart beat?</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    heartbeat: array - the measured heartbeat signal</span>
+<span class="sd">    time: array - the times when the signal was measured. Should be the same</span>
+<span class="sd">        shape as heartbeat.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    period: float - the average period of the heartbeat signal.</span>
+<span class="sd">    error: float - an estimate of the error in the measurement of the period.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># put here the code which averages the function and finds where the function is increasing and decreasing.</span>
+    <span class="c1"># As always, ask for help if you get stuck.   </span>
+    <span class="n">averaged</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="n">averaged</span><span class="p">[(</span><span class="mi">30</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="mi">30</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span>
+    <span class="n">increasing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+        <span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span>
+    <span class="p">)</span>
+    <span class="n">increasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">averaged</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">decreasing</span> <span class="o">=</span> <span class="o">~</span><span class="n">increasing</span>
+
+    <span class="n">maxima</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">maxima</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">increasing</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">decreasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  
+    <span class="n">peak_indices</span> <span class="o">=</span> <span class="n">maxima</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">averaged</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[</span><span class="n">maxima</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">peak_times</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">]</span>
+    <span class="n">gaps</span> <span class="o">=</span> <span class="n">peak_times</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">peak_times</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">gaps</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">gaps</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="n">get_period</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="span-style-color-orange-2-using-functions-with-data-span">
+<h2><span style="color:orange;"> 2. Using Functions with Data </span><a class="headerlink" href="#span-style-color-orange-2-using-functions-with-data-span" title="Permalink to this headline">#</a></h2>
+<section id="looking-deeper-with-polynomials">
+<h3>Looking deeper with polynomials<a class="headerlink" href="#looking-deeper-with-polynomials" title="Permalink to this headline">#</a></h3>
+<p>The averaging technique we introduced in the previous lab works very well for identifying the locations of large features. Unfortunately, it blurs out some of the fine detail, brings peaks down, and lifts bottoms up. That’s no good if you want to know information like the amplitude or shape of the signal. We can do much better.</p>
+<p>We will explore one way of finding a function which “interpolates” between the observed values. A function which interpolates is called an “interpolant”.</p>
+<p>Since you have the period of your heartbeat signal, you can extract just one cycle of the initial signal. In the following cell, fill in a start time which gives you a good window capturing one full heart beat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">period</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">cycle</span> <span class="o">=</span> <span class="n">heartbeat</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">cycle_t</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A parabola has one local maximum or minimum. A cubic polynomial has at most two. A fourth degree polynomial has at most three local maxima and minima. Fit a polynomial of degree one more than the number of local maxima and minima. Numpy has a built in tool which finds a polynomial which matches observed values closely. Here is how it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">#filled in the 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The object <code class="docutils literal notranslate"><span class="pre">interpolant</span></code> represents a list of coefficients of a polynomial. We can also call it as a function. Let’s use that to show how well it lines up with the data we measured:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What other values of the degree could we try? What kind of interpolant do we get with a smaller degree, or a larger degree than 7?</p>
+</section>
+<section id="span-style-color-red-exercise-3-span">
+<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h3>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to make plots showing the interpolants of degrees 3 through 15. Which ones fit best? Try larger values too. What if you have an interpolant of degree 30? 100?</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="n">degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">),[</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span> <span class="c1"># creates the array [  3   4   5   6   7   8   9  10  11  12  13  14  15  30 100]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">degrees</span><span class="p">:</span>
+    <span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Interpolant of degree </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="quantifying-the-fit">
+<h4>Quantifying the fit<a class="headerlink" href="#quantifying-the-fit" title="Permalink to this headline">#</a></h4>
+<p>Beyond a certain point, the polynomial can snake through each point we give it, capturing all the noise. That defeats the purpose of the fit! It is good practice to choose as low a degree as possible while still matching the data well. This is called the <em>parsimony principle</em>. We can quantify this with the so-called “mean square error” of a fit: the average value of the difference between the interpolant and the measured value. If the measured values are <span class="math notranslate nohighlight">\(y_i\)</span> and we are measuring how well an interpolant <span class="math notranslate nohighlight">\(f(x_i)\)</span> agrees, then the mean square error is given by the formula
+<span class="math notranslate nohighlight">\(
+\frac{1}{n}\sum_{i=0}^n \left(f(x_i)-y_i\right)^2 
+\)</span></p>
+</section>
+</section>
+<section id="span-style-color-red-exercise-4-span">
+<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this headline">#</a></h3>
+<p>Write a function which takes an interpolant and returns the mean square error. Then, read and run the cell below it, which will use the code you wrote to make a plot of how the polynomial degree relates to the mean square error.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_square_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">):</span>
+    <span class="c1"># put your answer here!</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">interpolant</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">deg</span> <span class="ow">in</span> <span class="n">degrees</span><span class="p">:</span>
+    <span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">)</span>
+    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;polynomial degree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;mean square error&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-red-exercise-5-span">
+<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this headline">#</a></h3>
+<p>Interpret the plot above. After what point do we see diminishing returns on the model’s fit? What is the smallest degree of polynomial which has a reasonably low mean square error, in your opinion? Write in complete sentences here, as if you were describing the plot in a professional report.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3><p>Key parts of answers should include:
+Inverse relationship between degree of polynomial and the mean square error. The higher the degree, the lower the error.
+Observations of the degree around 9 ~ 10. The mean square error seems to flat out around this polynomial degree, hence the smallest degree of a polynomial with a reasonably low mean square error would be around 9 ~ 10.</p>
+</section>
+<section id="exploring-the-data-using-the-polynomial-model">
+<h3>Exploring the data using the polynomial model<a class="headerlink" href="#exploring-the-data-using-the-polynomial-model" title="Permalink to this headline">#</a></h3>
+<p>Now that we have a good model for the behavior of each cycle, we can start asking questions of our model. We can ask things like, “What is the largest value of the function on the interval?” Here is an example of how we might do that. Suppose we have the following interpolant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interpolant</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="mf">43497.94586794</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">5266.09794496</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">14940.13657245</span><span class="p">,</span>
+        <span class="mf">57262.21812427</span><span class="p">,</span>
+        <span class="mf">48591.17239832</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">146342.3668821</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">31204.60140348</span><span class="p">,</span>
+        <span class="mf">96269.6657132</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we have a function which represents our data accurately, we can use standard calculus tools to find its local extrema. The Polynomial object which NumPy creates is very versatile. If you have a polynomial, you can find things like its roots easily, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="o">.</span><span class="n">roots</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also find derivatives, which are given back to us as Polynomial objects which we can do all those same things to.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="o">.</span><span class="n">deriv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can ask it for its domain, which it also stores for us as an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-red-exercise-6-span">
+<h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#span-style-color-red-exercise-6-span" title="Permalink to this headline">#</a></h3>
+<p>Remember the closed interval method from calculus 1, where you find all the critical numbers of a function within its interval, and plug those into the function to find the maximum and minimum values. Write a function which does exactly that, to a polynomial interpolant.</p>
+<p>Hint: critical points are the roots of the derivative of a certain function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+    <span class="c1">#your code goes here.</span>
+    <span class="n">crit_points</span> <span class="o">=</span> <span class="n">interpolant</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+    <span class="n">test_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">crit_points</span><span class="p">,</span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+    <span class="n">minimum</span> <span class="o">=</span>  <span class="nb">min</span><span class="p">(</span><span class="n">interpolant</span><span class="p">(</span><span class="n">test_points</span><span class="p">))</span>
+    <span class="n">maximum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">interpolant</span><span class="p">(</span><span class="n">test_points</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="interpretation-and-code-reuse">
+<h4>Interpretation and code reuse<a class="headerlink" href="#interpretation-and-code-reuse" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3394104/pdf/CCR-8-14.pdf">This article published in Current Cardiology News</a> gives several commonly used statistics which can be read from a photoplethysmogram. We will focus on just two of them: the “systolic amplitude” which is roughly proportional to blood flow, and the “ratio b/a” which is connected to arterial stiffness and can indicate exposure to lead and risk of heart disease.</p>
+<p>First, let’s make a function which computes the systolic amplitude. We have already done most of the work, when we wrote the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code>. Let’s take advantage of that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">systolic_amplitude</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+    <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span> <span class="o">=</span> <span class="n">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">maximum</span> <span class="o">-</span> <span class="n">minimum</span>
+
+<span class="n">systolic_amplitude</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The ratio b/a is based off the maximum and minimum values of the second derivative. Specifically, it is their ratio. Since the photoplethysmogram is concave up in some places and concave down in others, the maximum will be positive and the minimum will be negative. Since we are more familiar working with positive numbers, people usually compute <span class="math notranslate nohighlight">\(-b/a\)</span>, where <span class="math notranslate nohighlight">\(b\)</span> is the minimum value of the second derivative and <span class="math notranslate nohighlight">\(a\)</span> is the maximum value of the second derivative.</p>
+</section>
+</section>
+<section id="span-style-color-red-exercise-7-span">
+<h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#span-style-color-red-exercise-7-span" title="Permalink to this headline">#</a></h3>
+<p>Write a function to compute the ratio b/a. You should still be able to reuse the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code> (ask for help if you need a hint for how to do this).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+    <span class="c1"># your code here</span>
+    <span class="n">secderiv</span> <span class="o">=</span> <span class="n">interpolant</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span>
+    <span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">closed_interval</span><span class="p">(</span><span class="n">secderiv</span><span class="p">)</span> <span class="c1"># in closed_interval: b is the minimum, a is the maximum</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">a</span> 
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="n">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at where we are. Today, you have learned about writing functions. You have written functions which identify the period of a heartbeat signal, interpolate it with a polynomial, and compute two medically interesting values from it. We saw that by reusing old code, we can save ourselves a lot of time. That is a lot! Well done.</p>
+</section>
+<section id="span-style-color-red-optional-exercise-8-span">
+<h3><span style="color:red;"> Optional Exercise 8 </span><a class="headerlink" href="#span-style-color-red-optional-exercise-8-span" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="measure-yourself">
+<h3>Measure yourself!<a class="headerlink" href="#measure-yourself" title="Permalink to this headline">#</a></h3>
+<p>In the case that you have remaining time within your lab, you should put the tools you have used to work. Make a new Jupyter notebook, copying code from lab 2, to capture some new pulse data (remember, it is good practice to separate data acquisition from data analysis!). Then, analyze it here using the functions you have written. You can use the prompts below for scenarios for your analysis:</p>
+<ol class="simple">
+<li><p>If you jog up and down the hallway briefly, how does your pulse rate change?</p></li>
+<li><p>If you measure your systolic amplitude with your finger above your shoulders versus below your waist, can you detect a difference? How big is the difference?</p></li>
+<li><p>Is your ratio b/a different from your classmates’?</p></li>
+</ol>
+<p>If you have time, try to at least answer two of the three questions. Write markdown cells explaining what you are doing and why. Interpret your results.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 8 Below </h3></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Week 4: Estimate Blood Flow from PPG Data<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p><font size="6"> Laboratory 3: Intro to Functions, Polynomial Fitting </font> <br>
+<font size="3"> Last updated January 28, 2023 </font></p>
+<section id="id2">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p><font size="5"> Mathematics </font></p>
+<ul class="simple">
+<li><p>Empirical mean</p></li>
+<li><p>Empirical standard deviation</p></li>
+<li><p>Slope</p></li>
+</ul>
+<p><font size="5"> Programming Skills </font></p>
+<ul class="simple">
+<li><p>Functions</p></li>
+</ul>
+<p><font size="5"> Embedded Systems </font></p>
+<ul class="simple">
+<li><p>Thonny and Micropython</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Microcontroller: Raspberry Pi Pico</p></li>
+<li><p>Pulse sensor</p></li>
+<li><p>Breadboard</p></li>
+<li><p>USB connector</p></li>
+<li><p>Capacitor</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2><span style="color:orange;"> 1. Functions in Python </span><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h3 style="background-color:lightblue"> Write your name and email below: </h3>
+<p>First Name, Last Name, email</p>
+<section id="id5">
+<h3>The most useful way to organize code is the function<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>Up to now, we have been relying on functions other people have written to achieve our goals. One of the most important roles of a computer programmer is writing good functions.</p>
+<p>For this lab, we are going to learn how to write functions. As a refresher, last lab we discussed how functions are groups of code that always run together. When you call a function, you execute the code that is associated within that function. Functions can take inputs, manipulate the inputs, and return an output.</p>
+<p>Why use functions? Functions help reduce repetitive code. Functions also make your code easier to read.</p>
+<p>We define/create a function by using the key word <code class="docutils literal notranslate"><span class="pre">def</span></code>, the name of the function, parameters enclosed within <code class="docutils literal notranslate"><span class="pre">()</span></code>, and <code class="docutils literal notranslate"><span class="pre">:</span></code> signifying the end of the header. A function also has the ability to return a value via the command <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<p>Here are two examples of a simple function that prints something.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name</span><span class="p">():</span>  <span class="c1"># Function Header</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Science is cool!&quot;</span><span class="p">)</span>  <span class="c1"># Function Body</span>
+
+
+<span class="n">name</span><span class="p">()</span>  <span class="c1"># Function Call</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add12</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 + 2 = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+
+<span class="n">add12</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="n">add_int</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also pass information into functions so that you can manipulate the parameters of the function within the function. Parameters are enclosed within the <code class="docutils literal notranslate"><span class="pre">()</span></code> part of the function header. You can pass as many parameters as you would like within the function header. The order of the parameters are significant and should match the order in the function’s header.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># Function Header passes in parameters a and b</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a - b = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+
+<span class="n">subtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Function call passes 2 as &#39;a&#39; and 1 as &#39;b&#39;, 2 - 1 = 1</span>
+<span class="n">subtract</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 25 - 4 = 21</span>
+<span class="n">subtract</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>  <span class="c1"># 4 - 25 = -21</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">subtract</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># Remember that order of the inputs into the parameters matter!</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+<span class="n">subtract</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parameters can be strings as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Email: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">email</span><span class="p">))</span>
+
+
+<span class="n">info</span><span class="p">(</span><span class="s2">&quot;Purdue Pete&quot;</span><span class="p">,</span> <span class="s2">&quot;boilerup@purdue.edu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The neat thing about functions is that you could also return a value from a function utilizing the key word <code class="docutils literal notranslate"><span class="pre">return</span></code>. You must remember to store the returned value from the function into a variable if you want to save it. Remember that when you call a function, it’s like the function call is replaced by the code within the body of the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">return5</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">5</span>
+
+
+<span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">c</span>  <span class="c1"># return the value of a * b</span>
+
+
+<span class="n">e</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># d = 5 * 6</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="n">return5</span><span class="p">()</span>  <span class="c1"># d = (9 * 4) + (5)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">return5</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The values of d and g are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">, respectively.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">g</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at why functions are good at reducing repetition in code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repetitive code when functions can be used are unprofessional and take space.&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of having repeating lines of code to create the output you want, you can use functions to shorten and organize them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print3</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Functions can help keep your code neat, concise, and easy to read.&quot;</span><span class="p">)</span>
+<span class="n">print3</span><span class="p">()</span>
+<span class="n">print3</span><span class="p">()</span>
+<span class="n">print3</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p><strong>Part 1</strong></p>
+<p>Create the following functions. <br></p>
+<ol class="simple">
+<li><p>Function named <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> that has parameters of <code class="docutils literal notranslate"><span class="pre">base1</span></code>, <code class="docutils literal notranslate"><span class="pre">base2</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> as its parameters and returns the area of a trapezoid.</p></li>
+<li><p>Function named <code class="docutils literal notranslate"><span class="pre">slope</span></code> that calculates the slope of the straight line passing through the two points in the plane. The parameters are <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, and <code class="docutils literal notranslate"><span class="pre">y2</span></code> and the function returns the slope.</p></li>
+</ol>
+<p><strong>Part 2</strong></p>
+<p>Create the following functions for the following formulas. Do not use any of python’s NumPy functions, with the exception of the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function.</p>
+<ol class="simple">
+<li><p>Arithmetic Mean</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mu 
+&amp;= \frac{1}{n}\sum_{i=1}^n a_i\\
+&amp;= \frac{a_1+a_2+\dots+a_n}{n}
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Name: <code class="docutils literal notranslate"><span class="pre">mean</span></code></p></li>
+<li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
+</ul>
+<ol class="simple">
+<li><p>Standard Deviation (You must utilize your <code class="docutils literal notranslate"><span class="pre">mean</span></code> function from Question 1)</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sigma 
+&amp;= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\mu)^2}\\
+&amp;= \sqrt{\frac{(x_1-\mu)^2+(x_2-\mu)^2+\dots+(x_n-\mu)^2}{n-1}}
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Name: <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
+<li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
+</ul>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">trapezoid_area</span><span class="p">(</span><span class="n">base1</span><span class="p">,</span> <span class="n">base2</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="p">((</span><span class="n">base1</span> <span class="o">+</span> <span class="n">base2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">height</span>
+    <span class="k">return</span> <span class="n">area</span>
+
+<span class="k">def</span> <span class="nf">slope</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="n">slopeval</span> <span class="o">=</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">slopeval</span>
+
+<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">arrsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">meanval</span> <span class="o">=</span> <span class="n">arrsum</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">meanval</span>
+
+<span class="k">def</span> <span class="nf">std</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">val</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h3>Functions make code reusable<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>One of the most important things about functions is that they can allow us to reproduce a task we did before, very reliably.</p>
+<p>At the start of each lab, you must include your first name, last name, and email address. We can easily automate that process with functions. Run the following cell in order to download student_info.py. Afterwards, open it and make sure it is saved inside the same directory. Once you have read that, you should not be surprised by what the following cell does.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/student_info.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this makes it so that changes to the imported module are automatically updated in this document.</span>
+<span class="c1"># usually not necessary, but if we are making changes, this is helpful.</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+
+<span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>Modify <code class="docutils literal notranslate"><span class="pre">student_info.py</span></code> to give your own contact information. You will use this file in the future to put a heading on your lab submissions.</p>
+<p>Check to make sure it is working by running the cell below. It should show your contact information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h3>Functions make it easy to check your work<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>One of the great things about Python, which is not something every language can do, is that you can pass functions around as variables. You can put a function into another function, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_three_times</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">()</span>
+    <span class="n">f</span><span class="p">()</span>
+    <span class="n">f</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hey&#39;</span><span class="p">)</span>
+
+<span class="n">do_three_times</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above block, we are not calling the <code class="docutils literal notranslate"><span class="pre">greet</span></code> function directly – instead we are passing it as a variable into the function <code class="docutils literal notranslate"><span class="pre">do_three_times</span></code>, which in turn calls the greet function.</p>
+<p>A really common way to take advantage of this pattern is to pass a function into another one, which checks to see if it is working correctly. Let’s do that now! We have written a couple functions which check to see if the functions <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> and <code class="docutils literal notranslate"><span class="pre">slope</span></code> which you wrote are working correctly. Run the following cells to download lab3_grader.py and <a class="reference external" href="http://autograder.py">autograder.py</a> (which will be used in later labs!). Afterwards, run the cell that checks your functions and see if you have all of the tests passed correctly! If your functions are not working how they should, go back and change them to make sure you get full points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/autograder.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/lab3_grader.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lab3_grader</span> <span class="kn">import</span> <span class="n">check_trapezoid_area</span><span class="p">,</span> <span class="n">check_slope</span>
+
+<span class="n">check_trapezoid_area</span><span class="p">(</span><span class="n">trapezoid_area</span><span class="p">)</span>
+<span class="n">check_slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id10">
+<h4>Reusing code from last week<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<p>We wish to explore the heartbeat data we collected in the previous lab further. To do so, let’s copy that code into a new function. In the following cell, fill in the <code class="docutils literal notranslate"><span class="pre">heartbeat</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> variables with your heart beat array (and corresponding time) from last week. Then, fill out the missing parts of the function <code class="docutils literal notranslate"><span class="pre">get_period</span></code> with the steps you performed last week (it’s okay to copy and paste). If your heartbeat measurements from last lab were not up to par or something went wrong while measuring, run the following cell in order to load the example_heartbeat.txt that you can use in order to correctly fill out the next few exercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/3_estimate_blood_flow/example_heartbeat.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heartbeat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;example_heartbeat.txt&#39;</span><span class="p">)</span> <span class="c1">#filled in</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">))</span> <span class="o">/</span> <span class="mi">200</span> <span class="c1">#filled in</span>
+
+
+<span class="k">def</span> <span class="nf">get_period</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a hearbeat signal, what is the period of the heart beat?</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    heartbeat: array - the measured heartbeat signal</span>
+<span class="sd">    time: array - the times when the signal was measured. Should be the same</span>
+<span class="sd">        shape as heartbeat.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    period: float - the average period of the heartbeat signal.</span>
+<span class="sd">    error: float - an estimate of the error in the measurement of the period.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># put here the code which averages the function and finds where the function is increasing and decreasing.</span>
+    <span class="c1"># As always, ask for help if you get stuck.   </span>
+    <span class="n">averaged</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="n">averaged</span><span class="p">[(</span><span class="mi">30</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="mi">30</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span>
+    <span class="n">increasing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+        <span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span>
+    <span class="p">)</span>
+    <span class="n">increasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">averaged</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">decreasing</span> <span class="o">=</span> <span class="o">~</span><span class="n">increasing</span>
+
+    <span class="n">maxima</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">averaged</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">maxima</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">increasing</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">decreasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  
+    <span class="n">peak_indices</span> <span class="o">=</span> <span class="n">maxima</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">averaged</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[</span><span class="n">maxima</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">peak_times</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">peak_indices</span><span class="p">]</span>
+    <span class="n">gaps</span> <span class="o">=</span> <span class="n">peak_times</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">peak_times</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">gaps</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">gaps</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="n">get_period</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="id11">
+<h2><span style="color:orange;"> 2. Using Functions with Data </span><a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<section id="id12">
+<h3>Looking deeper with polynomials<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>The averaging technique we introduced in the previous lab works very well for identifying the locations of large features. Unfortunately, it blurs out some of the fine detail, brings peaks down, and lifts bottoms up. That’s no good if you want to know information like the amplitude or shape of the signal. We can do much better.</p>
+<p>We will explore one way of finding a function which “interpolates” between the observed values. A function which interpolates is called an “interpolant”.</p>
+<p>Since you have the period of your heartbeat signal, you can extract just one cycle of the initial signal. In the following cell, fill in a start time which gives you a good window capturing one full heart beat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">period</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">cycle</span> <span class="o">=</span> <span class="n">heartbeat</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">cycle_t</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A parabola has one local maximum or minimum. A cubic polynomial has at most two. A fourth degree polynomial has at most three local maxima and minima. Fit a polynomial of degree one more than the number of local maxima and minima. Numpy has a built in tool which finds a polynomial which matches observed values closely. Here is how it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">#filled in the 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The object <code class="docutils literal notranslate"><span class="pre">interpolant</span></code> represents a list of coefficients of a polynomial. We can also call it as a function. Let’s use that to show how well it lines up with the data we measured:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What other values of the degree could we try? What kind of interpolant do we get with a smaller degree, or a larger degree than 7?</p>
+</section>
+<section id="id13">
+<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to make plots showing the interpolants of degrees 3 through 15. Which ones fit best? Try larger values too. What if you have an interpolant of degree 30? 100?</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="n">degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">),[</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span> <span class="c1"># creates the array [  3   4   5   6   7   8   9  10  11  12  13  14  15  30 100]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">degrees</span><span class="p">:</span>
+    <span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Interpolant of degree </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id14">
+<h4>Quantifying the fit<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<p>Beyond a certain point, the polynomial can snake through each point we give it, capturing all the noise. That defeats the purpose of the fit! It is good practice to choose as low a degree as possible while still matching the data well. This is called the <em>parsimony principle</em>. We can quantify this with the so-called “mean square error” of a fit: the average value of the difference between the interpolant and the measured value. If the measured values are <span class="math notranslate nohighlight">\(y_i\)</span> and we are measuring how well an interpolant <span class="math notranslate nohighlight">\(f(x_i)\)</span> agrees, then the mean square error is given by the formula
+<span class="math notranslate nohighlight">\(
+\frac{1}{n}\sum_{i=0}^n \left(f(x_i)-y_i\right)^2 
+\)</span></p>
+</section>
+</section>
+<section id="id15">
+<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>Write a function which takes an interpolant and returns the mean square error. Then, read and run the cell below it, which will use the code you wrote to make a plot of how the polynomial degree relates to the mean square error.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_square_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">):</span>
+    <span class="c1"># put your answer here!</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">interpolant</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">deg</span> <span class="ow">in</span> <span class="n">degrees</span><span class="p">:</span>
+    <span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">)</span>
+    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;polynomial degree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;mean square error&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id16">
+<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p>Interpret the plot above. After what point do we see diminishing returns on the model’s fit? What is the smallest degree of polynomial which has a reasonably low mean square error, in your opinion? Write in complete sentences here, as if you were describing the plot in a professional report.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3><p>Key parts of answers should include:
+Inverse relationship between degree of polynomial and the mean square error. The higher the degree, the lower the error.
+Observations of the degree around 9 ~ 10. The mean square error seems to flat out around this polynomial degree, hence the smallest degree of a polynomial with a reasonably low mean square error would be around 9 ~ 10.</p>
+</section>
+<section id="id17">
+<h3>Exploring the data using the polynomial model<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<p>Now that we have a good model for the behavior of each cycle, we can start asking questions of our model. We can ask things like, “What is the largest value of the function on the interval?” Here is an example of how we might do that. Suppose we have the following interpolant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interpolant</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="mf">43497.94586794</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">5266.09794496</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">14940.13657245</span><span class="p">,</span>
+        <span class="mf">57262.21812427</span><span class="p">,</span>
+        <span class="mf">48591.17239832</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">146342.3668821</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">31204.60140348</span><span class="p">,</span>
+        <span class="mf">96269.6657132</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we have a function which represents our data accurately, we can use standard calculus tools to find its local extrema. The Polynomial object which NumPy creates is very versatile. If you have a polynomial, you can find things like its roots easily, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="o">.</span><span class="n">roots</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also find derivatives, which are given back to us as Polynomial objects which we can do all those same things to.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="o">.</span><span class="n">deriv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can ask it for its domain, which it also stores for us as an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id18">
+<h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<p>Remember the closed interval method from calculus 1, where you find all the critical numbers of a function within its interval, and plug those into the function to find the maximum and minimum values. Write a function which does exactly that, to a polynomial interpolant.</p>
+<p>Hint: critical points are the roots of the derivative of a certain function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+    <span class="c1">#your code goes here.</span>
+    <span class="n">crit_points</span> <span class="o">=</span> <span class="n">interpolant</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+    <span class="n">test_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">crit_points</span><span class="p">,</span><span class="n">interpolant</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+    <span class="n">minimum</span> <span class="o">=</span>  <span class="nb">min</span><span class="p">(</span><span class="n">interpolant</span><span class="p">(</span><span class="n">test_points</span><span class="p">))</span>
+    <span class="n">maximum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">interpolant</span><span class="p">(</span><span class="n">test_points</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id19">
+<h4>Interpretation and code reuse<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3394104/pdf/CCR-8-14.pdf">This article published in Current Cardiology News</a> gives several commonly used statistics which can be read from a photoplethysmogram. We will focus on just two of them: the “systolic amplitude” which is roughly proportional to blood flow, and the “ratio b/a” which is connected to arterial stiffness and can indicate exposure to lead and risk of heart disease.</p>
+<p>First, let’s make a function which computes the systolic amplitude. We have already done most of the work, when we wrote the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code>. Let’s take advantage of that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">systolic_amplitude</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+    <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span> <span class="o">=</span> <span class="n">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">maximum</span> <span class="o">-</span> <span class="n">minimum</span>
+
+<span class="n">systolic_amplitude</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The ratio b/a is based off the maximum and minimum values of the second derivative. Specifically, it is their ratio. Since the photoplethysmogram is concave up in some places and concave down in others, the maximum will be positive and the minimum will be negative. Since we are more familiar working with positive numbers, people usually compute <span class="math notranslate nohighlight">\(-b/a\)</span>, where <span class="math notranslate nohighlight">\(b\)</span> is the minimum value of the second derivative and <span class="math notranslate nohighlight">\(a\)</span> is the maximum value of the second derivative.</p>
+</section>
+</section>
+<section id="id20">
+<h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<p>Write a function to compute the ratio b/a. You should still be able to reuse the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code> (ask for help if you need a hint for how to do this).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+    <span class="c1"># your code here</span>
+    <span class="n">secderiv</span> <span class="o">=</span> <span class="n">interpolant</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span>
+    <span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">closed_interval</span><span class="p">(</span><span class="n">secderiv</span><span class="p">)</span> <span class="c1"># in closed_interval: b is the minimum, a is the maximum</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">a</span> 
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="n">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at where we are. Today, you have learned about writing functions. You have written functions which identify the period of a heartbeat signal, interpolate it with a polynomial, and compute two medically interesting values from it. We saw that by reusing old code, we can save ourselves a lot of time. That is a lot! Well done.</p>
+</section>
+<section id="id21">
+<h3><span style="color:red;"> Optional Exercise 8 </span><a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="id22">
+<h3>Measure yourself!<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
+<p>In the case that you have remaining time within your lab, you should put the tools you have used to work. Make a new Jupyter notebook, copying code from lab 2, to capture some new pulse data (remember, it is good practice to separate data acquisition from data analysis!). Then, analyze it here using the functions you have written. You can use the prompts below for scenarios for your analysis:</p>
+<ol class="simple">
+<li><p>If you jog up and down the hallway briefly, how does your pulse rate change?</p></li>
+<li><p>If you measure your systolic amplitude with your finger above your shoulders versus below your waist, can you detect a difference? How big is the difference?</p></li>
+<li><p>Is your ratio b/a different from your classmates’?</p></li>
+</ol>
+<p>If you have time, try to at least answer two of the three questions. Write markdown cells explaining what you are doing and why. Interpret your results.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 8 Below </h3></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/3_estimate_blood_flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mireille Boutin, Alden Bradford<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
