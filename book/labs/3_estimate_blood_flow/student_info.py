@@ -1,3 +1,3 @@
 def show_info():
-    print("name: Alden Bradford")
-    print("email: bradfoa@purdue.edu")
+    print("name: Purdue Pete")
+    print("email: pete@purdue.edu")
