@@ -51,3 +51,4 @@ def exercise_7(Monomial):
     assert str(d) == "6*x**2"
     dd = d.derivative()
     assert str(dd) == "12*x**1"
+    print("All assertions passed! Your class is correct.")
