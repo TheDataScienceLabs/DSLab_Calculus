@@ -744,9 +744,15 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>N/A</p></li>
 </ul>
-<h3 style="background-color:lightblue"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document. </h3><div class="cell docutils container">
+<h3 style="background-color:lightblue"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document. </h3>
+Last week you ran a script to download student_info.py and updated it with your own information. You'll be using that same Python file with your information for all the labs going forward. Copy the student_info.py file into the directory this lab is in. <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this makes it so that changes to the imported module are automatically updated in this document.</span>
+<span class="c1"># usually not necessary, but if we are making changes, this is helpful.</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+
+<span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
 <span class="n">show_info</span><span class="p">()</span>
 </pre></div>
 </div>
