@@ -4,7 +4,7 @@ import time
 
 
 def main():
-    i2c = I2C(id=0, sda=Pin(4), scl=Pin(5), freq=1_000_000)
+    i2c = I2C(id=1, sda=Pin(18), scl=Pin(19), freq=1_000_000)
     display = Display(i2c)
 
     while True:
