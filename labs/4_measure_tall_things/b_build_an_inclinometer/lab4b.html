@@ -452,6 +452,13 @@ title="Print to PDF"
     0. Required Hardware
    </span>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-lab-materials">
+     Additional lab materials
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#span-style-color-orange-1-objective-span">
@@ -643,6 +650,13 @@ title="Print to PDF"
     0. Required Hardware
    </span>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-lab-materials">
+     Additional lab materials
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#span-style-color-orange-1-objective-span">
@@ -815,7 +829,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="week-6-7-build-an-inclinometer-objects-on-hardware">
 <h1>Week 6-7: Build an Inclinometer (Objects on Hardware)<a class="headerlink" href="#week-6-7-build-an-inclinometer-objects-on-hardware" title="Permalink to this headline">#</a></h1>
 <p><font size="6"> Laboratory 4b  </font> <br>
-<font size="3"> Last updated July 26, 2022 </font></p>
+<font size="3"> Last updated February 11, 2023 </font></p>
 <section id="span-style-color-orange-00-content-span">
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this headline">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
@@ -854,11 +868,47 @@ title="Print to PDF"
 <h3 style="background-color:lightblue"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+
 <span class="n">show_info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="additional-lab-materials">
+<h3>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this headline">#</a></h3>
+<p>In addition to the student_info.py file, you’ll need a couple more specific Python files to complete this lab.</p>
+<p>Run the following cell. This will download a folder called <code class="docutils literal notranslate"><span class="pre">lab4B/</span></code> into your Downloads folder. After you have done that, pull up thonny, and on the top bar under ‘View’, select ‘Files’. This will bring up a bar on the side that you can use to transfer the file onto your Pico. In this side bar, navigate to your Downloads folder <em>(If you get lost, you can find it at <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">Computer/home/shay/a/&quot;your</span> <span class="pre">username&quot;/Downloads</span></code>)</em>, right click the <code class="docutils literal notranslate"><span class="pre">lab4B/</span></code> folder, then click on ‘Upload to /’. This will copy the entire folder onto your Pico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+cd ~/Downloads
+if [ -d &quot;./lab4B/&quot; ]; then
+    rm -r &quot;./lab4B&quot;
+fi
+mkdir lab4B
+cd lab4B
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/ssd1306.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/procedural_clock.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/lsm9ds0.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/grandfather_clock.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/classy_clock.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/button.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer.py
+cd ..
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, run the following block to download the <a class="reference external" href="http://averager.py">averager.py</a> module into your current directory, which we will use later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/averager.py
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="span-style-color-orange-1-objective-span">
 <h2><span style="color:orange;"> 1. Objective </span><a class="headerlink" href="#span-style-color-orange-1-objective-span" title="Permalink to this headline">#</a></h2>
@@ -872,14 +922,14 @@ title="Print to PDF"
 </section>
 <section id="span-style-color-orange-2-the-button-span">
 <h2><span style="color:orange;"> 2. The Button </span><a class="headerlink" href="#span-style-color-orange-2-the-button-span" title="Permalink to this headline">#</a></h2>
-<p>You have been provided a button. It is a very common type, more precisely called a <em>tactile switch</em>. It has four legs, but opposite pairs of them are connected internally, so there are only two electrical connections to be made. Have a look at the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/TL1105.pdf">data sheet</a> for the TL1105 tactile switch, which shows a schematic of how the legs are connected.</p>
-<p>Connect one side of the button to a ground pin of the Pico and connect the other side to any GP (general purpose) pin. Then open up <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/button.py">button.py</a> in Thonny and configure it according to what pin you chose, and run it. The built-in LED should turn on while the button is pressed.</p>
+<p>You have been provided a button. It is a very common type, more precisely called a <em>tactile switch</em>. It has four legs, but opposite pairs of them are connected internally, so there are only two electrical connections to be made. Have a look at the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/TL1105.pdf">data sheet</a> for the TL1105 tactile switch, which shows a schematic of how the legs are connected. <em>Hint: look at the numbers assigned to each leg of the switch.</em></p>
+<p>Connect one side of the button to a ground pin of the Pico and connect the other side to any GP (general purpose) pin with wires on the breadboard. Then open up <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/button.py">button.py</a> in Thonny and configure it according to what pin you chose, and run it. The built-in LED should turn on only while the button is pressed.</p>
 <section id="span-style-color-red-exercise-1-span-10-pts">
 <h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-10-pts" title="Permalink to this headline">#</a></h3>
 <p>Modify <code class="docutils literal notranslate"><span class="pre">button.py</span></code> so that instead of coming on while the button is pressed, pressing the button toggles the LED on and off. There are many ways to do this; try and be creative, and if you get stuck, ask for help from an instructor or a classmate. Here are a couple ideas which might get you moving:</p>
 <ul class="simple">
 <li><p>you can use variables to keep track of the current condition (whether you are in “hold” mode, whether the button is pressed, etc) and compare against them to see if anything has changed.</p></li>
-<li><p>you can use <a class="reference external" href="https://docs.micropython.org/en/latest/library/time.html">any of the time functions</a> to keep things from going too fast.</p></li>
+<li><p>you can use <a class="reference external" href="https://docs.micropython.org/en/latest/library/time.html">any of the time functions</a> to avoid registering multiple inputs per button press.</p></li>
 <li><p>if you lose track of what is happening, it can help to use <code class="docutils literal notranslate"><span class="pre">print</span></code> statements.</p></li>
 </ul>
 <p>Copy the contents of the file into the cell below so that it can be graded.</p>
@@ -892,29 +942,31 @@ title="Print to PDF"
 <h2><span style="color:orange;"> 3. The Screen </span><a class="headerlink" href="#span-style-color-orange-3-the-screen-span" title="Permalink to this headline">#</a></h2>
 <section id="i2c">
 <h3>I2C<a class="headerlink" href="#i2c" title="Permalink to this headline">#</a></h3>
-<p>Usually a modern electronic device will consist of a <em>microcontroller</em> (such as the Raspberry Pi Pico) and several <em>peripherals</em>. Peripherals are what we call any component the microcontroller is “in charge” of. The two main peripherals we will be using in our inclinometer are a screen and an accelerometer. You might call the button a peripheral, but usually the word peripheral refers to components which do something on their own, while communicating with the microcontroller.</p>
+<p>Usually a modern electronic device will consist of a <em>microcontroller</em> (such as the Raspberry Pi Pico) and several <em>peripherals</em>. “Peripherals are what we call any component the microcontroller is “in charge” of. The two main peripherals we will be using in our inclinometer are a screen and an accelerometer. You might call the button a peripheral, but usually the word peripheral refers to components which do something on their own, while communicating with the microcontroller.</p>
 <p>One of the most popular ways for a microcontroller to communicate with a peripheral is using a protocol called the Inter-Integrated-Circuit protocol. Its name is usually abbreviated, either as IIC, I²C, or simply I2C. These are pronounced as “eye-eye-see”, “eye-squared-see” or “eye-two-see” respectively. I2C uses two wires, one called Serial Clock (abbreviated as SCL) and the other called Serial Data (abbreviated SDA). One of the brilliant things about I2C is that every I2C peripheral has its own identification number, so when a message is sent using the I2C protocol it can have a label saying “who it is for”. That means you can have several different peripherals all connected to the same two wires – potentially connecting dozens of peripherals to a microcontroller using only two wires (assuming none of the devices share an identification number). Since many devices are sharing the same connection an I2C connection is called a “bus”, from the Latin <em>Omnibus</em> which means “for everyone”. I2C is an example of a <em>serial</em> communication protocol, because bits of data are sent one after another (in a series) over relatively few wires, instead of all-at-once over relatively many wires. You have already heard of, and used, another serial bus protocol – the so-called Universal Serial Bus, usually abbreviated as USB.</p>
-<p>The Raspberry Pi Pico has two I2C busses, numbered 0 and 1. You can see which pins they are connected to on the Pico’s datasheet; for example, to use I2C bus number 0, you can use any of the GP pins labeled as I2C0 SCL and I2C0 SDA. You might choose GP pins 20 and 21, or 12 and 13, or 4 and 5 for a few examples. When you set up an I2C bus, you will have to choose a frequency for it to use. This is a fairly straightforward decision. The valid choices of frequency are 100,000; 400,000; 1,000,000; 1,700,000; and 3,400,000 Hertz. If you use a higher frequency then your system will run faster and consume more power. Higher frequencies might not work, depending on several factors such as how long your wires are and how much electromagnetic interference they experience. Also, some peripherals are not compatible with higher frequencies. In a situation like ours, where we are not particularly concerned with power consumption, it makes sense to choose the highest frequency possible so that your system runs faster.</p>
+<p>The Raspberry Pi Pico has two I2C busses, numbered 0 and 1. You can see which pins they are connected to on the Pico’s datasheet; for example, to use I2C bus number 0, you can use any of the GP pins labeled as I2C0 SCL and I2C0 SDA. For example, GP pins (20 &amp; 21), or (12 &amp; 13), or (4 &amp; 5).</p>
+<p>When you set up an I2C bus, you will have to choose a frequency for it to use. This is a fairly straightforward decision. The valid choices of frequency are 100,000; 400,000; 1,000,000; 1,700,000; and 3,400,000 Hertz. If you use a higher frequency then your system will run faster and consume more power. Higher frequencies might not work, depending on several factors such as how long your wires are and how much electromagnetic interference they experience. Also, some peripherals are not compatible with higher frequencies. In a situation like ours, where we are not particularly concerned with power consumption, it makes sense to choose the highest frequency possible so that your system runs faster.</p>
 </section>
 <section id="the-framebuffer">
 <h3>The framebuffer<a class="headerlink" href="#the-framebuffer" title="Permalink to this headline">#</a></h3>
 <p>On the hardware side, we interact with the OLED display using I2C. In software, the interface we will use is one of the interfaces built into Micropython: the frame buffer interface.</p>
 <p>It’s called a frame buffer because when interacting with it, you make most of your changes in an array called a buffer, stored on the Pico. We only send data to the display when we call the function <code class="docutils literal notranslate"><span class="pre">show()</span></code>, as a complete frame ready to display. This way, we are using the I2C bus as little as possible, freeing up time for other peripherals to use the I2C bus.</p>
-<p>The documentation for the frame buffer interface is <a class="reference external" href="https://docs.micropython.org/en/latest/library/framebuf.html">part of the Micropython documentation</a>. There you will find functions for drawing lines, rectangles, and text, as well as a function for writing to individual pixels.</p>
+<p>The documentation for the frame buffer interface is <a class="reference external" href="https://docs.micropython.org/en/latest/library/framebuf.html">part of the Micropython documentation</a>. There you will find functions for drawing lines, rectangles, and text, as well as a function for writing to individual pixels. It is important to note that pixels on the screen are referenced based on their horizontal and vertical distance from the top left corner.</p>
 </section>
 <section id="three-clocks">
 <h3>Three clocks<a class="headerlink" href="#three-clocks" title="Permalink to this headline">#</a></h3>
-<p>Usually the easiest way to learn a new tool is to see it used. As an example, we have provided three programs which do the same thing using the OLED display. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/procedural_clock.py">procedural_clock.py</a> draws a clock on the display by performing a sequence of actions one after another, inside a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/classy_clock.py">classy_clock.py</a> does the exact same steps, but wraps everything to do with the display into one class and defines methods on the class to do the various parts. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/grandfather_clock.py">grandfather_clock.py</a> is almost identical to <code class="docutils literal notranslate"><span class="pre">classy_clock.py</span></code>, but it uses inheritance, hence the name. Note that in practice you would usually define any classes you are using in a separate module, and import those classes into your main file. We have chosen to put the class definition at the bottom of the file to make it easier for you to compare them.</p>
+<p>Usually the easiest way to learn a new tool is to see it used. As an example, we have provided three programs (which you have installed earlier) that do the same thing using the OLED display. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/procedural_clock.py">procedural_clock.py</a> draws a clock on the display by performing a sequence of actions one after another, inside a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/classy_clock.py">classy_clock.py</a> does the exact same steps, but wraps everything to do with the display into one class and defines methods on the class to do the various parts. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/grandfather_clock.py">grandfather_clock.py</a> is almost identical to <code class="docutils literal notranslate"><span class="pre">classy_clock.py</span></code>, but it uses inheritance, hence the name. Note that in practice you would usually define any classes you are using in a separate module, and import those classes into your main file. We have chosen to put the class definition at the bottom of the file to make it easier for you to compare them.</p>
 <p>In terms of what they do, the three programs are identical. Their difference lies in how easy they are to read and how easy they are to modify.</p>
 </section>
 <section id="span-style-color-red-exercise-2-span-20-pts">
 <h3><span style="color:red"> Exercise 2 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-20-pts" title="Permalink to this headline">#</a></h3>
-<p>Read the three programs carefully. In three to four paragraphs, reflect on the way the code is organized in each. What are their relative merits? What might make one or another of these programs easier to read, modify or extend? Which ones would be easiest to split apart into multiple smaller modules? Which ones are more aesthetically pleasing? Give your honest assessment, since many of these questions are matters of opinion. Be sure to refer to specific lines from the programs in your answer.</p>
+<p>Read the programs procedural_clock.py, classy_clock.py, and grandfather_clock.py carefully. Reflect on the way the code is organized in each in two thorough paragraphs.</p>
+<p>What are their relative merits? What might make one or another of these programs easier to read, modify or extend? Which ones would be easiest to split apart into multiple smaller modules? Which ones are more aesthetically pleasing? Give your honest assessment, since many of these questions are matters of opinion. Be sure to refer to specific lines from the programs in your answer.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3></section>
 </section>
 <section id="display-a-clock">
 <h2>Display a clock<a class="headerlink" href="#display-a-clock" title="Permalink to this headline">#</a></h2>
-<p>The wiring is very simple for this one. There are only four wires to use: power, ground, and the two I2C wires. <strong>Unplug your microcontroller from the computer</strong> and wire up the display. If you are uncertain about your wiring, then ask for an instructor to check it over. If you are confident in your wiring you can continue.</p>
+<p>The wiring is very simple for this one. There are only four wires to use: power, ground, and the two I2C wires. <strong>Unplug your microcontroller from the computer</strong> and wire up the display.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>OLED</p></th>
@@ -936,9 +988,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
+<p>If you are uncertain about your wiring, then ask for an instructor to check it over. If you are confident in your wiring you can continue. It should look as shown in the image below.</p>
+<p><img alt="wired screen" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/3c582703e2eac9b14caafe1b89b16e4872ff7f2b/book/labs/4_measure_tall_things/b_build_an_inclinometer/I2C.jpg?raw=true" /></p>
 <section id="span-style-color-red-exercise-3-span-5-pts">
 <h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this headline">#</a></h3>
-<p>Copy the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/ssd1306.py">ssd1306.py</a> onto your Pico using Thonny, which provides a class for interacting with the specific OLED displays we are using. Then, pick your favorite of the clock programs and run it. You will have to modify the line which sets up the I2C bus according to whichever specific SCL and SDA pins you are using – remember to use the number labeled with GP on the datasheet, and set the <code class="docutils literal notranslate"><span class="pre">id</span></code> according to whether you are using I2C bus 0 or 1. Once you have it running, just write a note below indicating that you have done so.</p>
+<p>You should have uploaded the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/ssd1306.py">ssd1306.py</a> onto your Pico using Thonny earlier. This provides a class for interacting with the specific OLED displays we are using. Then, pick your favorite of the clock programs and run it. You will have to <strong>modify the line which sets up the I2C bus</strong> according to whichever specific SCL and SDA pins you are using – remember to use the number labeled with GP on the datasheet (not the SCL or SDA numbers), and set the <code class="docutils literal notranslate"><span class="pre">id</span></code> according to whether you are using I2C bus 0 or 1. Once you have it running, just write a note below indicating that you have done so.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 </section>
 <section id="span-style-color-orange-4-the-accelerometer-span">
@@ -969,7 +1023,9 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-<p>Load the module <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/lsm9ds0.py">lsm9ds0.py</a> onto the Pico, and then run the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer.py">accelerometer.py</a> in Thonny. You will have to modify it so that the line where the I2C bus is configured uses the right pins. You should see it printing values in Thonny.</p>
+<p>It should look as shown in the image below.
+<img alt="wired accelerometer" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/3c582703e2eac9b14caafe1b89b16e4872ff7f2b/book/labs/4_measure_tall_things/b_build_an_inclinometer/LSM9DSO.jpg?raw=true" /></p>
+<p>Load the module <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/lsm9ds0.py">lsm9ds0.py</a> onto the Pico, and then run the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer.py">accelerometer.py</a> in Thonny. You will have to modify <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> so that the line where the I2C bus is configured uses the right pins. You should see it printing values in Thonny.</p>
 </section>
 <section id="span-style-color-red-exercise-4-span-10-pts">
 <h3><span style="color:red"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this headline">#</a></h3>
@@ -985,9 +1041,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">22.0</span><span class="p">,</span> <span class="mf">33.0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>                       <span class="c1"># prints [1.0, 22.0, 33.0]</span>
-<span class="c1"># change the first entry of mylist</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>                       <span class="c1"># should print [11.0, 22.0, 33.0]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>  <span class="c1"># prints [1.0, 22.0, 33.0]</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">11.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>  <span class="c1"># should print [11.0, 22.0, 33.0]</span>
 </pre></div>
 </div>
 </div>
@@ -995,9 +1051,11 @@ title="Print to PDF"
 <p><strong>Part 2:</strong> Write a function called <code class="docutils literal notranslate"><span class="pre">add_element()</span></code> with three inputs: <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">i</span></code>. The function changes the element at index <code class="docutils literal notranslate"><span class="pre">i</span></code> of the given list to <code class="docutils literal notranslate"><span class="pre">value</span></code> and returns the modified list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write your function here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="nb">list</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">add_element</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># changes mylist to [1.0, 2.0, 33.0]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_element</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># changes mylist to [11.0, 2.0, 33.0]</span>
 </pre></div>
 </div>
 </div>
@@ -1017,8 +1075,9 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">averager</span>
-<span class="kn">import</span> <span class="nn">doctest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">doctest</span>
+
+<span class="kn">import</span> <span class="nn">averager</span>
 
 <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">averager</span><span class="p">)</span>
 </pre></div>
@@ -1028,6 +1087,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">averager</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1036,7 +1096,7 @@ title="Print to PDF"
 </section>
 <section id="span-style-color-red-exercise-6-span-10-pts">
 <h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this headline">#</a></h3>
-<p>Copy <code class="docutils literal notranslate"><span class="pre">averager.py</span></code> onto the Pico, and change <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> so that the components of acceleration are averaged out using the <code class="docutils literal notranslate"><span class="pre">Averager</span></code> class. Play with the size of the averager, in particular paying attention to how long it takes the values to adjust to a change in position. Then answer these questions:</p>
+<p>Upload <code class="docutils literal notranslate"><span class="pre">averager.py</span></code> onto the Pico using Thonny, and change <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> so that the components of acceleration are averaged out using the <code class="docutils literal notranslate"><span class="pre">Averager</span></code> class. Play with the size of the averager, in particular paying attention to how long it takes the values to adjust to a change in position. Then answer these questions:</p>
 <ol class="simple">
 <li><p>What are the benefits of keeping fewer previous values? What are the benefits of keeping more?</p></li>
 <li><p>How many is too many? At what point does it become no longer practical to store more values?</p></li>
@@ -1125,24 +1185,26 @@ title="Print to PDF"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>red (+)</p></td>
-<td><p>input</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p></p></td>
+<td><p>output</p></td>
+<td><p>VSYS</p></td>
+<td><p>either pin</p></td>
 </tr>
 <tr class="row-odd"><td><p>black (-)</p></td>
 <td><p>ground</p></td>
 <td><p>GND</p></td>
 <td><p>either pin</p></td>
 </tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>output</p></td>
-<td><p>VSYS</p></td>
-<td><p>either pin</p></td>
+<tr class="row-even"><td><p>red (+)</p></td>
+<td><p>input</p></td>
+<td><p></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
-<p>The pins on the 7805 are not labeled. You will have to check the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/L7805CV.pdf">data sheet</a>. <strong>Do not connect the battery until you have had your circuit checked by an instructor.</strong> Once you have had your circuit checked, try turning it on. <strong>Do not take your circuit apart this time</strong>. You will need it next week.</p>
+<p>The pins on the 7805 are not labeled. You will have to check the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/L7805CV.pdf">data sheet</a>. <strong>Do not connect the battery until you have had your circuit checked by an instructor.</strong> The correctly wired voltage regulator should look as shown in the image below.</p>
+<p><img alt="voltage regulator exmample" src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/3c582703e2eac9b14caafe1b89b16e4872ff7f2b/book/labs/4_measure_tall_things/b_build_an_inclinometer/7805%20Voltage%20Regulator.jpg" />
+Once you have had your circuit checked, try turning it on. <strong>Do not take your circuit apart this time</strong>. You will need it next week.</p>
 </section>
 </section>
 </section>
