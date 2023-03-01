@@ -1,48 +1,56 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Week 11: Analyzing the Error Using Symbolic Method (SymPy) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +60,424 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/4_measure_tall_things/e_symbolic_error/lab4e';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)" href="../../5_measure_speeds/a_derivatives/lab5a.html" />
     <link rel="prev" title="Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)" href="../d_error_analysis/lab4d.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab0.html">
+                        Week 1: Course Intro, Markdown, Latex
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab1.html">
+                        Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">
+                        Week 3: Finding Local Max in PPG Signal (Using MAX30102)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">
+                        Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../3_estimate_blood_flow/lab3.html">
+                        Week 4: Estimate Blood Flow from PPG Data
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../a_prepare_for_building_inclinometer/lab4a.html">
+                        Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../b_build_an_inclinometer/lab4b.html">
+                        Week 6-7: Build an Inclinometer (Objects on Hardware)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../c_make_the_measurements/lab4c.html">
+                        Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../d_error_analysis/lab4d.html">
+                        Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Week 11: Analyzing the Error Using Symbolic Method (SymPy)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">
+                        Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">
+                        Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../final_project/labfinal.html">
+                        Weeks 14-15: Final Project
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
+                        Extra Materials: Introduction to Breadboards
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab0.html">
+                        Week 1: Course Intro, Markdown, Latex
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab1.html">
+                        Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">
+                        Week 3: Finding Local Max in PPG Signal (Using MAX30102)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">
+                        Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../3_estimate_blood_flow/lab3.html">
+                        Week 4: Estimate Blood Flow from PPG Data
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../a_prepare_for_building_inclinometer/lab4a.html">
+                        Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../b_build_an_inclinometer/lab4b.html">
+                        Week 6-7: Build an Inclinometer (Objects on Hardware)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../c_make_the_measurements/lab4c.html">
+                        Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../d_error_analysis/lab4d.html">
+                        Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Week 11: Analyzing the Error Using Symbolic Method (SymPy)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">
+                        Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">
+                        Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../final_project/labfinal.html">
+                        Weeks 14-15: Final Project
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
+                        Extra Materials: Introduction to Breadboards
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,639 +486,355 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">
-   Week 1: Course Intro, Markdown, Latex
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../1_intro_to_notebooks/lab1.html">
-   Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">Week 1: Course Intro, Markdown, Latex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1.html">Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Determine your heart rate
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Determine your heart rate</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">
-   Week 3: Finding Local Max in PPG Signal (Using MAX30102)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">
-   Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">Week 3: Finding Local Max in PPG Signal (Using MAX30102)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Estimate your blood flow
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estimate your blood flow</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
-   Week 4: Estimate Blood Flow from PPG Data
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">Week 4: Estimate Blood Flow from PPG Data</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Measure the heights of tall and far away things
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the heights of tall and far away things</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../a_prepare_for_building_inclinometer/lab4a.html">
-   Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../b_build_an_inclinometer/lab4b.html">
-   Week 6-7: Build an Inclinometer (Objects on Hardware)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c_make_the_measurements/lab4c.html">
-   Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../d_error_analysis/lab4d.html">
-   Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Week 11: Analyzing the Error Using Symbolic Method (SymPy)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../a_prepare_for_building_inclinometer/lab4a.html">Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../b_build_an_inclinometer/lab4b.html">Week 6-7: Build an Inclinometer (Objects on Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_make_the_measurements/lab4c.html">Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../d_error_analysis/lab4d.html">Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Measure the speeds of nearby things
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the speeds of nearby things</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">
-   Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">
-   Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Design a project of your own
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Design a project of your own</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../final_project/labfinal.html">
-   Weeks 14-15: Final Project
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Extra Materials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
-   Extra Materials: Introduction to Breadboards
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/TheDataScienceLabs/DSLab_Calculus/main?urlpath=tree/book/labs/4_measure_tall_things/e_symbolic_error/lab4e.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
+  <ul class="dropdown-menu">
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/4_measure_tall_things/e_symbolic_error/lab4e.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/4_measure_tall_things/e_symbolic_error/lab4e.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/labs/4_measure_tall_things/e_symbolic_error/lab4e.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../../../_sources/labs/4_measure_tall_things/e_symbolic_error/lab4e.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
-   <span style="color:orange;">
-    00. Content
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
-   <span style="color:orange;">
-    0. Required Hardware
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-1-floating-point-numbers-span">
-   <span style="color:orange;">
-    1. Floating Point Numbers
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-5-pts">
-     <span style="color:red">
-      Exercise 1
-     </span>
-     (5 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-2-symbolic-computation-span">
-   <span style="color:orange;">
-    2. Symbolic Computation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#formulas">
-     Formulas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-10-pts">
-     <span style="color:red">
-      Exercise 2
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-3-a-practical-computation-span">
-   <span style="color:orange;">
-    3. A Practical Computation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-10-pts">
-     <span style="color:red">
-      Exercise 3
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-4-analyzing-the-result-span">
-   <span style="color:orange;">
-    4. Analyzing the Result
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts">
-     <span style="color:red">
-      Exercise 4
-     </span>
-     (10 pts)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#r-dependence">
-     <span class="math notranslate nohighlight">
-      \(r\)
-     </span>
-     dependence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-20-pts">
-     <span style="color:red">
-      Exercise 5
-     </span>
-     (20 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-5-identifying-limiting-factors-span">
-   <span style="color:orange;">
-    5. Identifying Limiting Factors
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts">
-     <span style="color:red">
-      Exercise 6
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-6-do-your-homework-automatically-span">
-   <span style="color:orange;">
-    6. Do Your Homework Automatically
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-10-pts">
-     <span style="color:red">
-      Exercise 7
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Week 11: Analyzing the Error Using Symbolic Method (SymPy)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
-   <span style="color:orange;">
-    00. Content
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
-   <span style="color:orange;">
-    0. Required Hardware
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-1-floating-point-numbers-span">
-   <span style="color:orange;">
-    1. Floating Point Numbers
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-5-pts">
-     <span style="color:red">
-      Exercise 1
-     </span>
-     (5 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-2-symbolic-computation-span">
-   <span style="color:orange;">
-    2. Symbolic Computation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#formulas">
-     Formulas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-10-pts">
-     <span style="color:red">
-      Exercise 2
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-3-a-practical-computation-span">
-   <span style="color:orange;">
-    3. A Practical Computation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-10-pts">
-     <span style="color:red">
-      Exercise 3
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-4-analyzing-the-result-span">
-   <span style="color:orange;">
-    4. Analyzing the Result
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts">
-     <span style="color:red">
-      Exercise 4
-     </span>
-     (10 pts)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#r-dependence">
-     <span class="math notranslate nohighlight">
-      \(r\)
-     </span>
-     dependence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-20-pts">
-     <span style="color:red">
-      Exercise 5
-     </span>
-     (20 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-5-identifying-limiting-factors-span">
-   <span style="color:orange;">
-    5. Identifying Limiting Factors
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts">
-     <span style="color:red">
-      Exercise 6
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-6-do-your-homework-automatically-span">
-   <span style="color:orange;">
-    6. Do Your Homework Automatically
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-10-pts">
-     <span style="color:red">
-      Exercise 7
-     </span>
-     (10 pts)
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 11: Analyzing the Error Using Symbolic Method (SymPy)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
+   <span style="color:orange;">
+    00. Content
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
+   <span style="color:orange;">
+    0. Required Hardware
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-1-floating-point-numbers-span">
+   <span style="color:orange;">
+    1. Floating Point Numbers
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-5-pts">
+     <span style="color:red">
+      Exercise 1
+     </span>
+     (5 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-2-symbolic-computation-span">
+   <span style="color:orange;">
+    2. Symbolic Computation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formulas">
+     Formulas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-10-pts">
+     <span style="color:red">
+      Exercise 2
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-3-a-practical-computation-span">
+   <span style="color:orange;">
+    3. A Practical Computation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-10-pts">
+     <span style="color:red">
+      Exercise 3
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-4-analyzing-the-result-span">
+   <span style="color:orange;">
+    4. Analyzing the Result
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts">
+     <span style="color:red">
+      Exercise 4
+     </span>
+     (10 pts)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-dependence">
+     <span class="math notranslate nohighlight">
+      \(r\)
+     </span>
+     dependence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-20-pts">
+     <span style="color:red">
+      Exercise 5
+     </span>
+     (20 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-5-identifying-limiting-factors-span">
+   <span style="color:orange;">
+    5. Identifying Limiting Factors
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts">
+     <span style="color:red">
+      Exercise 6
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-6-do-your-homework-automatically-span">
+   <span style="color:orange;">
+    6. Do Your Homework Automatically
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-10-pts">
+     <span style="color:red">
+      Exercise 7
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="week-11-analyzing-the-error-using-symbolic-method-sympy">
-<h1>Week 11: Analyzing the Error Using Symbolic Method (SymPy)<a class="headerlink" href="#week-11-analyzing-the-error-using-symbolic-method-sympy" title="Permalink to this headline">#</a></h1>
+<h1>Week 11: Analyzing the Error Using Symbolic Method (SymPy)<a class="headerlink" href="#week-11-analyzing-the-error-using-symbolic-method-sympy" title="Permalink to this heading">#</a></h1>
 <p><font size="6"> Laboratory 4e  </font> <br>
 <font size="3"> Last updated July 26, 2022 </font></p>
 <section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>Error analysis</p></li>
@@ -766,7 +853,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>N/A</p></li>
 </ul>
@@ -780,7 +867,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="span-style-color-orange-1-floating-point-numbers-span">
-<h2><span style="color:orange;"> 1. Floating Point Numbers </span><a class="headerlink" href="#span-style-color-orange-1-floating-point-numbers-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 1. Floating Point Numbers </span><a class="headerlink" href="#span-style-color-orange-1-floating-point-numbers-span" title="Permalink to this heading">#</a></h2>
 <p>Unfortunately, it’s not possible to represent every number exactly in a computer. For numbers which are not whole numbers, Python only keeps a certain number of digits. This way of storing numbers is called <em>floating point</em>, and numbers stored this way are called <em>floating point numbers</em>. In Python, the type for floating point numbers is <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
 <p>Floating point numbers have some quirks you need to be aware of. For example, we know that 0.1+0.2=0.3, but look what Python tells us:</p>
 <div class="cell docutils container">
@@ -799,7 +886,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="span-style-color-red-exercise-1-span-5-pts">
-<h3><span style="color:red"> Exercise 1 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-5-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 1 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-5-pts" title="Permalink to this heading">#</a></h3>
 <p>What happens if you multiply 0.1 and 0.2 by 10, add them, and then divide by 10? Mathematically, <span class="math notranslate nohighlight">\(0.1+0.2 = \frac{0.1(10)+0.2(10)}{10}\)</span>, so do you still get a slightly wrong answer with floating point numbers?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,7 +898,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="span-style-color-orange-2-symbolic-computation-span">
-<h2><span style="color:orange;"> 2. Symbolic Computation </span><a class="headerlink" href="#span-style-color-orange-2-symbolic-computation-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 2. Symbolic Computation </span><a class="headerlink" href="#span-style-color-orange-2-symbolic-computation-span" title="Permalink to this heading">#</a></h2>
 <p>Most of the time, working with numbers in a computer, close enough is good enough. We use floating point numbers, and they almost never give us any trouble. There are times, though, that you want the exact answer. That’s when you need symbolic computation. For this lab, instead of Numpy (short for “numerical Python”) we will use Sympy  (“symbolic Python”). Let’s compare what happens when we ask each of them for a square root:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,7 +938,7 @@ title="Print to PDF"
 </div>
 <p>It got us the exact answer, no floating point error at all.</p>
 <section id="formulas">
-<h3>Formulas<a class="headerlink" href="#formulas" title="Permalink to this headline">#</a></h3>
+<h3>Formulas<a class="headerlink" href="#formulas" title="Permalink to this heading">#</a></h3>
 <p>As you saw in lab 4d, we can also use Sympy to manipulate formulas. This can make it way easier to work with big expressions and prevent errors. It’s usually pretty simple to do, too. All we need is to create a variable using Sympy. There are two ways to do this. For common variables, you can use the <code class="docutils literal notranslate"><span class="pre">sympy.abc</span></code> module:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -913,7 +1000,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="span-style-color-red-exercise-2-span-10-pts">
-<h3><span style="color:red"> Exercise 2 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-10-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 2 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>The expression below (<code class="docutils literal notranslate"><span class="pre">((22/7)**2</span> <span class="pre">-</span> <span class="pre">sympy.pi**2)**(1/2)</span></code>) has multiple floating point numbers which snuck into the computation. Rewrite it so that there are no floating points.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -925,7 +1012,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="span-style-color-orange-3-a-practical-computation-span">
-<h2><span style="color:orange;"> 3. A Practical Computation </span><a class="headerlink" href="#span-style-color-orange-3-a-practical-computation-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 3. A Practical Computation </span><a class="headerlink" href="#span-style-color-orange-3-a-practical-computation-span" title="Permalink to this heading">#</a></h2>
 <p>Now that you know the basics of Sympy, let’s work together to use it to answer a potentially-tricky question which came up in lab 9. We have an expression for the error in our measurement, and we want to know how we should do the experiment to minimize the error. We can start with the formula.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -994,7 +1081,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="span-style-color-red-exercise-3-span-10-pts">
-<h3><span style="color:red"> Exercise 3 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-10-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 3 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>Use a similar strategy to replace <span class="math notranslate nohighlight">\(\cot\theta\)</span> with an expression involving only <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>. After simplifying, you should get</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1003,14 +1090,14 @@ title="Print to PDF"
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 </section>
 <section id="span-style-color-orange-4-analyzing-the-result-span">
-<h2><span style="color:orange;"> 4. Analyzing the Result </span><a class="headerlink" href="#span-style-color-orange-4-analyzing-the-result-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 4. Analyzing the Result </span><a class="headerlink" href="#span-style-color-orange-4-analyzing-the-result-span" title="Permalink to this heading">#</a></h2>
 <p>Now that we have a (remarkably tidy!) expression for the relative error, we should revisit the things we can control. We could reduce <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span> by aligning and steadying the inclinometer more carefully. We could reduce <span class="math notranslate nohighlight">\(\varepsilon_r\)</span> by measuring our rope in a more accurate way, or using a more precise tool for measuring horizontal distance. What about <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(z\)</span>? How does <span class="math notranslate nohighlight">\(z\)</span> affect the answer?</p>
 <section id="span-style-color-red-exercise-4-span-10-pts">
-<h3><span style="color:red"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>In two sentences, describe qualitatively how the relative error in the height depends on the parameter <span class="math notranslate nohighlight">\(z\)</span>. Are bigger or smaller values better, as far as reducing error goes?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3></section>
 <section id="r-dependence">
-<h3><span class="math notranslate nohighlight">\(r\)</span> dependence<a class="headerlink" href="#r-dependence" title="Permalink to this headline">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(r\)</span> dependence<a class="headerlink" href="#r-dependence" title="Permalink to this heading">#</a></h3>
 <p>The dependence on <span class="math notranslate nohighlight">\(r\)</span> is a bit trickier. Let’s ask Sympy to tell us what happens as <span class="math notranslate nohighlight">\(r\)</span> approaches infinity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1057,12 +1144,12 @@ title="Print to PDF"
 </div>
 </section>
 <section id="span-style-color-red-exercise-5-span-20-pts">
-<h3><span style="color:red"> Exercise 5 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-20-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 5 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-20-pts" title="Permalink to this heading">#</a></h3>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">ideal_length.subs</span></code> and one of your measurements from lab 8 to figure out the ideal length of rope. You may need to compute <span class="math notranslate nohighlight">\(z\)</span>, but remember that it is just <span class="math notranslate nohighlight">\(y\cot\phi\)</span>. How does it compare to the length of rope you actually used? How would you measure it differently, if you wanted to go back and get a more accurate  measurement?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3></section>
 </section>
 <section id="span-style-color-orange-5-identifying-limiting-factors-span">
-<h2><span style="color:orange;"> 5. Identifying Limiting Factors </span><a class="headerlink" href="#span-style-color-orange-5-identifying-limiting-factors-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 5. Identifying Limiting Factors </span><a class="headerlink" href="#span-style-color-orange-5-identifying-limiting-factors-span" title="Permalink to this heading">#</a></h2>
 <p>By putting our ideal length back into the expression for the error, we can get see how good our error can get. This will tell us where we should really spend our efforts if we want to get a really accurate answer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1088,12 +1175,12 @@ title="Print to PDF"
 \]</div>
 <p>This lets us definitively say: the error depends really strongly on <span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span>. If we want a low relative error, we have to work to get that number down, since it multiplies into every other term. It only makes sense to reduce <span class="math notranslate nohighlight">\(\varepsilon_r\)</span> if the term <span class="math notranslate nohighlight">\(\frac{\varepsilon_{r} }{\varepsilon_{\theta} y}\)</span> is close to 2, otherwise it will be completely dwarfed.</p>
 <section id="span-style-color-red-exercise-6-span-10-pts">
-<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\varepsilon_\theta\)</span> also appears in the denominator. Does that mean we should try and keep it from getting too small? Use Sympy to find <span class="math notranslate nohighlight">\(\displaystyle\lim_{\varepsilon_\theta \to 0}\)</span><code class="docutils literal notranslate"><span class="pre">best_error</span></code> and use the result of that computation to justify a decision.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 6 Below </h3></section>
 </section>
 <section id="span-style-color-orange-6-do-your-homework-automatically-span">
-<h2><span style="color:orange;"> 6. Do Your Homework Automatically </span><a class="headerlink" href="#span-style-color-orange-6-do-your-homework-automatically-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 6. Do Your Homework Automatically </span><a class="headerlink" href="#span-style-color-orange-6-do-your-homework-automatically-span" title="Permalink to this heading">#</a></h2>
 <p>In the example above we used lots of useful Sympy tools – substitution, simplification, differentiation, and taking limits were all essential. There are way more things Sympy can do besides this, which you can read about <a class="reference external" href="https://docs.sympy.org/latest/index.html">in its documentation</a>. What you know already is enough to do some things which could really help you out when doing you calculus homework. For example, look at this question which <a class="reference external" href="https://www.math.purdue.edu/academic/courses/oldexams?course=MA16100">was on the third midterm for MA161 in 2021</a>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1132,7 +1219,7 @@ title="Print to PDF"
 </div>
 <p>Hopefully this has convinced you that Sympy can be a handy calculator to have around.</p>
 <section id="span-style-color-red-exercise-7-span-10-pts">
-<h3><span style="color:red"> Exercise 7 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-10-pts" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red"> Exercise 7 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>Pick a problem from a previous calculus exam. Copy it here using Latex, and solve it using Sympy.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 7 Below </h3></section>
 </section>
@@ -1158,50 +1245,237 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../d_error_analysis/lab4d.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../../5_measure_speeds/a_derivatives/lab5a.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="../d_error_analysis/lab4d.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../../5_measure_speeds/a_derivatives/lab5a.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By Mireille Boutin, Alden Bradford<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
+   <span style="color:orange;">
+    00. Content
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
+   <span style="color:orange;">
+    0. Required Hardware
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-1-floating-point-numbers-span">
+   <span style="color:orange;">
+    1. Floating Point Numbers
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-5-pts">
+     <span style="color:red">
+      Exercise 1
+     </span>
+     (5 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-2-symbolic-computation-span">
+   <span style="color:orange;">
+    2. Symbolic Computation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formulas">
+     Formulas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-10-pts">
+     <span style="color:red">
+      Exercise 2
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-3-a-practical-computation-span">
+   <span style="color:orange;">
+    3. A Practical Computation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-10-pts">
+     <span style="color:red">
+      Exercise 3
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-4-analyzing-the-result-span">
+   <span style="color:orange;">
+    4. Analyzing the Result
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts">
+     <span style="color:red">
+      Exercise 4
+     </span>
+     (10 pts)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-dependence">
+     <span class="math notranslate nohighlight">
+      \(r\)
+     </span>
+     dependence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-20-pts">
+     <span style="color:red">
+      Exercise 5
+     </span>
+     (20 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-5-identifying-limiting-factors-span">
+   <span style="color:orange;">
+    5. Identifying Limiting Factors
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts">
+     <span style="color:red">
+      Exercise 6
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-6-do-your-homework-automatically-span">
+   <span style="color:orange;">
+    6. Do Your Homework Automatically
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-10-pts">
+     <span style="color:red">
+      Exercise 7
+     </span>
+     (10 pts)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mireille Boutin, Alden Bradford
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>

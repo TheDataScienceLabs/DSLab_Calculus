@@ -1,48 +1,56 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +60,424 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/5_measure_speeds/a_derivatives/lab5a';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)" href="../b_build_a_tool/lab5b.html" />
     <link rel="prev" title="Week 11: Analyzing the Error Using Symbolic Method (SymPy)" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab0.html">
+                        Week 1: Course Intro, Markdown, Latex
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab1.html">
+                        Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">
+                        Week 3: Finding Local Max in PPG Signal (Using MAX30102)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">
+                        Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../3_estimate_blood_flow/lab3.html">
+                        Week 4: Estimate Blood Flow from PPG Data
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">
+                        Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">
+                        Week 6-7: Build an Inclinometer (Objects on Hardware)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">
+                        Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">
+                        Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">
+                        Week 11: Analyzing the Error Using Symbolic Method (SymPy)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../b_build_a_tool/lab5b.html">
+                        Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../final_project/labfinal.html">
+                        Weeks 14-15: Final Project
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
+                        Extra Materials: Introduction to Breadboards
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">The Data Science Labs on Differential and Integral Calculus</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab0.html">
+                        Week 1: Course Intro, Markdown, Latex
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../1_intro_to_notebooks/lab1.html">
+                        Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">
+                        Week 3: Finding Local Max in PPG Signal (Using MAX30102)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">
+                        Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../3_estimate_blood_flow/lab3.html">
+                        Week 4: Estimate Blood Flow from PPG Data
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">
+                        Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">
+                        Week 6-7: Build an Inclinometer (Objects on Hardware)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">
+                        Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">
+                        Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">
+                        Week 11: Analyzing the Error Using Symbolic Method (SymPy)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../b_build_a_tool/lab5b.html">
+                        Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../final_project/labfinal.html">
+                        Weeks 14-15: Final Project
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
+                        Extra Materials: Introduction to Breadboards
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,753 +486,412 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">
-   Week 1: Course Intro, Markdown, Latex
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../1_intro_to_notebooks/lab1.html">
-   Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">Week 1: Course Intro, Markdown, Latex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1.html">Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Determine your heart rate
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Determine your heart rate</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">
-   Week 3: Finding Local Max in PPG Signal (Using MAX30102)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">
-   Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_determine_heart_rate/max30102_version/lab2-max30102.html">Week 3: Finding Local Max in PPG Signal (Using MAX30102)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_determine_heart_rate/ppg_version/lab2-ppg.html">Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Estimate your blood flow
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estimate your blood flow</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">
-   Week 4: Estimate Blood Flow from PPG Data
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">Week 4: Estimate Blood Flow from PPG Data</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Measure the heights of tall and far away things
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the heights of tall and far away things</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">
-   Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">
-   Week 6-7: Build an Inclinometer (Objects on Hardware)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">
-   Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">
-   Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">
-   Week 11: Analyzing the Error Using Symbolic Method (SymPy)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">Week 6-7: Build an Inclinometer (Objects on Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Measure the speeds of nearby things
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the speeds of nearby things</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../b_build_a_tool/lab5b.html">
-   Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../b_build_a_tool/lab5b.html">Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Design a project of your own
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Design a project of your own</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../final_project/labfinal.html">
-   Weeks 14-15: Final Project
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Extra Materials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">
-   Extra Materials: Introduction to Breadboards
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/TheDataScienceLabs/DSLab_Calculus/main?urlpath=tree/book/labs/5_measure_speeds/a_derivatives/lab5a.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
+  <ul class="dropdown-menu">
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/a_derivatives/lab5a.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/a_derivatives/lab5a.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/labs/5_measure_speeds/a_derivatives/lab5a.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../../../_sources/labs/5_measure_speeds/a_derivatives/lab5a.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
-   <span style="color:orange;">
-    00. Content
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
-   <span style="color:orange;">
-    0. Required Hardware
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span">
-   <span style="color:orange;">
-    1. Two Types of Numbers in Python
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integers">
-   Integers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#floats">
-   Floats
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
-     <span style="color:red;">
-      Exercise 1
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-2-troubles-with-floating-point-numbers-span">
-   <span style="color:orange;">
-    2. Troubles with Floating Point Numbers
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
-     <span style="color:red;">
-      Exercise 2
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-3-catastrophic-cancellation-span">
-   <span style="color:orange;">
-    3. Catastrophic Cancellation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
-     <span style="color:red;">
-      Exercise 3
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
-     <span style="color:red;">
-      Exercise 4
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">
-     A practical example of catastrophic cancellation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-4-numerical-differentiation-span">
-   <span style="color:orange;">
-    4. Numerical Differentiation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
-     <span style="color:red;">
-      Exercise 5
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-5-finite-difference-schemes-span">
-   <span style="color:orange;">
-    5. Finite Difference Schemes
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bias-in-the-forward-difference">
-     Bias in the forward difference
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span">
-     <span style="color:red;">
-      Exercise 6
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span">
-     <span style="color:red;">
-      Exercise 7
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correcting-the-bias">
-     Correcting the bias
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span">
-     <span style="color:red;">
-      Exercise 8
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-6-unequal-step-sizes-span">
-   <span style="color:orange;">
-    6. Unequal Step Sizes
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma">
-   A quick way to figure out
-   <span class="math notranslate nohighlight">
-    \(\alpha\)
-   </span>
-   ,
-   <span class="math notranslate nohighlight">
-    \(\beta\)
-   </span>
-   , and
-   <span class="math notranslate nohighlight">
-    \(\gamma\)
-   </span>
-   .
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-h3">
-     <span style="color:red;">
-      Exercise 9
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span">
-     <span style="color:red;">
-      Exercise 10
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes">
-   The symmetric finite difference method with unequal step sizes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-h3">
-     <span style="color:red;">
-      Exercise 11
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
-   <span style="color:orange;">
-    00. Content
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
-   <span style="color:orange;">
-    0. Required Hardware
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span">
-   <span style="color:orange;">
-    1. Two Types of Numbers in Python
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integers">
-   Integers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#floats">
-   Floats
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
-     <span style="color:red;">
-      Exercise 1
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-2-troubles-with-floating-point-numbers-span">
-   <span style="color:orange;">
-    2. Troubles with Floating Point Numbers
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
-     <span style="color:red;">
-      Exercise 2
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-3-catastrophic-cancellation-span">
-   <span style="color:orange;">
-    3. Catastrophic Cancellation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
-     <span style="color:red;">
-      Exercise 3
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
-     <span style="color:red;">
-      Exercise 4
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">
-     A practical example of catastrophic cancellation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-4-numerical-differentiation-span">
-   <span style="color:orange;">
-    4. Numerical Differentiation
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
-     <span style="color:red;">
-      Exercise 5
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-5-finite-difference-schemes-span">
-   <span style="color:orange;">
-    5. Finite Difference Schemes
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bias-in-the-forward-difference">
-     Bias in the forward difference
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span">
-     <span style="color:red;">
-      Exercise 6
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span">
-     <span style="color:red;">
-      Exercise 7
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correcting-the-bias">
-     Correcting the bias
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span">
-     <span style="color:red;">
-      Exercise 8
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-color-orange-6-unequal-step-sizes-span">
-   <span style="color:orange;">
-    6. Unequal Step Sizes
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma">
-   A quick way to figure out
-   <span class="math notranslate nohighlight">
-    \(\alpha\)
-   </span>
-   ,
-   <span class="math notranslate nohighlight">
-    \(\beta\)
-   </span>
-   , and
-   <span class="math notranslate nohighlight">
-    \(\gamma\)
-   </span>
-   .
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-h3">
-     <span style="color:red;">
-      Exercise 9
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span">
-     <span style="color:red;">
-      Exercise 10
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes">
-   The symmetric finite difference method with unequal step sizes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-h3">
-     <span style="color:red;">
-      Exercise 11
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
+   <span style="color:orange;">
+    00. Content
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
+   <span style="color:orange;">
+    0. Required Hardware
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span">
+   <span style="color:orange;">
+    1. Two Types of Numbers in Python
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integers">
+   Integers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floats">
+   Floats
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
+     <span style="color:red;">
+      Exercise 1
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-2-troubles-with-floating-point-numbers-span">
+   <span style="color:orange;">
+    2. Troubles with Floating Point Numbers
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
+     <span style="color:red;">
+      Exercise 2
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-3-catastrophic-cancellation-span">
+   <span style="color:orange;">
+    3. Catastrophic Cancellation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
+     <span style="color:red;">
+      Exercise 3
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
+     <span style="color:red;">
+      Exercise 4
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">
+     A practical example of catastrophic cancellation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-4-numerical-differentiation-span">
+   <span style="color:orange;">
+    4. Numerical Differentiation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
+     <span style="color:red;">
+      Exercise 5
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-5-finite-difference-schemes-span">
+   <span style="color:orange;">
+    5. Finite Difference Schemes
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bias-in-the-forward-difference">
+     Bias in the forward difference
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span">
+     <span style="color:red;">
+      Exercise 6
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span">
+     <span style="color:red;">
+      Exercise 7
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correcting-the-bias">
+     Correcting the bias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span">
+     <span style="color:red;">
+      Exercise 8
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-6-unequal-step-sizes-span">
+   <span style="color:orange;">
+    6. Unequal Step Sizes
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma">
+   A quick way to figure out
+   <span class="math notranslate nohighlight">
+    \(\alpha\)
+   </span>
+   ,
+   <span class="math notranslate nohighlight">
+    \(\beta\)
+   </span>
+   , and
+   <span class="math notranslate nohighlight">
+    \(\gamma\)
+   </span>
+   .
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-h3">
+     <span style="color:red;">
+      Exercise 9
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span">
+     <span style="color:red;">
+      Exercise 10
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes">
+   The symmetric finite difference method with unequal step sizes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-h3">
+     <span style="color:red;">
+      Exercise 11
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="week-12-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation">
-<h1>Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)<a class="headerlink" href="#week-12-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation" title="Permalink to this headline">#</a></h1>
+<h1>Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)<a class="headerlink" href="#week-12-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation" title="Permalink to this heading">#</a></h1>
 <p><font size="6">  Laboratory 5a </font> <br>
 <font size="3"> Last updated July 26, 2022 </font></p>
 <section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>Approximating derivatives using finite difference schemes</p></li>
@@ -879,7 +909,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>N/A</p></li>
 </ul>
@@ -893,10 +923,10 @@ title="Print to PDF"
 </div>
 </section>
 <section id="span-style-color-orange-1-two-types-of-numbers-in-python-span">
-<h2><span style="color:orange;"> 1. Two Types of Numbers in Python </span><a class="headerlink" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 1. Two Types of Numbers in Python </span><a class="headerlink" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="integers">
-<h2>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">#</a></h2>
+<h2>Integers<a class="headerlink" href="#integers" title="Permalink to this heading">#</a></h2>
 <p>One of the benefits of using Python is that it has great support for numbers. This makes it much more friendly for doing math than, for example, Javascript or C. Whole numbers in Python have the type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which is short for Integer. You can check this yourself:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,10 +961,10 @@ title="Print to PDF"
 </div>
 </section>
 <section id="floats">
-<h2>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">#</a></h2>
+<h2>Floats<a class="headerlink" href="#floats" title="Permalink to this heading">#</a></h2>
 <p>The other type of number was mentioned in Lab 4e, floating point numbers. As explained previously, floats are used to represent non-whole numbers like decimals. However, they do present some error since Python can only store a certain amount of digits. For most purposes, this relative error is no trouble at all, and if it is posing a problem then the tool introduced last time, SymPy, can be implemented to avoid this.</p>
 <section id="span-style-color-red-exercise-1-span">
-<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this heading">#</a></h3>
 <p>For each of the following constants, look them up on Wikipedia and report the relative error in their known values. If an error is not given, you can assume the absolute error is <span class="math notranslate nohighlight">\(\pm 1 \)</span> of the last digit given. Note that some times, the absolute error is given in a concise notation, as described here: <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html">https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html</a>. Compare your answers to the relative error in a floating point number. Make sure you are using relative error, not absolute error.</p>
 <ul class="simple">
 <li><p>mass of an electron</p></li>
@@ -945,7 +975,7 @@ title="Print to PDF"
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below: </h3></section>
 </section>
 <section id="span-style-color-orange-2-troubles-with-floating-point-numbers-span">
-<h2><span style="color:orange;"> 2. Troubles with Floating Point Numbers </span><a class="headerlink" href="#span-style-color-orange-2-troubles-with-floating-point-numbers-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 2. Troubles with Floating Point Numbers </span><a class="headerlink" href="#span-style-color-orange-2-troubles-with-floating-point-numbers-span" title="Permalink to this heading">#</a></h2>
 <p>Precision is usually not a problem with floating point numbers, with one major exception which we will address later. The main issue you will face is when comparing numbers. Check this out:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -957,10 +987,10 @@ title="Print to PDF"
 </div>
 </div>
 <section id="span-style-color-red-exercise-2-span">
-<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this heading">#</a></h3>
 <p>Explain why a few numbers are missing from the printout above. Include the python values of <code class="docutils literal notranslate"><span class="pre">x/10</span></code> and <code class="docutils literal notranslate"><span class="pre">0.1*x</span></code> in your explanation, for some values of <code class="docutils literal notranslate"><span class="pre">x</span></code> (make a new code cell printing the relevant values).</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3><p>There are two main ways to deal with this:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Whenever possible, use <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> instead of <code class="docutils literal notranslate"><span class="pre">==</span></code> when comparing floating point numbers. This is usually the best thing to do. For example, if a number is decreasing and you want to know when it hits zero, check if it is positive instead of checking if it’s zero. Or, better yet, check if it’s less than 0.0001, keeping as much precision as you need for your purpose and no more.</p></li>
 <li><p>Instead of checking if floats are equal, check if they are close to eachother. For example, the builtin function <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code> can do this for you, or you can use the version in numpy if working with arrays. Here is how that might look:</p></li>
 </ol>
@@ -986,7 +1016,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="span-style-color-orange-3-catastrophic-cancellation-span">
-<h2><span style="color:orange;"> 3. Catastrophic Cancellation </span><a class="headerlink" href="#span-style-color-orange-3-catastrophic-cancellation-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 3. Catastrophic Cancellation </span><a class="headerlink" href="#span-style-color-orange-3-catastrophic-cancellation-span" title="Permalink to this heading">#</a></h2>
 <p>There is one situation where roundoff error is a really big problem. That is when you are subtracting two numbers which are very close together. This isn’t anything special about floating point numbers, this is just a fact about rounding. Here, have a look:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1004,17 +1034,17 @@ title="Print to PDF"
 0.00000000026??? &amp;\rightarrow 0.00000000026 \pm \text{(you figure this one out)}\\
 \end{align*}\]</div>
 <section id="span-style-color-red-exercise-3-span">
-<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this heading">#</a></h3>
 <p>What is the absolute error in the output? What are the relative errors of each of the inputs, and what is the relative error of the output?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 <section id="span-style-color-red-exercise-4-span">
-<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="a-practical-example-of-catastrophic-cancellation">
-<h3>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Permalink to this headline">#</a></h3>
+<h3>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Permalink to this heading">#</a></h3>
 <p>Before continuing, download <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/5_measure_speeds/a_derivatives/lab_5a_checker.py">lab_5a_checker.py</a> (this code imports <a class="reference external" href="http://autograder.py">autograder.py</a>, which was downloaded during Lab 3) to be able to check if your code works properly.</p>
 <p>Here we walk you through coding an example where catestrophic cancellation makes a pretty big difference, and something clever you can do to fix it.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Write a function which takes the coefficients <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> from a polynomial <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> and gives you a list of the roots. Just apply the standard quadratic formula. For now, you can assume that <span class="math notranslate nohighlight">\(b^2-4ac&gt;0\)</span> so you can take the square root, and you can assume <code class="docutils literal notranslate"><span class="pre">a</span></code> is not zero. Have it give the smaller root first (you can use the built in function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> for this).</p></li>
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 1 Below </h3><div class="cell docutils container">
@@ -1031,10 +1061,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>Factor the polynomial <span class="math notranslate nohighlight">\(x^2-1,000,000.000,001 x +1\)</span> exactly, on paper (note the decimal place in <code class="docutils literal notranslate"><span class="pre">b</span></code>). What should the roots be?</p></li>
 </ol>
-<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 2 Below </h3><ol class="simple">
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 2 Below </h3><ol class="arabic simple" start="3">
 <li><p>Apply your simple root-finding function to this polynomial. What are the relative errors in your computed roots, compared to the true values? Explain why one of these has a larger relative error.</p></li>
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 3 Below </h3><div class="cell docutils container">
@@ -1053,7 +1083,7 @@ title="Print to PDF"
 &amp;= \frac{2c}{-b+\sqrt{b^2-4ac}}
 \end{align*}\]</div>
 <p>Since <code class="docutils literal notranslate"><span class="pre">b</span></code> is negative and <code class="docutils literal notranslate"><span class="pre">-b</span></code> is positive, there is no cancellation here! We can use this formula to compute the “-” root and the original formula to compute the “+” root.</p>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>Assuming <code class="docutils literal notranslate"><span class="pre">b</span></code> is always negative, rewrite your function to use this formula for one root and the standard formula for the other root. Compute the relative errors on the example above, using your new formula.</p></li>
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 4 Below </h3><div class="cell docutils container">
@@ -1070,7 +1100,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="5">
 <li><p>Figure out a similar formula which works when <code class="docutils literal notranslate"><span class="pre">b</span></code> is always positive. Use both formulas to write a function to compute the roots which is always accurate, and does not suffer from catestrophic cancellation.</p></li>
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 5 Below </h3><div class="cell docutils container">
@@ -1087,7 +1117,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="6">
 <li><p>Finish off your function by adding a special case for if <code class="docutils literal notranslate"><span class="pre">c</span></code> is exactly zero (don’t want to divide by zero, after all!). We have provided a test you can use to check your work.</p></li>
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 6 Below </h3><div class="cell docutils container">
@@ -1106,7 +1136,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="span-style-color-orange-4-numerical-differentiation-span">
-<h2><span style="color:orange;"> 4. Numerical Differentiation </span><a class="headerlink" href="#span-style-color-orange-4-numerical-differentiation-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 4. Numerical Differentiation </span><a class="headerlink" href="#span-style-color-orange-4-numerical-differentiation-span" title="Permalink to this heading">#</a></h2>
 <p>Now you are prepared to see the major problem we are up against when trying to compute derivatives using floating-point arithmetic. Remember that by definition, the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1114,7 +1144,7 @@ f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
 \]</div>
 <p>This suggests a simple way to compute a derivative: pick a really small number <span class="math notranslate nohighlight">\(h\)</span>, and compute <span class="math notranslate nohighlight">\(\frac{f(x+h)-f(x)}{h}\)</span>. Since <span class="math notranslate nohighlight">\(h\)</span> is just a small but finite number, this is called the <em>finite difference method</em>.</p>
 <section id="span-style-color-red-exercise-5-span">
-<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this heading">#</a></h3>
 <p>Let’s see what happens when we apply this procedure blindly. We will apply this formula for <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> at the point <span class="math notranslate nohighlight">\(x=4\)</span>. The correct derivative should be 8. We will compute the relative error in using the finite difference method, for various values of <span class="math notranslate nohighlight">\(h\)</span>. It is easy to get a good spread of values for <span class="math notranslate nohighlight">\(h\)</span>, in a geometric sequence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1151,10 +1181,10 @@ f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 5 Part 2 Below </h3></section>
 </section>
 <section id="span-style-color-orange-5-finite-difference-schemes-span">
-<h2><span style="color:orange;"> 5. Finite Difference Schemes </span><a class="headerlink" href="#span-style-color-orange-5-finite-difference-schemes-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 5. Finite Difference Schemes </span><a class="headerlink" href="#span-style-color-orange-5-finite-difference-schemes-span" title="Permalink to this heading">#</a></h2>
 <p>This shows the basic struggle of computing numerical derivatives: the definition of the derivative requires <code class="docutils literal notranslate"><span class="pre">h</span></code> to be infinitely small, but we can’t practically make it that small. This isn’t just because of catastrophic cancellation, by the way – often when working with real data you are limited in how fast you can collect it. Hence, our goal will be to find ways to get more accurate estimates of the derivative without just making the step size <span class="math notranslate nohighlight">\(h\)</span> tiny. We will consider <span class="math notranslate nohighlight">\(h\)</span> to be fixed, and try to get our estimate as good as possible.</p>
 <section id="bias-in-the-forward-difference">
-<h3>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Permalink to this headline">#</a></h3>
+<h3>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Permalink to this heading">#</a></h3>
 <p>Let’s examine the finite difference method, applied to the function <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. For ease of illustration, let’s choose <span class="math notranslate nohighlight">\(h=0.5\)</span>. Our estimate of <span class="math notranslate nohighlight">\(f'(2)\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1163,7 +1193,7 @@ f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
 <p>Is this an over-estimate or an under-estimate? Let’s draw a picture to help us see.</p>
 </section>
 <section id="span-style-color-red-exercise-6-span">
-<h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#span-style-color-red-exercise-6-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#span-style-color-red-exercise-6-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Part 1</strong></p>
 <p>Find an equation for the tangent line to <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>.</p>
 <p><strong>Part 2</strong></p>
@@ -1197,7 +1227,7 @@ f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
 <p>When we choose <span class="math notranslate nohighlight">\(h\)</span> to be a positive number, we call that a <em>forward difference</em>. What if we try making <span class="math notranslate nohighlight">\(h\)</span> negative, doing a so-called <em>backward difference</em>? Try that now.</p>
 </section>
 <section id="span-style-color-red-exercise-7-span">
-<h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#span-style-color-red-exercise-7-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#span-style-color-red-exercise-7-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Part 1</strong></p>
 <p>Create a similar plot to show what happens if <span class="math notranslate nohighlight">\(h=-0.5\)</span>.</p>
 <p><strong>Part 2</strong></p>
@@ -1221,7 +1251,7 @@ f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
 </div>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 7 Part 2 Below </h3></section>
 <section id="correcting-the-bias">
-<h3>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this headline">#</a></h3>
+<h3>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Permalink to this heading">#</a></h3>
 <p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1255,12 +1285,12 @@ f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
 <p>This is still a slight overestimate. However, it’s clearly way better for any given step size <span class="math notranslate nohighlight">\(h\)</span>. The error gets small really fast, too: if we instead had <span class="math notranslate nohighlight">\(h=10^{-9}\)</span>, the error would be just <span class="math notranslate nohighlight">\((10^{-9})^2 = 10^{-18}\)</span>, which is below the floating-point error. Symmetric difference is better than forward difference!</p>
 </section>
 <section id="span-style-color-red-exercise-8-span">
-<h3><span style="color:red;"> Exercise 8 </span><a class="headerlink" href="#span-style-color-red-exercise-8-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 8 </span><a class="headerlink" href="#span-style-color-red-exercise-8-span" title="Permalink to this heading">#</a></h3>
 <p>Work out the symmetric difference exactly on paper for the function <span class="math notranslate nohighlight">\(f(x)=5x^2+3x-7\)</span>, for a variable step size <span class="math notranslate nohighlight">\(h\)</span>, at the point <span class="math notranslate nohighlight">\(x=2\)</span>. Find the relative error algebraically, and comment on it.</p>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 8 Below </h3></section>
 </section>
 <section id="span-style-color-orange-6-unequal-step-sizes-span">
-<h2><span style="color:orange;"> 6. Unequal Step Sizes </span><a class="headerlink" href="#span-style-color-orange-6-unequal-step-sizes-span" title="Permalink to this headline">#</a></h2>
+<h2><span style="color:orange;"> 6. Unequal Step Sizes </span><a class="headerlink" href="#span-style-color-orange-6-unequal-step-sizes-span" title="Permalink to this heading">#</a></h2>
 <p>In Exercise 8 you should have found that the symmetric difference scheme gave exactly the right answer. This is not just a coincidence. Whenever your function is a quadratic polynomial, the symmetric finite difference scheme gives exactly the correct answer. A scheme with this property is called <strong>second-order accurate</strong>.</p>
 <p>The symmetric finite difference scheme is a very powerful way to estimate derivatives. It’s a second-order accurate scheme, and it only uses two points to estimate the derivative. Unfortunately, it only works when the step sizes are equal, that is, when the samples are evenly spaced. Frequently we are not so lucky as to have evenly spaced samples. Data often arrive whenever they are available, and we have to deal with that. Fortunately, we can still get a second-order accurate scheme, even if the step sizes are unequal. In this section, we will develop a second-order accurate scheme to estimate the derivative of a function at a point <span class="math notranslate nohighlight">\(x=b\)</span> using nearby points <span class="math notranslate nohighlight">\(x=a\)</span> to the left and <span class="math notranslate nohighlight">\(x=c\)</span> to the right, so <span class="math notranslate nohighlight">\(a&lt;b&lt;c\)</span>. That is, we will find numbers <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> such that</p>
 <div class="math notranslate nohighlight">
@@ -1270,7 +1300,7 @@ f'(b) = \alpha f(a) + \beta f(b) + \gamma f(c) \tag{$*$}
 <p>whenever <span class="math notranslate nohighlight">\(f(x)\)</span> is a quadratic polynomial. These numbers should depend on <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>, but they shouldn’t depend on <span class="math notranslate nohighlight">\(f\)</span>. There are many ways we could figure out the formulas for <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>. Next we will walk you through one of the simplest ways.</p>
 </section>
 <section id="a-quick-way-to-figure-out-alpha-beta-and-gamma">
-<h2>A quick way to figure out <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>.<a class="headerlink" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma" title="Permalink to this headline">#</a></h2>
+<h2>A quick way to figure out <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>.<a class="headerlink" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma" title="Permalink to this heading">#</a></h2>
 <p>We know that <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> will not depend on <span class="math notranslate nohighlight">\(f\)</span>. For some values of <span class="math notranslate nohighlight">\(f\)</span>, the values of <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> will be obvious. For example, let’s say we choose <span class="math notranslate nohighlight">\(f(x)=(x-b)(x-c)\)</span>. We can just evaluate each term in (<span class="math notranslate nohighlight">\(*\)</span>) directly.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1305,7 +1335,7 @@ f(c) &amp;= (c-a)(c-c)=0
 &amp;= \frac{1}{b-a}-\frac{1}{c-b}
 \end{align*}\]</div>
 <section id="span-style-color-red-exercise-9-h3">
-<h3><span style="color:red;"> Exercise 9 </h3><a class="headerlink" href="#span-style-color-red-exercise-9-h3" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 9 </h3><a class="headerlink" href="#span-style-color-red-exercise-9-h3" title="Permalink to this heading">#</a></h3>
 <p>Choose a quadratic polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> so that when you substitute <span class="math notranslate nohighlight">\(f(x)\)</span> into (<span class="math notranslate nohighlight">\(*\)</span>), you find the value of <span class="math notranslate nohighlight">\(\gamma\)</span> using the method demonstrated above. For your choice of <span class="math notranslate nohighlight">\(f(x)\)</span>, copy the following table into your answer and fill it out.</p>
 <div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align*<span class="nb">}</span>
 f&#39;(x) <span class="nb">&amp;</span>=     <span class="k">\\</span>
@@ -1323,12 +1353,12 @@ f(c)  <span class="nb">&amp;</span>=
 \end{align*}\]</div>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 9 Below </h3></section>
 <section id="span-style-color-red-exercise-10-span">
-<h3><span style="color:red;"> Exercise 10 </span><a class="headerlink" href="#span-style-color-red-exercise-10-span" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 10 </span><a class="headerlink" href="#span-style-color-red-exercise-10-span" title="Permalink to this heading">#</a></h3>
 <p>Substitute <span class="math notranslate nohighlight">\(f(x)=1\)</span> in (<span class="math notranslate nohighlight">\(*\)</span>). What relationship do you find between <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>? Substitute the formulas we found for <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span> into that expression to verify that our answers are correct.</p>
 <h3 style="background-color:lightblue;"> Write Answers for Exercise 10 Below </h3></section>
 </section>
 <section id="the-symmetric-finite-difference-method-with-unequal-step-sizes">
-<h2>The symmetric finite difference method with unequal step sizes<a class="headerlink" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes" title="Permalink to this headline">#</a></h2>
+<h2>The symmetric finite difference method with unequal step sizes<a class="headerlink" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes" title="Permalink to this heading">#</a></h2>
 <p>Suppose we have three x-values <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> with <span class="math notranslate nohighlight">\(a&lt;b&lt;c\)</span>. Suppose further that we have measured <span class="math notranslate nohighlight">\(f(a)\)</span>, <span class="math notranslate nohighlight">\(f(b)\)</span>, and <span class="math notranslate nohighlight">\(f(c)\)</span>. We now have a good way to approximate the derivative of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(b\)</span>. We compute</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1338,12 +1368,12 @@ f(c)  <span class="nb">&amp;</span>=
 f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
 \end{align*}\]</div>
 <p>The final exercise for today walks you through the process of creating a vectorized version of this formula, which computes the symmetric difference scheme for unequal step sizes in a way that is</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Efficient (very fast to perform)</p></li>
 <li><p>Easy to read (easy to see that it does what it should).</p></li>
 </ol>
 <section id="span-style-color-red-exercise-11-h3">
-<h3><span style="color:red;"> Exercise 11 </h3><a class="headerlink" href="#span-style-color-red-exercise-11-h3" title="Permalink to this headline">#</a></h3>
+<h3><span style="color:red;"> Exercise 11 </h3><a class="headerlink" href="#span-style-color-red-exercise-11-h3" title="Permalink to this heading">#</a></h3>
 <p>Our function will take two arguments, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, each of which is an array. The idea is that <span class="math notranslate nohighlight">\(y\)</span> will have the <span class="math notranslate nohighlight">\(f(x)\)</span> values corresponding to each <span class="math notranslate nohighlight">\(x\)</span> value. It will produce an array of the same shape which has the symmetric finite difference scheme applied to find the first derivative.</p>
 <p>When working out a procedure, it is a good idea to have an example at hand so you can follow through the steps. Let’s pick some examples for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="cell docutils container">
@@ -1477,50 +1507,294 @@ f'(b) &amp;\approx \alpha f(a) +\beta f(b) + \gamma f(c)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../b_build_a_tool/lab5b.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../b_build_a_tool/lab5b.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By Mireille Boutin, Alden Bradford<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-00-content-span">
+   <span style="color:orange;">
+    00. Content
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span">
+   <span style="color:orange;">
+    0. Required Hardware
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-1-two-types-of-numbers-in-python-span">
+   <span style="color:orange;">
+    1. Two Types of Numbers in Python
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integers">
+   Integers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floats">
+   Floats
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span">
+     <span style="color:red;">
+      Exercise 1
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-2-troubles-with-floating-point-numbers-span">
+   <span style="color:orange;">
+    2. Troubles with Floating Point Numbers
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span">
+     <span style="color:red;">
+      Exercise 2
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-3-catastrophic-cancellation-span">
+   <span style="color:orange;">
+    3. Catastrophic Cancellation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span">
+     <span style="color:red;">
+      Exercise 3
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span">
+     <span style="color:red;">
+      Exercise 4
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">
+     A practical example of catastrophic cancellation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-4-numerical-differentiation-span">
+   <span style="color:orange;">
+    4. Numerical Differentiation
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span">
+     <span style="color:red;">
+      Exercise 5
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-5-finite-difference-schemes-span">
+   <span style="color:orange;">
+    5. Finite Difference Schemes
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bias-in-the-forward-difference">
+     Bias in the forward difference
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span">
+     <span style="color:red;">
+      Exercise 6
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span">
+     <span style="color:red;">
+      Exercise 7
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correcting-the-bias">
+     Correcting the bias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span">
+     <span style="color:red;">
+      Exercise 8
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-orange-6-unequal-step-sizes-span">
+   <span style="color:orange;">
+    6. Unequal Step Sizes
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-quick-way-to-figure-out-alpha-beta-and-gamma">
+   A quick way to figure out
+   <span class="math notranslate nohighlight">
+    \(\alpha\)
+   </span>
+   ,
+   <span class="math notranslate nohighlight">
+    \(\beta\)
+   </span>
+   , and
+   <span class="math notranslate nohighlight">
+    \(\gamma\)
+   </span>
+   .
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-9-h3">
+     <span style="color:red;">
+      Exercise 9
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span">
+     <span style="color:red;">
+      Exercise 10
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-symmetric-finite-difference-method-with-unequal-step-sizes">
+   The symmetric finite difference method with unequal step sizes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#span-style-color-red-exercise-11-h3">
+     <span style="color:red;">
+      Exercise 11
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mireille Boutin, Alden Bradford
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
