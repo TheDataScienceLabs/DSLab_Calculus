@@ -32,7 +32,7 @@ check_roots = FunctionGrader(*naive_cases,
     FunctionTestCase('c is zero', kwargs = {'a':-2, 'b':4, 'c':0}, retval = [0, 2])
 )
 symmetric_difference = [
-    FunctionTestCase('worked example', kwargs = {'x': np.array([1.0, 2, 5, 7, 8]), 'y':np.array([50.0, 49, 42, 35, 34])}, retval = ([-1 ,-4/3,-10/3+3/10,-4/3-1/2, -1])),
+    FunctionTestCase('worked example', kwargs = {'x': np.array([1.0, 2, 5, 7, 8]), 'y':np.array([50.0, 49, 42, 35, 34])}, retval = ([-1 ,-2+2/3,-3-1/30,-1.5-1/3, -1])),
     FunctionTestCase('constant function', kwargs = {'x': np.array([1, 6, 10, 13, 15]), 'y':np.array([10, 10, 10, 10, 10])}, retval = ([0, 0, 0, 0, 0])),
     FunctionTestCase('linear', kwargs={'x': np.array([0, 1, 4, 9, 16]), 'y':np.array([0, 1, 4, 9, 16])}, retval=([1, 1, 1, 1, 1])),
     FunctionTestCase('up and down', kwargs={'x':np.array([0, 1, 2, 3, 4]), 'y':np.array([0, 1, 0, -1, 0])}, retval=([1, 0, -1, 0, 1]))
