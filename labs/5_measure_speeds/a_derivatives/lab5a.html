@@ -439,7 +439,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="week-12-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation">
 <h1>Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)<a class="headerlink" href="#week-12-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation" title="Permalink to this heading">#</a></h1>
 <p><font size="6">  Laboratory 5a </font> <br>
-<font size="3"> Last updated April 2, 2023 </font></p>
+<font size="3"> Last updated April 5, 2023 </font></p>
 <section id="span-style-color-orange-00-content-span">
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
@@ -515,7 +515,8 @@ document.write(`
 <p>The other type of number was mentioned in Lab 4e, floating point numbers. As explained previously, floats are used to represent non-whole numbers like decimals. However, they do present some error since Python can only store a certain amount of digits. For almost all purposes, this relative error is no trouble at all, and if it is posing a problem then the tool introduced last time, SymPy, can be implemented to avoid this.</p>
 <section id="span-style-color-red-exercise-1-span">
 <h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this heading">#</a></h3>
-<p>For each of the following constants, look them up on Wikipedia or WolframAlpha and report the relative error in their known values using SI units. If an error is not given, you can assume the absolute error is <span class="math notranslate nohighlight">\(\pm 1 \)</span> of the last digit given. Note that some times, the absolute error is given in a concise notation, as described here: <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html">https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html</a>. Compare your answers to the upper limit of relative error in a floating point number, known as <em>machine epsilon</em>. Make sure you are using relative error, not absolute error.</p>
+<p>For each of the following constants, look them up on Wikipedia or WolframAlpha and report the relative error in their known values using SI units. If an error is not given, you can assume the absolute error is <span class="math notranslate nohighlight">\(\pm 1 \)</span> of the last digit given. Note that some times, the absolute error is given in a concise notation, as described here: <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html">https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html</a>. Compare your answers to the relative error in a floating point number, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_epsilon"><em>machine epsilon</em></a>
+(<em>Reminder: we are using single precision floats</em>). Make sure you are using relative error, not absolute error.</p>
 <ul class="simple">
 <li><p>Mass of an electron</p></li>
 <li><p>Orbital period of the moon (the Sidereal period, specifically)</p></li>
