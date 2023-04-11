@@ -407,7 +407,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span-10-pts"><span style="color:red;"> Exercise 8 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-9-span-5-pts"><span style="color:red;"> Exercise 9 </span> (5 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span-10-pts"><span style="color:red;"> Exercise 10 </span> (10 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-11-span-35-pts"><span style="color:red;"> Exercise 11 </span> (35 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-11-optional-span-35-pts"><span style="color:red;"> Exercise 11 - Optional </span> (35 pts)</a></li>
 </ul>
 </li>
 </ul>
@@ -424,7 +424,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="week-13-build-a-distance-measurement-distance-tool-using-an-ultrasonic-sensor-data-cleaning-and-micropython">
 <h1>Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)<a class="headerlink" href="#week-13-build-a-distance-measurement-distance-tool-using-an-ultrasonic-sensor-data-cleaning-and-micropython" title="Permalink to this heading">#</a></h1>
 <p><font size="6">  Laboratory 5b </font> <br>
-<font size="3"> Last updated July 26, 2022 </font></p>
+<font size="3"> Last updated April 11, 2023</font></p>
 <section id="span-style-color-orange-00-content-span">
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5">Mathematics</font></p>
@@ -530,7 +530,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>The level shifter and SR04 are labeled with their pins. Remember that you can look up the names of the pins on the Raspberry Pi Pico by consulting its datasheet.</p>
+<p>The level shifter and SR04 are labeled with their pins. Remember that you can look up the names of the pins on the Raspberry Pi Pico by consulting its datasheet <a class="reference external" href="https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf">here</a>.</p>
 <p><strong>Before you plug the Raspberry Pi Pico into your computer</strong> (which will supply power to your circuit), get your circuit checked by an instructor. If you have it wired incorrectly, you could damage the computer’s USB port.</p>
 </section>
 <section id="what-is-the-level-shifter-doing">
@@ -539,7 +539,17 @@ document.write(`
 </section>
 <section id="the-software">
 <h3>The software<a class="headerlink" href="#the-software" title="Permalink to this heading">#</a></h3>
-<p>Once you have it wired up, open the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/5_measure_speeds/b_build_a_tool/ultrasonic.py">ultrasonic.py</a> in Thonny. There are a few things I would like to point out to you in that file.</p>
+<p>Once you have it wired up, run the cell below to download some files you will need today, one of which will be <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/5_measure_speeds/b_build_a_tool/ultrasonic.py">ultrasonic.py</a>, go ahead and open it up in Thonny.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ssh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/5_measure_speeds/b_build_a_tool/example%20data%20cleaning.txt
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/5_measure_speeds/b_build_a_tool/ultrasonic.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are a few things I would like to point out to you in that file.</p>
 <ol class="arabic simple">
 <li><p>We use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. A while loop is just like a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, repeating everything in the body of the loop. Instead of taking values from a list or a range, it just keeps going until its argument is <code class="docutils literal notranslate"><span class="pre">False</span></code>. By saying <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>, we are telling it to do everything in the body of the loop, over and over, forever (or until we stop it manually). In order to stop this script, you will need to hit the “Stop” button in Thonny.</p></li>
 <li><p>The Raspberry Pi Pico runs a different version of Python called Micropython. Micropython is designed specifically for microcontrollers. It does not have many of the modules you are used to, like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, since the Pico does not have enough memory or processing power to make good use of them. Instead, it has libraries for interfacing with hardware, like the <code class="docutils literal notranslate"><span class="pre">machine</span></code> library we will use to control the pins on the Pico. Also, the <code class="docutils literal notranslate"><span class="pre">time</span></code> library in Micropython supports millisecond and microsecond <code class="docutils literal notranslate"><span class="pre">sleep</span></code> functions, which can count out much more precise units of time than you can in normal Python.</p></li>
@@ -828,9 +838,9 @@ document.write(`
 <section id="span-style-color-red-exercise-8-span-10-pts">
 <h3><span style="color:red;"> Exercise 8 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-8-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>For each curve below, produce a plot of the same shape by moving an object in front of the ultrasonic distance sensor. You can change the scale by adjusting the x and y limits on your plot. Try and get it as close as you can, but don’t spend too long on this – as long as the shape is close, you will receive full credit.</p>
-<p><img alt="part 1" src="../../../_images/exercise_5b_0.png" />
-<img alt="part 2" src="../../../_images/exercise_5b_1.png" />
-<img alt="part 3" src="../../../_images/exercise_5b_2.png" /></p>
+<p><img alt="part 1" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/5_measure_speeds/b_build_a_tool/exercise_5b_0.png?raw=true" />
+<img alt="part 2" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/5_measure_speeds/b_build_a_tool/exercise_5b_1.png?raw=true" />
+<img alt="part 3" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/5_measure_speeds/b_build_a_tool/exercise_5b_2.png?raw=true" /></p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 8 Below </h3></section>
 <section id="span-style-color-red-exercise-9-span-5-pts">
 <h3><span style="color:red;"> Exercise 9 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-9-span-5-pts" title="Permalink to this heading">#</a></h3>
@@ -840,8 +850,8 @@ document.write(`
 <h3><span style="color:red;"> Exercise 10 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-10-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>Load up a measurement you took using the heart rate monitor. Try your symmetric difference formula on it. Compare that to the result you got from taking the derivative of the interpolating polynomial. Which method do you think gave a better result? Explain your choice in 3-5 sentences.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 10 Below </h3></section>
-<section id="span-style-color-red-exercise-11-span-35-pts">
-<h3><span style="color:red;"> Exercise 11 </span> (35 pts)<a class="headerlink" href="#span-style-color-red-exercise-11-span-35-pts" title="Permalink to this heading">#</a></h3>
+<section id="span-style-color-red-exercise-11-optional-span-35-pts">
+<h3><span style="color:red;"> Exercise 11 - Optional </span> (35 pts)<a class="headerlink" href="#span-style-color-red-exercise-11-optional-span-35-pts" title="Permalink to this heading">#</a></h3>
 <p>Get one of the heart rate sensors. Working with a partner, figure out a procedure to answer each of these questions:</p>
 <ol class="arabic simple">
 <li><p>If you jog up and down the hallway briefly, how does your pulse rate change?</p></li>
@@ -980,7 +990,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span-10-pts"><span style="color:red;"> Exercise 8 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-9-span-5-pts"><span style="color:red;"> Exercise 9 </span> (5 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-10-span-10-pts"><span style="color:red;"> Exercise 10 </span> (10 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-11-span-35-pts"><span style="color:red;"> Exercise 11 </span> (35 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-11-optional-span-35-pts"><span style="color:red;"> Exercise 11 - Optional </span> (35 pts)</a></li>
 </ul>
 </li>
 </ul>
