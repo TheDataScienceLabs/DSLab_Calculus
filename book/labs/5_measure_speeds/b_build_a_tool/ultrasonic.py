@@ -2,7 +2,7 @@ import time
 from machine import Pin, time_pulse_us
 
 # these pins can be whatever -- just make sure
-# the wires correspond with the correct pins!
+# the wires correspond with the correct GP pin number!
 trig = Pin(0, Pin.OUT)
 echo = Pin(1, Pin.IN)
 # this refers to the built in LED. Just to give some
