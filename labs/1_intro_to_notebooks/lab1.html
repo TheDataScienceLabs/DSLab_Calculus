@@ -433,7 +433,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="week-2-introduction-to-python-data-visualization-sampling-aliasing">
 <h1>Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing<a class="headerlink" href="#week-2-introduction-to-python-data-visualization-sampling-aliasing" title="Permalink to this heading">#</a></h1>
 <p><font size="6"> Laboratory 1 </font> <br>
-<font size="3"> Last updated Aug 28, 2023 </font></p>
+<font size="3"> Last updated Aug 29, 2023 </font></p>
 <section id="span-style-color-orange-00-content-span">
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
@@ -490,7 +490,16 @@ Execute the following blocks by pressing (shift-enter) after clicking on the gra
 </div>
 <p>Notice that the modules were imported using the syntax <span class="math notranslate nohighlight">\(\mathtt{\quad import\quad [module\_name] \quad as \quad [alias]}\)</span>. We used the alias “np” for numpy, and “plt”  for matplotlib.pyplot. This means that, from now on, we can  simply type “np” in place of numpy, and “plt” in place of matplotlib.pyplot.</p>
 <p>Note that <strong>np</strong> and <strong>plt</strong> are the conventional aliases of <strong>NumPy</strong> and <strong>matplotlib.pyplot</strong>, respectively, and we will be following the conventions throughout this and the remaining labs.</p>
-<p>For this lab, we will also need functions from the <strong>math</strong> library. In addition, we will need some functions that have been defined specifically for this lab. These are written inside a python files called <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code>, which is located inside the Lab 1 directory. Let’s import both of these as well. Execute the following blocks by pressing (shift-enter).</p>
+<p>In addition, we will need some functions that have been defined specifically for this lab. These are written inside a python file called <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code>, which you can download by pressing <em>shift+enter</em> to execute the following block.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/1_intro_to_notebooks/lab1.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s import the library we just downloaded. We will also need functions from the <strong>math</strong> library for this lab, so lets import that too</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
