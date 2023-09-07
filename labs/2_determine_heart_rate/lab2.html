@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 3: Finding Local Max in PPG Signal (Using PPG Sensor) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+    <title>Week 3: Finding Local Max in PPG Signal &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
   
   
@@ -19,55 +19,53 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/2_determine_heart_rate/ppg_version/lab2-ppg';</script>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Week 4: Estimate Blood Flow from PPG Data" href="../../3_estimate_blood_flow/lab3.html" />
-    <link rel="prev" title="Week 3: Finding Local Max in PPG Signal (Using MAX30102)" href="../max30102_version/lab2-max30102.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/2_determine_heart_rate/lab2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -95,7 +93,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../../../search.html"
+      action="../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -133,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="../../../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
@@ -143,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -153,45 +151,40 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../../intro.html">
+                <a class="reference internal" href="../../intro.html">
                     About this Course
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">Week 1: Course Intro, Markdown, Latex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1.html">Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Determine your heart rate</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../max30102_version/lab2-max30102.html">Week 3: Finding Local Max in PPG Signal (Using MAX30102)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_notebooks/lab0.html">Week 1: Course Intro, Markdown, Latex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_notebooks/lab1.html">Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Estimate your blood flow</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">Week 4: Estimate Blood Flow from PPG Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_estimate_blood_flow/lab3.html">Week 4: Estimate Blood Flow from PPG Data</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the heights of tall and far away things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">Week 6-7: Build an Inclinometer (Objects on Hardware)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">Week 6-7: Build an Inclinometer (Objects on Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/c_make_the_measurements/lab4c.html">Week 8-9: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/d_error_analysis/lab4d.html">Week 10: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/e_symbolic_error/lab4e.html">Week 11: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the speeds of nearby things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_measure_speeds/a_derivatives/lab5a.html">Week 12: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_measure_speeds/b_build_a_tool/lab5b.html">Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Design a project of your own</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
 </ul>
 
     </div>
@@ -263,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/2_determine_heart_rate/ppg_version/lab2-ppg.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/2_determine_heart_rate/lab2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../../_sources/labs/2_determine_heart_rate/ppg_version/lab2-ppg.ipynb" target="_blank"
+      <li><a href="../../_sources/labs/2_determine_heart_rate/lab2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)</h1>
+    <h1>Week 3: Finding Local Max in PPG Signal</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -400,11 +393,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-data-acquisition-span"><span style="color:orange;"> 2. Data Acquisition </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">Loading firmware onto the microcontroller</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-it-up">Wiring it up</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-data">Acquiring data</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">Loading firmware onto the microcontroller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-to-read-the-next-steps-carefully">(Make sure to read the next steps carefully!!)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-it-up">Wiring it up</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-data">Acquiring data!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span"><span style="color:orange;"> 3. Analysis </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
@@ -422,10 +418,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-3-finding-local-max-in-ppg-signal-using-ppg-sensor">
-<h1>Week 3: Finding Local Max in PPG Signal (Using PPG Sensor)<a class="headerlink" href="#week-3-finding-local-max-in-ppg-signal-using-ppg-sensor" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-3-finding-local-max-in-ppg-signal">
+<h1>Week 3: Finding Local Max in PPG Signal<a class="headerlink" href="#week-3-finding-local-max-in-ppg-signal" title="Permalink to this heading">#</a></h1>
 <p><font size="6"> Laboratory 2  </font> <br>
-<font size="3"> Last updated January 24, 2023 </font></p>
+<font size="3"> Last updated September 7, 2023</font></p>
 <section id="span-style-color-orange-00-content-span">
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
@@ -466,6 +462,7 @@ document.write(`
 <ul class="simple">
 <li><p>Microcontroller: Raspberry Pi Pico</p></li>
 <li><p>Pulse sensor</p></li>
+<li><p>Ceramic Capacitor</p></li>
 <li><p>Breadboard</p></li>
 <li><p>USB connector</p></li>
 </ul>
@@ -536,34 +533,61 @@ x = t + \varepsilon.
 </section>
 <section id="span-style-color-orange-2-data-acquisition-span">
 <h2><span style="color:orange;"> 2. Data Acquisition </span><a class="headerlink" href="#span-style-color-orange-2-data-acquisition-span" title="Permalink to this heading">#</a></h2>
-<p>You will collect data today using the <a class="reference external" href="https://pulsesensor.com/pages/about-us">Pulse Sensor</a>, which shines a bright light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
-<p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code. Have a look at the script <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/main.py">main.py</a>. It does a very simple thing: it listens for a message containing a sample rate and a number of samples. Then, with the frequency given in the message, it measures the voltage on a specific pin and sends a message with that measurement. It does this the specified number of times, and then sends the message <code class="docutils literal notranslate"><span class="pre">&quot;done&quot;</span></code>.</p>
+<p>You will collect data today using the <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/max30102.pdf">MAX30102 heart rate sensor module</a>, which shines an invisible infrared light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
+<p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code.</p>
 <section id="span-style-color-red-exercise-3-span">
 <h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this heading">#</a></h3>
-<p>Before moving on, we should decide on a sampling frequency – that is, how often do you want to know your approximate blood pressure? As we saw in Lab 1, it would be easy to get the wrong impression from an oscillating signal if you don’t sample frequently enough. Considering the range of possible heart rates for adults, how would you choose the sampling rate?  Write your choice below, along with your reasoning for choosing that sampling rate. (Hint: Take a look at the estimate of heart rates for adults online!)</p>
+<p>Before moving on, we should decide on a sampling frequency – that is, how often do you want to know your approximate blood pressure? As we saw in Lab 1, it would be easy to get the wrong impression from an oscillating signal if you don’t sample frequently enough. Considering the range of possible heart rates for adults, how would you choose the sampling rate?  Write your choice below, along with your reasoning for choosing that sampling rate.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
+</section>
 <section id="loading-firmware-onto-the-microcontroller">
-<h3>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this heading">#</a></h3>
+<h2>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this heading">#</a></h2>
+<section id="make-sure-to-read-the-next-steps-carefully">
+<h3>(Make sure to read the next steps carefully!!)<a class="headerlink" href="#make-sure-to-read-the-next-steps-carefully" title="Permalink to this heading">#</a></h3>
 <p>Open up Thonny. <a class="reference external" href="https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3">Follow the directions here</a> to install the Micropython firmware on the Pico. The following page at that link has directions for testing to make sure it’s working.</p>
-<p>Use Thonny’s file manager to transfer <code class="docutils literal notranslate"><span class="pre">main.py</span></code> to the Pico. Now, whenever you plug in the pico, it will run <code class="docutils literal notranslate"><span class="pre">main.py</span></code>.</p>
+<p>Firstly, copy and paste <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/main.py">this code</a> into thonny, and save it onto the Pico as <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. Now, whenever you plug in the pico, it will run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> automatically.</p>
+<p>Next up, run the following cell. This will download a folder called <code class="docutils literal notranslate"><span class="pre">max30102/</span></code> into your Downloads folder. After you have done that, pull up thonny, and on the top bar under ‘View’, select ‘Files’. This will bring up a bar on the side that you can use to transfer the file onto your Pico. In this side bar, navigate to your Downloads folder (If you get lost, you can find it at <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">Computer/home/shay/a/&quot;your</span> <span class="pre">username&quot;/Downloads</span></code>), right click the <code class="docutils literal notranslate"><span class="pre">max30102/</span></code> folder, then press ‘Upload to /’. This will copy the entire folder onto your Pico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+cd ~/Downloads
+if [ -d &quot;./max30102/&quot; ]; then
+    rm -r &quot;./max30102&quot;
+fi
+mkdir max30102
+cd max30102
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102/circular_buffer.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102/__init__.py
+cd ..
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, run the following block to download the <a class="reference external" href="http://heartbeat.py">heartbeat.py</a> module, which we will use later</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/heartbeat.py
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="wiring-it-up">
 <h3>Wiring it up<a class="headerlink" href="#wiring-it-up" title="Permalink to this heading">#</a></h3>
 <p>We have the computer talking to the microcontroller, now we just need the Pulse Sensor talking to the microcontroller. To do this, we will use a “bread board”. The name “bread board” comes from the old days of electronics when people would prototype their projects by nailing them to a cutting board. With a modern bread board, you don’t need nails.</p>
-<p>There are three wires on the Pulse Sensor, and three connections we have to make. We will use tiny metal clips which are sitting inside the bread board. The clips are arranged in rows – see the example your instructor has taken apart.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
-<p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/pico_datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with a “+” on the Pulse Sensor. Connect the wire labeled “-” to the pin labeled “AGND”. Connect the pin labeled “ADC0” to the other wire, which is labeled “S”. Finally, connect a ceramic capacitor between “AGND” and “ADC0”.</p>
-<p><img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/pico_on_breadboard_png?raw=true" />
-<img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/hr_sensor_labels_png?raw=true" />
-<img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/hr_sensor_pad_png?raw=true" /></p>
+<p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Look for the pin labeled “3V3(OUT)”. Connect this to the wire labeled with “VIN” on the Pulse Sensor. Connect the pin labeled “GND” on the sensor to a  “GND” on the breadboard. Connect the pin labeled “SDA” to the first pin on the pico, labelled “I2C0 SDA” in blue on the pinout diagram. Then similarly, connect the pin labeled “SCL” to the second pin on the pico, labelled “I2C0 SCL”, also in blue. Finally, connect a ceramic capacitor between “3V3(OUT)” and the “GND” pin you used for your pico.</p>
+<p><img alt="sensor pins" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/max30102_version/sensor_pins.png?raw=true" />
+<img alt="wiring example" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/max30102_version/wiring_example.jpg?raw=true" />
+<img alt="capacitor placement" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/max30102_version/capacitor_placement.jpg?raw=true" /></p>
 <p><strong>At this point, check with your instructor to make sure you have it configured correctly.</strong> If it is wired incorrectly, there is a chance that powering it on could damage either the Pico or the Pulse Sensor.</p>
 <p>Once you have checked with your instructor, you can plug the Pico into your computer and move on to the next step.</p>
-<p><img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/connected_hr_sensor_png?raw=true" /></p>
+</section>
 </section>
 <section id="acquiring-data">
-<h3>Acquiring data<a class="headerlink" href="#acquiring-data" title="Permalink to this heading">#</a></h3>
-<p>Now we are ready to acquire the data! Be careful while following these steps, as not following them properly could lead to the lab failing to acquire data. Open Thonny and save <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/main.py">main.py</a>. Then, run the code using the <code class="docutils literal notranslate"><span class="pre">run</span></code> button in Thonny. The run button will look like a green arrow, located towards the top of your application. Once you press run, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> from  a couple seconds afterwards. The <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> button can be found in the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu at the top of the application. This will allow our program here to pick up the connection, putting the data directly into a plot.</p>
-<p>Download <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/heartbeat.py">heartbeat.py</a> and run the following cell. That will create an empty plot which we will fill in using another cell below. Notice that the sampling rate is not specified – you have to fill it in.</p>
+<h2>Acquiring data!<a class="headerlink" href="#acquiring-data" title="Permalink to this heading">#</a></h2>
+<p><strong>Read this carefully!</strong> Now we are ready to acquire the data. Be careful while following these steps, as not following them properly could lead to the lab failing to acquire data. Open Thonny and save <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/main.py">main.py</a>. Then, run the code using the <code class="docutils literal notranslate"><span class="pre">run</span></code> button in Thonny. The run button will look like a green arrow, located towards the top of your application. Once you press run, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> from  a couple seconds afterwards. The <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> button can be found in the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu at the top of the application. This will allow our program here to pick up the connection, putting the data directly into a plot. Go ahead and run the following block to start our graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -571,7 +595,7 @@ x = t + \varepsilon.
 <span class="kn">from</span> <span class="nn">heartbeat</span> <span class="kn">import</span> <span class="n">acquire</span>
 <span class="o">%</span><span class="k">matplotlib</span> widget
 
-<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># samples per second</span>
 <span class="n">sampling_duration</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># seconds</span>
 <span class="n">number_of_samples</span> <span class="o">=</span> <span class="n">sampling_rate</span> <span class="o">*</span> <span class="n">sampling_duration</span>
 
@@ -581,51 +605,47 @@ x = t + \varepsilon.
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">line</span><span class="p">,</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sampling_duration</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># setting the lower and upper limits of the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50000</span><span class="p">)</span> <span class="c1"># ADJUST THIS HERE until you can identify your heartbeat</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, touch the pad of your finger to the side of the heart monitor with a picture of a heart on it.
-Your finger should be barely touching it – don’t apply pressure. Once you have it situated correctly, run the following cell to acquire data. This cell has a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop in it, which will just run forever unless we do something to stop it. Once you have found your pulse, hit the “stop” button at the top of the page to leave the loop. What it shows will be stored.</p>
+<p>Next, run the following cell. Notice that this cell has a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop in it, which will continue to acquire data until we decide to stop it. Place your finger on the sensor module, and see if you can see movement on the graph above. <strong>Notice here</strong> that the graph will probably look pretty flat, this is because we are zoomed out quite a bit on the y axis. Adjust the second to last line of the code block above until you can notice your heartbeat in the graph. Once the graph of your heart rate looks pretty constant, go ahead and click the stop button at the top of this window (the dark gray square) when the readings reach the right side of the graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">acquire</span><span class="p">(</span><span class="n">rate</span> <span class="o">=</span> <span class="n">sampling_rate</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="p">)</span>
+        <span class="n">acquire</span><span class="p">(</span><span class="n">sampling_rate</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">number_of_samples</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done acquiring!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done acquiring!
-</pre></div>
-</div>
-</div>
 </div>
 <p>Re-run the above cell as many times as you need to get a good, clean measurement which shows a clear heartbeat pattern. On me, it looks something like this:</p>
-<p><img alt="img" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/example_heartbeat.png?raw=true" /></p>
-<p>Once you have a good measurement, run the following cell to save your measurement to a file.</p>
+<p><img alt="example heartbeat" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/max30102_version/data_example.png?raw=true" /></p>
+<p><strong>This is important:</strong> Once you have a good measurement, run the following cell to save your measurement to a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;og_heartbeat.txt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;heartbeat.txt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This sensor sometimes has difficulty getting a reading for some people. While we do not know exactly what factors contribute to this, there are plenty of reasons it might not work, including skin quality, natural oil, applied oils, and even skin color might be impacting the results. As such, if you are not able to get a reading after a few tries, use the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/ppg_version/example_heartbeat.txt">example_heartbeat.txt</a> file for the rest of the lab.</p>
+<p>This sensor sometimes has difficulty getting a reading for some people. While we do not know exactly what factors contribute to this, there are plenty of reasons it might not work, including skin quality, natural oil, applied oils, and even skin color might be impacting the results. As such, if you are not able to get a reading after a few tries, use the <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/max30102_version/example_heartbeat.txt">example_heartbeat.txt</a> file for the rest of the lab.</p>
 <p>Have a look at the file you just made - or the example file, if needed (you should be able to open it right here in Jupyterlab). You should see a long list of numbers.</p>
-<p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, we saved a copy of your data above using the command np.save before continuing.</p>
-</section>
+<p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, we have saved another copy of your results above to a file named ‘heartbeat.txt’</p>
 </section>
 <section id="span-style-color-orange-3-analysis-span">
 <h2><span style="color:orange;"> 3. Analysis </span><a class="headerlink" href="#span-style-color-orange-3-analysis-span" title="Permalink to this heading">#</a></h2>
 <p>Here is how to load your data file back into Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;og_heartbeat.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;heartbeat.txt&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>  <span class="c1"># show me just the first 20 entries</span>
 </pre></div>
@@ -646,10 +666,10 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <p>Unfortunately the x-axis is all wrong – it is just counting measurements one by one, not giving us the actual time of each measurement. To fix this, we can make an array which has the time each measurement was taken.</p>
 <section id="span-style-color-red-exercise-4-span">
 <h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this heading">#</a></h3>
-<p>Make an array called <code class="docutils literal notranslate"><span class="pre">t</span></code> which has the time corresponding to each measurement. If you feel stuck, look at the previous notebook for inspiration.</p>
+<p>Make an array called <code class="docutils literal notranslate"><span class="pre">t</span></code> which has the time corresponding to each measurement. We need an array that can function as the values for the x-axis. If you feel stuck, look at the previous notebook for inspiration.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span>  <span class="c1"># ANSWER HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="c1"># create your array here</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -688,13 +708,13 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </div>
 </div>
 </div>
-<p>Notice that the signal is smoother, but there is still some unwanted jiggle to it. Increase the number of terms in the average until it goes up and down smoothly.</p>
+<p>Notice that the signal is smoother, but there is still some unwanted jiggle to it. Increase the number of terms in the average until it goes up and down smoothly and only peaks at the highest points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">averaged</span> <span class="o">=</span> <span class="n">rolling_centered_average</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">)</span>  <span class="c1"># You fill in an appropriate number</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="c1">#plt.xlim(0.1, 2.1)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -709,7 +729,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <span class="n">increasing</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">averaged</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;</span> <span class="n">averaged</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">increasing</span><span class="p">],</span> <span class="n">averaged</span><span class="p">[</span><span class="n">increasing</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -767,7 +787,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 <section id="that-s-all-for-today">
 <h3>That’s all for today!<a class="headerlink" href="#that-s-all-for-today" title="Permalink to this heading">#</a></h3>
 <p>Well done! Today we learned a bit about the terminology of error analysis, we learned how to interface with a microcontroller using Python, and we developed a procedure for computing the BPM from a photoplethysmogram sensor. In next week’s lab, we will learn how to make that process automatic, and do a more sophisticated analysis of the data you collected today.</p>
-<p>Make sure you save the code you wrote today, because you will need it next week (you can hit the save button at the top of the notebook). Then, make sure to submit <strong>both</strong> notebooks you used today to Gradescope.</p>
+<p>Make sure you save the code you wrote today, because you will need it next week (you can hit the save button at the top of the notebook). Then, make sure to submit your notebook you used today to Gradescope.</p>
 </section>
 </section>
 </section>
@@ -785,7 +805,7 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
         },
         kernelOptions: {
             name: "python3",
-            path: "./labs/2_determine_heart_rate/ppg_version"
+            path: "./labs/2_determine_heart_rate"
         },
         predefinedOutput: true
     }
@@ -803,24 +823,6 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../max30102_version/lab2-max30102.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week 3: Finding Local Max in PPG Signal (Using MAX30102)</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../../3_estimate_blood_flow/lab3.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 4: Estimate Blood Flow from PPG Data</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -854,11 +856,14 @@ Your finger should be barely touching it – don’t apply pressure. Once you ha
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-data-acquisition-span"><span style="color:orange;"> 2. Data Acquisition </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">Loading firmware onto the microcontroller</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-it-up">Wiring it up</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-data">Acquiring data</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">Loading firmware onto the microcontroller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-to-read-the-next-steps-carefully">(Make sure to read the next steps carefully!!)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-it-up">Wiring it up</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-data">Acquiring data!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span"><span style="color:orange;"> 3. Analysis </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
@@ -912,8 +917,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
