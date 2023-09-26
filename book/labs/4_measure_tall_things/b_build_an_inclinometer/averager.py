@@ -81,6 +81,7 @@ class Averager:
             the number to put into the list.
         """
         raise NotImplementedError("This is an exercise for the student")
+        # ^ replace this line with your code
         
     def get(self):
         """Find the average of all the numbers in the list and return it.
@@ -91,6 +92,8 @@ class Averager:
             the average of all the items in the list.
         """
         raise NotImplementedError("This is an exercise for the student")
+        # ^ replace this line with your code
+
         # Hints:
         # - the built-in function sum is available
         # - you can find the length of self.list using the built-in function len
