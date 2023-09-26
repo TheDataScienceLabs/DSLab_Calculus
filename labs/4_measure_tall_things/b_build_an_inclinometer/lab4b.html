@@ -503,13 +503,13 @@ if [ -d &quot;./lab4B/&quot; ]; then
 fi
 mkdir lab4B
 cd lab4B
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/ssd1306.py
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/procedural_clock.py
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/classy_clock.py
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/button.py
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/imu.py
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/vector3d.py
-wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/ssd1306.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/procedural_clock.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/classy_clock.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/button.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/imu.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/vector3d.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/accelerometer.py
 cd ..
 </pre></div>
 </div>
@@ -538,8 +538,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </section>
 <section id="span-style-color-orange-2-the-button-span">
 <h2><span style="color:orange;"> 2. The Button </span><a class="headerlink" href="#span-style-color-orange-2-the-button-span" title="Permalink to this heading">#</a></h2>
-<p>You have been provided a button. It is a very common type, more precisely called a <em>tactile switch</em>. It has four legs, but opposite pairs of them are connected internally, so there are only two electrical connections to be made. Have a look at the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/TL1105.pdf">data sheet</a> for the TL1105 tactile switch, which shows a schematic of how the legs are connected. <em>Hint: look at the numbers assigned to each leg of the switch.</em></p>
-<p>Connect one side of the button to a ground pin of the Pico and connect the other side to any GP (general purpose) pin with wires on the breadboard (you may need to use the <a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">pico_datasheet.pdf</a>). Then open up <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/button.py">button.py</a> in Thonny and configure it according to what pin you chose, replacing the zero with the GP number of the pin, the one in the green box (eg GP0 would be 0, GP10 would be 10). Go ahead and run the program, the built-in LED should turn on only while the button is pressed.</p>
+<p>You have been provided a button. It is a very common type, more precisely called a <em>tactile switch</em>. It has four legs, but opposite pairs of them are connected internally, so there are only two electrical connections to be made. Have a look at the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/TL1105_datasheet.pdf">TL1105 data sheet</a> for the TL1105 tactile switch, which shows a schematic of how the legs are connected. <em>Hint: look at the numbers assigned to each leg of the switch.</em></p>
+<p>Connect one side of the button to a ground pin of the Pico and connect the other side to any GP (general purpose) pin with wires on the breadboard (you may need to use the <a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">pico datasheet</a>). Then open up <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/button.py">button.py</a> in Thonny and configure it according to what pin you chose, replacing the zero with the GP number of the pin, the one in the green box (eg GP0 would be 0, GP10 would be 10). Go ahead and run the program, the built-in LED should turn on only while the button is pressed.</p>
 <section id="span-style-color-red-exercise-1-span-10-pts">
 <h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-10-pts" title="Permalink to this heading">#</a></h3>
 <p>Modify <code class="docutils literal notranslate"><span class="pre">button.py</span></code> so that instead of coming on while the button is pressed, pressing the button toggles the LED on and off. There are many ways to do this; try and be creative, and if you get stuck, ask for help from an instructor or a classmate. Here are a couple ideas which might get you moving:</p>
@@ -571,7 +571,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </section>
 <section id="two-clocks">
 <h3>Two clocks<a class="headerlink" href="#two-clocks" title="Permalink to this heading">#</a></h3>
-<p>Usually the easiest way to learn a new tool is to see it used. As an example, we have provided two programs (which you have installed earlier) that do the same thing using the OLED display. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/procedural_clock.py">procedural_clock.py</a> draws a clock on the display by performing a sequence of actions one after another, inside a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/classy_clock.py">classy_clock.py</a> does the exact same steps, but wraps everything to do with the display into one class and defines methods on the class to do the various parts. Note that in practice you would usually define any classes you are using in a separate module, and import those classes into your main file. We have chosen to put the class definition at the bottom of the file to make it easier for you to compare them.</p>
+<p>Usually the easiest way to learn a new tool is to see it used. As an example, we have provided two programs (which you have installed earlier) that do the same thing using the OLED display. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/procedural_clock.py">procedural_clock.py</a> draws a clock on the display by performing a sequence of actions one after another, inside a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/classy_clock.py">classy_clock.py</a> does the exact same steps, but wraps everything to do with the display into one class and defines methods on the class to do the various parts. Note that in practice you would usually define any classes you are using in a separate module, and import those classes into your main file. We have chosen to put the class definition at the bottom of the file to make it easier for you to compare them.</p>
 <p>In terms of what they do, both of these programs are identical. Their difference lies in how easy they are to read and how easy they are to modify.</p>
 </section>
 <section id="span-style-color-red-exercise-2-span-20-pts">
@@ -605,10 +605,12 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tbody>
 </table>
 <p>If you are uncertain about your wiring, then ask for an instructor to check it over. If you are confident in your wiring you can continue. It should look as shown in the image below.</p>
-<p><img alt="wired screen" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/3c582703e2eac9b14caafe1b89b16e4872ff7f2b/book/labs/4_measure_tall_things/b_build_an_inclinometer/display_example.jpg?raw=true" /></p>
+<div>
+<img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/display_example.jpg" width="700"/>
+</div>
 <section id="span-style-color-red-exercise-3-span-5-pts">
 <h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this heading">#</a></h3>
-<p>You should have uploaded the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/ssd1306.py">ssd1306.py</a> onto your Pico using Thonny earlier. This provides a class for interacting with the specific OLED displays we are using. Then, pick your favorite of the clock programs and run it. If you choose to use different I2C pins than the examply above you may need to modify the line which sets up the I2C bus according to the specific SCL and SDA pins you choose (using the number labeled with GP on the datasheet, not the SCL or SDA numbers) as well as the <code class="docutils literal notranslate"><span class="pre">id</span></code> to 0 for I2C0 or 1 for I2C1. Once you have one of the clocks up and running, just write a note below indicating that you have done so.</p>
+<p>You should have uploaded the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/ssd1306.py">ssd1306.py</a> onto your Pico using Thonny earlier. This provides a class for interacting with the specific OLED displays we are using. Then, pick your favorite of the clock programs and run it. If you choose to use different I2C pins than the examply above you may need to modify the line which sets up the I2C bus according to the specific SCL and SDA pins you choose (using the number labeled with GP on the datasheet, not the SCL or SDA numbers) as well as the <code class="docutils literal notranslate"><span class="pre">id</span></code> to 0 for I2C0 or 1 for I2C1. Once you have one of the clocks up and running, just write a note below indicating that you have done so.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 </section>
 <section id="span-style-color-orange-4-the-accelerometer-span">
@@ -639,8 +641,10 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tr>
 </tbody>
 </table>
-<p>It should look as shown in the image below.
-<img alt="wired accelerometer" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/3c582703e2eac9b14caafe1b89b16e4872ff7f2b/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer_example.jpg?raw=true" /></p>
+<p>It should look as shown in the image below.</p>
+<div>
+<img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer_example.jpg" width="700"/>
+</div>
 <p>Verify that <code class="docutils literal notranslate"><span class="pre">imu.py</span></code> and <code class="docutils literal notranslate"><span class="pre">vector3d.py</span></code> are loaded onto the Pico, and then run the file <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> in Thonny. Again you may need to modify <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> so that the line where the I2C bus is configured uses the right pins. You should see it printing values in Thonny.</p>
 </section>
 <section id="span-style-color-red-exercise-4-span-10-pts">
@@ -824,7 +828,9 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tbody>
 </table>
 <p>The pins on the 7805 are not labeled. You will have to check the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/L7805CV_datasheet.pdf">data sheet</a>. <strong>Do not connect the battery until you have had your circuit checked by an instructor.</strong> The correctly wired voltage regulator should look as shown in the image below.</p>
-<p><img alt="voltage regulator example" src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/3c582703e2eac9b14caafe1b89b16e4872ff7f2b/book/labs/4_measure_tall_things/b_build_an_inclinometer/battery_wiring.jpg" /></p>
+<div>
+<img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/battery_wiring.jpg" width="700"/>
+</div>
 <p>Once you have had your circuit checked, try turning it on. <strong>Do not take your circuit apart this time</strong>. You will need it next week.</p>
 </section>
 </section>
