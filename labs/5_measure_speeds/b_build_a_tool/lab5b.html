@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -141,6 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -355,6 +356,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -364,6 +366,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -434,7 +437,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="week-13-build-a-distance-measurement-distance-tool-using-an-ultrasonic-sensor-data-cleaning-and-micropython">
 <h1>Week 13: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)<a class="headerlink" href="#week-13-build-a-distance-measurement-distance-tool-using-an-ultrasonic-sensor-data-cleaning-and-micropython" title="Permalink to this heading">#</a></h1>
 <p><font size="6">  Laboratory 5b </font> <br>
-<font size="3"> Last updated April 11, 2023</font></p>
+<font size="3"> Last updated Nov 30, 2023</font></p>
 <section id="span-style-color-orange-00-content-span">
 <h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
 <p><font size="5">Mathematics</font></p>
@@ -655,7 +658,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <h3><span style="color:red;"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this heading">#</a></h3>
 <p>Look in <a class="reference external" href="https://docs.micropython.org/en/latest/library/machine.html">the official documentation for Micropython</a> to find what the parameters of <code class="docutils literal notranslate"><span class="pre">time_pulse_us</span></code> do. Pick a sensible choice for the parameter <code class="docutils literal notranslate"><span class="pre">timeout_us</span></code>. Make sure your choice is based on the measurement you have taken. What range of distances are you going to measure? What range of possible echo times does that correspond to? Explain your choice here, and modify <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code> to use your choice.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3><p>Now that we have chosen that parameter sensibly, the microcontroller will spend less time waiting for an echo which will never arrive, and more time giving us useful information.</p>
-<p>Make a measurement using your new version of <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code>, and save it as <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">mesurement.txt</span></code>. Load it here, into the same variables <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
+<p>Make a measurement using your new version of <code class="docutils literal notranslate"><span class="pre">ultrasonic.py</span></code>, and save it as <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">measurement.txt</span></code>. Load it here, into the same variables <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> and <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load in the data from second_measurement.txt</span>
@@ -939,7 +942,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../a_derivatives/lab5a.html"
@@ -1020,6 +1023,7 @@ By Mireille Boutin, Alden Bradford
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1046,8 +1050,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
