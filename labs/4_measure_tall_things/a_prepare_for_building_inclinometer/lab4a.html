@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'labs/4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -218,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -359,10 +370,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -370,14 +381,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -398,32 +409,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-namespaces-span"><span style="color:orange;"> 1. Namespaces </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces"><span style="color:orange;"> 1. Namespaces </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advantages-of-namespaces">More advantages of namespaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-of-poetry">A bit of poetry</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-modules-span"><span style="color:orange;"> 2. Modules </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-20-pts"><span style="color:red"> Exercise 3 </span> (20 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-20-pts"><span style="color:red"> Exercise 4 </span> (20 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-20-pts"><span style="color:red"> Exercise 5 </span> (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules"><span style="color:orange;"> 2. Modules </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-20-pts"><span style="color:red"> Exercise 3 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-20-pts"><span style="color:red"> Exercise 4 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-20-pts"><span style="color:red"> Exercise 5 </span> (20 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-objects-span"><span style="color:orange;"> 3. Objects </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects"><span style="color:orange;"> 3. Objects </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-object-methods">Using object methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-our-own-classes">Writing our own classes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-15-pts"><span style="color:red"> Exercise 7 </span> (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-15-pts"><span style="color:red"> Exercise 7 </span> (15 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-inheritance-span"><span style="color:orange;"> 4. Inheritance </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance"><span style="color:orange;"> 4. Inheritance </span></a></li>
 </ul>
             </nav>
         </div>
@@ -433,14 +444,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-5-prep-to-build-an-inclinometer-namespaces-modules-objects">
-<h1>Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)<a class="headerlink" href="#week-5-prep-to-build-an-inclinometer-namespaces-modules-objects" title="Permalink to this heading">#</a></h1>
+<h1>Week 5: Prep to Build an Inclinometer (Namespaces, Modules, Objects)<a class="headerlink" href="#week-5-prep-to-build-an-inclinometer-namespaces-modules-objects" title="Link to this heading">#</a></h1>
 <p><font size="6">  Laboratory 4a </font> <br>
 <font size="3"> Last updated September 21st, 2023 </font></p>
-<section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>N/A</p></li>
@@ -458,8 +469,8 @@ document.write(`
 <li><p>N/A</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>N/A</p></li>
 </ul>
@@ -471,14 +482,14 @@ Last week you ran a script to download student_info.py and updated it with your 
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
 
-<span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">student_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_info</span>
 <span class="n">show_info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="additional-lab-materials">
-<h3>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this heading">#</a></h3>
+<h3>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Link to this heading">#</a></h3>
 <p>In addition to the student_info.py file, you’ll need a couple more specific Python files to complete this lab. Run the following cell to download those files to your current directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,8 +502,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-1-namespaces-span">
-<h2><span style="color:orange;"> 1. Namespaces </span><a class="headerlink" href="#span-style-color-orange-1-namespaces-span" title="Permalink to this heading">#</a></h2>
+<section id="namespaces">
+<h2><span style="color:orange;"> 1. Namespaces </span><a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
 <p>We are going to start dealing with more complicated systems in the coming weeks. Next week, you will make a piece of measurement equipment, including a display, buttons, and sensor. If we kept track of everything using their own variable names, we would have to make long names, like <code class="docutils literal notranslate"><span class="pre">screen_data_pin_number_1</span></code>, for example. There are a few problems with that approach:</p>
 <ul class="simple">
 <li><p>long variable names are hard to remember</p></li>
@@ -508,7 +519,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>Namespaces are one of several ways that we deal with this in Python. Namespaces are so common that you have already been using them, you just didn’t know it. Let’s look at an example using namespaces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
 
 <span class="n">alden</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alden&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">27</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">alden</span><span class="p">)</span>
@@ -533,7 +544,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>We can see that there are three variables living inside the variable <code class="docutils literal notranslate"><span class="pre">alden</span></code>, and they each have a relatively short name. We have a special name for these variables: they are called “attributes”. We would say <code class="docutils literal notranslate"><span class="pre">age</span></code> is an attribute of <code class="docutils literal notranslate"><span class="pre">alden</span></code>. We access the attributes using the <code class="docutils literal notranslate"><span class="pre">.</span></code> which probably looks familiar to you; we have been using attributes every time we load up a package like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 
 <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 </pre></div>
@@ -542,7 +553,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <p>Both the function <code class="docutils literal notranslate"><span class="pre">cos</span></code> and the number <code class="docutils literal notranslate"><span class="pre">pi</span></code> are attributes in the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> namespace, so we refer to them using a <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
 <section id="more-advantages-of-namespaces">
-<h3>More advantages of namespaces<a class="headerlink" href="#more-advantages-of-namespaces" title="Permalink to this heading">#</a></h3>
+<h3>More advantages of namespaces<a class="headerlink" href="#more-advantages-of-namespaces" title="Link to this heading">#</a></h3>
 <p>Another way namespaces are better than just having long function names is that we can pass them around in their own variables. We could write, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -565,7 +576,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>Now we can write a function which takes in just one argument and have it work on either instructor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">instructor</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">instructor</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My instructor&#39;s name is </span><span class="si">{}</span><span class="s2">. They are </span><span class="si">{}</span><span class="s2"> years old and in grade </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instructor</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">instructor</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">instructor</span><span class="o">.</span><span class="n">grade</span><span class="p">))</span>
     
 
@@ -577,8 +588,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <p>This helps us to make more flexible, modular code.</p>
 </section>
-<section id="span-style-color-red-exercise-1-span-10-pts">
-<h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-10-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-1-10-pts">
+<h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#exercise-1-10-pts" title="Link to this heading">#</a></h3>
 <p>The following code is a mess! Use namespaces to make it more readable.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,7 +613,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <span class="n">skytree_weight</span> <span class="o">=</span> <span class="mi">32_600_000</span>
 <span class="n">skytree_bmi</span> <span class="o">=</span> <span class="mi">32_600_000</span><span class="o">/</span><span class="mi">634</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="k">def</span> <span class="nf">describe_bmi</span><span class="p">(</span><span class="n">tower_name</span><span class="p">,</span> <span class="n">tower_height</span><span class="p">,</span> <span class="n">tower_weight</span><span class="p">,</span> <span class="n">tower_bmi</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_bmi</span><span class="p">(</span><span class="n">tower_name</span><span class="p">,</span> <span class="n">tower_height</span><span class="p">,</span> <span class="n">tower_weight</span><span class="p">,</span> <span class="n">tower_bmi</span><span class="p">):</span>
     <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;The </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> meters tall and weighs </span><span class="si">{}</span><span class="s2"> kilograms. &quot;</span>
                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tower_name</span><span class="p">,</span> <span class="n">tower_height</span><span class="p">,</span> <span class="n">tower_weight</span><span class="p">)</span>
               <span class="p">)</span>
@@ -627,19 +638,19 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 <section id="a-bit-of-poetry">
-<h3>A bit of poetry<a class="headerlink" href="#a-bit-of-poetry" title="Permalink to this heading">#</a></h3>
+<h3>A bit of poetry<a class="headerlink" href="#a-bit-of-poetry" title="Link to this heading">#</a></h3>
 <p>To give you an idea of just how important namespaces are to understanding Python, read the following poem which is included in every installation of Python. Pay particular attention to the last line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-2-modules-span">
-<h2><span style="color:orange;"> 2. Modules </span><a class="headerlink" href="#span-style-color-orange-2-modules-span" title="Permalink to this heading">#</a></h2>
+<section id="modules">
+<h2><span style="color:orange;"> 2. Modules </span><a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
 <p>Namespaces in Python are much more than a trick for writing clean code (though they do help with that). As we noted above, whenever you do an import you are assigning a namespace to a variable. In fact, whenever you use any variable in Python, it is being used in a namespace. Usually the code that you write yourself lives in the so-called “global” namespace – the idea is that everything else lives inside that space. We can access our current namespace using the built-in function <code class="docutils literal notranslate"><span class="pre">dir</span></code>, which is meant to be short for “directory”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,7 +678,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>What’s the point of this? Just to show that every variable in Python lives in some namespace. When we import a module, all the code inside it is run right away. Then, all its variables are made available in the namespace we loaded. Open up the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/a_prepare_for_building_inclinometer/example_module.py">example_module.py</a> and see what’s written inside. Then, run the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">example_module</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">example_module</span>
 </pre></div>
 </div>
 </div>
@@ -723,13 +734,13 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <p>Here we are using the special keyword <code class="docutils literal notranslate"><span class="pre">is</span></code>, which checks whether two variables point to the exact same thing.</p>
 <p>One mystery still remains: what’s that block at the bottom of the module, inside the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement? We saw that when importing the module, the variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code> had the value <code class="docutils literal notranslate"><span class="pre">&quot;example_module&quot;</span></code>, not the value <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>. Surely it would never run. So why include it at all?</p>
-<section id="span-style-color-red-exercise-2-span-5-pts">
-<h3><span style="color:red"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-2-5-pts">
+<h3><span style="color:red"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#exercise-2-5-pts" title="Link to this heading">#</a></h3>
 <p>To see why, open up a terminal inside Jupyter and navigate to this directory. Then, type the command <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">example_module.py</span></code>. Paste the output below to demonstrate that you have done this. <em>(Hint: you can type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">my_folder/</span></code> to navigate into the folder named “my_folder”, and <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list everything in your current folder)</em></p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3><p>As you have seen, when we ran the code on its own (as the only program, not as a module in a larger program) its <code class="docutils literal notranslate"><span class="pre">__name__</span></code> was <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>. That meant it ran the block at the bottom of the module. You will see this all the time when reading other people’s code. People want to be able to import useful functions from other projects without running them, and people want to be able to run their project as its own program. By taking advantage of the variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code>, we get the best of both worlds.</p>
 </section>
-<section id="span-style-color-red-exercise-3-span-20-pts">
-<h3><span style="color:red"> Exercise 3 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-20-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-20-pts">
+<h3><span style="color:red"> Exercise 3 </span> (20 pts)<a class="headerlink" href="#exercise-3-20-pts" title="Link to this heading">#</a></h3>
 <p>Now that you have seen some of how importing modules works, you should write your own module. It should conform to the following specifications:</p>
 <ul class="simple">
 <li><p>name it <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code></p></li>
@@ -750,8 +761,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lab4a_check</span>
-<span class="kn">import</span> <span class="nn">my_module</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lab4a_check</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">my_module</span>
 <span class="n">lab4a_check</span><span class="o">.</span><span class="n">exercise_3</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -767,12 +778,12 @@ python3 my_module.py
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-4-span-20-pts">
-<h3><span style="color:red"> Exercise 4 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-20-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-20-pts">
+<h3><span style="color:red"> Exercise 4 </span> (20 pts)<a class="headerlink" href="#exercise-4-20-pts" title="Link to this heading">#</a></h3>
 <p>Now you know <em>how</em> to write a module. Why would you <em>want</em> to write a module? Come up with at least five reasons you might want to put code into a module and import it, rather than copying and pasting the code into a document to run it. Each reason should be in the form of 2-4 sentences.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3></section>
-<section id="span-style-color-red-exercise-5-span-20-pts">
-<h3><span style="color:red"> Exercise 5 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-20-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-5-20-pts">
+<h3><span style="color:red"> Exercise 5 </span> (20 pts)<a class="headerlink" href="#exercise-5-20-pts" title="Link to this heading">#</a></h3>
 <p>Make a module called <code class="docutils literal notranslate"><span class="pre">datalab.py</span></code> and fill it with useful functions we have written, such as:</p>
 <ul class="simple">
 <li><p>the <code class="docutils literal notranslate"><span class="pre">show_info</span></code> function you wrote in lab 3</p></li>
@@ -780,7 +791,7 @@ python3 my_module.py
 </ul>
 <p>In this document, demonstrate loading the module and using the functions inside of it. You will need to come up with examples which demonstrate what each function does clearly.
 Then run the following cell which will print the contents of your file in this document to be graded. You will be graded on the following scale:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
 <th class="head"><p>5 points</p></th>
@@ -806,10 +817,11 @@ Then run the following cell which will print the contents of your file in this d
 </tr>
 </tbody>
 </table>
+</div>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
-<span class="kn">import</span> <span class="nn">datalab</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datalab</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">datalab</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -817,8 +829,8 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-3-objects-span">
-<h2><span style="color:orange;"> 3. Objects </span><a class="headerlink" href="#span-style-color-orange-3-objects-span" title="Permalink to this heading">#</a></h2>
+<section id="objects">
+<h2><span style="color:orange;"> 3. Objects </span><a class="headerlink" href="#objects" title="Link to this heading">#</a></h2>
 <p>To review, we have introduced:</p>
 <ul class="simple">
 <li><p>the concept of a namespace.</p></li>
@@ -856,7 +868,7 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 </div>
 <section id="using-object-methods">
-<h3>Using object methods<a class="headerlink" href="#using-object-methods" title="Permalink to this heading">#</a></h3>
+<h3>Using object methods<a class="headerlink" href="#using-object-methods" title="Link to this heading">#</a></h3>
 <p>As you can see above, there are lots of attributes for even a simple object. Most of them start with <code class="docutils literal notranslate"><span class="pre">__</span></code>, which is a convention which means that most programmers won’t have to use that attribute – it’s handled by Python internally. Since these are methods which start with a double underscore, these are called “dunder methods”. As an example, look at the method <code class="docutils literal notranslate"><span class="pre">__len__</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -874,7 +886,7 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 </div>
 <p>In fact, that’s the first thing the function <code class="docutils literal notranslate"><span class="pre">len</span></code> tries when you call it: the function checks if the object you are calling it on has a method named <code class="docutils literal notranslate"><span class="pre">__len__</span></code>. The actual source code for <code class="docutils literal notranslate"><span class="pre">len</span></code> is written in C so that it runs faster, but if we wrote it in Python it would look something like this.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="s1">&#39;__len__&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
@@ -900,8 +912,8 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-6-span-10-pts">
-<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-10-pts">
+<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#exercise-6-10-pts" title="Link to this heading">#</a></h3>
 <p>Pick one of the methods of <code class="docutils literal notranslate"><span class="pre">&quot;hello&quot;</span></code> and use the built in <code class="docutils literal notranslate"><span class="pre">help</span></code> function to figure out how to use it. Demonstrate using the method as well.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 6 Below </h3><p>As you use Python more, you will become used to the methods of common types of objects. All strings, for example, have the same methods. If you want to know an object’s type, you can use the built in function <code class="docutils literal notranslate"><span class="pre">type</span></code>,</p>
 <div class="cell docutils container">
@@ -913,12 +925,12 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 </section>
 <section id="writing-our-own-classes">
-<h3>Writing our own classes<a class="headerlink" href="#writing-our-own-classes" title="Permalink to this heading">#</a></h3>
+<h3>Writing our own classes<a class="headerlink" href="#writing-our-own-classes" title="Link to this heading">#</a></h3>
 <p>Most of the time it’s easiest to use objects that are already built in to Python. However, it is frequently helpful to be able to make up new types of objects. The type of an object is also called its class. Python gives us a short, clear way to come up with new classes. Let’s revisit our buildings from before. Instead of making them simple namespaces, let’s define a new class. Here is the way we would write that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Building</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
@@ -952,14 +964,14 @@ Then run the following cell which will print the contents of your file in this d
 <p>Let’s get a bit more fancy. Instead of defining a function in the global namespace to describe a building, let’s make a method for the Building class which does the same description as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Building</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">weight</span><span class="o">/</span><span class="n">height</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;The </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> meters tall and weighs </span><span class="si">{}</span><span class="s2"> kilograms. &quot;</span>
                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
                   <span class="p">)</span>
@@ -1000,14 +1012,14 @@ Then run the following cell which will print the contents of your file in this d
 <p>By telling Python how to make it into a string, we will get a much nicer print message.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Building</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">weight</span><span class="o">/</span><span class="n">height</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;The </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> meters tall and weighs </span><span class="si">{}</span><span class="s2"> kilograms. &quot;</span>
                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
                   <span class="p">)</span>
@@ -1022,7 +1034,7 @@ Then run the following cell which will print the contents of your file in this d
         <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bmi</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;Building(&quot;</span><span class="si">{}</span><span class="s1">&quot;, </span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
         
 <span class="n">turbine</span> <span class="o">=</span> <span class="n">Building</span><span class="p">(</span><span class="s2">&quot;GE 1.5 Megawatt Wind Turbine&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150_000</span><span class="p">)</span>
@@ -1033,8 +1045,8 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 <p>This is usually the only way programmers interact with the dunder methods; by defining them yourself, you can make your classes interact better with the rest of Python.</p>
 </section>
-<section id="span-style-color-red-exercise-7-span-15-pts">
-<h3><span style="color:red"> Exercise 7 </span> (15 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-15-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-7-15-pts">
+<h3><span style="color:red"> Exercise 7 </span> (15 pts)<a class="headerlink" href="#exercise-7-15-pts" title="Link to this heading">#</a></h3>
 <p>Make a new class called <code class="docutils literal notranslate"><span class="pre">Monomial</span></code> to represent the monomial <span class="math notranslate nohighlight">\(a x^b\)</span> which takes two parameters, <code class="docutils literal notranslate"><span class="pre">coefficient</span></code> and <code class="docutils literal notranslate"><span class="pre">exponent</span></code>. It should have a single method <code class="docutils literal notranslate"><span class="pre">derivative</span></code> which returns a new <code class="docutils literal notranslate"><span class="pre">Monomial</span></code>, representing the derivative of <span class="math notranslate nohighlight">\(a x^b\)</span>. When printed it should display nicely, like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Monomial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="go">2*x**3</span>
@@ -1054,16 +1066,16 @@ Then run the following cell which will print the contents of your file in this d
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-4-inheritance-span">
-<h2><span style="color:orange;"> 4. Inheritance </span><a class="headerlink" href="#span-style-color-orange-4-inheritance-span" title="Permalink to this heading">#</a></h2>
+<section id="inheritance">
+<h2><span style="color:orange;"> 4. Inheritance </span><a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
 <p>It is fairly common to have a class which does almost everything you need; you just wish it did one more thing, or did something differently. For those times there is a clever system called inheritance; you can make a new class which “inherits” most of its behavior from the old one. Suppose I really wish I could make my strings print out in a more sarcastic way. Here’s how I might do that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">meme_str</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">sarcastically</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">meme_str</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sarcastically</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> else c.lower() for i, c in enumerate(self))
     
-    <span class="k">def</span> <span class="nf">clapping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clapping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;👏&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 
 <span class="n">definition</span> <span class="o">=</span> <span class="n">meme_str</span><span class="p">(</span><span class="s2">&quot;the derivative is the slope of the tangent line&quot;</span><span class="p">)</span>
@@ -1105,7 +1117,7 @@ Then run the following cell which will print the contents of your file in this d
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1135,38 +1147,39 @@ Then run the following cell which will print the contents of your file in this d
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-namespaces-span"><span style="color:orange;"> 1. Namespaces </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces"><span style="color:orange;"> 1. Namespaces </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advantages-of-namespaces">More advantages of namespaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-of-poetry">A bit of poetry</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-modules-span"><span style="color:orange;"> 2. Modules </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-20-pts"><span style="color:red"> Exercise 3 </span> (20 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-20-pts"><span style="color:red"> Exercise 4 </span> (20 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-20-pts"><span style="color:red"> Exercise 5 </span> (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules"><span style="color:orange;"> 2. Modules </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-20-pts"><span style="color:red"> Exercise 3 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-20-pts"><span style="color:red"> Exercise 4 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-20-pts"><span style="color:red"> Exercise 5 </span> (20 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-objects-span"><span style="color:orange;"> 3. Objects </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects"><span style="color:orange;"> 3. Objects </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-object-methods">Using object methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-our-own-classes">Writing our own classes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-15-pts"><span style="color:red"> Exercise 7 </span> (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-15-pts"><span style="color:red"> Exercise 7 </span> (15 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-inheritance-span"><span style="color:orange;"> 4. Inheritance </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance"><span style="color:orange;"> 4. Inheritance </span></a></li>
 </ul>
   </nav></div>
 
@@ -1215,8 +1228,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 3: Finding Local Max in PPG Signal &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'labs/2_determine_heart_rate/lab2';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -218,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -359,10 +370,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -370,14 +381,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -398,21 +409,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-introduction-to-error-analysis-span"><span style="color:orange;"> 1. Introduction to error analysis </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-error-analysis"><span style="color:orange;"> 1. Introduction to error analysis </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-error">Types of error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span"><span style="color:red;"> Exercise 1 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red;"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-errors-behave">Two ways errors behave</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#random-error">Random error</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#systematic-error">Systematic error</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span"><span style="color:red;"> Exercise 2 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-10-pts"><span style="color:red;"> Exercise 2 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-data-acquisition-span"><span style="color:orange;"> 2. Data Acquisition </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition"><span style="color:orange;"> 2. Data Acquisition </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10-pts"><span style="color:red;"> Exercise 3 </span> (10 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">Loading firmware onto the microcontroller</a><ul class="nav section-nav flex-column">
@@ -421,9 +432,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-data">Acquiring data!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span"><span style="color:orange;"> 3. Analysis </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis"><span style="color:orange;"> 3. Analysis </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red;"> Exercise 4 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#that-s-all-for-today">That’s all for today!</a></li>
 </ul>
 </li>
@@ -436,14 +447,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-3-finding-local-max-in-ppg-signal">
-<h1>Week 3: Finding Local Max in PPG Signal<a class="headerlink" href="#week-3-finding-local-max-in-ppg-signal" title="Permalink to this heading">#</a></h1>
+<h1>Week 3: Finding Local Max in PPG Signal<a class="headerlink" href="#week-3-finding-local-max-in-ppg-signal" title="Link to this heading">#</a></h1>
 <p><font size="6"> Laboratory 2  </font> <br>
 <font size="3"> Last updated September 9, 2023</font></p>
-<section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>Additive error model; bias in error</p></li>
@@ -477,8 +488,8 @@ document.write(`
 <li><p>Installing Micropython on Pico</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Microcontroller: Raspberry Pi Pico</p></li>
 <li><p>Pulse sensor</p></li>
@@ -489,14 +500,14 @@ document.write(`
 <h3 style="background-color:lightblue"> Write your name and email below: </h3>
 <p>First Name, Last Name, email</p>
 </section>
-<section id="span-style-color-orange-1-introduction-to-error-analysis-span">
-<h2><span style="color:orange;"> 1. Introduction to error analysis </span><a class="headerlink" href="#span-style-color-orange-1-introduction-to-error-analysis-span" title="Permalink to this heading">#</a></h2>
+<section id="introduction-to-error-analysis">
+<h2><span style="color:orange;"> 1. Introduction to error analysis </span><a class="headerlink" href="#introduction-to-error-analysis" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><p>In order to improve, we must first recognize that we are not perfect.</p>
 </div></blockquote>
 <p>Today we will begin using numbers collected from the real world. Every number you measure is subject to several kinds of error from different sources. This is the first and most important lesson of error analysis: <em>every measurement has error. The goal is not to eliminate error, but rather to reduce it to an acceptable level.</em> As we progress through the semester, we will develop strong tools for analyzing and reducing error in our measurements, based off of differential calculus and Taylor series. Before we can do that, we need to establish some common language and techniques for describing errors.</p>
 <section id="types-of-error">
-<h3>Types of error<a class="headerlink" href="#types-of-error" title="Permalink to this heading">#</a></h3>
+<h3>Types of error<a class="headerlink" href="#types-of-error" title="Link to this heading">#</a></h3>
 <p>An error is anything which can make it so that the number you get is different from the actual value of the quantity you are measuring. Here are a few sources of error you are likely to encounter:</p>
 <ul class="simple">
 <li><p>measurement error. This is what most people think of when they hear about an error in measurement. This includes everything which could go wrong with your measurement instrument. Perhaps the marks on a ruler are not placed exactly evenly, or it isn’t being held straight. Perhaps the paralax on a measurement dial leads to misalignment between the needle and the dial. Perhaps your tool is low on batteries and is malfunctioning.</p></li>
@@ -506,8 +517,8 @@ document.write(`
 </ul>
 <p>This is a relatively simple taxonomy of errors, but it encompasses most of the important sources of error you are likely to encounter. If you can think of a source of error which does not fit this taxonomy, we would like to hear about it (email mboutin at purdue dot you know what). As we will see, you could waste a lot of effort reducing the error from one source only to find that a different source is introducing way more error, making your efforts fruitless. Therefore, it is important to be aware of how each source of error could creep in.</p>
 </section>
-<section id="span-style-color-red-exercise-1-span">
-<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-1-10-pts">
+<h3><span style="color:red;"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#exercise-1-10-pts" title="Link to this heading">#</a></h3>
 <p>For each source of error listed, classify it according to the taxonomy above. Explain why it fits into the category you chose.</p>
 <ol class="arabic simple">
 <li><p>You have a thermometer in your garden which you use to tell the temperature in the morning. The sun shines directly on the thermometer, making it read a temperature higher than the air temperature.</p></li>
@@ -516,7 +527,7 @@ document.write(`
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3></section>
 <section id="two-ways-errors-behave">
-<h3>Two ways errors behave<a class="headerlink" href="#two-ways-errors-behave" title="Permalink to this heading">#</a></h3>
+<h3>Two ways errors behave<a class="headerlink" href="#two-ways-errors-behave" title="Link to this heading">#</a></h3>
 <p>We usually represent error with a variable either as <span class="math notranslate nohighlight">\(e\)</span> (short for error), or in Greek with the lower case letter epsilon which makes the same sound, written as either <span class="math notranslate nohighlight">\(\epsilon\)</span> or <span class="math notranslate nohighlight">\(\varepsilon\)</span>. This lets us represent how any measured quantity <span class="math notranslate nohighlight">\(x\)</span> is related to its “true value” <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -524,7 +535,7 @@ x = t + \varepsilon.
 \end{align*}\]</div>
 <p>This is sometimes called <em>the most famous equation of measurement theory</em>.</p>
 <section id="random-error">
-<h4>Random error<a class="headerlink" href="#random-error" title="Permalink to this heading">#</a></h4>
+<h4>Random error<a class="headerlink" href="#random-error" title="Link to this heading">#</a></h4>
 <p>Our goal is usually to make the total error small. For some types of error, <span class="math notranslate nohighlight">\(\varepsilon\)</span> is on average zero; the error is just as often positive as it is negative. A consequence of this is that if you took lots and lots of measurements (say <span class="math notranslate nohighlight">\(x_1=t+\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(x_2=t+\varepsilon_2\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>, <span class="math notranslate nohighlight">\(x_k=t+\varepsilon_k\)</span>) then you could take the average</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -533,14 +544,14 @@ x = t + \varepsilon.
 <p>and the term <span class="math notranslate nohighlight">\(\frac{\varepsilon_1+\varepsilon_2+\dots+\varepsilon_k}{k}\)</span> would tend to be much smaller than each <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> on its own, since the positive and negative terms would mostly cancel each other out. This is really useful, since it gives us a way of reducing the total error, getting a better estimate of the value <span class="math notranslate nohighlight">\(t\)</span>. If this is the case, we say that the error in <span class="math notranslate nohighlight">\(x\)</span> is <em>random</em>. This technique for reducing random error <a class="reference external" href="https://www.math.purdue.edu/~bradfoa/misc_files/arithmetic_mean.pdf">was invented in the 1700s.</a> (See  for example page 121 of “Studies in the History of Statistics and Probability,” by M.G. Kendall, 1960.)</p>
 </section>
 <section id="systematic-error">
-<h4>Systematic error<a class="headerlink" href="#systematic-error" title="Permalink to this heading">#</a></h4>
+<h4>Systematic error<a class="headerlink" href="#systematic-error" title="Link to this heading">#</a></h4>
 <p>Unfortunately, we are often not so lucky as to only have random error. Very often there is some bias in our measurement which causes it to be usually positive or usually negative, so it does not help much to use the repeated measurement procedure described above. In this case we say there is a <em>systematic</em> error.</p>
 <p>For example, let’s say you decide to save some computer cycles in a computation by truncating your numbers – instead of rounding (which could take some additional time, depending on how your computer is set up) you decide to just drop the least significant digits. The effect of this is that you will always be making the number smaller. It’s just like if you always decided to round down. In the terms outlined above, <span class="math notranslate nohighlight">\(\varepsilon\)</span> is always negative in this case.</p>
 <p>As another example, suppose you are weighing precise amounts of material in a chemistry lab on a sensitive scale, but you don’t have a cover over the scale and there is a slight downdraft at the work bench. You are leaning over the scale when you hit the tare button, shielding the scale from the air current. The air would push down on the scale a bit during the weighting, causing your estimated weight <span class="math notranslate nohighlight">\(x\)</span> to usually be a little bit bigger than <span class="math notranslate nohighlight">\(t\)</span>. It would still vary randomly, but since <span class="math notranslate nohighlight">\(\varepsilon\)</span> would usually be positive we would say that this is a systematic error in the positive direction.</p>
 </section>
 </section>
-<section id="span-style-color-red-exercise-2-span">
-<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-2-10-pts">
+<h3><span style="color:red;"> Exercise 2 </span> (10 pts)<a class="headerlink" href="#exercise-2-10-pts" title="Link to this heading">#</a></h3>
 <p>For each source of error described, classify it as a random or a systematic error. If it is a systematic error, say whether it is in the positive or negative direction. Justify your answers with a brief sentence or two.</p>
 <ol class="arabic simple">
 <li><p>You are measuring your height against a wall by placing a book on your head and seeing where the book touches the wall, measuring the length along the wall from the floor with a tape measure. Unfortunately, you cannot guarantee that the book is completely level.</p></li>
@@ -551,19 +562,19 @@ x = t + \varepsilon.
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3></section>
 </section>
-<section id="span-style-color-orange-2-data-acquisition-span">
-<h2><span style="color:orange;"> 2. Data Acquisition </span><a class="headerlink" href="#span-style-color-orange-2-data-acquisition-span" title="Permalink to this heading">#</a></h2>
+<section id="data-acquisition">
+<h2><span style="color:orange;"> 2. Data Acquisition </span><a class="headerlink" href="#data-acquisition" title="Link to this heading">#</a></h2>
 <p>You will collect data today using the <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/max30102.pdf">MAX30102 heart rate sensor module</a>, which shines an invisible infrared light on your skin and measures how much comes back to get a number which is proportional to your blood pressure. After we have collected the data, we will analyze it using NumPy and Matplotlib. First, though, we have to get those numbers onto your computer.</p>
 <p>We will be acquiring the data using a microcontroller. A microcontroller is a very small general purpose computer good at communicating with electronic sensors. The specific microcontroller we will use is called the Raspberry Pi Pico. Conveniently, it runs Python code.</p>
-<section id="span-style-color-red-exercise-3-span">
-<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-10-pts">
+<h3><span style="color:red;"> Exercise 3 </span> (10 pts)<a class="headerlink" href="#exercise-3-10-pts" title="Link to this heading">#</a></h3>
 <p>Before moving on, we should decide on a sampling frequency – that is, how often do you want to know your approximate blood pressure? As we saw in Lab 1, it would be easy to get the wrong impression from an oscillating signal if you don’t sample frequently enough. Considering the range of possible heart rates for adults, how would you choose the sampling rate?  Write your choice below, along with your reasoning for choosing that sampling rate.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 </section>
 <section id="loading-firmware-onto-the-microcontroller">
-<h2>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Permalink to this heading">#</a></h2>
+<h2>Loading firmware onto the microcontroller<a class="headerlink" href="#loading-firmware-onto-the-microcontroller" title="Link to this heading">#</a></h2>
 <section id="make-sure-to-read-the-next-steps-carefully">
-<h3>(Make sure to read the next steps carefully!!)<a class="headerlink" href="#make-sure-to-read-the-next-steps-carefully" title="Permalink to this heading">#</a></h3>
+<h3>(Make sure to read the next steps carefully!!)<a class="headerlink" href="#make-sure-to-read-the-next-steps-carefully" title="Link to this heading">#</a></h3>
 <p>First, ask your TA for today’s hardware and pull out your pico. Find the BOOTSEL button (see the below diagram), press and hold it down, and then plug in your pico while continuing to hold the button. After 5 seconds, you can let go of the button. Next, <a class="reference external" href="https://micropython.org/resources/firmware/RPI_PICO-20220618-v1.19.1.uf2">click this link</a> to download the Micropython firmware. Navigate to your downloads folder, and find the <code class="docutils literal notranslate"><span class="pre">.uf2</span></code> file that was just downloaded and drag it into the pico folder, which can be found on the left side panel called <code class="docutils literal notranslate"><span class="pre">/RPI-RP2</span></code>. After a second or two, the pico should reboot, and the <code class="docutils literal notranslate"><span class="pre">/RPI-RP2</span></code> folder will go away. After a few more seconds, open up thonny, and press the button in the bottom right, which may say something like “Python 3.x.x”, “Micropython”, or “Select interpreter”. A pop up window should come up, in that window select <code class="docutils literal notranslate"><span class="pre">Micropython</span></code>, then press done. The terminal in thonny will probably have an error at this point, if so just rapidly click the Stop/Restart button in the top bar, which looks like a red stop sign. If the red message doesn’t go away after about 30 seconds of clicking, double check you followed the steps correctly, then ask your TA if the problem persists.</p>
 <div>
 <img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/pico_bootsel.png" alt="bootsel button diagram" width="400"/>
@@ -597,11 +608,11 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 <section id="wiring-it-up">
-<h3>Wiring it up<a class="headerlink" href="#wiring-it-up" title="Permalink to this heading">#</a></h3>
+<h3>Wiring it up<a class="headerlink" href="#wiring-it-up" title="Link to this heading">#</a></h3>
 <p>We have the computer talking to the microcontroller, now we just need the Heart Rate Sensor talking to the microcontroller. To do this, we will use a “bread board”. The name “bread board” comes from the old days of electronics when people would prototype their projects by nailing them to a cutting board. With a modern bread board, you don’t need nails.</p>
 <p>By inserting the entire Pico into your bread board, we can easily connect electrical wires to each of the pins of the Pico. First, <strong>disconnect the Pico from your computer</strong> and plug it into the bread board so that the USB plug is at the end of the bread board.</p>
 <p>Next, inspect the data sheet for the Pico (<a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">pico_datasheet.pdf</a> - also save this PDF in the main folder you’re using since it’ll continue to be handy throughout this course). Specifically, look for figure 2 on page 4. Then use the following table to make all the correct connections.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Pico</p></th>
 <th class="head"><p>MAX30102 Sensor</p></th>
@@ -622,6 +633,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tr>
 </tbody>
 </table>
+</div>
 <p>You will also be provided with a small ceramic capacitor. This should be placed in between the GND and the 3V3(OUT) pins on the pico, in any orientation. <em>(see the third picture below)</em></p>
 <p>While we have provided some reference pictures below, we encourage you to mainly rely on the table above, rather than the pictures. Ask a TA or a classmate if you have questions about the wiring.</p>
 <p><img alt="sensor pins" src="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/2_determine_heart_rate/sensor_pins.png?raw=true" />
@@ -632,13 +644,13 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </section>
 </section>
 <section id="acquiring-data">
-<h2>Acquiring data!<a class="headerlink" href="#acquiring-data" title="Permalink to this heading">#</a></h2>
+<h2>Acquiring data!<a class="headerlink" href="#acquiring-data" title="Link to this heading">#</a></h2>
 <p><strong>Read this carefully!</strong> Now we are ready to acquire the data. Be careful while following these steps, as not following them properly could lead to the lab failing to acquire data. Pull up Thonny and run <a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/2_determine_heart_rate/main.py">main.py</a> (which should have been saved onto the pico earlier using the <code class="docutils literal notranslate"><span class="pre">run</span></code> button in Thonny. The run button will look like a green arrow, located towards the top of your application. Once you press run, select <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> from  a couple seconds afterwards. The <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> button can be found in the <code class="docutils literal notranslate"><span class="pre">run</span></code> menu at the top of the application. This will allow our program here to pick up the connection, putting the data directly into a plot. Go ahead and run the following block to start our graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">heartbeat</span> <span class="kn">import</span> <span class="n">acquire</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">heartbeat</span><span class="w"> </span><span class="kn">import</span> <span class="n">acquire</span>
 <span class="o">%</span><span class="k">matplotlib</span> widget
 
 <span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># samples per second</span>
@@ -686,8 +698,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>Have a look at the file you just made - or the example file, if needed (you should be able to open it right here in Jupyterlab). You should see a long list of numbers.</p>
 <p>It is a very good practice to use a separate document to store your data. By not storing your data within the document you use to analyze it, you will be able to run your analysis several times without fear of changing your original data. For this reason, we have saved another copy of your results above to a file named ‘heartbeat.txt’</p>
 </section>
-<section id="span-style-color-orange-3-analysis-span">
-<h2><span style="color:orange;"> 3. Analysis </span><a class="headerlink" href="#span-style-color-orange-3-analysis-span" title="Permalink to this heading">#</a></h2>
+<section id="analysis">
+<h2><span style="color:orange;"> 3. Analysis </span><a class="headerlink" href="#analysis" title="Link to this heading">#</a></h2>
 <p>Here is how to load your data file back into Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,8 +722,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 <p>Unfortunately the x-axis is all wrong – it is just counting measurements one by one, not giving us the actual time of each measurement. To fix this, we can make an array which has the time each measurement was taken.</p>
-<section id="span-style-color-red-exercise-4-span">
-<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-10-pts">
+<h3><span style="color:red;"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#exercise-4-10-pts" title="Link to this heading">#</a></h3>
 <p>Make an array called <code class="docutils literal notranslate"><span class="pre">t</span></code> which has the time corresponding to each measurement. We need an array that can function as the values for the x-axis. If you feel stuck, look at the previous notebook for inspiration.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,7 +756,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>There is some jaggedness to the signal. This is present because the Pulse Sensor has some noise in its circuitry – it introduces some random error. We can get rid of it using the same trick we always use to manage random error: averaging. Specifically, we can average each point with its neighbors. The following code averages each point with its ten nearest neighbors on each side, then plots the result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">heartbeat</span> <span class="kn">import</span> <span class="n">rolling_centered_average</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">heartbeat</span><span class="w"> </span><span class="kn">import</span> <span class="n">rolling_centered_average</span>
 
 <span class="n">averaged</span> <span class="o">=</span> <span class="n">rolling_centered_average</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">averaged</span><span class="p">)</span>
@@ -826,12 +838,12 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-5-span">
-<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-5-10-pts">
+<h3><span style="color:red;"> Exercise 5 </span> (10 pts)<a class="headerlink" href="#exercise-5-10-pts" title="Link to this heading">#</a></h3>
 <p>Use the peak times to compute your BPM.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3></section>
 <section id="that-s-all-for-today">
-<h3>That’s all for today!<a class="headerlink" href="#that-s-all-for-today" title="Permalink to this heading">#</a></h3>
+<h3>That’s all for today!<a class="headerlink" href="#that-s-all-for-today" title="Link to this heading">#</a></h3>
 <p>Well done! Today we learned a bit about the terminology of error analysis, we learned how to interface with a microcontroller using Python, and we developed a procedure for computing the BPM from a photoplethysmogram sensor. In next week’s lab, we will learn how to make that process automatic, and do a more sophisticated analysis of the data you collected today.</p>
 <p>Make sure you save the code you wrote today, because you will need it next week (you can hit the save button at the top of the notebook). Then, make sure to submit your notebook you used today to Gradescope.</p>
 </section>
@@ -865,7 +877,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -895,27 +907,28 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-introduction-to-error-analysis-span"><span style="color:orange;"> 1. Introduction to error analysis </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-error-analysis"><span style="color:orange;"> 1. Introduction to error analysis </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-error">Types of error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span"><span style="color:red;"> Exercise 1 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red;"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-errors-behave">Two ways errors behave</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#random-error">Random error</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#systematic-error">Systematic error</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span"><span style="color:red;"> Exercise 2 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-10-pts"><span style="color:red;"> Exercise 2 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-data-acquisition-span"><span style="color:orange;"> 2. Data Acquisition </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition"><span style="color:orange;"> 2. Data Acquisition </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10-pts"><span style="color:red;"> Exercise 3 </span> (10 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-firmware-onto-the-microcontroller">Loading firmware onto the microcontroller</a><ul class="nav section-nav flex-column">
@@ -924,9 +937,9 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-data">Acquiring data!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-analysis-span"><span style="color:orange;"> 3. Analysis </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis"><span style="color:orange;"> 3. Analysis </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red;"> Exercise 4 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#that-s-all-for-today">That’s all for today!</a></li>
 </ul>
 </li>
@@ -978,8 +991,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

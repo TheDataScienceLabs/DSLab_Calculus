@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 6-7: Build an Inclinometer (Objects on Hardware) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'labs/4_measure_tall_things/b_build_an_inclinometer/lab4b';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -218,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -359,10 +370,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -370,14 +381,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -398,38 +409,38 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-objective-span"><span style="color:orange;"> 1. Objective </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-the-button-span"><span style="color:orange;"> 2. The Button </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective"><span style="color:orange;"> 1. Objective </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-button"><span style="color:orange;"> 2. The Button </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-the-screen-span"><span style="color:orange;"> 3. The Screen </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-screen"><span style="color:orange;"> 3. The Screen </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c">I2C</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-framebuffer">The framebuffer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-clocks">Two clocks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-20-pts"><span style="color:red"> Exercise 2 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-20-pts"><span style="color:red"> Exercise 2 </span> (20 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-a-clock">Display a clock</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-the-accelerometer-span"><span style="color:orange;"> 4. The Accelerometer </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-accelerometer"><span style="color:orange;"> 4. The Accelerometer </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-readings">Raw readings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts"><span style="color:red"> Exercise 4 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red"> Exercise 4 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-error-through-averaging">Reducing error through averaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-warm-up-to-exercise-5-span-0-pts"><span style="color:red"> Warm Up to Exercise 5 </span> (0 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-15-pts"><span style="color:red"> Exercise 5 </span> (15 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-to-exercise-5-0-pts"><span style="color:red"> Warm Up to Exercise 5 </span> (0 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-15-pts"><span style="color:red"> Exercise 5 </span> (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-5-make-an-inclinometer-span"><span style="color:orange;"> 5. Make an Inclinometer </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-30-pts"><span style="color:red"> Exercise 7 </span> (30 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-an-inclinometer"><span style="color:orange;"> 5. Make an Inclinometer </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-30-pts"><span style="color:red"> Exercise 7 </span> (30 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-it-on-batteries">Run it on batteries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py"><code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-7805-voltage-regulator">The 7805 voltage regulator</a></li>
@@ -444,14 +455,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-6-7-build-an-inclinometer-objects-on-hardware">
-<h1>Week 6-7: Build an Inclinometer (Objects on Hardware)<a class="headerlink" href="#week-6-7-build-an-inclinometer-objects-on-hardware" title="Permalink to this heading">#</a></h1>
+<h1>Week 6-7: Build an Inclinometer (Objects on Hardware)<a class="headerlink" href="#week-6-7-build-an-inclinometer-objects-on-hardware" title="Link to this heading">#</a></h1>
 <p><font size="6"> Laboratory 4b  </font> <br>
 <font size="3"> Last updated September 28, 2023 </font></p>
-<section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>Removing noise by averaging</p></li>
@@ -472,8 +483,8 @@ document.write(`
 <li><p>Thonny and Micropython</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Microcontroller: Raspberry Pi Pico</p></li>
 <li><p>Button</p></li>
@@ -487,7 +498,7 @@ document.write(`
 </ul>
 <h3 style="background-color:lightblue"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">student_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_info</span>
 
 <span class="n">show_info</span><span class="p">()</span>
 </pre></div>
@@ -495,7 +506,7 @@ document.write(`
 </div>
 </div>
 <section id="additional-lab-materials">
-<h3>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this heading">#</a></h3>
+<h3>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Link to this heading">#</a></h3>
 <p>In addition to the student_info.py file, you’ll need a couple more specific Python files to complete this lab.</p>
 <p>Run the following cell. This will download a folder called <code class="docutils literal notranslate"><span class="pre">lab4B/</span></code> into your Downloads folder. After you have done that, pull up thonny, and on the top bar under ‘View’, select ‘Files’. This will bring up a bar on the side that you can use to transfer the file onto your Pico. In this side bar, navigate to your Downloads folder <em>(If you get lost, you can find it at <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">Computer/home/shay/a/&quot;your</span> <span class="pre">username&quot;/Downloads</span></code>)</em>, right click the <code class="docutils literal notranslate"><span class="pre">lab4B/</span></code> folder, then click on ‘Upload to /’. This will copy the entire folder onto your Pico.</p>
 <div class="cell docutils container">
@@ -530,8 +541,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-1-objective-span">
-<h2><span style="color:orange;"> 1. Objective </span><a class="headerlink" href="#span-style-color-orange-1-objective-span" title="Permalink to this heading">#</a></h2>
+<section id="objective">
+<h2><span style="color:orange;"> 1. Objective </span><a class="headerlink" href="#objective" title="Link to this heading">#</a></h2>
 <p>An inclinometer is a device for measuring the angle between a sight line and the horizon. For lab 4c, you will need an inclinometer which you can use outdoors, not connected to a computer. Here are some requirements:</p>
 <ul class="simple">
 <li><p>it should run on battery power alone</p></li>
@@ -540,12 +551,12 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </ul>
 <p>The cheapest inclinometer on Amazon which meets these requirements costs about 30 dollars. Can we do better? If we spend 4 dollars on a Raspberry Pi Pico, 4 dollars on an OLED display, 3 dollars on an accelerometer chip and 3 dollars on a 9 volt battery with a holder, that leaves us 16 dollars to buy wires and a case. Not bad! Plus, ours will be more customizable – we could easily add features down the road, if we want them.</p>
 </section>
-<section id="span-style-color-orange-2-the-button-span">
-<h2><span style="color:orange;"> 2. The Button </span><a class="headerlink" href="#span-style-color-orange-2-the-button-span" title="Permalink to this heading">#</a></h2>
+<section id="the-button">
+<h2><span style="color:orange;"> 2. The Button </span><a class="headerlink" href="#the-button" title="Link to this heading">#</a></h2>
 <p>You have been provided a button. It is a very common type, more precisely called a <em>tactile switch</em>. It has four legs, but opposite pairs of them are connected internally, so there are only two electrical connections to be made. Have a look at the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/TL1105_datasheet.pdf">TL1105 data sheet</a> for the TL1105 tactile switch, which shows a schematic of how the legs are connected. <em>Hint: look at the numbers assigned to each leg of the switch.</em></p>
 <p>Connect one side of the button to a ground pin of the Pico and connect the other side to any GP (general purpose) pin with wires on the breadboard (you may need to use the <a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">pico datasheet</a>). Then open up <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/button.py">button.py</a> in Thonny and configure it according to what pin you chose, replacing the zero with the GP number of the pin, the one in the green box (eg GP0 would be 0, GP10 would be 10). Go ahead and run the program, the built-in LED should turn on only while the button is pressed.</p>
-<section id="span-style-color-red-exercise-1-span-10-pts">
-<h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-1-span-10-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-1-10-pts">
+<h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#exercise-1-10-pts" title="Link to this heading">#</a></h3>
 <p>Modify <code class="docutils literal notranslate"><span class="pre">button.py</span></code> so that instead of coming on while the button is pressed, pressing the button toggles the LED on and off. There are many ways to do this; try and be creative, and if you get stuck, ask for help from an instructor or a classmate. Here are a couple ideas which might get you moving:</p>
 <ul class="simple">
 <li><p>you can use variables to keep track of the current condition (whether you are in “hold” mode, whether the button is pressed, etc) and compare against them to see if anything has changed.</p></li>
@@ -558,36 +569,36 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-3-the-screen-span">
-<h2><span style="color:orange;"> 3. The Screen </span><a class="headerlink" href="#span-style-color-orange-3-the-screen-span" title="Permalink to this heading">#</a></h2>
+<section id="the-screen">
+<h2><span style="color:orange;"> 3. The Screen </span><a class="headerlink" href="#the-screen" title="Link to this heading">#</a></h2>
 <section id="i2c">
-<h3>I2C<a class="headerlink" href="#i2c" title="Permalink to this heading">#</a></h3>
+<h3>I2C<a class="headerlink" href="#i2c" title="Link to this heading">#</a></h3>
 <p>Usually a modern electronic device will consist of a <em>microcontroller</em> (such as the Raspberry Pi Pico) and several <em>peripherals</em>. “Peripherals are what we call any component the microcontroller is “in charge” of. The two main peripherals we will be using in our inclinometer are a screen and an accelerometer. You might call the button a peripheral, but usually the word peripheral refers to components which do something on their own, while communicating with the microcontroller.</p>
 <p>One of the most popular ways for a microcontroller to communicate with a peripheral is using a protocol called the Inter-Integrated-Circuit protocol. Its name is usually abbreviated, either as IIC, I²C, or simply I2C. These are pronounced as “eye-eye-see”, “eye-squared-see” or “eye-two-see” respectively. I2C uses two wires, one called Serial Clock (abbreviated as SCL) and the other called Serial Data (abbreviated SDA). One of the brilliant things about I2C is that every I2C peripheral has its own identification number, so when a message is sent using the I2C protocol it can have a label saying “who it is for”. That means you can have several different peripherals all connected to the same two wires – potentially connecting dozens of peripherals to a microcontroller using only two wires (assuming none of the devices share an identification number). Since many devices are sharing the same connection an I2C connection is called a “bus”, from the Latin <em>Omnibus</em> which means “for everyone”. I2C is an example of a <em>serial</em> communication protocol, because bits of data are sent one after another (in a series) over relatively few wires, instead of all-at-once over relatively many wires. You have already heard of, and used, another serial bus protocol – the so-called Universal Serial Bus, usually abbreviated as USB.</p>
 <p>The Raspberry Pi Pico has two I2C busses, numbered 0 and 1. You can see which pins they are connected to on the Pico’s datasheet; for example, to use I2C bus number 0, you can use any of the GP pins labeled as I2C0 SCL and I2C0 SDA. For example, GP pins (20 &amp; 21), or (12 &amp; 13), or (4 &amp; 5).</p>
 <p>When you set up an I2C bus, you will have to choose a frequency for it to use. This is a fairly straightforward decision. The valid choices of frequency are 100,000; 400,000; 1,000,000; 1,700,000; and 3,400,000 Hertz. If you use a higher frequency then your system will run faster and consume more power. Higher frequencies might not work, depending on several factors such as how long your wires are and how much electromagnetic interference they experience. However, not all peripherals will continue to function properly if the frequency is too high, so because speed is not necessarily important to us, we will stick with 400,000 hertz.</p>
 </section>
 <section id="the-framebuffer">
-<h3>The framebuffer<a class="headerlink" href="#the-framebuffer" title="Permalink to this heading">#</a></h3>
+<h3>The framebuffer<a class="headerlink" href="#the-framebuffer" title="Link to this heading">#</a></h3>
 <p>On the hardware side, we interact with the OLED display using I2C. In software, the interface we will use is one of the interfaces built into Micropython: the frame buffer interface.</p>
 <p>It’s called a frame buffer because when interacting with it, you make most of your changes in an array called a buffer, stored on the Pico. We only send data to the display when we call the function <code class="docutils literal notranslate"><span class="pre">show()</span></code>, as a complete frame ready to display. This way, we are using the I2C bus as little as possible, freeing up time for other peripherals to use the I2C bus.</p>
 <p>The documentation for the frame buffer interface is <a class="reference external" href="https://docs.micropython.org/en/latest/library/framebuf.html">part of the Micropython documentation</a>. There you will find functions for drawing lines, rectangles, and text, as well as a function for writing to individual pixels. It is important to note that pixels on the screen are referenced based on their horizontal and vertical distance from the top left corner.</p>
 </section>
 <section id="two-clocks">
-<h3>Two clocks<a class="headerlink" href="#two-clocks" title="Permalink to this heading">#</a></h3>
+<h3>Two clocks<a class="headerlink" href="#two-clocks" title="Link to this heading">#</a></h3>
 <p>Usually the easiest way to learn a new tool is to see it used. As an example, we have provided two programs (which you have installed earlier) that do the same thing using the OLED display. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/procedural_clock.py">procedural_clock.py</a> draws a clock on the display by performing a sequence of actions one after another, inside a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop. <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/classy_clock.py">classy_clock.py</a> does the exact same steps, but wraps everything to do with the display into one class and defines methods on the class to do the various parts. Note that in practice you would usually define any classes you are using in a separate module, and import those classes into your main file. We have chosen to put the class definition at the bottom of the file to make it easier for you to compare them.</p>
 <p>In terms of what they do, both of these programs are identical. Their difference lies in how easy they are to read and how easy they are to modify.</p>
 </section>
-<section id="span-style-color-red-exercise-2-span-20-pts">
-<h3><span style="color:red"> Exercise 2 </span> (20 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-20-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-2-20-pts">
+<h3><span style="color:red"> Exercise 2 </span> (20 pts)<a class="headerlink" href="#exercise-2-20-pts" title="Link to this heading">#</a></h3>
 <p>Read the programs procedural_clock.py and classy_clock.py carefully. Reflect on the way the code is organized in each in two thorough paragraphs.</p>
 <p>What are their relative merits? What might make one or another of these programs easier to read, modify or extend? Which ones would be easiest to split apart into multiple smaller modules? Which ones are more aesthetically pleasing? Give your honest assessment, since many of these questions are matters of opinion. Be sure to refer to specific lines from the programs in your answer.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3></section>
 </section>
 <section id="display-a-clock">
-<h2>Display a clock<a class="headerlink" href="#display-a-clock" title="Permalink to this heading">#</a></h2>
+<h2>Display a clock<a class="headerlink" href="#display-a-clock" title="Link to this heading">#</a></h2>
 <p>The wiring is very simple for this one. There are only four wires to use: power, ground, and the two I2C wires. <strong>Unplug your microcontroller from the computer</strong> and wire up the display.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>OLED</p></th>
 <th class="head"><p>Pico</p></th>
@@ -608,23 +619,24 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tr>
 </tbody>
 </table>
+</div>
 <p>If you are uncertain about your wiring, then ask for an instructor to check it over. If you are confident in your wiring you can continue. It should look as shown in the image below.</p>
 <div>
 <img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/display_example.jpg" width="700"/>
 </div>
-<section id="span-style-color-red-exercise-3-span-5-pts">
-<h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-5-pts">
+<h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#exercise-3-5-pts" title="Link to this heading">#</a></h3>
 <p>You should have uploaded the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/scripts/ssd1306.py">ssd1306.py</a> onto your Pico using Thonny earlier. This provides a class for interacting with the specific OLED displays we are using. Then, pick your favorite of the clock programs and run it. If you choose to use different I2C pins than the examply above you may need to modify the line which sets up the I2C bus according to the specific SCL and SDA pins you choose (using the number labeled with GP on the datasheet, not the SCL or SDA numbers) as well as the <code class="docutils literal notranslate"><span class="pre">id</span></code> to 0 for I2C0 or 1 for I2C1. Once you have one of the clocks up and running, just write a note below indicating that you have done so.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 </section>
-<section id="span-style-color-orange-4-the-accelerometer-span">
-<h2><span style="color:orange;"> 4. The Accelerometer </span><a class="headerlink" href="#span-style-color-orange-4-the-accelerometer-span" title="Permalink to this heading">#</a></h2>
+<section id="the-accelerometer">
+<h2><span style="color:orange;"> 4. The Accelerometer </span><a class="headerlink" href="#the-accelerometer" title="Link to this heading">#</a></h2>
 <p>In recent years so-called Micro Electro Mechanical Systems (MEMS) have become very cheap and reliable. These are made using processes which are similar to the ones used to make computer chips. One common type is an accelerometer, which does pretty much what it says: measures acceleration.</p>
 <p>Why does this help us to make an inclinometer? An inclinometer is usually held very still to make a measurement; it’s not accelerating. Naively, we might think an accelerometer would tell us nothing about a stationary object, except that it is stationary. As it turns out, that naive view is incorrect because of general relativity. As it turns out, the effect of gravity also shows up in our measurements as an acceleration. If you wish to learn more about this, you can see <a class="reference external" href="https://www.youtube.com/watch?v=mAtRD9_4Oa0">this short video</a> which has helpful animations, or <a class="reference external" href="https://www.youtube.com/watch?v=vng2-R64rAY">this more impassioned video</a> from a professional physicist who presents the limits of this interpretation of gravity. For our purpose, it is enough to know that if the accelerometer is being held still, it will indicate the direction of gravity. By angling our accelerometer toward a target, we can find the angle between the target and vertical.</p>
 <section id="raw-readings">
-<h3>Raw readings<a class="headerlink" href="#raw-readings" title="Permalink to this heading">#</a></h3>
+<h3>Raw readings<a class="headerlink" href="#raw-readings" title="Link to this heading">#</a></h3>
 <p>We will use an accelerometer called the MPU-6050. It also uses I2C, so we can use the same bus to communicate with it. Go ahead and connect it.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>MPU-6050</p></th>
 <th class="head"><p>OLED</p></th>
@@ -645,22 +657,23 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tr>
 </tbody>
 </table>
+</div>
 <p>It should look as shown in the image below.</p>
 <div>
 <img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/accelerometer_example.jpg" width="700"/>
 </div>
 <p>Verify that <code class="docutils literal notranslate"><span class="pre">imu.py</span></code> and <code class="docutils literal notranslate"><span class="pre">vector3d.py</span></code> are loaded onto the Pico, and then run the file <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> in Thonny. Again you may need to modify <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> so that the line where the I2C bus is configured uses the right pins. You should see it printing values in Thonny.</p>
 </section>
-<section id="span-style-color-red-exercise-4-span-10-pts">
-<h3><span style="color:red"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-10-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-10-pts">
+<h3><span style="color:red"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#exercise-4-10-pts" title="Link to this heading">#</a></h3>
 <p>Describe the values in words, including a description of what happens when you move the accelerometer around while the program is running. About how many of the digits appear stable, that is, not fluctuating unpredictably?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3></section>
 <section id="reducing-error-through-averaging">
-<h3>Reducing error through averaging<a class="headerlink" href="#reducing-error-through-averaging" title="Permalink to this heading">#</a></h3>
+<h3>Reducing error through averaging<a class="headerlink" href="#reducing-error-through-averaging" title="Link to this heading">#</a></h3>
 <p>One way we are familiar with reducing error is by taking multiple measurements and averaging them. We could do that ourselves, but why not have the microcontroller do it for us? Since we will be reading off values by eye, this could dramatically reduce the amount of numbers we have to write down. In order to make this easy, let’s build a class to do it for us. Since we are using Micropython, we can run and test our module here and have confidence that it will work the same way on our microcontroller.</p>
 </section>
-<section id="span-style-color-red-warm-up-to-exercise-5-span-0-pts">
-<h3><span style="color:red"> Warm Up to Exercise 5 </span> (0 pts)<a class="headerlink" href="#span-style-color-red-warm-up-to-exercise-5-span-0-pts" title="Permalink to this heading">#</a></h3>
+<section id="warm-up-to-exercise-5-0-pts">
+<h3><span style="color:red"> Warm Up to Exercise 5 </span> (0 pts)<a class="headerlink" href="#warm-up-to-exercise-5-0-pts" title="Link to this heading">#</a></h3>
 <p>Read and understand the following code:</p>
 <p><strong>Part 1:</strong> In one line of code, change the first element of the list <code class="docutils literal notranslate"><span class="pre">mylist</span></code> to the value <span class="math notranslate nohighlight">\(11.0\)</span>.</p>
 <div class="cell docutils container">
@@ -676,7 +689,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p><strong>Part 2:</strong> Write a function called <code class="docutils literal notranslate"><span class="pre">add_element()</span></code> with three inputs: <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">i</span></code>. The function changes the element at index <code class="docutils literal notranslate"><span class="pre">i</span></code> of the given list to <code class="docutils literal notranslate"><span class="pre">value</span></code> and returns the modified list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_element</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
     <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">return</span> <span class="nb">list</span>
 
@@ -686,8 +699,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-5-span-15-pts">
-<h3><span style="color:red"> Exercise 5 </span> (15 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-15-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-5-15-pts">
+<h3><span style="color:red"> Exercise 5 </span> (15 pts)<a class="headerlink" href="#exercise-5-15-pts" title="Link to this heading">#</a></h3>
 <p>Most of this class is written already – it’s just missing two methods. You can find it in <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/averager.py">averager.py</a>. Your task is to fill in the two missing methods, <code class="docutils literal notranslate"><span class="pre">append()</span></code> and <code class="docutils literal notranslate"><span class="pre">get()</span></code>, so that the class will pass all its tests. You can take a look at the docstrings of the functions and the examples provided above to get an idea of what they need to be doing. Go ahead and remove the lines of code that says <em>raise NotImplementedError(“This is an exercise for the student”)</em> when you are ready to test them.</p>
 <p>We have provided tests in the form of examples written in the class’s docstring. Don’t worry, you don’t have to check them yourself. There is a convenient tool built into Python which will check the examples in the documentation for us. Run the first two cells below to check your progress. Then, run the third cell which will display the contents of your completed module for grading.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3><div class="cell docutils container">
@@ -700,9 +713,9 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">doctest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
 
-<span class="kn">import</span> <span class="nn">averager</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">averager</span>
 
 <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">averager</span><span class="p">)</span>
 </pre></div>
@@ -711,7 +724,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">averager</span><span class="p">))</span>
 </pre></div>
@@ -719,8 +732,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-6-span-10-pts">
-<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-10-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-10-pts">
+<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#exercise-6-10-pts" title="Link to this heading">#</a></h3>
 <p>Upload <code class="docutils literal notranslate"><span class="pre">averager.py</span></code> onto the Pico using Thonny, and change <code class="docutils literal notranslate"><span class="pre">accelerometer.py</span></code> so that the components of acceleration are averaged out using the <code class="docutils literal notranslate"><span class="pre">Averager</span></code> class. Play with the size of the averager, in particular paying attention to how long it takes the values to adjust to a change in position. Then answer these questions:</p>
 <ol class="arabic simple">
 <li><p>What are the benefits of keeping fewer previous values? What are the benefits of keeping more?</p></li>
@@ -729,10 +742,10 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </ol>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 6 Below </h3></section>
 </section>
-<section id="span-style-color-orange-5-make-an-inclinometer-span">
-<h2><span style="color:orange;"> 5. Make an Inclinometer </span><a class="headerlink" href="#span-style-color-orange-5-make-an-inclinometer-span" title="Permalink to this heading">#</a></h2>
-<section id="span-style-color-red-exercise-7-span-30-pts">
-<h3><span style="color:red"> Exercise 7 </span> (30 pts)<a class="headerlink" href="#span-style-color-red-exercise-7-span-30-pts" title="Permalink to this heading">#</a></h3>
+<section id="make-an-inclinometer">
+<h2><span style="color:orange;"> 5. Make an Inclinometer </span><a class="headerlink" href="#make-an-inclinometer" title="Link to this heading">#</a></h2>
+<section id="exercise-7-30-pts">
+<h3><span style="color:red"> Exercise 7 </span> (30 pts)<a class="headerlink" href="#exercise-7-30-pts" title="Link to this heading">#</a></h3>
 <p>Now you are ready to combine all the components into a useful tool. You must make an inclinometer, with the following features:</p>
 <ul class="simple">
 <li><p>display the x, y, and z components of acceleration</p>
@@ -756,7 +769,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </ul>
 <p>In addition you must include a description of your inclinometer, explaining how you chose to organize your code and why – what parts did you put into modules? What parts made sense to include as object methods, what parts as functions? How did you choose how many samples to average, and how many digits to show? Your description should also explain what the features of your inclinometer are, and how to use it.</p>
 <p>You will be graded on the following rubric:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
 <th class="head"><p>10 pts</p></th>
@@ -782,6 +795,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tr>
 </tbody>
 </table>
+</div>
 <p>You should type your description below, and paste the content of each file you write into this document so that it can be graded. If you choose to include a module which was already graded as part of this lab, you don’t need to paste it here.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 7 Below </h3><p><em>Write your description here</em></p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paste your code here</span>
@@ -789,7 +803,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 <section id="run-it-on-batteries">
-<h3>Run it on batteries<a class="headerlink" href="#run-it-on-batteries" title="Permalink to this heading">#</a></h3>
+<h3>Run it on batteries<a class="headerlink" href="#run-it-on-batteries" title="Link to this heading">#</a></h3>
 <p>At the start of class next week, we will go outside to take some measurements using your accelerometer. We will power the Pico from a 9-volt battery. <strong>Here are a few important cautions:</strong></p>
 <ul class="simple">
 <li><p>9 volts is more than any part of the Pico can handle. If you connect the battery directly you will damage the microcontroller. We need to use another component to convert the voltage to a range the Pico can handle.</p></li>
@@ -797,15 +811,15 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </ul>
 </section>
 <section id="main-py">
-<h3><code class="docutils literal notranslate"><span class="pre">main.py</span></code><a class="headerlink" href="#main-py" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">main.py</span></code><a class="headerlink" href="#main-py" title="Link to this heading">#</a></h3>
 <p>Before running your inclinometer from a battery, here is a question: how will we start the program without using Thonny? The inclinometer needs to run without being connected to a computer.</p>
 <p>Here is the trick we will use: when the Pico powers on, the first thing it does is check its memory for a file called <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. If there is a file with that name, it runs the file. So there is our solution: make a file called <code class="docutils literal notranslate"><span class="pre">main.py</span></code> which starts the inclinometer. Or just rename the file we already have. The important thing is that the file is called <code class="docutils literal notranslate"><span class="pre">main.py</span></code>, and it’s actually stored on the microcontroller.</p>
 <p>Before continuing make sure you have your inclinometer starting whenever it gets connected to power. You should be able to plug the the microcontroller into any USB port and watch it start up automatically without doing anything on the computer. Once you have this, you can move on to powering it by battery.</p>
 </section>
 <section id="the-7805-voltage-regulator">
-<h3>The 7805 voltage regulator<a class="headerlink" href="#the-7805-voltage-regulator" title="Permalink to this heading">#</a></h3>
+<h3>The 7805 voltage regulator<a class="headerlink" href="#the-7805-voltage-regulator" title="Link to this heading">#</a></h3>
 <p>This would not be necessary if we were using a battery with a lower voltage. We are using a 9 volt battery because we already had a bunch of 9 volt batteries. To convert the power coming from the battery to a voltage we can use, we will use one of the most common, cheap voltage regulators available: the 7805. These cost roughly ten cents each when you buy them in large quantities. Using it is very simple:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Battery</p></th>
 <th class="head"><p>7805</p></th>
@@ -831,6 +845,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </tr>
 </tbody>
 </table>
+</div>
 <p>The pins on the 7805 are not labeled. You will have to check the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/L7805CV_datasheet.pdf">data sheet</a>. <strong>Do not connect the battery until you have had your circuit checked by an instructor.</strong> The correctly wired voltage regulator should look as shown in the image below.</p>
 <div>
 <img src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/b_build_an_inclinometer/battery_wiring.jpg" width="700"/>
@@ -867,7 +882,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -897,44 +912,45 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-objective-span"><span style="color:orange;"> 1. Objective </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-the-button-span"><span style="color:orange;"> 2. The Button </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective"><span style="color:orange;"> 1. Objective </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-button"><span style="color:orange;"> 2. The Button </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-the-screen-span"><span style="color:orange;"> 3. The Screen </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-screen"><span style="color:orange;"> 3. The Screen </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c">I2C</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-framebuffer">The framebuffer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-clocks">Two clocks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-20-pts"><span style="color:red"> Exercise 2 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-20-pts"><span style="color:red"> Exercise 2 </span> (20 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-a-clock">Display a clock</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-the-accelerometer-span"><span style="color:orange;"> 4. The Accelerometer </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-accelerometer"><span style="color:orange;"> 4. The Accelerometer </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-readings">Raw readings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-10-pts"><span style="color:red"> Exercise 4 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red"> Exercise 4 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reducing-error-through-averaging">Reducing error through averaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-warm-up-to-exercise-5-span-0-pts"><span style="color:red"> Warm Up to Exercise 5 </span> (0 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-15-pts"><span style="color:red"> Exercise 5 </span> (15 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-to-exercise-5-0-pts"><span style="color:red"> Warm Up to Exercise 5 </span> (0 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-15-pts"><span style="color:red"> Exercise 5 </span> (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-5-make-an-inclinometer-span"><span style="color:orange;"> 5. Make an Inclinometer </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span-30-pts"><span style="color:red"> Exercise 7 </span> (30 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-an-inclinometer"><span style="color:orange;"> 5. Make an Inclinometer </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-30-pts"><span style="color:red"> Exercise 7 </span> (30 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-it-on-batteries">Run it on batteries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py"><code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-7805-voltage-regulator">The 7805 voltage regulator</a></li>
@@ -988,8 +1004,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

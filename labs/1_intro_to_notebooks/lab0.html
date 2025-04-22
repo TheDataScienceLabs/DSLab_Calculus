@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 1: Course Intro, Markdown, Latex &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'labs/1_intro_to_notebooks/lab0';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -218,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -359,10 +370,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -370,14 +381,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -398,37 +409,36 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-before-starting-span"><span style="color:orange;"> 1. Before Starting </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-starting"><span style="color:orange;"> 1. Before Starting </span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-ethics">Laboratory ethics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-introduction-to-ipython-notebook-span"><span style="color:orange;"> 2. Introduction to IPython Notebook </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-ipython-notebook"><span style="color:orange;"> 2. Introduction to IPython Notebook </span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-cells">Two types of cells</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-intro-to-markdown">A brief intro to markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-try-it-out-span"><span style="color:orange;"> 2. Try it Out </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-part-1-span"><span style="color:red"> Exercise 1 Part 1 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-part-2-span"><span style="color:red"> Exercise 1 Part 2 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it-out"><span style="color:orange;"> 2. Try it Out </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5-pts"><span style="color:red"> Exercise 1 </span> (5 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-a-very-brief-introduction-to-latex-span"><span style="color:orange;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-brief-introduction-to-latex"><span style="color:orange;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape sequences</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscripts-superscripts-and-grouping">Subscripts, superscripts, and grouping</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-5-pts"><span style="color:red"> Exercise 4 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-5-pts"><span style="color:red"> Exercise 4 </span> (5 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractions-and-parentheses">Fractions and parentheses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-5-pts"><span style="color:red"> Exercise 5 </span> (5 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-5-pts"><span style="color:red"> Exercise 6 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-pts"><span style="color:red"> Exercise 5 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-5-pts"><span style="color:red"> Exercise 6 </span> (5 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-submitting-labs-span"><span style="color:orange;"> 4. Submitting Labs </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-labs"><span style="color:orange;"> 4. Submitting Labs </span></a></li>
 </ul>
             </nav>
         </div>
@@ -438,14 +448,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-1-course-intro-markdown-latex">
-<h1>Week 1: Course Intro, Markdown, Latex<a class="headerlink" href="#week-1-course-intro-markdown-latex" title="Permalink to this heading">#</a></h1>
+<h1>Week 1: Course Intro, Markdown, Latex<a class="headerlink" href="#week-1-course-intro-markdown-latex" title="Link to this heading">#</a></h1>
 <p><font size="6"> Laboratory 0 </font> <br>
 <font size="3"> Last updated July 26, 2022 </font></p>
-<section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>N/A</p></li>
@@ -462,29 +472,29 @@ document.write(`
 <li><p>N/A</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>N/A</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-1-before-starting-span">
-<h2><span style="color:orange;"> 1. Before Starting </span><a class="headerlink" href="#span-style-color-orange-1-before-starting-span" title="Permalink to this heading">#</a></h2>
+<section id="before-starting">
+<h2><span style="color:orange;"> 1. Before Starting </span><a class="headerlink" href="#before-starting" title="Link to this heading">#</a></h2>
 <p>Before really getting started with this course, navigate to the Brightspace and read through the Syllabus.</p>
 <p>After this is completed, we will be setting up a file for organizational purposes that will be used to store all files throughout this course. To do this, navigate to the <em>Home</em> directory and add a new folder by right-clicking. Name the folder something that will be easy to find, such as “DSLab_Calc2.” If you’d like to put it at the top of the list of folders and make it even easier to find, add a tilde (~) at the beginning of the name you chose.</p>
 <p>Save this and all other files going forward to this folder. It’ll make everything much easier to find and will especially come in handy when submitting the labs at the end of each class. This includes files that are downloaded through links during labs. When you click on a file link, it’ll send you to the GitHub page for that file. To download and save it to your folder, click on the button that says “Raw” on the top right of the file preview (unless it’s a PDF, then just click “Download”). This will take you to a white page with the information in black text. To see the file in the proper environment, right-click the screen and click “Save as…” and once you open it after this, it should appear in the correct environment!</p>
 </section>
 <section id="laboratory-ethics">
-<h2>Laboratory ethics<a class="headerlink" href="#laboratory-ethics" title="Permalink to this heading">#</a></h2>
+<h2>Laboratory ethics<a class="headerlink" href="#laboratory-ethics" title="Link to this heading">#</a></h2>
 <p>“I pledge to behave ethically and with honesty in this course. I may discuss approaches for a solution with others, but my submitted lab report will be my own work, including all code. I will not make my finished reports available to other students, even after the semester is over. In particular, I will not post my labs on the Internet or make my files available to other people. I will not be a cheater.”</p>
 </section>
-<section id="span-style-color-orange-2-introduction-to-ipython-notebook-span">
-<h2><span style="color:orange;"> 2. Introduction to IPython Notebook </span><a class="headerlink" href="#span-style-color-orange-2-introduction-to-ipython-notebook-span" title="Permalink to this heading">#</a></h2>
+<section id="introduction-to-ipython-notebook">
+<h2><span style="color:orange;"> 2. Introduction to IPython Notebook </span><a class="headerlink" href="#introduction-to-ipython-notebook" title="Link to this heading">#</a></h2>
 <p>Welcome to the first of “The Data Science Labs on Differential and Integral Calculus!”</p>
 <p>You are reading an interactive textbook. As you read the text, you will be asked to perform certain tasks and answer some questions. You will write your answers directly in this textbook. Keep reading to learn how to do this!</p>
 </section>
 <section id="two-types-of-cells">
-<h2>Two types of cells<a class="headerlink" href="#two-types-of-cells" title="Permalink to this heading">#</a></h2>
+<h2>Two types of cells<a class="headerlink" href="#two-types-of-cells" title="Link to this heading">#</a></h2>
 <p>The application you are currently on is an IPython Notebook. The content of an IPython Notebook consists of two types of cells, “markdown” cells and “code” cells. Markdown cells are used to display nicely-formatted text for people to read. Code cells are used to display nicely-formatted code for people and computers to read. The words you are reading right now are part of a markdown cell. The gray cell below is a code cell. When you run the code cell, each line of code is executed in order. The output of the last line is shown under the cell. You can run these code cells by holding the “shift” key while pressing the “enter” key (shift-enter).</p>
 <p>Some of these boxes are labeled as “Sandbox”. Feel free to use the sandboxes as a place to experiment with functions and see the capabilities of Python as you read about them, (and feel free to make your own code cells, which will be explained shortly). No code or text in the sandboxes will be graded. Here is an example. Try running it!</p>
 <h3 style="color:green;"><left> Sandbox </left></h3><div class="cell docutils container">
@@ -504,7 +514,7 @@ document.write(`
 <p>First Name, Last Name, Email</p>
 </section>
 <section id="a-brief-intro-to-markdown">
-<h2>A brief intro to markdown<a class="headerlink" href="#a-brief-intro-to-markdown" title="Permalink to this heading">#</a></h2>
+<h2>A brief intro to markdown<a class="headerlink" href="#a-brief-intro-to-markdown" title="Link to this heading">#</a></h2>
 <p>Since you will be turning in work throughout this class using these notebooks, not with pen and paper, it is important that you are able to communicate clearly using markdown cells.</p>
 <p>Double-click this cell to see some of the useful Markdown formatting shown below</p>
 <ol class="arabic simple">
@@ -523,25 +533,24 @@ document.write(`
 </ul>
 <p>One of the most useful things about markdown is that we can use it to express mathematical formulas written using Latex. It is important that you are able to write formulas and equations so that they can be read on the computer.</p>
 </section>
-<section id="span-style-color-orange-2-try-it-out-span">
-<h2><span style="color:orange;"> 2. Try it Out </span><a class="headerlink" href="#span-style-color-orange-2-try-it-out-span" title="Permalink to this heading">#</a></h2>
+<section id="try-it-out">
+<h2><span style="color:orange;"> 2. Try it Out </span><a class="headerlink" href="#try-it-out" title="Link to this heading">#</a></h2>
 <p>You can use the “plus” button in the top left corner of the document to insert a cell, or you can right-click a cell and click “Paste Cells Below,” if you want to copy a cell. Inside a cell, you can use the dropdown menu to the right of the plus button to switch it between being a code or markdown cell.</p>
 <p>Try adding a markdown cell below and write a short message.</p>
 <p>Along with adding a cell, you can also delete them by right-clicking the cell you want to delete and pressing “Delete Cells.” While you shouldn’t be using this capability much during this course, it is useful to know about.</p>
 <p>Try deleting the cell below.</p>
 <p><strong>Delete me!</strong></p>
-<section id="span-style-color-red-exercise-1-part-1-span">
-<h3><span style="color:red"> Exercise 1 Part 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-part-1-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-1-5-pts">
+<h3><span style="color:red"> Exercise 1 </span> (5 pts)<a class="headerlink" href="#exercise-1-5-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (2.5 pts)</p>
 <p>The following code cell contains code but it is labeled as a markdown cell. Change it to a code cell and run it.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Part 1 Below </h3><p>sum([1, 2, 3, 4, 5])</p>
-</section>
-<section id="span-style-color-red-exercise-1-part-2-span">
-<h3><span style="color:red"> Exercise 1 Part 2 </span><a class="headerlink" href="#span-style-color-red-exercise-1-part-2-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Part 2</strong> (2.5 pts)</p>
 <p>Make a new markdown cell underneath this one. Write a sentence in it and execute the cell to make it format.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Part 2 Below </h3></section>
 </section>
-<section id="span-style-color-orange-3-a-very-brief-introduction-to-latex-span">
-<h2><span style="color:orange;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span><a class="headerlink" href="#span-style-color-orange-3-a-very-brief-introduction-to-latex-span" title="Permalink to this heading">#</a></h2>
+<section id="a-very-brief-introduction-to-latex">
+<h2><span style="color:orange;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span><a class="headerlink" href="#a-very-brief-introduction-to-latex" title="Link to this heading">#</a></h2>
 <p>Latex (written stylized as <span class="math notranslate nohighlight">\(\LaTeX\)</span>) is a very popular, very old, very well-established tool for making typeset documents. The “x” should really be a letter chi, <span class="math notranslate nohighlight">\(\chi\)</span>, which makes a “k” sound – Latex is pronounced “law-tek”, or “lay-tek”. Here are some common ways people use it:</p>
 <ul class="simple">
 <li><p>writing submissions to academic journals</p></li>
@@ -557,26 +566,26 @@ document.write(`
 e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
 \]</div>
 <p>If you double-click on this cell of the document, you will see the characters which I typed to make that formula happen. Notice the <code class="docutils literal notranslate"><span class="pre">$$</span> <span class="pre">and</span> <span class="pre">$$</span></code> which are used to tell Markdown that a formula is happening.</p>
-<section id="span-style-color-red-exercise-2-span-5-pts">
-<h3><span style="color:red"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-2-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-2-5-pts">
+<h3><span style="color:red"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#exercise-2-5-pts" title="Link to this heading">#</a></h3>
 <p>Copy and paste the formula from the cell above into the cell below. Change it so that instead of <span class="math notranslate nohighlight">\(x\)</span>, the variable is <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3><p>One of the reasons Latex is so popular is that you can use the same formulas in different places, and they will show up differently based on context. If you want to put Latex in a line of text (without its own line) you can just put your code between dollar signs (<code class="docutils literal notranslate"><span class="pre">$</span></code>) like this: <span class="math notranslate nohighlight">\(e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.\)</span> Notice that the sum is written smaller, so it doesn’t break up the text as much, but I used the exact same code.</p>
 </section>
 </section>
 <section id="escape-sequences">
-<h2>Escape sequences<a class="headerlink" href="#escape-sequences" title="Permalink to this heading">#</a></h2>
+<h2>Escape sequences<a class="headerlink" href="#escape-sequences" title="Link to this heading">#</a></h2>
 <p>A lot of the symbols we like to use in math are not on a typical keyboard. If you want a lower case sigma, you are usually out of luck. In Latex you can write a lower case sigma by writing <code class="docutils literal notranslate"><span class="pre">\sigma</span></code>, which shows up like <span class="math notranslate nohighlight">\(\sigma\)</span>. Everything written after a backslash (the symbol <code class="docutils literal notranslate"><span class="pre">\</span></code>, which is found just under the backspace key on most keyboards) is not printed, but instead is treated like a command. In this case, the command is “put a letter sigma here”. To do a capital sigma, just type <code class="docutils literal notranslate"><span class="pre">\Sigma</span></code> with a capital <code class="docutils literal notranslate"><span class="pre">S</span></code>, like so <span class="math notranslate nohighlight">\(\Sigma\)</span>.</p>
-<section id="span-style-color-red-exercise-3-span-5-pts">
-<h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-3-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-5-pts">
+<h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#exercise-3-5-pts" title="Link to this heading">#</a></h3>
 <p>Write some Latex code in the cell below to produce an phi, psi, gamma, and delta, first in lower case then in upper case.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
 </section>
 <section id="subscripts-superscripts-and-grouping">
-<h2>Subscripts, superscripts, and grouping<a class="headerlink" href="#subscripts-superscripts-and-grouping" title="Permalink to this heading">#</a></h2>
+<h2>Subscripts, superscripts, and grouping<a class="headerlink" href="#subscripts-superscripts-and-grouping" title="Link to this heading">#</a></h2>
 <p>It is really common in math to want to write a superscript like the 2 in <span class="math notranslate nohighlight">\(x^2\)</span> or the <span class="math notranslate nohighlight">\(r\)</span> in <span class="math notranslate nohighlight">\(\varepsilon_r\)</span>. We do that with the <code class="docutils literal notranslate"><span class="pre">^</span></code> and <code class="docutils literal notranslate"><span class="pre">_</span></code> keys (caret and underscore). <strong>Watch out</strong>: Latex is different from Python. In Python, we would write <span class="math notranslate nohighlight">\(x^2\)</span> as <code class="docutils literal notranslate"><span class="pre">x**2</span></code>. It can be easy to get mixed up when switching back and forth.</p>
 <p>Here is another thing to watch out for: the subscript (or superscript) only works on the first thing after it. So, if I try to raise x to the 23rd power with just one caret (<code class="docutils literal notranslate"><span class="pre">x^23</span></code>) I get this: <span class="math notranslate nohighlight">\(x^23\)</span>. No good! In order to fix this, we will tell the 2 and the 3 that they go together. We use the <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code> symbols (braces) to group things together in Latex. I can type this instead as <code class="docutils literal notranslate"><span class="pre">x^{23}</span></code> which gives <span class="math notranslate nohighlight">\(x^{23}\)</span>.</p>
-<section id="span-style-color-red-exercise-4-span-5-pts">
-<h3><span style="color:red"> Exercise 4 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-4-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-5-pts">
+<h3><span style="color:red"> Exercise 4 </span> (5 pts)<a class="headerlink" href="#exercise-4-5-pts" title="Link to this heading">#</a></h3>
 <p>The formula below is all wrong! Put in braces to make it correct.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="math notranslate nohighlight">
 \[
@@ -585,7 +594,7 @@ e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
 </section>
 </section>
 <section id="fractions-and-parentheses">
-<h2>Fractions and parentheses<a class="headerlink" href="#fractions-and-parentheses" title="Permalink to this heading">#</a></h2>
+<h2>Fractions and parentheses<a class="headerlink" href="#fractions-and-parentheses" title="Link to this heading">#</a></h2>
 <p>Fractions in Latex are a bit unusual in that they act on the <em>two</em> symbols which come after them. If I write <code class="docutils literal notranslate"><span class="pre">\frac12</span></code> that makes <span class="math notranslate nohighlight">\(\frac12\)</span>. Usually, fractions have more than one character in the numerator and denominator, so you will usually write a fraction with two pairs of braces, <code class="docutils literal notranslate"><span class="pre">\frac{1}{2}</span></code>. That is easier to read anyhow, I think. This makes it possible to more complicated fractions, or even fractions inside of fractions.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -604,22 +613,22 @@ e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
 \end{align*}\]</div>
 </section>
 <section id="getting-help">
-<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
 <p>Almost nobody knows every Latex command they use by heart. There are lots of ways to get help on the internet. One popular tool is <a class="reference external" href="http://detexify.kirelabs.org/classify.html">Detexify</a> which can help you find the escape sequence for a symbol you need. Try it out.</p>
-<section id="span-style-color-red-exercise-5-span-5-pts">
-<h3><span style="color:red"> Exercise 5 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-5-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-5-5-pts">
+<h3><span style="color:red"> Exercise 5 </span> (5 pts)<a class="headerlink" href="#exercise-5-5-pts" title="Link to this heading">#</a></h3>
 <p>Use Detexify to find the escape sequence for the symbol <img alt="symbol" src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/1_intro_to_notebooks/symbol.png" />, then type it using Latex below.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3><p>Another powerful way is to copy someone else’s working code. One great place to find it is on Wikipedia.</p>
 </section>
-<section id="span-style-color-red-exercise-6-span-5-pts">
-<h3><span style="color:red"> Exercise 6 </span> (5 pts)<a class="headerlink" href="#span-style-color-red-exercise-6-span-5-pts" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-5-pts">
+<h3><span style="color:red"> Exercise 6 </span> (5 pts)<a class="headerlink" href="#exercise-6-5-pts" title="Link to this heading">#</a></h3>
 <p>You have not been told yet how to write a binomial coefficient in Latex. To figure it out, go to <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_theorem">the Wikipedia page for the binomial theorem</a> and find this formula:</p>
 <p><img alt="img" src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/1_intro_to_notebooks/binomial.png" /></p>
 <p>Go to “edit source” on Wikipedia and copy the Latex code you find there to reproduce the formula here below. Then, change the index of summation from a <span class="math notranslate nohighlight">\(k\)</span> to an <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 6 Below </h3></section>
 </section>
-<section id="span-style-color-orange-4-submitting-labs-span">
-<h2><span style="color:orange;"> 4. Submitting Labs </span><a class="headerlink" href="#span-style-color-orange-4-submitting-labs-span" title="Permalink to this heading">#</a></h2>
+<section id="submitting-labs">
+<h2><span style="color:orange;"> 4. Submitting Labs </span><a class="headerlink" href="#submitting-labs" title="Link to this heading">#</a></h2>
 <p>Now that you’ve finished the first lab, you’re probably wondering how to submit it. This was briefly explained in the Introduction, but here it’ll be explained a bit better.</p>
 <p>First, make sure that everything is completely filled out and saved (either by typing Ctrl+S or by clicking the floppy disk icon in the top left of this application). Once you’ve done this, look at Brightspace for instructions on how to submit the lab.</p>
 <p>Once you’ve done this, you’ve completed your first lab for this class!</p>
@@ -653,7 +662,7 @@ e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -683,43 +692,43 @@ e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-before-starting-span"><span style="color:orange;"> 1. Before Starting </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-starting"><span style="color:orange;"> 1. Before Starting </span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-ethics">Laboratory ethics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-introduction-to-ipython-notebook-span"><span style="color:orange;"> 2. Introduction to IPython Notebook </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-ipython-notebook"><span style="color:orange;"> 2. Introduction to IPython Notebook </span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-cells">Two types of cells</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-intro-to-markdown">A brief intro to markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-try-it-out-span"><span style="color:orange;"> 2. Try it Out </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-part-1-span"><span style="color:red"> Exercise 1 Part 1 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-part-2-span"><span style="color:red"> Exercise 1 Part 2 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it-out"><span style="color:orange;"> 2. Try it Out </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5-pts"><span style="color:red"> Exercise 1 </span> (5 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-a-very-brief-introduction-to-latex-span"><span style="color:orange;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-brief-introduction-to-latex"><span style="color:orange;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape sequences</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscripts-superscripts-and-grouping">Subscripts, superscripts, and grouping</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span-5-pts"><span style="color:red"> Exercise 4 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-5-pts"><span style="color:red"> Exercise 4 </span> (5 pts)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractions-and-parentheses">Fractions and parentheses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span-5-pts"><span style="color:red"> Exercise 5 </span> (5 pts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span-5-pts"><span style="color:red"> Exercise 6 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-pts"><span style="color:red"> Exercise 5 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-5-pts"><span style="color:red"> Exercise 6 </span> (5 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-submitting-labs-span"><span style="color:orange;"> 4. Submitting Labs </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-labs"><span style="color:orange;"> 4. Submitting Labs </span></a></li>
 </ul>
   </nav></div>
 
@@ -768,8 +777,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

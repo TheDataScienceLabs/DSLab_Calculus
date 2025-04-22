@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 4: Estimate Blood Flow from PPG Data &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'labs/3_estimate_blood_flow/lab3';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -218,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -359,10 +370,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -370,14 +381,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -398,34 +409,34 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-functions-in-python-span"><span style="color:orange;"> 1. Functions in Python </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-in-python"><span style="color:orange;"> 1. Functions in Python </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-most-useful-way-to-organize-code-is-the-function">The most useful way to organize code is the function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span"><span style="color:red;"> Exercise 1 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red;"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-make-code-reusable">Functions make code reusable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span"><span style="color:red;"> Exercise 2 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-10-pts"><span style="color:red;"> Exercise 2 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-make-it-easy-to-check-your-work">Functions make it easy to check your work</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reusing-code-from-last-week">Reusing code from last week</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-using-functions-with-data-span"><span style="color:orange;"> 2. Using Functions with Data </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-functions-with-data"><span style="color:orange;"> 2. Using Functions with Data </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-deeper-with-polynomials">Looking deeper with polynomials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10-pts"><span style="color:red;"> Exercise 3 </span> (10 pts)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifying-the-fit">Quantifying the fit</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red;"> Exercise 4 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data-using-the-polynomial-model">Exploring the data using the polynomial model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span"><span style="color:red;"> Exercise 6 </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red;"> Exercise 6 </span> (10 pts)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-and-code-reuse">Interpretation and code reuse</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span"><span style="color:red;"> Exercise 7 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-optional-exercise-8-span"><span style="color:red;"> Optional Exercise 8 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-10-pts"><span style="color:red;"> Exercise 7 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-optional-0-pts"><span style="color:red;"> Exercise 8 </span> (Optional - 0 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-yourself">Measure yourself!</a></li>
 </ul>
 </li>
@@ -438,14 +449,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-4-estimate-blood-flow-from-ppg-data">
-<h1>Week 4: Estimate Blood Flow from PPG Data<a class="headerlink" href="#week-4-estimate-blood-flow-from-ppg-data" title="Permalink to this heading">#</a></h1>
+<h1>Week 4: Estimate Blood Flow from PPG Data<a class="headerlink" href="#week-4-estimate-blood-flow-from-ppg-data" title="Link to this heading">#</a></h1>
 <p><font size="6"> Laboratory 3: Intro to Functions, Polynomial Fitting </font> <br>
 <font size="3"> Last updated Sep 14, 2023 </font></p>
-<section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>Empirical mean</p></li>
@@ -461,8 +472,8 @@ document.write(`
 <li><p>Thonny and Micropython</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Microcontroller: Raspberry Pi Pico</p></li>
 <li><p>Pulse sensor</p></li>
@@ -471,12 +482,12 @@ document.write(`
 <li><p>Capacitor</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-1-functions-in-python-span">
-<h2><span style="color:orange;"> 1. Functions in Python </span><a class="headerlink" href="#span-style-color-orange-1-functions-in-python-span" title="Permalink to this heading">#</a></h2>
+<section id="functions-in-python">
+<h2><span style="color:orange;"> 1. Functions in Python </span><a class="headerlink" href="#functions-in-python" title="Link to this heading">#</a></h2>
 <h3 style="background-color:lightblue"> Write your name and email below: </h3>
 <p>First Name, Last Name, email</p>
 <section id="the-most-useful-way-to-organize-code-is-the-function">
-<h3>The most useful way to organize code is the function<a class="headerlink" href="#the-most-useful-way-to-organize-code-is-the-function" title="Permalink to this heading">#</a></h3>
+<h3>The most useful way to organize code is the function<a class="headerlink" href="#the-most-useful-way-to-organize-code-is-the-function" title="Link to this heading">#</a></h3>
 <p>Up to now, we have been relying on functions other people have written to achieve our goals. One of the most important roles of a computer programmer is writing good functions.</p>
 <p>For this lab, we are going to learn how to write functions. As a refresher, last lab we discussed how functions are groups of code that always run together. When you call a function, you execute the code that is associated within that function. Functions can take inputs, manipulate the inputs, and return an output.</p>
 <p>Why use functions? Functions help reduce repetitive code. Functions also make your code easier to read.</p>
@@ -484,7 +495,7 @@ document.write(`
 <p>Here are two examples of a simple function that prints something.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name</span><span class="p">():</span>  <span class="c1"># Function Header</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">():</span>  <span class="c1"># Function Header</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Science is cool!&quot;</span><span class="p">)</span>  <span class="c1"># Function Body</span>
 
 
@@ -495,7 +506,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add12</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add12</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -509,7 +520,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
     <span class="k">return</span> <span class="n">c</span>
 
@@ -521,10 +532,10 @@ document.write(`
 <p>You can also pass information into functions so that you can manipulate the parameters of the function within the function. Parameters are enclosed within the <code class="docutils literal notranslate"><span class="pre">()</span></code> part of the function header. You can pass as many parameters as you would like within the function header. The order of the parameters are significant and should match the order in the function’s header.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
-<span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># Function Header passes in parameters a and b</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># Function Header passes in parameters a and b</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a - b = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 
@@ -547,7 +558,7 @@ document.write(`
 <p>Parameters can be strings as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Email: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">email</span><span class="p">))</span>
 
@@ -560,11 +571,11 @@ document.write(`
 <p>The neat thing about functions is that you could also return a value from a function utilizing the key word <code class="docutils literal notranslate"><span class="pre">return</span></code>. You must remember to store the returned value from the function into a variable if you want to save it. Remember that when you call a function, it’s like the function call is replaced by the code within the body of the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">return5</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">return5</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">5</span>
 
 
-<span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
     <span class="k">return</span> <span class="n">c</span>  <span class="c1"># return the value of a * b</span>
 
@@ -600,7 +611,7 @@ document.write(`
 <p>Instead of having repeating lines of code to create the output you want, you can use functions to shorten and organize them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print3</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print3</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -615,45 +626,43 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-1-span">
-<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this heading">#</a></h3>
-<p><strong>Part 1</strong></p>
+<section id="exercise-1-10-pts">
+<h3><span style="color:red;"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#exercise-1-10-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (5 pts)</p>
 <p>Create the following functions. <br></p>
 <ol class="arabic simple">
 <li><p>Function named <code class="docutils literal notranslate"><span class="pre">trapezoid_area</span></code> that has three parameters named <code class="docutils literal notranslate"><span class="pre">base1</span></code>, <code class="docutils literal notranslate"><span class="pre">base2</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code>, and returns the area of a trapezoid.</p></li>
 <li><p>Function named <code class="docutils literal notranslate"><span class="pre">slope</span></code> that calculates the slope of the straight line passing through the two points in the plane. The parameters are <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, and <code class="docutils literal notranslate"><span class="pre">y2</span></code> and the function returns the slope.</p></li>
 </ol>
-<p><strong>Part 2</strong></p>
+<p><strong>Part 2</strong> (5 pts)</p>
 <p>Create the following functions for the following formulas. Do not use any of python’s NumPy functions, with the exception of the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function.</p>
 <ol class="arabic simple">
-<li><p>Arithmetic Mean</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\mu 
-&amp;= \frac{1}{n}\sum_{i=1}^n a_i\\
+<li><p>Arithmetic Mean
+\begin{align*}
+\mu
+&amp;= \frac{1}{n}\sum_{i=1}^n a_i\
 &amp;= \frac{a_1+a_2+\dots+a_n}{n}
-\end{align*}\]</div>
+\end{align*}</p></li>
+</ol>
 <ul class="simple">
 <li><p>Name: <code class="docutils literal notranslate"><span class="pre">mean</span></code></p></li>
 <li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
 </ul>
 <ol class="arabic simple" start="2">
-<li><p>Standard Deviation (You must utilize your <code class="docutils literal notranslate"><span class="pre">mean</span></code> function from Question 1)</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\sigma 
-&amp;= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\mu)^2}\\
+<li><p>Standard Deviation (You must utilize your <code class="docutils literal notranslate"><span class="pre">mean</span></code> function from Question 1)
+\begin{align*}
+\sigma
+&amp;= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i-\mu)^2}\
 &amp;= \sqrt{\frac{(x_1-\mu)^2+(x_2-\mu)^2+\dots+(x_n-\mu)^2}{n-1}}
-\end{align*}\]</div>
+\end{align*}</p></li>
+</ol>
 <ul class="simple">
 <li><p>Name: <code class="docutils literal notranslate"><span class="pre">std</span></code></p></li>
 <li><p>Parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> (an array of values of variable length)</p></li>
 </ul>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below </h3></section>
 <section id="functions-make-code-reusable">
-<h3>Functions make code reusable<a class="headerlink" href="#functions-make-code-reusable" title="Permalink to this heading">#</a></h3>
+<h3>Functions make code reusable<a class="headerlink" href="#functions-make-code-reusable" title="Link to this heading">#</a></h3>
 <p>One of the most important things about functions is that they can allow us to reproduce a task we did before, very reliably.</p>
 <p>At the start of each lab, you must include your first name, last name, and email address. We can easily automate that process with functions. Run the following cell in order to download student_info.py. Afterwards, open it and make sure it is saved inside the same directory. Once you have read that, you should not be surprised by what the following cell does.</p>
 <div class="cell docutils container">
@@ -671,7 +680,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
 
-<span class="kn">from</span> <span class="nn">student_info</span> <span class="kn">import</span> <span class="n">show_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">student_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_info</span>
 
 <span class="n">show_info</span><span class="p">()</span>
 </pre></div>
@@ -679,8 +688,8 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-2-span">
-<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-2-10-pts">
+<h3><span style="color:red;"> Exercise 2 </span> (10 pts)<a class="headerlink" href="#exercise-2-10-pts" title="Link to this heading">#</a></h3>
 <p>Modify <code class="docutils literal notranslate"><span class="pre">student_info.py</span></code> to give your own contact information. You will use this file in the future to put a heading on your lab submissions.</p>
 <p>Check to make sure it is working by running the cell below. It should show your contact information.</p>
 <div class="cell docutils container">
@@ -692,16 +701,16 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </section>
 <section id="functions-make-it-easy-to-check-your-work">
-<h3>Functions make it easy to check your work<a class="headerlink" href="#functions-make-it-easy-to-check-your-work" title="Permalink to this heading">#</a></h3>
+<h3>Functions make it easy to check your work<a class="headerlink" href="#functions-make-it-easy-to-check-your-work" title="Link to this heading">#</a></h3>
 <p>One of the great things about Python, which is not something every language can do, is that you can pass functions around as variables. You can put a function into another function, like so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_three_times</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_three_times</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="n">f</span><span class="p">()</span>
     <span class="n">f</span><span class="p">()</span>
     <span class="n">f</span><span class="p">()</span>
     
-<span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hey&#39;</span><span class="p">)</span>
 
 <span class="n">do_three_times</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
@@ -722,7 +731,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lab3_grader</span> <span class="kn">import</span> <span class="n">check_trapezoid_area</span><span class="p">,</span> <span class="n">check_slope</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lab3_grader</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_trapezoid_area</span><span class="p">,</span> <span class="n">check_slope</span>
 
 <span class="n">check_trapezoid_area</span><span class="p">(</span><span class="n">trapezoid_area</span><span class="p">)</span>
 <span class="n">check_slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
@@ -731,7 +740,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 <section id="reusing-code-from-last-week">
-<h4>Reusing code from last week<a class="headerlink" href="#reusing-code-from-last-week" title="Permalink to this heading">#</a></h4>
+<h4>Reusing code from last week<a class="headerlink" href="#reusing-code-from-last-week" title="Link to this heading">#</a></h4>
 <p>We wish to explore the heartbeat data we collected in the previous lab further. To do so, let’s copy that code into a new function. In the following cell, fill in the <code class="docutils literal notranslate"><span class="pre">heartbeat</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> variables with your heart beat array (and corresponding time) from last week. Then, fill out the missing parts of the function <code class="docutils literal notranslate"><span class="pre">get_period</span></code> with the steps you performed last week (it’s okay to copy and paste). If your heartbeat measurements from last lab were not up to par or something went wrong while measuring, run the following cell in order to load the example_heartbeat.txt that you can use in order to correctly fill out the next few exercises.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -747,7 +756,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <span class="n">time</span> <span class="o">=</span> 
 
 
-<span class="k">def</span> <span class="nf">get_period</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_period</span><span class="p">(</span><span class="n">heartbeat</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a hearbeat signal, what is the period of the heart beat?</span>
 
@@ -787,10 +796,10 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </section>
 </section>
 </section>
-<section id="span-style-color-orange-2-using-functions-with-data-span">
-<h2><span style="color:orange;"> 2. Using Functions with Data </span><a class="headerlink" href="#span-style-color-orange-2-using-functions-with-data-span" title="Permalink to this heading">#</a></h2>
+<section id="using-functions-with-data">
+<h2><span style="color:orange;"> 2. Using Functions with Data </span><a class="headerlink" href="#using-functions-with-data" title="Link to this heading">#</a></h2>
 <section id="looking-deeper-with-polynomials">
-<h3>Looking deeper with polynomials<a class="headerlink" href="#looking-deeper-with-polynomials" title="Permalink to this heading">#</a></h3>
+<h3>Looking deeper with polynomials<a class="headerlink" href="#looking-deeper-with-polynomials" title="Link to this heading">#</a></h3>
 <p>The averaging technique we introduced in the previous lab works very well for identifying the locations of large features. Unfortunately, it blurs out some of the fine detail, brings peaks down, and lifts bottoms up. That’s no good if you want to know information like the amplitude or shape of the signal. We can do much better.</p>
 <p>We will explore one way of finding a function which “interpolates” between the observed values. A function which interpolates is called an “interpolant”.</p>
 <p>Since you have the period of your heartbeat signal, you can extract just one cycle of the initial signal. In the following cell, fill in a start time which gives you a good window capturing one full heart beat.</p>
@@ -801,7 +810,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <span class="n">cycle</span> <span class="o">=</span> <span class="n">heartbeat</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 <span class="n">cycle_t</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -812,7 +821,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>A parabola has one local maximum or minimum. A cubic polynomial has at most two. A fourth degree polynomial has at most three local maxima and minima. Fit a polynomial of degree one more than the number of local maxima and minima. Numpy has a built in tool which finds a polynomial which matches observed values closely. Here is how it works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.polynomial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polynomial</span>
 
 <span class="n">interpolant</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cycle_t</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
@@ -832,23 +841,23 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <p>What other values of the degree could we try? What kind of interpolant do we get with a smaller degree, or a larger degree than 7?</p>
 </section>
-<section id="span-style-color-red-exercise-3-span">
-<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-10-pts">
+<h3><span style="color:red;"> Exercise 3 </span> (10 pts)<a class="headerlink" href="#exercise-3-10-pts" title="Link to this heading">#</a></h3>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to make plots showing the interpolants of degrees 3 through 15. Which ones fit best? Try larger values too. What if you have an interpolant of degree 30? 100?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3><section id="quantifying-the-fit">
-<h4>Quantifying the fit<a class="headerlink" href="#quantifying-the-fit" title="Permalink to this heading">#</a></h4>
+<h4>Quantifying the fit<a class="headerlink" href="#quantifying-the-fit" title="Link to this heading">#</a></h4>
 <p>Beyond a certain point, the polynomial can snake through each point we give it, capturing all the noise. That defeats the purpose of the fit! It is good practice to choose as low a degree as possible while still matching the data well. This is called the <em>parsimony principle</em>. We can quantify this with the so-called “mean square error” of a fit: the average value of the difference between the interpolant and the measured value. If the measured values are <span class="math notranslate nohighlight">\(y_i\)</span> and we are measuring how well an interpolant <span class="math notranslate nohighlight">\(f(x_i)\)</span> agrees, then the mean square error is given by the formula
 <span class="math notranslate nohighlight">\(
 \frac{1}{n}\sum_{i=0}^n \left(f(x_i)-y_i\right)^2 
 \)</span></p>
 </section>
 </section>
-<section id="span-style-color-red-exercise-4-span">
-<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-10-pts">
+<h3><span style="color:red;"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#exercise-4-10-pts" title="Link to this heading">#</a></h3>
 <p>Write a function which takes an interpolant and returns the mean square error. Then, read and run the cell below it, which will use the code you wrote to make a plot of how the polynomial degree relates to the mean square error.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_square_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_square_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">interpolant</span><span class="p">):</span>
     <span class="c1"># put your answer here!</span>
 </pre></div>
 </div>
@@ -871,12 +880,12 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-5-span">
-<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-5-10-pts">
+<h3><span style="color:red;"> Exercise 5 </span> (10 pts)<a class="headerlink" href="#exercise-5-10-pts" title="Link to this heading">#</a></h3>
 <p>Interpret the plot above. After what point do we see diminishing returns on the model’s fit? What is the smallest degree of polynomial which has a reasonably low mean square error, in your opinion? Write in complete sentences here, as if you were describing the plot in a professional report.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 5 Below </h3></section>
 <section id="exploring-the-data-using-the-polynomial-model">
-<h3>Exploring the data using the polynomial model<a class="headerlink" href="#exploring-the-data-using-the-polynomial-model" title="Permalink to this heading">#</a></h3>
+<h3>Exploring the data using the polynomial model<a class="headerlink" href="#exploring-the-data-using-the-polynomial-model" title="Link to this heading">#</a></h3>
 <p>Now that we have a good model for the behavior of each cycle, we can start asking questions of our model. We can ask things like, “What is the largest value of the function on the interval?” Here is an example of how we might do that. Suppose we have the following interpolant:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -926,13 +935,13 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-6-span">
-<h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#span-style-color-red-exercise-6-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-10-pts">
+<h3><span style="color:red;"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#exercise-6-10-pts" title="Link to this heading">#</a></h3>
 <p>Remember the closed interval method from calculus 1, where you find all the critical numbers of a function within its interval, and plug those into the function to find the maximum and minimum values. Write a function which does exactly that, to a polynomial interpolant.</p>
 <p>Hint: critical points are the roots of the derivative of a certain function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
     <span class="c1">#your code goes here.</span>
     
     <span class="k">return</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span>
@@ -943,12 +952,12 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 </div>
 <section id="interpretation-and-code-reuse">
-<h4>Interpretation and code reuse<a class="headerlink" href="#interpretation-and-code-reuse" title="Permalink to this heading">#</a></h4>
+<h4>Interpretation and code reuse<a class="headerlink" href="#interpretation-and-code-reuse" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3394104/pdf/CCR-8-14.pdf">This article published in Current Cardiology News</a> gives several commonly used statistics which can be read from a photoplethysmogram. We will focus on just two of them: the “systolic amplitude” which is roughly proportional to blood flow, and the “ratio b/a” which is connected to arterial stiffness and can indicate exposure to lead and risk of heart disease.</p>
 <p>First, let’s make a function which computes the systolic amplitude. We have already done most of the work, when we wrote the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code>. Let’s take advantage of that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">systolic_amplitude</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">systolic_amplitude</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
     <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span> <span class="o">=</span> <span class="n">closed_interval</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">maximum</span> <span class="o">-</span> <span class="n">minimum</span>
 
@@ -960,12 +969,12 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 <p>The ratio b/a is based off the maximum and minimum values of the second derivative. Specifically, it is their ratio. Since the photoplethysmogram is concave up in some places and concave down in others, the maximum will be positive and the minimum will be negative. Since we are more familiar working with positive numbers, people usually compute <span class="math notranslate nohighlight">\(-b/a\)</span>, where <span class="math notranslate nohighlight">\(b\)</span> is the minimum value of the second derivative and <span class="math notranslate nohighlight">\(a\)</span> is the maximum value of the second derivative.</p>
 </section>
 </section>
-<section id="span-style-color-red-exercise-7-span">
-<h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#span-style-color-red-exercise-7-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-7-10-pts">
+<h3><span style="color:red;"> Exercise 7 </span> (10 pts)<a class="headerlink" href="#exercise-7-10-pts" title="Link to this heading">#</a></h3>
 <p>Write a function to compute the ratio b/a. You should still be able to reuse the function <code class="docutils literal notranslate"><span class="pre">closed_interval</span></code> (ask for help if you need a hint for how to do this).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">):</span>
     <span class="c1"># your code here</span>
 
 <span class="n">ratio_b_a</span><span class="p">(</span><span class="n">interpolant</span><span class="p">)</span>
@@ -975,11 +984,11 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
 </div>
 <p>Let’s look at where we are. Today, you have learned about writing functions. You have written functions which identify the period of a heartbeat signal, interpolate it with a polynomial, and compute two medically interesting values from it. We saw that by reusing old code, we can save ourselves a lot of time. That is a lot! Well done.</p>
 </section>
-<section id="span-style-color-red-optional-exercise-8-span">
-<h3><span style="color:red;"> Optional Exercise 8 </span><a class="headerlink" href="#span-style-color-red-optional-exercise-8-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-8-optional-0-pts">
+<h3><span style="color:red;"> Exercise 8 </span> (Optional - 0 pts)<a class="headerlink" href="#exercise-8-optional-0-pts" title="Link to this heading">#</a></h3>
 </section>
 <section id="measure-yourself">
-<h3>Measure yourself!<a class="headerlink" href="#measure-yourself" title="Permalink to this heading">#</a></h3>
+<h3>Measure yourself!<a class="headerlink" href="#measure-yourself" title="Link to this heading">#</a></h3>
 <p>In the case that you have remaining time within your lab, you should put the tools you have used to work. Make a new Jupyter notebook, copying code from lab 2, to capture some new pulse data (remember, it is good practice to separate data acquisition from data analysis!). Then, analyze it here using the functions you have written. You can use the prompts below for scenarios for your analysis:</p>
 <ol class="arabic simple">
 <li><p>If you jog up and down the hallway briefly, how does your pulse rate change?</p></li>
@@ -1018,7 +1027,7 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1048,40 +1057,41 @@ wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/m
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-functions-in-python-span"><span style="color:orange;"> 1. Functions in Python </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-in-python"><span style="color:orange;"> 1. Functions in Python </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-most-useful-way-to-organize-code-is-the-function">The most useful way to organize code is the function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span"><span style="color:red;"> Exercise 1 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red;"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-make-code-reusable">Functions make code reusable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span"><span style="color:red;"> Exercise 2 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-10-pts"><span style="color:red;"> Exercise 2 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-make-it-easy-to-check-your-work">Functions make it easy to check your work</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reusing-code-from-last-week">Reusing code from last week</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-using-functions-with-data-span"><span style="color:orange;"> 2. Using Functions with Data </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-functions-with-data"><span style="color:orange;"> 2. Using Functions with Data </span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-deeper-with-polynomials">Looking deeper with polynomials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10-pts"><span style="color:red;"> Exercise 3 </span> (10 pts)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifying-the-fit">Quantifying the fit</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red;"> Exercise 4 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data-using-the-polynomial-model">Exploring the data using the polynomial model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span"><span style="color:red;"> Exercise 6 </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red;"> Exercise 6 </span> (10 pts)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-and-code-reuse">Interpretation and code reuse</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span"><span style="color:red;"> Exercise 7 </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-optional-exercise-8-span"><span style="color:red;"> Optional Exercise 8 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-10-pts"><span style="color:red;"> Exercise 7 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-optional-0-pts"><span style="color:red;"> Exercise 8 </span> (Optional - 0 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-yourself">Measure yourself!</a></li>
 </ul>
 </li>
@@ -1133,8 +1143,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

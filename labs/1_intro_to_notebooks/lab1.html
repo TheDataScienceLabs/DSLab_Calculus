@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing &#8212; The Data Science Labs on Differential and Integral Calculus</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'labs/1_intro_to_notebooks/lab1';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -218,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -359,10 +370,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -370,14 +381,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -398,38 +409,38 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-about-python-and-jupyter-span"><span style="color:orange;"> 1. About Python and Jupyter </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-python-libraries-span"><span style="color:orange;"> 2. Python Libraries </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-functions-span"><span style="color:orange;"> 3. Functions </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span"><span style="color:red;"> Exercise 1 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-python-and-jupyter"><span style="color:orange;"> 1. About Python and Jupyter </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-libraries"><span style="color:orange;"> 2. Python Libraries </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions"><span style="color:orange;"> 3. Functions </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red;"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span"><span style="color:red;"> Exercise 2 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-10-pts"><span style="color:red;"> Exercise 2 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-formatting-span"><span style="color:orange;"> 4. Formatting </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting"><span style="color:orange;"> 4. Formatting </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10-pts"><span style="color:red;"> Exercise 3 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-5-for-loops-span"><span style="color:orange;"> 5. For Loops </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><span style="color:orange;"> 5. For Loops </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red;"> Exercise 4 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-6-lists-span"><span style="color:orange;"> 6. Lists </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists"><span style="color:orange;"> 6. Lists </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-7-matplotlib-interface-span"><span style="color:orange;"> 7. Matplotlib Interface </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span"><span style="color:red;"> Exercise 6 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-interface"><span style="color:orange;"> 7. Matplotlib Interface </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red;"> Exercise 6 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-8-numpy-arrays-span"><span style="color:orange;"> 8. NumPy Arrays </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span"><span style="color:red;"> Exercise 7 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays"><span style="color:orange;"> 8. NumPy Arrays </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-20-pts"><span style="color:red;"> Exercise 7 </span> (20 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-9-function-visualizations-span"><span style="color:orange;"> 9. Function Visualizations </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span"><span style="color:red;"> Exercise 8 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-visualizations"><span style="color:orange;"> 9. Function Visualizations </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-20-pts"><span style="color:red;"> Exercise 8 </span> (20 pts)</a></li>
 </ul>
 </li>
 </ul>
@@ -441,14 +452,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-2-introduction-to-python-data-visualization-sampling-aliasing">
-<h1>Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing<a class="headerlink" href="#week-2-introduction-to-python-data-visualization-sampling-aliasing" title="Permalink to this heading">#</a></h1>
+<h1>Week 2: Introduction to Python, Data Visualization, Sampling/Aliasing<a class="headerlink" href="#week-2-introduction-to-python-data-visualization-sampling-aliasing" title="Link to this heading">#</a></h1>
 <p><font size="6"> Laboratory 1 </font> <br>
 <font size="3"> Last updated Aug 29, 2023 </font></p>
-<section id="span-style-color-orange-00-content-span">
-<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#span-style-color-orange-00-content-span" title="Permalink to this heading">#</a></h2>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <p><font size="5"> Mathematics </font></p>
 <ul class="simple">
 <li><p>Functions</p></li>
@@ -472,21 +483,21 @@ document.write(`
 <li><p>N/A</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-0-required-hardware-span">
-<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#span-style-color-orange-0-required-hardware-span" title="Permalink to this heading">#</a></h2>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>N/A</p></li>
 </ul>
 <h3 style="background-color:lightblue"> Write your name and email below: </h3>
 <p>First Name, Last Name, Email</p>
 </section>
-<section id="span-style-color-orange-1-about-python-and-jupyter-span">
-<h2><span style="color:orange;"> 1. About Python and Jupyter </span><a class="headerlink" href="#span-style-color-orange-1-about-python-and-jupyter-span" title="Permalink to this heading">#</a></h2>
+<section id="about-python-and-jupyter">
+<h2><span style="color:orange;"> 1. About Python and Jupyter </span><a class="headerlink" href="#about-python-and-jupyter" title="Link to this heading">#</a></h2>
 <p>Python is a programming language with a simple, easy to learn, and easy to read syntax. It is a free and open source software that includes many handy libraries for doing mathematics. The labs in this course use Python 3.</p>
 <p>The document you are reading is a “Jupyter” file called a “Jupyter notebook.” Jupyter (formerly IPython) is a system that allows you to embed Python code within a web document.  Jupyter is called a “REPL” system. REPL stands for “Read, Evaluate, Print, Loop.” In concrete terms, this means that Jupyter files are executed piece-by-piece. Each piece is put in a box. The user executes a box by pressing shift-enter. The output is returned to the user right below the box. This makes Jupyter notebooks interactive.</p>
 </section>
-<section id="span-style-color-orange-2-python-libraries-span">
-<h2><span style="color:orange;"> 2. Python Libraries </span><a class="headerlink" href="#span-style-color-orange-2-python-libraries-span" title="Permalink to this heading">#</a></h2>
+<section id="python-libraries">
+<h2><span style="color:orange;"> 2. Python Libraries </span><a class="headerlink" href="#python-libraries" title="Link to this heading">#</a></h2>
 <p>In this lab, two Python libraries will be heavily used, <strong><em>NumPy</em></strong> and <strong><em>Matplotlib</em></strong>.</p>
 <p><a class="reference external" href="https://numpy.org"><strong><em>NumPy</em></strong></a> supports multi-dimensional arrays and matrices, and provides numerous mathematical functions to be operated on these arrays and matrices.</p>
 <p><a class="reference external" href="https://matplotlib.org"><strong><em>Matplotlib</em></strong></a> is a plotting library, and in this lab, we will be mainly using <strong><em>matplotlib.pyplot</em></strong>, which provides a MATLAB-like way of plotting. You can refer to <a class="reference external" href="https://matplotlib.org/tutorials/introductory/pyplot.html">Pyplot Tutorial</a> for more detailed instructions.</p>
@@ -495,8 +506,8 @@ Let’s import these libraries. For simplicity, we will rename numpy as “np”
 Execute the following blocks by pressing (shift-enter) after clicking on the gray box of code below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -515,8 +526,8 @@ wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/mai
 <p>Now, let’s import the library we just downloaded. We will also need functions from the <strong>math</strong> library for this lab, so lets import that too</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">lab1</span> <span class="k">as</span> <span class="nn">lab1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lab1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lab1</span>
 </pre></div>
 </div>
 </div>
@@ -538,8 +549,8 @@ wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/mai
 </div>
 </div>
 </section>
-<section id="span-style-color-orange-3-functions-span">
-<h2><span style="color:orange;"> 3. Functions </span><a class="headerlink" href="#span-style-color-orange-3-functions-span" title="Permalink to this heading">#</a></h2>
+<section id="functions">
+<h2><span style="color:orange;"> 3. Functions </span><a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <p>Functions are groups of code that always run together. When you call a function, you execute the code that is associated within that function. Functions can take inputs, manipulate the inputs, and return an output.</p>
 <p>The file <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code> contains a function named <code class="docutils literal notranslate"><span class="pre">pyramid</span></code>. The function simply takes an integer value <code class="docutils literal notranslate"><span class="pre">x</span></code>, displays a half pyramid of # symbols with  <code class="docutils literal notranslate"><span class="pre">x</span></code> rows (using the value  of <code class="docutils literal notranslate"><span class="pre">x</span></code> given), and returns the total number of #s in the half pyramid. In this case, the returned value is stored in a variable named <code class="docutils literal notranslate"><span class="pre">k</span></code>. In the example below, we inputted the value <code class="docutils literal notranslate"><span class="pre">4</span></code> into the function, created a half pyramid with the input value <code class="docutils literal notranslate"><span class="pre">k=4</span></code> as the number of rows, and returned the resulting number of # symbols in the half pyramid.</p>
 <p>You can view the content of the function <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> by opening the <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/1_intro_to_notebooks/lab1.py">lab1.py</a> file. Take a look at it!</p>
@@ -552,8 +563,8 @@ wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/mai
 </div>
 </div>
 </div>
-<section id="span-style-color-red-exercise-1-span">
-<h3><span style="color:red;"> Exercise 1 </span><a class="headerlink" href="#span-style-color-red-exercise-1-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-1-10-pts">
+<h3><span style="color:red;"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#exercise-1-10-pts" title="Link to this heading">#</a></h3>
 <p><strong><em>Question 1</em></strong>: What would the expected value of <code class="docutils literal notranslate"><span class="pre">m</span></code> be if the following code was given? How many #s would be on the 5th row?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">lab1</span><span class="o">.</span><span class="n">pyramid</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
@@ -569,7 +580,7 @@ wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/mai
 </div>
 </section>
 <section id="basic-operations">
-<h3>Basic Operations<a class="headerlink" href="#basic-operations" title="Permalink to this heading">#</a></h3>
+<h3>Basic Operations<a class="headerlink" href="#basic-operations" title="Link to this heading">#</a></h3>
 <p>Python 3 provides basic types including integers, floats, strings, and booleans. We can assign a value of any of these types to a variable.</p>
 <p>For instance, if we want the variable called <span class="math notranslate nohighlight">\(\mathtt{a}\)</span> to hold the value of 5. This is referred to as initializing a variable with a value.</p>
 <p>We can also use a function called <span class="math notranslate nohighlight">\(\mathtt{print()}\)</span> to print out a specified input.</p>
@@ -621,9 +632,9 @@ wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/mai
 </div>
 </div>
 </section>
-<section id="span-style-color-red-exercise-2-span">
-<h3><span style="color:red;"> Exercise 2 </span><a class="headerlink" href="#span-style-color-red-exercise-2-span" title="Permalink to this heading">#</a></h3>
-<p><strong>Part 1</strong></p>
+<section id="exercise-2-10-pts">
+<h3><span style="color:red;"> Exercise 2 </span> (10 pts)<a class="headerlink" href="#exercise-2-10-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (5 pts)</p>
 <p>Code the following operations.</p>
 <ol class="arabic simple">
 <li><p>Initialize the variable <code class="docutils literal notranslate"><span class="pre">xyz</span></code> to the value <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p></li>
@@ -634,7 +645,7 @@ wget -qN https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/mai
 <li><p>Add together <code class="docutils literal notranslate"><span class="pre">okay</span></code>, <code class="docutils literal notranslate"><span class="pre">xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">rem</span></code>, and <code class="docutils literal notranslate"><span class="pre">abc</span></code> and store it in a variable called <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p></li>
 <li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p></li>
 </ol>
-<p><strong>Part 2</strong></p>
+<p><strong>Part 2</strong> (5 pts)</p>
 <p>Answer the following questions.</p>
 <p><strong><em>Question 1</em></strong>: What is 8 % 9?<br>
 <strong><em>Question 2</em></strong>: What operation would help you decide whether a given number is even or odd?</p>
@@ -643,8 +654,8 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 <h3 style="background-color:lightblue"> Write Answers for Exercise 2 Part 2 Below </h3><p>Write your answer here</p>
 </section>
 </section>
-<section id="span-style-color-orange-4-formatting-span">
-<h2><span style="color:orange;"> 4. Formatting </span><a class="headerlink" href="#span-style-color-orange-4-formatting-span" title="Permalink to this heading">#</a></h2>
+<section id="formatting">
+<h2><span style="color:orange;"> 4. Formatting </span><a class="headerlink" href="#formatting" title="Link to this heading">#</a></h2>
 <p>A variable can also be initialized by a string. A string can also be formatted for output. When formatting a string, the <span class="math notranslate nohighlight">\(\mathtt{format()}\)</span> function replaces <span class="math notranslate nohighlight">\(\mathtt{\{\}}\)</span> with its specified inputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,17 +671,17 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 </div>
 </div>
-<section id="span-style-color-red-exercise-3-span">
-<h3><span style="color:red;"> Exercise 3 </span><a class="headerlink" href="#span-style-color-red-exercise-3-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-10-pts">
+<h3><span style="color:red;"> Exercise 3 </span> (10 pts)<a class="headerlink" href="#exercise-3-10-pts" title="Link to this heading">#</a></h3>
 <p>When you analyzed the code in <code class="docutils literal notranslate"><span class="pre">lab1.py</span></code> earlier, you would have noticed that there are three additional functions in the file. Follow the instructions below to see what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function does.</p>
-<p><strong>Part 1</strong></p>
+<p><strong>Part 1</strong> (5 pts)</p>
 <p>Code the following operations.</p>
 <ol class="arabic simple">
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function from the file like we did earlier. The <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function takes an integer as an input and returns an integer as an output. Assign the input to the value <code class="docutils literal notranslate"><span class="pre">7</span></code> and the output of the function to a variable named <code class="docutils literal notranslate"><span class="pre">num</span></code>.</p></li>
 <li><p>Manipulate the value of <code class="docutils literal notranslate"><span class="pre">num</span></code> in one line of code by first adding <code class="docutils literal notranslate"><span class="pre">51</span></code>, then dividing that value by <code class="docutils literal notranslate"><span class="pre">7</span></code>, and multiplying that value by <code class="docutils literal notranslate"><span class="pre">3</span></code>. Assign this new number to the variable <code class="docutils literal notranslate"><span class="pre">new_num</span></code>. <strong>Don’t forget to use parentheses when appropriate.</strong></p></li>
 <li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">num</span></code> to 2 decimal places and the value of <code class="docutils literal notranslate"><span class="pre">new_num</span></code> to the 5th decimal. Follow the output of <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">num</span> <span class="pre">is</span> <span class="pre">___</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">new_num</span> <span class="pre">is</span> <span class="pre">___.&quot;</span></code>.</p></li>
 </ol>
-<p><strong>Part 2</strong></p>
+<p><strong>Part 2</strong> (5 pts)</p>
 <p>Describe what the <code class="docutils literal notranslate"><span class="pre">mystery</span></code> function outputted. How did the value we inputted into the function get manipulated?</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Part 1 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,8 +693,8 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 <h3 style="background-color:lightblue"> Write Answers for Exercise 3 Part 2 Below </h3><p>Write your ansewr here</p>
 </section>
 </section>
-<section id="span-style-color-orange-5-for-loops-span">
-<h2><span style="color:orange;"> 5. For Loops </span><a class="headerlink" href="#span-style-color-orange-5-for-loops-span" title="Permalink to this heading">#</a></h2>
+<section id="for-loops">
+<h2><span style="color:orange;"> 5. For Loops </span><a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h2>
 <p><em>For</em> loops help us iterate through a range of values or lists. These will be very helpful in analyzing data in future labs.</p>
 <p>To help us understand <em>for</em> loops we will use a function called <span class="math notranslate nohighlight">\(\mathtt{range()}\)</span>. This function creates a sequence of values given a set of numbers as its inputs. <span class="math notranslate nohighlight">\(\mathtt{range(i, j, k)}\)</span> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the closed interval start value, <code class="docutils literal notranslate"><span class="pre">j</span></code> is the open interval end value, and <code class="docutils literal notranslate"><span class="pre">k</span></code> is the stepping size.</p>
 <div class="cell docutils container">
@@ -703,8 +714,8 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 </div>
 </div>
-<section id="span-style-color-red-exercise-4-span">
-<h3><span style="color:red;"> Exercise 4 </span><a class="headerlink" href="#span-style-color-red-exercise-4-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-10-pts">
+<h3><span style="color:red;"> Exercise 4 </span> (10 pts)<a class="headerlink" href="#exercise-4-10-pts" title="Link to this heading">#</a></h3>
 <p>What would you expect the sequences for the following <code class="docutils literal notranslate"><span class="pre">range()</span></code> functions be?</p>
 <p><strong><em>Question 1</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(2,</span> <span class="pre">14,</span> <span class="pre">1)</span></code> <br>
 <strong><em>Question 2</em></strong>: <code class="docutils literal notranslate"><span class="pre">range(14,</span> <span class="pre">2,</span> <span class="pre">-6)</span></code> <br>
@@ -713,8 +724,8 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 <h3 style="background-color:lightblue"> Write Answers for Exercise 4 Below </h3><p>Write your answer here</p>
 </section>
 </section>
-<section id="span-style-color-orange-6-lists-span">
-<h2><span style="color:orange;"> 6. Lists </span><a class="headerlink" href="#span-style-color-orange-6-lists-span" title="Permalink to this heading">#</a></h2>
+<section id="lists">
+<h2><span style="color:orange;"> 6. Lists </span><a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p><em>Lists</em> are used to store multiple items in a single variable.</p>
 <p><em>Lists</em> are indexed by starting with 0. So, an element at index 0 of a <em>list</em> is the first element of the <em>list</em>, index 1 is the second element, index 2 is the third element,… and so on until the end of list.</p>
 <p>Examples of some lists are shown below.</p>
@@ -744,25 +755,25 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 <p>When coding, there are “good practices” that people tend to follow. This includes naming conventions. In the case of lists, it’s good practice to not name them “list.” This is because it can mess up the program and cause it to get confused, especially if there’s more than one being used. This goes for other similar structures, such as arrays (“array”), variable types (integer “int,” string “string,” etc.), and really anything else that you can think of.</p>
 <p>Remember to follow implement these good practices throughout this course and any other time you’re coding!</p>
-<section id="span-style-color-red-exercise-5-span">
-<h3><span style="color:red;"> Exercise 5 </span><a class="headerlink" href="#span-style-color-red-exercise-5-span" title="Permalink to this heading">#</a></h3>
+<section id="exercise-5-10-pts">
+<h3><span style="color:red;"> Exercise 5 </span> (10 pts)<a class="headerlink" href="#exercise-5-10-pts" title="Link to this heading">#</a></h3>
 <p>Follow the instructions below:</p>
-<p><strong>Part 1</strong></p>
+<p><strong>Part 1</strong> (2.5 pts)</p>
 <ul class="simple">
 <li><p>Initialize a <em>list</em> of integers with the values of 10, 45, 6, 90, 5, 87, 56.</p></li>
 <li><p>Calculate the average of this <em>list</em> using a <em>for</em> loop.</p></li>
 <li><p>Print the average. <em>Format</em> the average and have it rounded to the 2nd decimal point.</p></li>
 </ul>
-<p><strong>Part 2</strong></p>
+<p><strong>Part 2</strong> (2.5 pts)</p>
 <ul class="simple">
 <li><p>Create a sublist of <em>list</em> that includes every other element starting from index 0, including the last element.</p></li>
 <li><p>Print this sublist.</p></li>
 </ul>
-<p><strong>Part 3</strong></p>
+<p><strong>Part 3</strong> (2.5 pts)</p>
 <ul class="simple">
 <li><p>Create a <em>for</em> loop that prints out the odd numbers between 1 and 21, including 1 and not including 21.</p></li>
 </ul>
-<p><strong>Part 4</strong></p>
+<p><strong>Part 4</strong> (2.5 pts)</p>
 <ul class="simple">
 <li><p>Create a <em>for</em> loop that prints out the values 36, 29, 22, 15, 8 in this order.</p></li>
 </ul>
@@ -796,8 +807,8 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-7-matplotlib-interface-span">
-<h2><span style="color:orange;"> 7. Matplotlib Interface </span><a class="headerlink" href="#span-style-color-orange-7-matplotlib-interface-span" title="Permalink to this heading">#</a></h2>
+<section id="matplotlib-interface">
+<h2><span style="color:orange;"> 7. Matplotlib Interface </span><a class="headerlink" href="#matplotlib-interface" title="Link to this heading">#</a></h2>
 <p>So now that we know how to create <em>lists</em>. We can now use these <em>lists</em> to create graphs.</p>
 <p>Earlier, we imported the Matplotlib library using the instructive, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>. Matplotlib is a low level graph plotting library. You will notice that <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> has an extension to it, <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>. <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> is a submodule of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> that will help us plot our graphs.</p>
 <p>Let’s look at how this can be done.</p>
@@ -843,9 +854,9 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 </div>
 </div>
-<section id="span-style-color-red-exercise-6-span">
-<h3><span style="color:red;"> Exercise 6 </span><a class="headerlink" href="#span-style-color-red-exercise-6-span" title="Permalink to this heading">#</a></h3>
-<p><strong>Part 1</strong></p>
+<section id="exercise-6-10-pts">
+<h3><span style="color:red;"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#exercise-6-10-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (10 pts)</p>
 <p>Do the following exercises below to implement plotting using matplotlib.</p>
 <ol class="arabic simple">
 <li><p>Create a list called <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the following values: <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">1.5,</span> <span class="pre">2,</span> <span class="pre">2.5,</span> <span class="pre">3,</span> <span class="pre">2.5,</span> <span class="pre">2,</span> <span class="pre">1.5,</span> <span class="pre">1</span></code>.</p></li>
@@ -859,7 +870,7 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 <li><p>Make sure to <em>show</em> the plot as an output.</p></li>
 </ol>
 <p>Follow the coordinates for the <code class="docutils literal notranslate"><span class="pre">x1</span></code> by <code class="docutils literal notranslate"><span class="pre">y1</span></code> plot. Notice that the values are drawn and connected in the order they show up in the list from left to right. Essentially, all we are doing is connecting the dots when drawing these graphs.</p>
-<p><strong>Part 2</strong> (OPTIONAL)</p>
+<p><strong>Part 2</strong> (Optional - 0 pts)</p>
 <p>Now that you know how to plot on matplotlib, In a similar manner as in Part 1, in a new block of code, draw your first initial in block letters. Make your output a line that is not solid and a color that we have not used already.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 6 Part 1 Below </h3><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -877,8 +888,8 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-8-numpy-arrays-span">
-<h2><span style="color:orange;"> 8. NumPy Arrays </span><a class="headerlink" href="#span-style-color-orange-8-numpy-arrays-span" title="Permalink to this heading">#</a></h2>
+<section id="numpy-arrays">
+<h2><span style="color:orange;"> 8. NumPy Arrays </span><a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h2>
 <p>Arrays are very similar to lists. To build one-dimensional arrays we use the NumPy library that we had imported earlier: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>. To create an array, we can use the following code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -971,9 +982,9 @@ You may create additional boxes as needed by clicking the "+" sign in the menu a
 </div>
 </div>
 </div>
-<section id="span-style-color-red-exercise-7-span">
-<h3><span style="color:red;"> Exercise 7 </span><a class="headerlink" href="#span-style-color-red-exercise-7-span" title="Permalink to this heading">#</a></h3>
-<p><strong>Part 1</strong></p>
+<section id="exercise-7-20-pts">
+<h3><span style="color:red;"> Exercise 7 </span> (20 pts)<a class="headerlink" href="#exercise-7-20-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (10 pts)</p>
 <p>The equation for calculating kinetic energy is given by<br></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -988,9 +999,9 @@ v is velocity (m/s)</p>
 <li><p>Use a NumPy array to calculate the kinetic energy at the different velocities.</p></li>
 <li><p>Create a scatterplot plotting <code class="docutils literal notranslate"><span class="pre">Velocity</span> <span class="pre">(m/s)</span></code> by <code class="docutils literal notranslate"><span class="pre">Kinetic</span> <span class="pre">Energy</span> <span class="pre">(J)</span></code>. <em>Make sure to include an appropriate title and axes labels.</em></p></li>
 </ol>
-<p><strong>Part 2</strong></p>
+<p><strong>Part 2</strong> (10 pts)</p>
 <p>In Exercise 5, we used lists to find and print the average of 10, 45, 6, 90, 5, 87, 56. Now, let’s use an array to find the average. Use this link <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html"><strong><em>NumPy Math Functions</em></strong></a> to find a function that may help you. <em>You must use <strong>array notation</strong>, and do <strong>not</strong> use the average() function. Hint: think about what you need to do to find the average of a set of numbers step-by-step and see what function fits each step, if possible.</em></p>
-<p><strong>Part 3</strong> (OPTIONAL)</p>
+<p><strong>Part 3</strong> (Optional - 0 pts)</p>
 <p>Question 1: What kind of relationship do the variables have? Linear? Quadratic? Cubic? Exponential?</p>
 <p>Question 2: Using your graph that you made, estimate what the kinetic energy of the object is when it is moving at a speed of 4.5 m/s.</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 7 Part 1 Below </h3><div class="cell docutils container">
@@ -1004,8 +1015,8 @@ v is velocity (m/s)</p>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 7 Part 3 Below (Optional)</h3><p>Write your answer here</p>
 </section>
 </section>
-<section id="span-style-color-orange-9-function-visualizations-span">
-<h2><span style="color:orange;"> 9. Function Visualizations </span><a class="headerlink" href="#span-style-color-orange-9-function-visualizations-span" title="Permalink to this heading">#</a></h2>
+<section id="function-visualizations">
+<h2><span style="color:orange;"> 9. Function Visualizations </span><a class="headerlink" href="#function-visualizations" title="Link to this heading">#</a></h2>
 <p>In <strong>Exercise 7, Part 1</strong> we learned how to discretize an interval of a function using NumPy operations.</p>
 <p>Let’s look at how the number of points we choose within an interval affects the output of a function. In this example, we are going to look at <span class="math notranslate nohighlight">\(\mathtt{sin(x)}\)</span> by dividing the interval [0, 2pi] into 5, 10, and 50 points.</p>
 <div class="cell docutils container">
@@ -1085,9 +1096,9 @@ v is velocity (m/s)</p>
 </div>
 </div>
 </div>
-<section id="span-style-color-red-exercise-8-span">
-<h3><span style="color:red;"> Exercise 8 </span><a class="headerlink" href="#span-style-color-red-exercise-8-span" title="Permalink to this heading">#</a></h3>
-<p><strong>Part 1</strong></p>
+<section id="exercise-8-20-pts">
+<h3><span style="color:red;"> Exercise 8 </span> (20 pts)<a class="headerlink" href="#exercise-8-20-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (10 pts)</p>
 <p>Consider the function <span class="math notranslate nohighlight">\(y = \sin(100 x)\)</span>.</p>
 <ol class="arabic simple">
 <li><p>What is the period of the function?</p></li>
@@ -1108,7 +1119,7 @@ v is velocity (m/s)</p>
 </div>
 </div>
 <h3 style="background-color:lightblue"> Write Answers for Exercise 8 Part 1 Below </h3><p>Write your answer here</p>
-<p><strong>Part 2</strong></p>
+<p><strong>Part 2</strong> (10 pts)</p>
 <p>To better understand what went wrong in Part 2, let’s zoom in on just the first tenth of the graph. We can do this without changing the plot in any other way, simply by changing the x limits. In order to see exactly which points are shown, let’s make this a scatter plot as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1181,7 +1192,7 @@ v is velocity (m/s)</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1211,44 +1222,45 @@ v is velocity (m/s)</p>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-00-content-span"><span style="color:orange;"> 00. Content </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-0-required-hardware-span"><span style="color:orange;"> 0. Required Hardware </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-1-about-python-and-jupyter-span"><span style="color:orange;"> 1. About Python and Jupyter </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-2-python-libraries-span"><span style="color:orange;"> 2. Python Libraries </span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-3-functions-span"><span style="color:orange;"> 3. Functions </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-1-span"><span style="color:red;"> Exercise 1 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-python-and-jupyter"><span style="color:orange;"> 1. About Python and Jupyter </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-libraries"><span style="color:orange;"> 2. Python Libraries </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions"><span style="color:orange;"> 3. Functions </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red;"> Exercise 1 </span> (10 pts)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-2-span"><span style="color:red;"> Exercise 2 </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-10-pts"><span style="color:red;"> Exercise 2 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-4-formatting-span"><span style="color:orange;"> 4. Formatting </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-3-span"><span style="color:red;"> Exercise 3 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting"><span style="color:orange;"> 4. Formatting </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10-pts"><span style="color:red;"> Exercise 3 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-5-for-loops-span"><span style="color:orange;"> 5. For Loops </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-4-span"><span style="color:red;"> Exercise 4 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><span style="color:orange;"> 5. For Loops </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-10-pts"><span style="color:red;"> Exercise 4 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-6-lists-span"><span style="color:orange;"> 6. Lists </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-5-span"><span style="color:red;"> Exercise 5 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists"><span style="color:orange;"> 6. Lists </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-7-matplotlib-interface-span"><span style="color:orange;"> 7. Matplotlib Interface </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-6-span"><span style="color:red;"> Exercise 6 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-interface"><span style="color:orange;"> 7. Matplotlib Interface </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red;"> Exercise 6 </span> (10 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-8-numpy-arrays-span"><span style="color:orange;"> 8. NumPy Arrays </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-7-span"><span style="color:red;"> Exercise 7 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays"><span style="color:orange;"> 8. NumPy Arrays </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-20-pts"><span style="color:red;"> Exercise 7 </span> (20 pts)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-9-function-visualizations-span"><span style="color:orange;"> 9. Function Visualizations </span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-exercise-8-span"><span style="color:red;"> Exercise 8 </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-visualizations"><span style="color:orange;"> 9. Function Visualizations </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-20-pts"><span style="color:red;"> Exercise 8 </span> (20 pts)</a></li>
 </ul>
 </li>
 </ul>
@@ -1299,8 +1311,8 @@ By Mireille Boutin, Alden Bradford
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
