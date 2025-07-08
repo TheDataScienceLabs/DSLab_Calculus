@@ -38,7 +38,6 @@ If you have any questions or are experiencing any difficulties during these labs
 The development of this course was supported by Purdue’s College of Engineering and Purdue's Department of Mathematics. We thank Prof. Alina Alexeenko, Prof. Eric Nauman , Prof.  Kristina Bross, Prof. Milind Kulkarni, Prof. Uli Walther and Dr. Natasha Duncan for their invaluable input and support. Thank you to Julia Long for help with proofreading and formatting. 
 
 ---
-license: CC-BY-4.0
----
+## License: CC-BY-4.0
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
