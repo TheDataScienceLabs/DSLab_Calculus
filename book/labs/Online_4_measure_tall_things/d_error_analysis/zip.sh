@@ -1,0 +1,1 @@
+zip lab9 lab9.ipynb accuracy_and_precision.png notepad_dimensions.jpg
