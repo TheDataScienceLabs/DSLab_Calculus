@@ -14,9 +14,9 @@ Purdue students: You can earn Honors credit for Calculus 2 by taking this lab. S
 ## More Information and Contact
 
 For more information regarding this and the other available Data Science Labs, visit the following link: 
-https://engineering.purdue.edu/~mboutin/Data_Science_labs.html
+https://www.math.purdue.edu/~kthood/DSLabs.html
 
-Contact Professor Boutin at mboutin@purdue.edu if you have any more questions regarding this course.
+Contact Professor Hood at kthood@purdue.edu if you have any more questions regarding this course.
 <br>
 
 ## How to Get Started
@@ -36,3 +36,8 @@ If you have any questions or are experiencing any difficulties during these labs
 ## Acknowledgements
 
 The development of this course was supported by Purdue’s College of Engineering and Purdue's Department of Mathematics. We thank Prof. Alina Alexeenko, Prof. Eric Nauman , Prof.  Kristina Bross, Prof. Milind Kulkarni, Prof. Uli Walther and Dr. Natasha Duncan for their invaluable input and support. Thank you to Julia Long for help with proofreading and formatting. 
+
+---
+## License: CC-BY-4.0
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
