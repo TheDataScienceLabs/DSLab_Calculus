@@ -8,6 +8,7 @@ parts:
   chapters:
   - file: labs/1_intro_to_notebooks/lab0.ipynb
   - file: labs/1_intro_to_notebooks/lab1a.ipynb
+  - file: labs/1_intro_to_notebooks/lab1b.ipynb
 - caption: Determine your heart rate
   chapters:
   - file: labs/2_determine_heart_rate/lab2.ipynb
