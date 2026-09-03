@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Laboratory 0: Course Intro, Markdown, Latex &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=4bca2e18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/Online_1_intro_to_notebooks/lab0';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="The Data Science Labs on Differential and Integral Calculus - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="The Data Science Labs on Differential and Integral Calculus - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    About this Course
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_notebooks/lab0.html">Laboratory 0: Course Intro, Markdown, Latex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_notebooks/lab1a.html">Laboratory 1a: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_notebooks/lab1b.html">Laboratory 1b: Python Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Determine your heart rate</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2_determine_heart_rate/lab2.html">Laboratory 2: Finding Local Max in PPG Signal</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estimate your blood flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_estimate_blood_flow/lab3.html">Laboratory 3: Estimate Blood Flow from PPG Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the heights of tall and far away things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">Laboratory 4a: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">Laboratory 4b: Build an Inclinometer (Objects on Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/c_make_the_measurements/lab4c.html">Laboratory 4c: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/d_error_analysis/lab4d.html">Laboratory 4d: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_measure_tall_things/e_symbolic_error/lab4e.html">Laboratory 4e: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the speeds of nearby things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5_measure_speeds/a_derivatives/lab5a.html">Laboratory 5a: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_measure_speeds/b_build_a_tool/lab5b.html">Laboratory 5b: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Design a project of your own</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/Online_1_intro_to_notebooks/lab0.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/labs/Online_1_intro_to_notebooks/lab0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Laboratory 0: Course Intro, Markdown, Latex</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:#d97f00;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:#d97f00;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-starting"><span style="color:#d97f00;"> 1. Before Starting </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-ethics">Laboratory ethics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-ipython-notebook"><span style="color:#d97f00;"> 2. Introduction to IPython Notebook </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-cells">Two types of cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-intro-to-markdown">A brief intro to markdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it-out"><span style="color:#d97f00;"> 2. Try it Out </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5-pts"><span style="color:red"> Exercise 1 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-brief-introduction-to-latex"><span style="color:#d97f00;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscripts-superscripts-and-grouping">Subscripts, superscripts, and grouping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-5-pts"><span style="color:red"> Exercise 4 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractions-and-parentheses">Fractions and parentheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-pts"><span style="color:red"> Exercise 5 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-5-pts"><span style="color:red"> Exercise 6 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-labs"><span style="color:#d97f00;"> 4. Submitting Labs </span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="laboratory-0-course-intro-markdown-latex">
+<h1>Laboratory 0: Course Intro, Markdown, Latex<a class="headerlink" href="#laboratory-0-course-intro-markdown-latex" title="Link to this heading">#</a></h1>
+<p><font size="6"> Week 1 </font> <br>
+<font size="3"> Last updated April 22, 2025 </font></p>
+<section id="content">
+<h2><span style="color:#d97f00;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
+<p><font size="5"> Mathematics </font></p>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+<p><font size="5"> Programming Skills </font></p>
+<ul class="simple">
+<li><p>REPL system</p></li>
+<li><p>Editing code/Markdown boxes</p></li>
+<li><p>Markdown</p></li>
+<li><p>Latex</p></li>
+</ul>
+<p><font size="5"> Embedded Systems </font></p>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="required-hardware">
+<h2><span style="color:#d97f00;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="before-starting">
+<h2><span style="color:#d97f00;"> 1. Before Starting </span><a class="headerlink" href="#before-starting" title="Link to this heading">#</a></h2>
+<p>Before really getting started with this course, navigate to the Brightspace and read through the Syllabus.</p>
+<p>After this is completed, we will be setting up a file for organizational purposes that will be used to store all files throughout this course. To do this, navigate to the <em>Home</em> directory and add a new folder by right-clicking. Name the folder something that will be easy to find, such as “DSLab_Calc2.” If you’d like to put it at the top of the list of folders and make it even easier to find, add a tilde (~) at the beginning of the name you chose.</p>
+<p>Save this and all other files going forward to this folder. It’ll make everything much easier to find and will especially come in handy when submitting the labs at the end of each class. This includes files that are downloaded through links during labs. When you click on a file link, it’ll send you to the GitHub page for that file. To download and save it to your folder, click on the button that says “Raw” on the top right of the file preview (unless it’s a PDF, then just click “Download”). This will take you to a white page with the information in black text. To see the file in the proper environment, right-click the screen and click “Save as…” and once you open it after this, it should appear in the correct environment!</p>
+</section>
+<section id="laboratory-ethics">
+<h2>Laboratory ethics<a class="headerlink" href="#laboratory-ethics" title="Link to this heading">#</a></h2>
+<p>“I pledge to behave ethically and with honesty in this course. I may discuss approaches for a solution with others, but my submitted lab report will be my own work, including all code. I will not make my finished reports available to other students, even after the semester is over. In particular, I will not post my labs on the Internet or make my files available to other people. I will not be a cheater.”</p>
+</section>
+<section id="introduction-to-ipython-notebook">
+<h2><span style="color:#d97f00;"> 2. Introduction to IPython Notebook </span><a class="headerlink" href="#introduction-to-ipython-notebook" title="Link to this heading">#</a></h2>
+<p>Welcome to the first of “The Data Science Labs on Differential and Integral Calculus!”</p>
+<p>You are reading an interactive textbook. As you read the text, you will be asked to perform certain tasks and answer some questions. You will write your answers directly in this textbook. Keep reading to learn how to do this!</p>
+</section>
+<section id="two-types-of-cells">
+<h2>Two types of cells<a class="headerlink" href="#two-types-of-cells" title="Link to this heading">#</a></h2>
+<p>The application you are currently on is an IPython Notebook. The content of an IPython Notebook consists of two types of cells, “markdown” cells and “code” cells. Markdown cells are used to display nicely-formatted text for people to read. Code cells are used to display nicely-formatted code for people and computers to read. The words you are reading right now are part of a markdown cell. The gray cell below is a code cell. When you run the code cell, each line of code is executed in order. The output of the last line is shown under the cell. You can run these code cells by holding the “shift” key while pressing the “enter” key (shift-enter).</p>
+<p>Some of these boxes are labeled as “Sandbox”. Feel free to use the sandboxes as a place to experiment with functions and see the capabilities of Python as you read about them, (and feel free to make your own code cells, which will be explained shortly). No code or text in the sandboxes will be graded. Here is an example. Try running it!</p>
+<h3 style="color:green;"><left> Sandbox </left></h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The markdown cells are actually transparent, so you will not really see them unless you go into “edit” mode, by double-clicking on the box. For example, the text you are currently reading is inside a markdown cell. Feel free to double-click on it to see what “edit” mode looks like. To go back to formatted text, press shift-enter while still in the cell.</p>
+<p>While in edit mode, you will notice that the text is written in some coding language. The language is called “markdown.” Markdown allows one to format the text inside the cell, for example adding colors and controlling the font types. There are many good tutorials and cheat sheets for Markdown available on the Internet, for example
+<a href="https://www.datacamp.com/community/tutorials/markdown-in-jupyter-notebook"> this one </a>. It may be confusing at first, but as you continue to use these formatting options, it’ll become easier and more natural.</p>
+<p>Please continue by reading all the text boxes you encounter below, and running all the code boxes (shift-enter) as you encounter them.</p>
+<p>If you are asked to answer a question, there will be a designated text box below a light blue highlighted cell for you to type in your answer. To begin typing, double-click the box to enter the edit mode. Type your answer using the Markdown language.  When finished typing, type shift-enter; this will run your code or display your answer as formatted text, depending on the cell type.</p>
+<p>Let’s try it out. Below is a markdown cell containing some Markdown code. Double-click on it and write your name and email in place of the one that is already there. Keep the code that makes the cell highlights in blue. When you are done editing the text, press shift-enter to see the result.</p>
+<h3 style="background-color:#6994a2"> Write your name and email below: </h3>
+<p>First Name, Last Name, Email</p>
+</section>
+<section id="a-brief-intro-to-markdown">
+<h2>A brief intro to markdown<a class="headerlink" href="#a-brief-intro-to-markdown" title="Link to this heading">#</a></h2>
+<p>Since you will be turning in work throughout this class using these notebooks, not with pen and paper, it is important that you are able to communicate clearly using markdown cells.</p>
+<p>Double-click this cell to see some of the useful Markdown formatting shown below</p>
+<ol class="arabic simple">
+<li><p>Numbered lists</p></li>
+</ol>
+<ul class="simple">
+<li><p>Bulleted lists</p>
+<ul>
+<li><p>Can also do indents</p></li>
+</ul>
+</li>
+<li><p><em>Italic text</em></p></li>
+<li><p><strong>Bold text</strong></p></li>
+<li><p><em><strong>Italic and bold text</strong></em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Code</span> <span class="pre">listings</span></code> (use backticks(<code class="docutils literal notranslate"><span class="pre">this</span></code>), not inverted commas (‘not this’))</p></li>
+</ul>
+<p>One of the most useful things about markdown is that we can use it to express mathematical formulas written using Latex. It is important that you are able to write formulas and equations so that they can be read on the computer.</p>
+</section>
+<section id="try-it-out">
+<h2><span style="color:#d97f00;"> 2. Try it Out </span><a class="headerlink" href="#try-it-out" title="Link to this heading">#</a></h2>
+<p>You can use the “plus” button in the top left corner of the document to insert a cell, or you can right-click a cell and click “Paste Cells Below,” if you want to copy a cell. Inside a cell, you can use the dropdown menu to the right of the plus button to switch it between being a code or markdown cell.</p>
+<p>Try adding a markdown cell below and write a short message.</p>
+<p>Along with adding a cell, you can also delete them by right-clicking the cell you want to delete and pressing “Delete Cells.” While you shouldn’t be using this capability much during this course, it is useful to know about.</p>
+<p>Try deleting the cell below.</p>
+<p><strong>Delete me!</strong></p>
+<section id="exercise-1-5-pts">
+<h3><span style="color:red"> Exercise 1 </span> (5 pts)<a class="headerlink" href="#exercise-1-5-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (2.5 pts)</p>
+<p>The following code cell contains code but it is labeled as a markdown cell. Change it to a code cell and run it.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 1 Part 1 Below </h3><p>sum([1, 2, 3, 4, 5])</p>
+<p><strong>Part 2</strong> (2.5 pts)</p>
+<p>Make a new markdown cell underneath this one. Write a sentence in it and execute the cell to make it format.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 1 Part 2 Below </h3></section>
+</section>
+<section id="a-very-brief-introduction-to-latex">
+<h2><span style="color:#d97f00;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span><a class="headerlink" href="#a-very-brief-introduction-to-latex" title="Link to this heading">#</a></h2>
+<p>Latex (written stylized as <span class="math notranslate nohighlight">\(\LaTeX\)</span>) is a very popular, very old, very well-established tool for making typeset documents. The “x” should really be a letter chi, <span class="math notranslate nohighlight">\(\chi\)</span>, which makes a “k” sound – Latex is pronounced “law-tek”, or “lay-tek”. Here are some common ways people use it:</p>
+<ul class="simple">
+<li><p>writing submissions to academic journals</p></li>
+<li><p>writing textbooks</p></li>
+<li><p>preparing fiction books for publishing</p></li>
+<li><p>writing assignments and exams for students</p></li>
+<li><p>making slide presentations (like PowerPoint)</p></li>
+<li><p>writing letters to their friends</p></li>
+</ul>
+<p>Many mathematicians use Latex almost exclusively when preparing written documents. We are going to use only a tiny, tiny fraction of Latex in this course – the portion which prints formulas nicely. Many Markdown interpreters (including the one that comes with JupyterLab) know how to turn expressions written in Latex into nicely printed expressions. That’s how I can write a nice formula like</p>
+<div class="math notranslate nohighlight">
+\[
+e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
+\]</div>
+<p>If you double-click on this cell of the document, you will see the characters which I typed to make that formula happen. Notice the <code class="docutils literal notranslate"><span class="pre">$$</span> <span class="pre">and</span> <span class="pre">$$</span></code> which are used to tell Markdown that a formula is happening.</p>
+<section id="exercise-2-5-pts">
+<h3><span style="color:red"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#exercise-2-5-pts" title="Link to this heading">#</a></h3>
+<p>Copy and paste the formula from the cell above into the cell below. Change it so that instead of <span class="math notranslate nohighlight">\(x\)</span>, the variable is <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 2 Below </h3><p>One of the reasons Latex is so popular is that you can use the same formulas in different places, and they will show up differently based on context. If you want to put Latex in a line of text (without its own line) you can just put your code between dollar signs (<code class="docutils literal notranslate"><span class="pre">$</span></code>) like this: <span class="math notranslate nohighlight">\(e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.\)</span> Notice that the sum is written smaller, so it doesn’t break up the text as much, but I used the exact same code.</p>
+</section>
+</section>
+<section id="escape-sequences">
+<h2>Escape sequences<a class="headerlink" href="#escape-sequences" title="Link to this heading">#</a></h2>
+<p>A lot of the symbols we like to use in math are not on a typical keyboard. If you want a lower case sigma, you are usually out of luck. In Latex you can write a lower case sigma by writing <code class="docutils literal notranslate"><span class="pre">\sigma</span></code>, which shows up like <span class="math notranslate nohighlight">\(\sigma\)</span>. Everything written after a backslash (the symbol <code class="docutils literal notranslate"><span class="pre">\</span></code>, which is found just under the backspace key on most keyboards) is not printed, but instead is treated like a command. In this case, the command is “put a letter sigma here”. To do a capital sigma, just type <code class="docutils literal notranslate"><span class="pre">\Sigma</span></code> with a capital <code class="docutils literal notranslate"><span class="pre">S</span></code>, like so <span class="math notranslate nohighlight">\(\Sigma\)</span>.</p>
+<section id="exercise-3-5-pts">
+<h3><span style="color:red"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#exercise-3-5-pts" title="Link to this heading">#</a></h3>
+<p>Write some Latex code in the cell below to produce an phi, psi, gamma, and delta, first in lower case then in upper case.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 3 Below </h3></section>
+</section>
+<section id="subscripts-superscripts-and-grouping">
+<h2>Subscripts, superscripts, and grouping<a class="headerlink" href="#subscripts-superscripts-and-grouping" title="Link to this heading">#</a></h2>
+<p>It is really common in math to want to write a superscript like the 2 in <span class="math notranslate nohighlight">\(x^2\)</span> or the <span class="math notranslate nohighlight">\(r\)</span> in <span class="math notranslate nohighlight">\(\varepsilon_r\)</span>. We do that with the <code class="docutils literal notranslate"><span class="pre">^</span></code> and <code class="docutils literal notranslate"><span class="pre">_</span></code> keys (caret and underscore). <strong>Watch out</strong>: Latex is different from Python. In Python, we would write <span class="math notranslate nohighlight">\(x^2\)</span> as <code class="docutils literal notranslate"><span class="pre">x**2</span></code>. It can be easy to get mixed up when switching back and forth.</p>
+<p>Here is another thing to watch out for: the subscript (or superscript) only works on the first thing after it. So, if I try to raise x to the 23rd power with just one caret (<code class="docutils literal notranslate"><span class="pre">x^23</span></code>) I get this: <span class="math notranslate nohighlight">\(x^23\)</span>. No good! In order to fix this, we will tell the 2 and the 3 that they go together. We use the <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code> symbols (braces) to group things together in Latex. I can type this instead as <code class="docutils literal notranslate"><span class="pre">x^{23}</span></code> which gives <span class="math notranslate nohighlight">\(x^{23}\)</span>.</p>
+<section id="exercise-4-5-pts">
+<h3><span style="color:red"> Exercise 4 </span> (5 pts)<a class="headerlink" href="#exercise-4-5-pts" title="Link to this heading">#</a></h3>
+<p>The formula below is all wrong! Put in braces to make it correct.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 4 Below </h3><div class="math notranslate nohighlight">
+\[
+\cos(x) = \sum_k=0^\infty \frac{(-1)^k x^2k}{(2k)!}
+\]</div>
+</section>
+</section>
+<section id="fractions-and-parentheses">
+<h2>Fractions and parentheses<a class="headerlink" href="#fractions-and-parentheses" title="Link to this heading">#</a></h2>
+<p>Fractions in Latex are a bit unusual in that they act on the <em>two</em> symbols which come after them. If I write <code class="docutils literal notranslate"><span class="pre">\frac12</span></code> that makes <span class="math notranslate nohighlight">\(\frac12\)</span>. Usually, fractions have more than one character in the numerator and denominator, so you will usually write a fraction with two pairs of braces, <code class="docutils literal notranslate"><span class="pre">\frac{1}{2}</span></code>. That is easier to read anyhow, I think. This makes it possible to more complicated fractions, or even fractions inside of fractions.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{pq}{p+q} = \frac{1}{\frac{1}{p} + \frac{1}{q}}
+\]</div>
+<p>If you are in “text mode” (the smaller in-line text you get with <code class="docutils literal notranslate"><span class="pre">$</span></code>) the fractions are smaller, and if you are in “display mode” they are bigger. If you want to override that, you could use the command <code class="docutils literal notranslate"><span class="pre">\tfrac</span></code> which always does the smaller-style fraction, or the command <code class="docutils literal notranslate"><span class="pre">\dfrac</span></code> which always does the display style fraction.</p>
+<p>When you have expressions involving fractions, they are often quite a bit taller than a single character. This can lead to ugly expressions:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+1 = \sum_{n=1}^\infty (\frac{1}{2})^n
+\end{align*}\]</div>
+<p>We would prefer if the parentheses knew what was inside them, so they can get bigger. We can do that with the commands <code class="docutils literal notranslate"><span class="pre">\left</span></code> and <code class="docutils literal notranslate"><span class="pre">\right</span></code>, which turn normal parentheses into scaling parentheses.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+1 = \sum_{n=1}^\infty \left( \frac{1}{2} \right)^n
+\end{align*}\]</div>
+</section>
+<section id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>Almost nobody knows every Latex command they use by heart. There are lots of ways to get help on the internet. One popular tool is <a class="reference external" href="http://detexify.kirelabs.org/classify.html">Detexify</a> which can help you find the escape sequence for a symbol you need. Try it out.</p>
+<section id="exercise-5-5-pts">
+<h3><span style="color:red"> Exercise 5 </span> (5 pts)<a class="headerlink" href="#exercise-5-5-pts" title="Link to this heading">#</a></h3>
+<p>Use Detexify to find the escape sequence for the symbol <img alt="symbol" src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/1_intro_to_notebooks/symbol.png" />, then type it using Latex below.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 5 Below </h3><p>Another powerful way is to copy someone else’s working code. One great place to find it is on Wikipedia.</p>
+</section>
+<section id="exercise-6-5-pts">
+<h3><span style="color:red"> Exercise 6 </span> (5 pts)<a class="headerlink" href="#exercise-6-5-pts" title="Link to this heading">#</a></h3>
+<p>You have not been told yet how to write a binomial coefficient in Latex. To figure it out, go to <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_theorem">the Wikipedia page for the binomial theorem</a> and find this formula:</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/1_intro_to_notebooks/binomial.png" /></p>
+<p>Go to “edit source” on Wikipedia and copy the Latex code you find there to reproduce the formula here below. Then, change the index of summation from a <span class="math notranslate nohighlight">\(k\)</span> to an <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 6 Below </h3></section>
+</section>
+<section id="submitting-labs">
+<h2><span style="color:#d97f00;"> 4. Submitting Labs </span><a class="headerlink" href="#submitting-labs" title="Link to this heading">#</a></h2>
+<p>Now that you’ve finished the first lab, you’re probably wondering how to submit it. This was briefly explained in the Introduction, but here it’ll be explained a bit better.</p>
+<p>First, make sure that everything is completely filled out and saved (either by typing Ctrl+S or by clicking the floppy disk icon in the top left of this application). Once you’ve done this, look at Brightspace for instructions on how to submit the lab.</p>
+<p>Once you’ve done this, you’ve completed your first lab for this class!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs/Online_1_intro_to_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:#d97f00;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:#d97f00;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-starting"><span style="color:#d97f00;"> 1. Before Starting </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-ethics">Laboratory ethics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-ipython-notebook"><span style="color:#d97f00;"> 2. Introduction to IPython Notebook </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-cells">Two types of cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-intro-to-markdown">A brief intro to markdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it-out"><span style="color:#d97f00;"> 2. Try it Out </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5-pts"><span style="color:red"> Exercise 1 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-brief-introduction-to-latex"><span style="color:#d97f00;"> 3. A Very Brief Introduction to <span class="math notranslate nohighlight">\(\LaTeX\)</span> </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red"> Exercise 3 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscripts-superscripts-and-grouping">Subscripts, superscripts, and grouping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-5-pts"><span style="color:red"> Exercise 4 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractions-and-parentheses">Fractions and parentheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-pts"><span style="color:red"> Exercise 5 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-5-pts"><span style="color:red"> Exercise 6 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-labs"><span style="color:#d97f00;"> 4. Submitting Labs </span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mireille Boutin, Alden Bradford
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
