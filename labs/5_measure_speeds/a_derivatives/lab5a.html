@@ -1,0 +1,1110 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Laboratory 5a: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=4bca2e18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/5_measure_speeds/a_derivatives/lab5a';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Laboratory 5b: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)" href="../b_build_a_tool/lab5b.html" />
+    <link rel="prev" title="Laboratory 4e: Analyzing the Error Using Symbolic Method (SymPy)" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="The Data Science Labs on Differential and Integral Calculus - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="The Data Science Labs on Differential and Integral Calculus - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    About this Course
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">Laboratory 0: Course Intro, Markdown, Latex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1a.html">Laboratory 1a: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1b.html">Laboratory 1b: Python Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Determine your heart rate</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../2_determine_heart_rate/lab2.html">Laboratory 2: Finding Local Max in PPG Signal</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estimate your blood flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">Laboratory 3: Estimate Blood Flow from PPG Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the heights of tall and far away things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">Laboratory 4a: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">Laboratory 4b: Build an Inclinometer (Objects on Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">Laboratory 4c: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">Laboratory 4d: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">Laboratory 4e: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the speeds of nearby things</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Laboratory 5a: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../b_build_a_tool/lab5b.html">Laboratory 5b: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Design a project of your own</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/5_measure_speeds/a_derivatives/lab5a.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/labs/5_measure_speeds/a_derivatives/lab5a.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Laboratory 5a: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-numbers-in-python"><span style="color:orange;"> 1. Two Types of Numbers in Python </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers">Integers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floats">Floats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5-pts"><span style="color:red;"> Exercise 1 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubles-with-floating-point-numbers"><span style="color:orange;"> 2. Troubles with Floating Point Numbers </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red;"> Exercise 2 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catastrophic-cancellation"><span style="color:orange;"> 3. Catastrophic Cancellation </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red;"> Exercise 3 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-25-pts"><span style="color:red;"> Exercise 4 </span> (25 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">A practical example of catastrophic cancellation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differentiation"><span style="color:orange;"> 4. Numerical Differentiation </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-schemes"><span style="color:orange;"> 5. Finite Difference Schemes </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-in-the-forward-difference">Bias in the forward difference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-2-5-pts"><span style="color:red;"> Exercise 6 </span> (2.5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-5-pts"><span style="color:red;"> Exercise 7 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-the-bias">Correcting the bias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-5-pts"><span style="color:red;"> Exercise 8 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-differences-with-unequal-step-size"><span style="color:orange;"> 6. Finite Differences with unequal step size</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-5-pts"><span style="color:red;"> Exercise 9 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-6-pts"><span style="color:red;"> Exercise 10 </span> (6 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-accurate-scheme-for-unequal-step-size">Second-order accurate scheme for unequal step size</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-5-pts"><span style="color:red;"> Exercise 11 </span> (5 pts)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="laboratory-5a-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation">
+<h1>Laboratory 5a: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)<a class="headerlink" href="#laboratory-5a-prepare-to-build-a-distance-measurement-tool-floating-pt-numbers-and-num-differentiation" title="Link to this heading">#</a></h1>
+<p><font size="6"> Week 12 </font> <br>
+<font size="3"> Last updated April 22, 2025 </font></p>
+<section id="content">
+<h2><span style="color:orange;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
+<p><font size="5"> Mathematics </font></p>
+<ul class="simple">
+<li><p>Approximating derivatives using finite difference schemes</p></li>
+<li><p>Approximation bias</p></li>
+</ul>
+<p><font size="5"> Programming Skills </font></p>
+<ul class="simple">
+<li><p>Number types: int, float</p></li>
+<li><p>Use of underscore as a numerical separator</p></li>
+<li><p>Vectorized computation</p></li>
+</ul>
+<p><font size="5"> Embedded Systems </font></p>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="required-hardware">
+<h2><span style="color:orange;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+<h3 style="background-color:lightblue"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document.</h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">student_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_info</span>
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="two-types-of-numbers-in-python">
+<h2><span style="color:orange;"> 1. Two Types of Numbers in Python </span><a class="headerlink" href="#two-types-of-numbers-in-python" title="Link to this heading">#</a></h2>
+</section>
+<section id="integers">
+<h2>Integers<a class="headerlink" href="#integers" title="Link to this heading">#</a></h2>
+<p>One of the benefits of using Python is that it has great support for numbers. This makes it much more friendly for doing math than, for example, Javascript or C. Whole numbers in Python have the type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which is short for Integer. You can check this yourself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python <code class="docutils literal notranslate"><span class="pre">int</span></code>s can be as big as you like, positive or negative. It can get a bit cumbersome writing and reading them, and the comma has a special meaning in Python, so you can’t use it to separate big integers for legibility:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">,</span><span class="mi">789</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That gives us a list of three integers. If you want to refer to the number 123,456,789 you can write it without separations, but it is easier to read if you use the underscore symbol where there would be a comma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">123_456_789</span> <span class="o">==</span> <span class="mi">123456789</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can put underscores wherever you like in a number – python ignores them. You could represent a credit card number, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3782_8224_6310_005</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="floats">
+<h2>Floats<a class="headerlink" href="#floats" title="Link to this heading">#</a></h2>
+<p>The other type of number was mentioned in Lab 4e, floating point numbers. As explained previously, floats are used to represent non-whole numbers like decimals. However, they do present some error since Python can only store a certain amount of digits. For almost all purposes, this relative error is no trouble at all, and if it is posing a problem then the tool introduced last time, SymPy, can be implemented to avoid this.</p>
+<section id="exercise-1-5-pts">
+<h3><span style="color:red;"> Exercise 1 </span> (5 pts)<a class="headerlink" href="#exercise-1-5-pts" title="Link to this heading">#</a></h3>
+<p>For each of the following constants, look them up on Wikipedia or WolframAlpha and report the relative error in their known values using SI units. If an error is not given, you can assume the absolute error is <span class="math notranslate nohighlight">\(\pm 1 \)</span> of the last digit given. Note that some times, the absolute error is given in a concise notation, as described here: <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html">https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html</a>. Compare your answers to the relative error in a floating point number, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_epsilon"><em>machine epsilon</em></a>
+(<em>Reminder: we are using single precision floats</em>). Make sure you are using relative error, not absolute error.</p>
+<ul class="simple">
+<li><p>Mass of an electron</p></li>
+<li><p>Orbital period of the moon (the Sidereal period, specifically)</p></li>
+<li><p>Distance from New York to Los Angeles</p></li>
+<li><p>Freezing point of water at atmospheric pressure</p></li>
+</ul>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 1 Below: </h3></section>
+</section>
+<section id="troubles-with-floating-point-numbers">
+<h2><span style="color:orange;"> 2. Troubles with Floating Point Numbers </span><a class="headerlink" href="#troubles-with-floating-point-numbers" title="Link to this heading">#</a></h2>
+<p>Precision is usually not a problem with floating point numbers, with one major exception which we will address later. The main issue you will face is when comparing numbers. Check this out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">/</span><span class="mi">10</span> <span class="o">==</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-2-5-pts">
+<h3><span style="color:red;"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#exercise-2-5-pts" title="Link to this heading">#</a></h3>
+<p>Explain why a few numbers are missing from the printout above. Include the python values of <code class="docutils literal notranslate"><span class="pre">x/10</span></code> and <code class="docutils literal notranslate"><span class="pre">0.1*x</span></code> in your explanation, for some values of <code class="docutils literal notranslate"><span class="pre">x</span></code> (make a new code cell printing the relevant values).</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 2 Below </h3><p>There are two main ways to deal with this:</p>
+<ol class="arabic simple">
+<li><p>Whenever possible, use <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> instead of <code class="docutils literal notranslate"><span class="pre">==</span></code> when comparing floating point numbers. This is usually the best thing to do. For example, if a number is decreasing and you want to know when it hits zero, check if it is positive instead of checking if it’s zero. Or, better yet, check if it’s less than 0.0001, keeping as much precision as you need for your purpose and no more.</p></li>
+<li><p>Instead of checking if floats are equal, check if they are close to eachother. For example, the builtin function <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code> can do this for you, or you can use the version in numpy if working with arrays. Here is how that might look:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ True  True  True  True  True  True  True  True  True]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="catastrophic-cancellation">
+<h2><span style="color:orange;"> 3. Catastrophic Cancellation </span><a class="headerlink" href="#catastrophic-cancellation" title="Link to this heading">#</a></h2>
+<p>There is one situation where roundoff error is a really big problem. That is when you are subtracting two numbers which are very close together. This isn’t anything special about floating point numbers, this is just a fact about rounding. Here, have a look:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{r}
+3.14159265358???\\
+-\; 3.14159265332???\\\hline
+0.00000000026???
+\end{array}
+\end{split}\]</div>
+<p>We have used question marks to represent unknown digits, i.e. digits which were lost due to rounding. See how the relative error in the output is much bigger than in either of the inputs: each input has 12 significant figures, but the output has only two significant figures. We can do this a bit more precisely by writing the absolute errors explicitly:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+3.14159265358??? &amp;\rightarrow 3.14159265358 \pm 5\times 10^{-12}\\
+3.14159265332??? &amp;\rightarrow 3.14159265332 \pm 5\times 10^{-12}\\
+0.00000000026??? &amp;\rightarrow 0.00000000026 \pm \text{(you figure this one out)}\\
+\end{align*}\]</div>
+<section id="exercise-3-5-pts">
+<h3><span style="color:red;"> Exercise 3 </span> (5 pts)<a class="headerlink" href="#exercise-3-5-pts" title="Link to this heading">#</a></h3>
+<p>What is the absolute error in the output? What are the relative errors of each of the inputs, and what is the relative error of the output?</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 3 Below </h3></section>
+<section id="exercise-4-25-pts">
+<h3><span style="color:red;"> Exercise 4 </span> (25 pts)<a class="headerlink" href="#exercise-4-25-pts" title="Link to this heading">#</a></h3>
+</section>
+<section id="a-practical-example-of-catastrophic-cancellation">
+<h3>A practical example of catastrophic cancellation<a class="headerlink" href="#a-practical-example-of-catastrophic-cancellation" title="Link to this heading">#</a></h3>
+<p>Before continuing, run the following block. This code will be able to check if your code works properly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/5_measure_speeds/a_derivatives/autograder.py
+wget -q -N https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/5_measure_speeds/a_derivatives/lab_5a_checker.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we walk you through coding an example where catastrophic cancellation makes a pretty big difference, and something clever you can do to fix it.</p>
+<p><strong>Part 1</strong> (5 pts)</p>
+<p>Write a function which takes the coefficients <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> from a polynomial <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> and gives you a list of the roots. Just apply the standard quadratic formula. For now, you can assume that <span class="math notranslate nohighlight">\(b^2-4ac&gt;0\)</span> so you can take the square root, and you can assume <code class="docutils literal notranslate"><span class="pre">a</span></code> is not zero. Have it give the smaller root first (you can use the built in function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> for this).</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 1 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lab_5a_checker</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 2</strong> (2.5 pts)</p>
+<p>Factor the polynomial <span class="math notranslate nohighlight">\(x^2-1,000,000.000,001 x +1\)</span> exactly, on paper (note the decimal place in <code class="docutils literal notranslate"><span class="pre">b</span></code>). What should the roots be?</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 2 Below </h3><p><strong>Part 3</strong> (2.5 pts)</p>
+<p>Apply your simple root-finding function to this polynomial. What are the relative errors in your computed roots, compared to the true values? Explain why one of these has a larger relative error.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 3 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># call your root finding function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a simple technique we can apply to reduce the error. Let’s assume for now that <code class="docutils literal notranslate"><span class="pre">b</span></code> is a negative number. So, we get cancellation in the numerator when subtracting <span class="math notranslate nohighlight">\(-b\)</span> and <span class="math notranslate nohighlight">\(\sqrt{b^2-4ac}\)</span>. In this case, just multiply by one in a clever way:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{-b-\sqrt{b^2-4ac}}{2a}
+&amp;= \frac{-b-\sqrt{b^2-4ac}}{2a} \times \frac{-b+\sqrt{b^2-4ac}}{-b+\sqrt{b^2-4ac}}\\
+&amp;= \frac{b^2-(b^2-4ac)}{2a(-b+\sqrt{b^2-4ac})}\\
+&amp;= \frac{2c}{-b+\sqrt{b^2-4ac}}
+\end{align*}\]</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">b</span></code> is negative and <code class="docutils literal notranslate"><span class="pre">-b</span></code> is positive, there is no cancellation here! We can use this formula to compute the “-” root, while the original formula will continue to compute the “+” root correctly.</p>
+<p><strong>Part 4</strong> (5 pts)</p>
+<p>Assuming <code class="docutils literal notranslate"><span class="pre">b</span></code> is always negative, rewrite your function to use this formula for one root and the standard formula for the other root. Compute the relative errors on the example above, using your new formula.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 4 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rewrite your function</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lab_5a_checker</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_improved_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 5</strong> (5 pts)</p>
+<p>Figure out a similar formula which works when <code class="docutils literal notranslate"><span class="pre">b</span></code> is always positive. Use both formulas to write a function to compute the roots which is always accurate, and does not suffer from catastrophic cancellation.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 5 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a better root finding function</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lab_5a_checker</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">naive_roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_improved_naive_roots</span><span class="p">(</span><span class="n">naive_roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 6</strong> (5 pts)</p>
+<p>Finish off your function by adding a special case for if <code class="docutils literal notranslate"><span class="pre">c</span></code> is exactly zero (don’t want to divide by zero, after all!). We have provided a test you can use to check your work.</p>
+<h3 style="background-color:lightblue"> Write Answers for Exercise 4 Part 6 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add special cases for a and c</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">roots</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># fill in the formula here</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+
+<span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_roots</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example shows how catastrophic cancellation can occur even in friendly, well-known functions. This also shows that we can usually deal with it, by doing some clever algebra. This is such a common issue that there are now tools available to identify and fix catastrophic cancellation. If you are curious, check out <a class="reference external" href="http://herbie.uwplse.org/">Herbie</a>, which a friend of mine helped to create.</p>
+</section>
+</section>
+<section id="numerical-differentiation">
+<h2><span style="color:orange;"> 4. Numerical Differentiation </span><a class="headerlink" href="#numerical-differentiation" title="Link to this heading">#</a></h2>
+<p>Now you are prepared to see the major problem we are up against when trying to compute derivatives using floating-point arithmetic. Remember that by definition, the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+\]</div>
+<p>This suggests a simple way to compute a derivative: pick a really small number <span class="math notranslate nohighlight">\(h\)</span>, and compute <span class="math notranslate nohighlight">\(\frac{f(x+h)-f(x)}{h}\)</span>. Since <span class="math notranslate nohighlight">\(h\)</span> is just a small but finite number, this is called the <em>finite difference method</em>.</p>
+<section id="exercise-5-10-pts">
+<h3><span style="color:red;"> Exercise 5 </span> (10 pts)<a class="headerlink" href="#exercise-5-10-pts" title="Link to this heading">#</a></h3>
+<p>Let’s see what happens when we apply this procedure blindly. We will apply this formula for <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> at the point <span class="math notranslate nohighlight">\(x=4\)</span>. The correct derivative should be 8. We will compute the relative error in using the finite difference method, for various values of <span class="math notranslate nohighlight">\(h\)</span>. It is easy to get a good spread of values for <span class="math notranslate nohighlight">\(h\)</span>, in a geometric sequence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mf">1e-15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 1</strong> (5 pts)</p>
+<p>Make an array giving approximations to <span class="math notranslate nohighlight">\(f'(4)\)</span> for each value of <code class="docutils literal notranslate"><span class="pre">h</span></code>, using the finite difference method. Then, compute the relative error in this approximation using the relative error formula. Tools to check your work are available. You must use arrays and broadcasting to get full credit here.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 5 Part 1 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">approximation</span> <span class="o">=</span>
+<span class="n">relative_error</span> <span class="o">=</span>
+<span class="n">lab_5a_checker</span><span class="o">.</span><span class="n">check_finite_difference</span><span class="p">(</span><span class="n">approximation</span><span class="p">,</span> <span class="n">relative_error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 2</strong> (5 pts)</p>
+<p>Now that we have computed the relative error, let’s inspect it in a plot. We will use a logarithmic scale for the x and y axes, which will help us to compare very different values. Since we are taking a logarithm, we must look at the absolute value of the relative error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">for</span> <span class="n">err</span> <span class="ow">in</span> <span class="n">relative_error</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'step size $h$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'relative error in computing the finite difference'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In light of what you have learned today about catastrophic cancellation, explain the shape of the curve you get. Explain why it is not a good idea to just make <span class="math notranslate nohighlight">\(h\)</span> as small as possible. What is the smallest relative error we can achieve using this method?</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 5 Part 2 Below </h3></section>
+</section>
+<section id="finite-difference-schemes">
+<h2><span style="color:orange;"> 5. Finite Difference Schemes </span><a class="headerlink" href="#finite-difference-schemes" title="Link to this heading">#</a></h2>
+<p>This shows the basic struggle of computing numerical derivatives: the definition of the derivative requires <code class="docutils literal notranslate"><span class="pre">h</span></code> to be infinitely small, but we can’t practically make it that small. This isn’t just because of catastrophic cancellation, by the way – often when working with real data you are limited in how fast you can collect it. Hence, our goal will be to find ways to get more accurate estimates of the derivative without just making the step size <span class="math notranslate nohighlight">\(h\)</span> tiny. We will consider <span class="math notranslate nohighlight">\(h\)</span> to be fixed, and try to get our estimate as good as possible.</p>
+<section id="bias-in-the-forward-difference">
+<h3>Bias in the forward difference<a class="headerlink" href="#bias-in-the-forward-difference" title="Link to this heading">#</a></h3>
+<p>Let’s examine the finite difference method, applied to the function <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>. For ease of illustration, let’s choose <span class="math notranslate nohighlight">\(h=0.5\)</span>. Our estimate of <span class="math notranslate nohighlight">\(f'(2)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+f'(2)\approx \frac{(2+0.5)^3-2^3}{0.5}.
+\]</div>
+<p>Is this an over-estimate or an under-estimate? Let’s draw a picture to help us see.</p>
+</section>
+<section id="exercise-6-2-5-pts">
+<h3><span style="color:red;"> Exercise 6 </span> (2.5 pts)<a class="headerlink" href="#exercise-6-2-5-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (2.5 pts)</p>
+<p>Find an equation for the tangent line to <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span>.</p>
+<p><strong>Part 2</strong> (2.5 pts)</p>
+<p>Find an equation for the secant line intersecting <span class="math notranslate nohighlight">\(y=f(x)\)</span> at <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=2.5\)</span>.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 6 Below </h3><p>Fill in the formulas you found for the secant and tangent lines below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">tangent</span> <span class="o">=</span> <span class="c1">#fill in here</span>
+<span class="n">secant</span> <span class="o">=</span> <span class="c1">#fill in here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$x^3$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"tangent"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"secant"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That shows it visually: the slope of the secant line is bigger than the slope of the tangent line. We can see it algebraically too:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{(2+0.5)^3-2^3}{0.5}
+&amp;=\frac{12(0.5)+6(0.5)^2+(0.5)^3}{0.5}\\
+&amp;=12+6(0.5)+(0.5)^2
+\end{align*}\]</div>
+<p>The correct derivative is 12, and the other terms (most of all the term <span class="math notranslate nohighlight">\(6(0.5)\)</span>) are making it too big.</p>
+<p>When we choose <span class="math notranslate nohighlight">\(h\)</span> to be a positive number, we call that a <em>forward difference</em>. What if we try making <span class="math notranslate nohighlight">\(h\)</span> negative, doing a so-called <em>backward difference</em>? Try that now.</p>
+</section>
+<section id="exercise-7-5-pts">
+<h3><span style="color:red;"> Exercise 7 </span> (5 pts)<a class="headerlink" href="#exercise-7-5-pts" title="Link to this heading">#</a></h3>
+<p><strong>Part 1</strong> (2.5 pts)</p>
+<p>Create a similar plot to show what happens if <span class="math notranslate nohighlight">\(h=-0.5\)</span>.</p>
+<p><strong>Part 2</strong> (2.5 pts)</p>
+<p>Is the slope of the secant line too big, or too small, in this case? Support your claim using your figure. How is this related to the curvature of the function <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 7 Part 1 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">tangent</span> <span class="o">=</span> <span class="c1">#fill in here</span>
+<span class="n">secant</span> <span class="o">=</span> <span class="c1">#fill in here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$x^3$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"tangent"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"secant"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 7 Part 2 Below </h3></section>
+<section id="correcting-the-bias">
+<h3>Correcting the bias<a class="headerlink" href="#correcting-the-bias" title="Link to this heading">#</a></h3>
+<p>As you have noticed, the forward difference gave us an over-estimate while the backward difference gave an under-estimate. This gives us a clear way to do better: we could average these answers out, which would give us a (hopefully) unbiased answer. Algebraically, this would look something like this:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{1}{2}\left[ \frac{f(x+h) - f(x)}{h} + \frac{f(x-h)-f(x)}{-h} \right]
+&amp;= \frac{f(x+h)-f(x)-f(x-h) + f(x)}{2h}\\
+&amp;= \frac{f(x+h)-f(x-h)}{2h}
+\end{align*}\]</div>
+<p>This is the <em>symmetric difference</em> scheme. You can think of it as a secant line which doesn’t go through a given point, but rather goes through its neighbors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">tangent</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">8</span>
+<span class="n">secant</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.5</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mf">1.5</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span><span class="o">+</span><span class="mf">1.5</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$x^3$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tangent</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"tangent"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">secant</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"secant"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>No obvious bias! We can still work out algebraically that it’s not exact:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{(2+0.5)^3 - (2-0.5)^3}{2*(0.5)} = 12.25
+\end{align*}\]</div>
+<p>This is still a slight overestimate. However, it’s clearly way better for any given step size <span class="math notranslate nohighlight">\(h\)</span>. The error gets small really fast, too: if we instead had <span class="math notranslate nohighlight">\(h=10^{-9}\)</span>, the error would be just <span class="math notranslate nohighlight">\((10^{-9})^2 = 10^{-18}\)</span>, which is smaller than the floating-point error. Symmetric difference is better than forward difference!</p>
+</section>
+<section id="exercise-8-5-pts">
+<h3><span style="color:red;"> Exercise 8 </span> (5 pts)<a class="headerlink" href="#exercise-8-5-pts" title="Link to this heading">#</a></h3>
+<p>Work out the symmetric difference exactly on paper for the function <span class="math notranslate nohighlight">\(f(x)=5x^2+3x-7\)</span>, for a variable step size <span class="math notranslate nohighlight">\(h\)</span>, at the point <span class="math notranslate nohighlight">\(x=2\)</span>. Find the relative error algebraically, and comment on it.</p>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 8 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="finite-differences-with-unequal-step-size">
+<h2><span style="color:orange;"> 6. Finite Differences with unequal step size</span><a class="headerlink" href="#finite-differences-with-unequal-step-size" title="Link to this heading">#</a></h2>
+<p>So far, we have assumed that the step size <span class="math notranslate nohighlight">\(h\)</span> is constant for every value of <span class="math notranslate nohighlight">\(x\)</span>. However, when we collect data from sensors, this constraint might not always be true.</p>
+<p>Consider an interval <span class="math notranslate nohighlight">\(a \le x \le b\)</span>. Let’s divide this interval into eight equal parts. Then <span class="math notranslate nohighlight">\(x[0] = a\)</span>, <span class="math notranslate nohighlight">\(x[7] = b\)</span>, and for <span class="math notranslate nohighlight">\(i = 1,...,6\)</span>, we define <span class="math notranslate nohighlight">\(x[i] = a + ih\)</span>, where the step size <span class="math notranslate nohighlight">\(h\)</span> can be calculated as <span class="math notranslate nohighlight">\(h = \frac{b-a}{7}\)</span>. See the figure below for an example.</p>
+<p><img alt="lab5a_unequal_step_sizes_fig.png" src="data:image/png;base64,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jDPOWLnyyitXJyrdd9991754mMMDAJjFoYceunK9611vdX6OSy+9dOVWt7rV6v9/3/vet3pGaR6EmMMDmETQATTlZ29EuBH/e/HFF69bJp/DI5YHABgqzc9x5JFHrtz97ndfOeyww1a+/vWvr/0+n8Mj6uqrr173eICcoANoyufhiIo7sJTyMMQZHQDAUHGZyg1veMO17xNxxsbnP//5DbeXTUGHMzqASQQdQFN+WUqEHjV5GFKe7QEAMMmrX/3qtYlIo97znvdsCDnyMOQhD3nIurM9AEqCDqAq5t/IJwC77LLLykVWpTAkJiMtv5QAAExy7LHHruyxxx6r3yfi0pXarWVf85rXrIUhz3/+801GCnQJOoCq8847by3oOProo8tfr4oJSdMycWaHoAMAGOqe97zn2veJj33sY9XvEyeddNLaZKS1Mz4AcoIOoCqfZLQ190YehsRkpQAAQ+STjPbm3khhSJxBaiJSYBJBB1B1yCGHrAUdV1xxRfnrVXkYYn4OAGCod73rXWtzbxx33HHVy1byMMT8HMA0BB1AVTpTY5999mmeHnrAAQesLmN+DgBgFs961rPWLkk566yzVq699tpykZULLrjA/BzAIIIOYIOLLrpo3dwbNfn8HAcffLCgAwAY7NBDD1253vWut/p9ojX3Rj4/x1vf+tZqGAKQE3QAG8R8G+mSlNbcG3kYctppp5W/BgCY6Na3vvXa2aGtuTfyMKS1DEBO0AFsEGdxpKDjwgsvLH+9KsKNtEwedJxzzjmrd2mp/UUGACD54Ac/uDY/x33ve9/m3Btpfo486Ih5OyIAed/73uc7B7CBoAPYYN999137QtH68pAHHTEpaf6zs88+u1wcAGCdV7/61Wtzb5x88snNuTfyoOOzn/3sakBy4IEHruy///4rn//855vfVYDlJegA1snn3ogvEK0vD5dccsnacnkJOQCAacTcG3vsscfq94fXv/71zbk3HvGIR6wtlypuRSvkAFoEHcA655133lqAEZeg9MSZHHFNbSwbl7vEvB0AANO45z3vufad42Mf+1gztEhncMSyt7vd7VZOOeWUlS9+8YvN5QEEHQAAAMBoCDoAAACA0RB0AAAAAKMh6AAAAABGQ9ABAAAAjIagAwAAABgNQQcAAAAwGoIOAAAAYDQEHQAAAMBoCDoAAGCBffqKf1+5rvwhO96n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3fve9+7Wj/zIjzTrR3/0R7v1Yz/2Y8368R//8W79xE/8RLN+8id/sls/9VM/1az73Oc+zbrvfe/brfvd737NOvjgg7t1yCGHNOv+97//hvGRfv6ABzygWz/90z/drEMPPbRbD3zgA5v1oAc9qFk/8zM/062f/dmf7dbP/dzPNevnf/7nu/XgBz+4WQ95yEOa9dCHPrRbhx12WLMOP/zwbh1xxBHNetjDHtasX/iFX+jWwx/+8NUqQ9J47CMe8Yhu/eIv/mKzHvnIRzbrl37pl7r1y7/8y936lV/5lWb96q/+arN+7dd+rVu//uu/3qxHPepR3TryyCOb9ehHP7pZRx11VLeOPvroZh1zzDHdesxjHtOsxz72sc069thjN1QZksb6H/e4x22oxz/+8d36jd/4jW795m/+ZrN+67d+q1m//du/3a3f+Z3fadYTnvCEbj3xiU9s1nHHHdesJz3pSd06/vjjm/XkJz+5WyeccEKzTjzxxGY95SlP6dZJJ53UrKc+9anVij4xHxuCjvUEHUoppZRSSiml1A4uQcd6gg6llFJKKaWUUmoHl6BjPUGHUkoppZRSSim1g0vQsZ6g4/8qF5MLtioml2vVN77xjW7FxGOt+vrXv96tmJiqVVdffXWzYsKiXn3lK19pVrxZevU///M/zfrv//7vZv3Xf/1Xt/7zP/+zWf/xH//RrX//93/v1r/9278168tf/vJqlWMjfnbllVd264orrmjWl770pW598YtfbNYXvvCFZn3+85/v1uc+97lmffazn+3WZz7zmWZ9+tOfbta//uu/dutf/uVfmvXP//zP3fqnf/qnZn3qU5/q1uWXX96syy67rFuf/OQn11V5nf3HP/7xlU984hMbKn7eq0svvbRZH/vYx7r10Y9+tFkf+chHmvXhD3+4W//4j//YrA996EPd+uAHP9isSy65pFkXX3xxtz7wgQ906/3vf3+z3ve+93Xrve99b7Pe8573NOvd7353tcrr7P/u7/5u5R/+4R/W1d///d93Kx7Tqne9613Neuc739mtiy66qFkXXnhht97xjnc06+1vf3uz/vZv/7Zbb3vb27r11re+tVl/8zd/06y3vOUt3frrv/7rZv3VX/1Vt9785jc364ILLmjW+eefvzpfVz4+3vSmN63+POq8885r1rnnntutWE+r3vjGNzbrDW94Q7de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/cAP/EC3fvAHf7BZP/RDP9StH/7hH27WXe96127d7W53a9b+++/frQMOOKBZd7/73Zt1j3vco1sHHnhgsw466KBu3fOe91ytMgSL393rXvdq1r3vfe9u/ciP/EizfvRHf7RbP/ZjP9asH//xH+/WT/zETzTrJ3/yJ7v1Uz/1U826z33u06z73ve+1Sr3afzsfve737o6+OCDu3XIIYc06/73v3+zHvCAB3Trp3/6p5t16KGHduuBD3xgsx70oAc162d+5me69bM/+7Pd+rmf+7lm/fzP/3y3HvzgBzfrIQ95SLMe+tCHduuwww5r1uGHH96tI444olkPe9jDmvULv/AL3Xr4wx/erEc84hHd+sVf/MVmPfKRj2zWL/3SL3Xrl3/5l7v1K7/yK8361V/91Wb92q/92rqK78b5ey4e/+u//uvVetSjHtWtI488slmPfvSjm3XUUUd16+ijj27WMccc063HPOYxzXrsYx/brGOPPbZbj3vc45r1+Mc/vlu/8Ru/0a3f/M3fbNZv/dZvrasyHI71//Zv/3a1fud3fqdZT3jCE7r1xCc+sVnHHXdcs570pCd16/jjj2/Wk5/85G6dcMIJzTrxxBOb9ZSnPKVbJ510UrOe+tSnViv6xPw4CDrWE3QopZRSSimllFI7uAQd6wk6lFJKKaWUUkqpHVyCjvUEHUoppZRSSiml1A4uQcd6go7/q1xM+teqmPStVd/4xje6FZObterrX/96t772ta81KyZwatVXv/rVbsXkQa2KN0uv/ud//qdZ//3f/92s//qv/+rWf/7nfzbrP/7jP7r17//+7936t3/7t2Z9+ctfbtaVV17ZrSuuuKJZX/rSl7r1xS9+sVlf+MIXmvX5z3++W5/73Oea9dnPfrZa5XXqn/70p1c+85nPrKv4Wav+9V//tVv/8i//0qx//ud/7tY//dM/NetTn/pUty6//PJmXXbZZd365Cc/2axPfOITzfr4xz/erUsvvbRZH/vYxzYci49+9KOrP4+K/9+qj3zkI8368Ic/3K1//Md/bNaHPvShbn3wgx9s1iWXXNKsiy++uFsf+MAHuvX+97+/We973/u69d73vrdZ73nPe5r17ne/u1v/8A//0Ky///u/79bf/d3fNetd73rXapWTkV500UUr73znO7sVy7Tqwgsv7NY73vGOZr397W9v1t/+7d92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" /></p>
+<p>In constrast, let’s consider the same interval <span class="math notranslate nohighlight">\(a \le x \le b\)</span> and divide it into eight <em>unequal</em> parts. Just as before, <span class="math notranslate nohighlight">\(x[0] = a\)</span> and <span class="math notranslate nohighlight">\(x[7] = b\)</span>, but there is no longer a nice formula for each <span class="math notranslate nohighlight">\(x[i]\)</span> for <span class="math notranslate nohighlight">\(i = 1,...,6\)</span>. The step-size now depends on our location along the number line.</p>
+<p>Now, when we use finite differences to approximate the derivative, we use the following formula.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    f'(x[i]) \approx \frac{f(x[i+1]) - f(x[i])}{x[i+1] - x[i]}
+\end{align*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(i\)</span> goes from 0, 1, 2, …, N-2.</p>
+<section id="exercise-9-5-pts">
+<h3><span style="color:red;"> Exercise 9 </span> (5 pts)<a class="headerlink" href="#exercise-9-5-pts" title="Link to this heading">#</a></h3>
+<p>Finding derivative of a single variable function with unequal step size:</p>
+<p>(a) Construct an array of values <span class="math notranslate nohighlight">\(x\)</span> where <span class="math notranslate nohighlight">\(0 \le x \le 2\)</span> and with unequal step sizes. First define a helper array <span class="math notranslate nohighlight">\(t\)</span> where <span class="math notranslate nohighlight">\(0 \le t \le 1\)</span> with <span class="math notranslate nohighlight">\(N\)</span> equally spaced values. Then, we will define the array <span class="math notranslate nohighlight">\(x\)</span> by the formula <span class="math notranslate nohighlight">\(x = a + (b-a)t^3\)</span>.</p>
+<p>(a) Let <span class="math notranslate nohighlight">\(f(x) = 4x + 5\)</span>, and calculate the values of <span class="math notranslate nohighlight">\(f(x)\)</span> for <span class="math notranslate nohighlight">\(N=10\)</span> and <span class="math notranslate nohighlight">\(N=100\)</span>.</p>
+<p>(b) Use the finite difference formula to approximate the derivative <span class="math notranslate nohighlight">\(f'(x)\)</span> for <span class="math notranslate nohighlight">\(f(x) = 4x + 5\)</span> for <span class="math notranslate nohighlight">\(N = 10\)</span> and <span class="math notranslate nohighlight">\(N=100\)</span>.</p>
+<p>(c) Plot the approximation of the derivative of <span class="math notranslate nohighlight">\(f(x)\)</span> for both the values of <span class="math notranslate nohighlight">\(N\)</span>. It should come out to be a straight line. Note: remember the derivative will have one less datapoint than the original data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write you answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-10-6-pts">
+<h3><span style="color:red;"> Exercise 10 </span> (6 pts)<a class="headerlink" href="#exercise-10-6-pts" title="Link to this heading">#</a></h3>
+<p>(a) Repeat the above problem but for the function <span class="math notranslate nohighlight">\(f(x) = 2x^2 + 4x + 5\)</span> with the same range for <span class="math notranslate nohighlight">\(x\)</span> and definition of <span class="math notranslate nohighlight">\(x\)</span> as in Problem 9. (5 pts)</p>
+<p>(b) For which value of N did you get a more accurate derivative? (1 pts)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write answer for excersize 10 part (a) below:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h3 style="background-color:lightblue;"> Write Answers for Exercise 10 Part b Below </h3></section>
+</section>
+<section id="second-order-accurate-scheme-for-unequal-step-size">
+<h2>Second-order accurate scheme for unequal step size<a class="headerlink" href="#second-order-accurate-scheme-for-unequal-step-size" title="Link to this heading">#</a></h2>
+<p>As we saw before, we can get a more accurate approximation to the derivative by using a different finite difference scheme. This is true even when the step-sizes are unequal.</p>
+<p>Below is the second-order accurate finite difference scheme for unequal step-sizes. It is derived using Taylor series approximations. Like before, we will take a (weighted) average of a forward difference and a backward-difference. This requires us to know the step size on the left and right of a given point where we want to evaluate.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    f'(x_i) \approx -\frac{h_{+}}{h_{-}(h_{-} + h_{+})}f(x_{i-1}) + \frac{h_{+} - h_{-}}{h_{+}(h_{-} + h_{+})}f(x_{i}) + \frac{h_{-}}{h_{+}(h_{-} + h_{+})} f(x_{i+1})
+\end{align*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(h_{-} =x_{i} - x_{i-1}\)</span> is the difference on the left, and <span class="math notranslate nohighlight">\(h_{+} = x_{i+1} - x_{i}\)</span> is the difference on the right.</p>
+<section id="exercise-11-5-pts">
+<h3><span style="color:red;"> Exercise 11 </span> (5 pts)<a class="headerlink" href="#exercise-11-5-pts" title="Link to this heading">#</a></h3>
+<p>Repeat the above problem but for the function <span class="math notranslate nohighlight">\(f(x) = 2x^2 + 4x + 5\)</span> by using the second-order scheme.</p>
+<p>Caution: While iterating remeber to take proper care for the limits of <span class="math notranslate nohighlight">\(x_i\)</span> to avoid running out of memory of the array defining <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write answer for excersize 11 below:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs/5_measure_speeds/a_derivatives"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../4_measure_tall_things/e_symbolic_error/lab4e.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Laboratory 4e: Analyzing the Error Using Symbolic Method (SymPy)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../b_build_a_tool/lab5b.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Laboratory 5b: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:orange;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:orange;"> 0. Required Hardware </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-numbers-in-python"><span style="color:orange;"> 1. Two Types of Numbers in Python </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers">Integers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floats">Floats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5-pts"><span style="color:red;"> Exercise 1 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubles-with-floating-point-numbers"><span style="color:orange;"> 2. Troubles with Floating Point Numbers </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red;"> Exercise 2 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catastrophic-cancellation"><span style="color:orange;"> 3. Catastrophic Cancellation </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-5-pts"><span style="color:red;"> Exercise 3 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-25-pts"><span style="color:red;"> Exercise 4 </span> (25 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-practical-example-of-catastrophic-cancellation">A practical example of catastrophic cancellation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differentiation"><span style="color:orange;"> 4. Numerical Differentiation </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-10-pts"><span style="color:red;"> Exercise 5 </span> (10 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-schemes"><span style="color:orange;"> 5. Finite Difference Schemes </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-in-the-forward-difference">Bias in the forward difference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-2-5-pts"><span style="color:red;"> Exercise 6 </span> (2.5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-5-pts"><span style="color:red;"> Exercise 7 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-the-bias">Correcting the bias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-5-pts"><span style="color:red;"> Exercise 8 </span> (5 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-differences-with-unequal-step-size"><span style="color:orange;"> 6. Finite Differences with unequal step size</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-5-pts"><span style="color:red;"> Exercise 9 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-6-pts"><span style="color:red;"> Exercise 10 </span> (6 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-accurate-scheme-for-unequal-step-size">Second-order accurate scheme for unequal step size</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-5-pts"><span style="color:red;"> Exercise 11 </span> (5 pts)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mireille Boutin, Alden Bradford
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

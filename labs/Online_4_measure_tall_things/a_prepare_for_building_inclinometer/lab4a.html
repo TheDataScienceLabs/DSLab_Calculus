@@ -1,0 +1,1220 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Laboratory 4a: Prep to Build an Inclinometer (Namespaces, Modules, Objects) &#8212; The Data Science Labs on Differential and Integral Calculus</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=4bca2e18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/Online_4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="The Data Science Labs on Differential and Integral Calculus - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="The Data Science Labs on Differential and Integral Calculus - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    About this Course
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab0.html">Laboratory 0: Course Intro, Markdown, Latex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1a.html">Laboratory 1a: Introduction to Python, Data Visualization, Sampling/Aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_intro_to_notebooks/lab1b.html">Laboratory 1b: Python Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Determine your heart rate</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../2_determine_heart_rate/lab2.html">Laboratory 2: Finding Local Max in PPG Signal</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estimate your blood flow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../3_estimate_blood_flow/lab3.html">Laboratory 3: Estimate Blood Flow from PPG Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the heights of tall and far away things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html">Laboratory 4a: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/b_build_an_inclinometer/lab4b.html">Laboratory 4b: Build an Inclinometer (Objects on Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/c_make_the_measurements/lab4c.html">Laboratory 4c: Measure Heights of Campus Landmarks with Your Inclinometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/d_error_analysis/lab4d.html">Laboratory 4d: How Accurate is Your Height Measurement? (Derivative Rule for Error Propagation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_measure_tall_things/e_symbolic_error/lab4e.html">Laboratory 4e: Analyzing the Error Using Symbolic Method (SymPy)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measure the speeds of nearby things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../5_measure_speeds/a_derivatives/lab5a.html">Laboratory 5a: Prepare to Build a Distance Measurement Tool (Floating Pt Numbers and Num. Differentiation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5_measure_speeds/b_build_a_tool/lab5b.html">Laboratory 5b: Build a Distance Measurement Distance Tool Using an Ultrasonic Sensor (Data Cleaning and Micropython)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Design a project of your own</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../final_project/labfinal.html">Weeks 14-15: Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../extra_materials/intro_to_breadboards/intro_to_breadboards.html">Extra Materials: Introduction to Breadboards</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TheDataScienceLabs/DSLab_Calculus/issues/new?title=Issue%20on%20page%20%2Flabs/Online_4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/labs/Online_4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Laboratory 4a: Prep to Build an Inclinometer (Namespaces, Modules, Objects)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:#d97f00;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:#d97f00;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces"><span style="color:#d97f00;"> 1. Namespaces </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advantages-of-namespaces">More advantages of namespaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-of-poetry">A bit of poetry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules"><span style="color:#d97f00;"> 2. Modules </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-20-pts"><span style="color:red"> Exercise 3 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-20-pts"><span style="color:red"> Exercise 4 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-20-pts"><span style="color:red"> Exercise 5 </span> (20 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects"><span style="color:#d97f00;"> 3. Objects </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-object-methods">Using object methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-our-own-classes">Writing our own classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-15-pts"><span style="color:red"> Exercise 7 </span> (15 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance"><span style="color:#d97f00;"> 4. Inheritance </span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="laboratory-4a-prep-to-build-an-inclinometer-namespaces-modules-objects">
+<h1>Laboratory 4a: Prep to Build an Inclinometer (Namespaces, Modules, Objects)<a class="headerlink" href="#laboratory-4a-prep-to-build-an-inclinometer-namespaces-modules-objects" title="Link to this heading">#</a></h1>
+<p><font size="6"> Week 5 </font> <br>
+<font size="3"> April 22, 2025 </font></p>
+<section id="content">
+<h2><span style="color:#d97f00;"> 00. Content </span><a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
+<p><font size="5"> Mathematics </font></p>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+<p><font size="5"> Programming Skills </font></p>
+<ul class="simple">
+<li><p>Namespaces</p></li>
+<li><p>Modules</p></li>
+<li><p>Objects</p></li>
+<li><p>Classes</p></li>
+<li><p>Inheritance</p></li>
+</ul>
+<p><font size="5"> Embedded Systems </font></p>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="required-hardware">
+<h2><span style="color:#d97f00;"> 0. Required Hardware </span><a class="headerlink" href="#required-hardware" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+<h3 style="background-color:#6994a2"> Copy the file `student_info.py` into the folder you are working in, then run this cell to put your name and email into this document. </h3>
+Last week you ran a script to download student_info.py and updated it with your own information. You'll be using that same Python file with your information for all the labs going forward. Copy the student_info.py file into the directory this lab is in. <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this makes it so that changes to the imported module are automatically updated in this document.</span>
+<span class="c1"># usually not necessary, but if we are making changes, this is helpful.</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">student_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_info</span>
+<span class="n">show_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="additional-lab-materials">
+<h3>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Link to this heading">#</a></h3>
+<p>In addition to the student_info.py file, you’ll need a couple more specific Python files to complete this lab. Download these files to your current directory:</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a_check.py">https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/a_prepare_for_building_inclinometer/lab4a_check.py</a>
+<a class="reference external" href="https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/a_prepare_for_building_inclinometer/example_module.py">https://raw.githubusercontent.com/TheDataScienceLabs/DSLab_Calculus/main/book/labs/4_measure_tall_things/a_prepare_for_building_inclinometer/example_module.py</a></p>
+</section>
+</section>
+<section id="namespaces">
+<h2><span style="color:#d97f00;"> 1. Namespaces </span><a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
+<p>We are going to start dealing with more complicated systems in the coming weeks. Next week, you will make a piece of measurement equipment, including a display, buttons, and sensor. If we kept track of everything using their own variable names, we would have to make long names, like <code class="docutils literal notranslate"><span class="pre">screen_data_pin_number_1</span></code>, for example. There are a few problems with that approach:</p>
+<ul class="simple">
+<li><p>long variable names are hard to remember</p></li>
+<li><p>long variable names are hard to type (lots of typos can happen!)</p></li>
+<li><p>long variable names are hard to read:</p>
+<ul>
+<li><p>it’s hard to see if they are typed incorrectly</p></li>
+<li><p>they break up the flow of the sentences</p></li>
+</ul>
+</li>
+</ul>
+<p>Of course, if we just used short variable names for everything, we would run out of names very fast. It would not be much better to replace <code class="docutils literal notranslate"><span class="pre">screen_data_pin_number_1</span></code> with <code class="docutils literal notranslate"><span class="pre">sdpn1</span></code>, for example.</p>
+<p>Namespaces are one of several ways that we deal with this in Python. Namespaces are so common that you have already been using them, you just didn’t know it. Let’s look at an example using namespaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+
+<span class="n">alden</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Alden"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">27</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alden</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">alden</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">alden</span><span class="o">.</span><span class="n">grade</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that there are three variables living inside the variable <code class="docutils literal notranslate"><span class="pre">alden</span></code>, and they each have a relatively short name. We have a special name for these variables: they are called “attributes”. We would say <code class="docutils literal notranslate"><span class="pre">age</span></code> is an attribute of <code class="docutils literal notranslate"><span class="pre">alden</span></code>. We access the attributes using the <code class="docutils literal notranslate"><span class="pre">.</span></code> which probably looks familiar to you; we have been using attributes every time we load up a package like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+
+<span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both the function <code class="docutils literal notranslate"><span class="pre">cos</span></code> and the number <code class="docutils literal notranslate"><span class="pre">pi</span></code> are attributes in the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> namespace, so we refer to them using a <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
+<section id="more-advantages-of-namespaces">
+<h3>More advantages of namespaces<a class="headerlink" href="#more-advantages-of-namespaces" title="Link to this heading">#</a></h3>
+<p>Another way namespaces are better than just having long function names is that we can pass them around in their own variables. We could write, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span> <span class="o">=</span> <span class="n">numpy</span>
+<span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s what Python is doing “under the hood” when we use the <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword during imports. When we write <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> it’s doing two steps in one, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">np</span> <span class="pre">=</span> <span class="pre">numpy</span></code>.</p>
+<p>Here is a practical way we can use this. Say we had another instructor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kindyl</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Kindyl"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">kindyl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can write a function which takes in just one argument and have it work on either instructor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">instructor</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"My instructor's name is </span><span class="si">{}</span><span class="s2">. They are </span><span class="si">{}</span><span class="s2"> years old and in grade </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instructor</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">instructor</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">instructor</span><span class="o">.</span><span class="n">grade</span><span class="p">))</span>
+    
+
+<span class="k">for</span> <span class="n">instructor</span> <span class="ow">in</span> <span class="p">[</span><span class="n">kindyl</span><span class="p">,</span> <span class="n">alden</span><span class="p">]:</span>
+    <span class="n">describe</span><span class="p">(</span><span class="n">instructor</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This helps us to make more flexible, modular code.</p>
+</section>
+<section id="exercise-1-10-pts">
+<h3><span style="color:red"> Exercise 1 </span> (10 pts)<a class="headerlink" href="#exercise-1-10-pts" title="Link to this heading">#</a></h3>
+<p>The following code is a mess! Use namespaces to make it more readable.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 1 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eiffel_tower_name</span> <span class="o">=</span> <span class="s2">"Eiffel Tower"</span>
+<span class="n">eiffel_tower_height</span> <span class="o">=</span> <span class="mi">324</span>
+<span class="n">eiffel_tower_weight</span> <span class="o">=</span> <span class="mi">7_300_000</span>
+<span class="n">eiffel_tower_bmi</span> <span class="o">=</span> <span class="mi">7_300_000</span><span class="o">/</span><span class="mi">324</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">turbine_name</span> <span class="o">=</span> <span class="s2">"GE 1.5 Megawatt Wind Turbine"</span>
+<span class="n">turbine_height</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">turbine_weight</span> <span class="o">=</span> <span class="mi">150_000</span>
+<span class="n">turbine_bmi</span> <span class="o">=</span> <span class="mi">150_000</span><span class="o">/</span><span class="mi">100</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">burj_name</span> <span class="o">=</span> <span class="s2">"Burj Khalifa"</span>
+<span class="n">burj_height</span> <span class="o">=</span> <span class="mi">830</span>
+<span class="n">burj_weight</span> <span class="o">=</span> <span class="mi">450_000_000</span>
+<span class="n">burj_bmi</span> <span class="o">=</span> <span class="mi">450_000_000</span><span class="o">/</span><span class="mi">830</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">skytree_name</span> <span class="o">=</span> <span class="s2">"Tokyo Skytree"</span>
+<span class="n">skytree_height</span> <span class="o">=</span> <span class="mi">634</span>
+<span class="n">skytree_weight</span> <span class="o">=</span> <span class="mi">32_600_000</span>
+<span class="n">skytree_bmi</span> <span class="o">=</span> <span class="mi">32_600_000</span><span class="o">/</span><span class="mi">634</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_bmi</span><span class="p">(</span><span class="n">tower_name</span><span class="p">,</span> <span class="n">tower_height</span><span class="p">,</span> <span class="n">tower_weight</span><span class="p">,</span> <span class="n">tower_bmi</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"The </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> meters tall and weighs </span><span class="si">{}</span><span class="s2"> kilograms. "</span>
+               <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tower_name</span><span class="p">,</span> <span class="n">tower_height</span><span class="p">,</span> <span class="n">tower_weight</span><span class="p">)</span>
+              <span class="p">)</span>
+    <span class="k">if</span> <span class="n">tower_bmi</span> <span class="o">&lt;</span> <span class="mf">18.5</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its low BMI of </span><span class="si">{:.1f}</span><span class="s2"> indicates that it is underweight."</span>
+    <span class="k">elif</span> <span class="n">tower_bmi</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its BMI is </span><span class="si">{:.1f}</span><span class="s2"> which is typical for a person, but strange for a building."</span>
+    <span class="k">elif</span> <span class="n">tower_bmi</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its BMI is </span><span class="si">{:.1f}</span><span class="s2">, so according to the World Health organization, it's overweight."</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Oh no! Its BMI is </span><span class="si">{:.1f}</span><span class="s2">, so the World Health Organization says it's obese!"</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tower_bmi</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="n">describe_bmi</span><span class="p">(</span><span class="n">turbine_name</span><span class="p">,</span> <span class="n">turbine_height</span><span class="p">,</span> <span class="n">turbine_weight</span><span class="p">,</span> <span class="n">turbine_bmi</span><span class="p">)</span>
+<span class="n">describe_bmi</span><span class="p">(</span><span class="n">eiffel_tower_name</span><span class="p">,</span> <span class="n">eiffel_tower_height</span><span class="p">,</span> <span class="n">eiffel_tower_weight</span><span class="p">,</span> <span class="n">eiffel_tower_bmi</span><span class="p">)</span>
+<span class="n">describe_bmi</span><span class="p">(</span><span class="n">skytree_name</span><span class="p">,</span> <span class="n">skytree_height</span><span class="p">,</span> <span class="n">skytree_weight</span><span class="p">,</span> <span class="n">skytree_bmi</span><span class="p">)</span>
+<span class="n">describe_bmi</span><span class="p">(</span><span class="n">burj_name</span><span class="p">,</span> <span class="n">burj_height</span><span class="p">,</span> <span class="n">burj_weight</span><span class="p">,</span> <span class="n">burj_bmi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-bit-of-poetry">
+<h3>A bit of poetry<a class="headerlink" href="#a-bit-of-poetry" title="Link to this heading">#</a></h3>
+<p>To give you an idea of just how important namespaces are to understanding Python, read the following poem which is included in every installation of Python. Pay particular attention to the last line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="modules">
+<h2><span style="color:#d97f00;"> 2. Modules </span><a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
+<p>Namespaces in Python are much more than a trick for writing clean code (though they do help with that). As we noted above, whenever you do an import you are assigning a namespace to a variable. In fact, whenever you use any variable in Python, it is being used in a namespace. Usually the code that you write yourself lives in the so-called “global” namespace – the idea is that everything else lives inside that space. We can access our current namespace using the built-in function <code class="docutils literal notranslate"><span class="pre">dir</span></code>, which is meant to be short for “directory”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the list above, you probably recognize many of the variable names we have already used in this notebook. There are also several things which you probably don’t recognize, most of them beginning with an <code class="docutils literal notranslate"><span class="pre">_</span></code>. It is a convention in Python that if you don’t want most people to look at a variable, you start it with an <code class="docutils literal notranslate"><span class="pre">_</span></code>. All of the things in the list above are variables we can access. For example, look at the variable <code class="docutils literal notranslate"><span class="pre">In</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">In</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that this is a list showing every input we have entered so far. This variable was created for us by Jupyter. I have not found a use for it. A few of the other automatically-made variables are quite handy, though. This one in particular is used in most Python programs which people publish online (we will see why in a minute):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s the point of this? Just to show that every variable in Python lives in some namespace. When we import a module, all the code inside it is run right away. Then, all its variables are made available in the namespace we loaded. Open up the file <a class="reference external" href="https://github.com/TheDataScienceLabs/DSLab_Calculus/blob/main/book/labs/4_measure_tall_things/a_prepare_for_building_inclinometer/example_module.py">example_module.py</a> and see what’s written inside. Then, run the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">example_module</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can tell that the code in the module was run because it printed out the message above. When we use the function <code class="docutils literal notranslate"><span class="pre">dir</span></code> on the module, we see what is in its namespace.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">example_module</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some things will look familiar, like <code class="docutils literal notranslate"><span class="pre">numbers</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="n">numbers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and the function <code class="docutils literal notranslate"><span class="pre">share_favorites</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="n">share_favorites</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Others were put in there for us automatically. We can see that it has its own <code class="docutils literal notranslate"><span class="pre">__name__</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the variable <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> holds some potentially-useful information:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="vm">__doc__</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since that’s a string, and it lives in the variable <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>, it’s called a “docstring”. If you put a string as the first line of any module, or of any function, it gets stored as a docstring. Usually the docstring will contain helpful information about how to use a module or function.</p>
+<p>Notice that every variable in <code class="docutils literal notranslate"><span class="pre">example_module</span></code> is in that namespace, including the modules which were imported inside it. This is great, because it means you can call a module whatever you want when you import it (like when using an abbreviation), and it won’t affect other parts of a big program. We can confirm that we are really getting the same thing either way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_module</span><span class="o">.</span><span class="n">my_favorite_module</span> <span class="ow">is</span> <span class="n">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we are using the special keyword <code class="docutils literal notranslate"><span class="pre">is</span></code>, which checks whether two variables point to the exact same thing.</p>
+<p>One mystery still remains: what’s that block at the bottom of the module, inside the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement? We saw that when importing the module, the variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code> had the value <code class="docutils literal notranslate"><span class="pre">&quot;example_module&quot;</span></code>, not the value <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>. Surely it would never run. So why include it at all?</p>
+<section id="exercise-2-5-pts">
+<h3><span style="color:red"> Exercise 2 </span> (5 pts)<a class="headerlink" href="#exercise-2-5-pts" title="Link to this heading">#</a></h3>
+<p>To see why, open up a terminal inside Jupyter and navigate to this directory. Then, type the command <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">example_module.py</span></code>. Paste the output below to demonstrate that you have done this. <em>(Hint: you can type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">my_folder/</span></code> to navigate into the folder named “my_folder”, and <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list everything in your current folder)</em></p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 2 Below </h3><p>As you have seen, when we ran the code on its own (as the only program, not as a module in a larger program) its <code class="docutils literal notranslate"><span class="pre">__name__</span></code> was <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>. That meant it ran the block at the bottom of the module. You will see this all the time when reading other people’s code. People want to be able to import useful functions from other projects without running them, and people want to be able to run their project as its own program. By taking advantage of the variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code>, we get the best of both worlds.</p>
+</section>
+<section id="exercise-3-20-pts">
+<h3><span style="color:red"> Exercise 3 </span> (20 pts)<a class="headerlink" href="#exercise-3-20-pts" title="Link to this heading">#</a></h3>
+<p>Now that you have seen some of how importing modules works, you should write your own module. It should conform to the following specifications:</p>
+<ul class="simple">
+<li><p>name it <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code></p></li>
+<li><p>Have a docstring which describes what your module does</p></li>
+<li><p>Include a variable <code class="docutils literal notranslate"><span class="pre">INCH</span></code> with the value <code class="docutils literal notranslate"><span class="pre">2.54</span></code>.</p></li>
+<li><p>Include a function called <code class="docutils literal notranslate"><span class="pre">chebyshev_five</span></code> which takes one argument <code class="docutils literal notranslate"><span class="pre">x</span></code> and returns <span class="math notranslate nohighlight">\(16x^{5}-20x^{3}+5x\)</span>.</p></li>
+<li><p>Make it so that when you run the module on its own it prints your name, but if imported does not print anything.</p></li>
+</ul>
+<p>Once you have written your module, run the following cells to demonstrate this.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 3 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># these two lines are instructions to python that it should reload your module if you make changes.</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lab4a_check</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">my_module</span>
+<span class="n">lab4a_check</span><span class="o">.</span><span class="n">exercise_3</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+# this is another way you can run a program on its own.
+python3 my_module.py
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-4-20-pts">
+<h3><span style="color:red"> Exercise 4 </span> (20 pts)<a class="headerlink" href="#exercise-4-20-pts" title="Link to this heading">#</a></h3>
+<p>Now you know <em>how</em> to write a module. Why would you <em>want</em> to write a module? Come up with at least five reasons you might want to put code into a module and import it, rather than copying and pasting the code into a document to run it. Each reason should be in the form of 2-4 sentences.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 4 Below </h3></section>
+<section id="exercise-5-20-pts">
+<h3><span style="color:red"> Exercise 5 </span> (20 pts)<a class="headerlink" href="#exercise-5-20-pts" title="Link to this heading">#</a></h3>
+<p>Make a module called <code class="docutils literal notranslate"><span class="pre">datalab.py</span></code> and fill it with useful functions we have written, such as:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">show_info</span></code> function you wrote in lab 3</p></li>
+<li><p>the functions you wrote in lab 3 which compute properties of a heartbeat</p></li>
+</ul>
+<p>In this document, demonstrate loading the module and using the functions inside of it. You will need to come up with examples which demonstrate what each function does clearly.
+Then run the following cell which will print the contents of your file in this document to be graded. You will be graded on the following scale:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>5 points</p></th>
+<th class="head"><p>3 points</p></th>
+<th class="head"><p>1 point</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Documentation</p></td>
+<td><p>There is a docstring at the top, describing what is in the file. Every function has its own docstring as well.</p></td>
+<td><p>One or more docstring is missing.</p></td>
+<td><p>No docstrings were provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Style</p></td>
+<td><p>Code is presented in a consistent style with appropriate uses of spacing and parentheses.</p></td>
+<td><p>Code is mostly well-formatted, but there are a few parts which are hard to read.</p></td>
+<td><p>It is hard to tell what the code does.</p></td>
+</tr>
+<tr class="row-even"><td><p>Examples</p></td>
+<td><p>The examples demonstrate what the purpose of each function is, as well as how the function should be used.</p></td>
+<td><p>One or more examples are missing, or do not demonstrate what the function is good for.</p></td>
+<td><p>Several examples are poorly-chosen or missing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 5 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datalab</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">datalab</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="objects">
+<h2><span style="color:#d97f00;"> 3. Objects </span><a class="headerlink" href="#objects" title="Link to this heading">#</a></h2>
+<p>To review, we have introduced:</p>
+<ul class="simple">
+<li><p>the concept of a namespace.</p></li>
+<li><p>how Python groups code into namespaces when loading modules.</p></li>
+</ul>
+<p>Most people who code in Python don’t think about namespaces, at least not by that name (although they should!). Most people don’t use the module <code class="docutils literal notranslate"><span class="pre">types.Simplenamespace</span></code> to write their code. Most Python programmers instead think about “objects”. Why? Because everything in Python is some kind of object.</p>
+<p>What is an “object”? An object is a  namespace. Python is considered an “object-oriented” programming language because everything in Python is an object. Even things which you are familiar with, like integers, lists, and strings, are objects. We can inspect their attributes using the <code class="docutils literal notranslate"><span class="pre">dir</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Many of the attributes of these objects are functions. When an object’s attribute is a function, we call that function a <strong>method</strong> of the object. They usually have something to do with the object they are attached to. For example, the method <code class="docutils literal notranslate"><span class="pre">upper</span></code> of the string <code class="docutils literal notranslate"><span class="pre">hello</span></code> is a function which returns that string in upper case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">'hello'</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="using-object-methods">
+<h3>Using object methods<a class="headerlink" href="#using-object-methods" title="Link to this heading">#</a></h3>
+<p>As you can see above, there are lots of attributes for even a simple object. Most of them start with <code class="docutils literal notranslate"><span class="pre">__</span></code>, which is a convention which means that most programmers won’t have to use that attribute – it’s handled by Python internally. Since these are methods which start with a double underscore, these are called “dunder methods”. As an example, look at the method <code class="docutils literal notranslate"><span class="pre">__len__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">'hello'</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This does exactly the same thing as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In fact, that’s the first thing the function <code class="docutils literal notranslate"><span class="pre">len</span></code> tries when you call it: the function checks if the object you are calling it on has a method named <code class="docutils literal notranslate"><span class="pre">__len__</span></code>. The actual source code for <code class="docutils literal notranslate"><span class="pre">len</span></code> is written in C so that it runs faster, but if we wrote it in Python it would look something like this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">'__len__'</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># find the length another way</span>
+</pre></div>
+</div>
+<p>So you see, you almost never need to use the double-underscore methods. When we filter them out, things start to feel a lot more tractable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">([</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">attribute</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'__'</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see there are not that many methods which you actually will be using. If you want to know how to use one of the methods, you can ask Python for help:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-6-10-pts">
+<h3><span style="color:red"> Exercise 6 </span> (10 pts)<a class="headerlink" href="#exercise-6-10-pts" title="Link to this heading">#</a></h3>
+<p>Pick one of the methods of <code class="docutils literal notranslate"><span class="pre">&quot;hello&quot;</span></code> and use the built in <code class="docutils literal notranslate"><span class="pre">help</span></code> function to figure out how to use it. Demonstrate using the method as well.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 6 Below </h3><p>As you use Python more, you will become used to the methods of common types of objects. All strings, for example, have the same methods. If you want to know an object’s type, you can use the built in function <code class="docutils literal notranslate"><span class="pre">type</span></code>,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span> <span class="nb">type</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="writing-our-own-classes">
+<h3>Writing our own classes<a class="headerlink" href="#writing-our-own-classes" title="Link to this heading">#</a></h3>
+<p>Most of the time it’s easiest to use objects that are already built in to Python. However, it is frequently helpful to be able to make up new types of objects. The type of an object is also called its class. Python gives us a short, clear way to come up with new classes. Let’s revisit our buildings from before. Instead of making them simple namespaces, let’s define a new class. Here is the way we would write that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">weight</span><span class="o">/</span><span class="n">height</span><span class="o">**</span><span class="mi">2</span>
+        
+<span class="n">eiffel</span> <span class="o">=</span> <span class="n">Building</span><span class="p">(</span><span class="s2">"Eiffel Tower"</span><span class="p">,</span> <span class="mi">324</span><span class="p">,</span> <span class="mi">7_300_000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eiffel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eiffel</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We used the keyword <code class="docutils literal notranslate"><span class="pre">class</span></code> to declare a new kind of object. Everything inside the <code class="docutils literal notranslate"><span class="pre">class</span></code> block lives inside the <code class="docutils literal notranslate"><span class="pre">Building</span></code> namespace. We defined a new function <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, but it’s not available outside the class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Building</span><span class="o">.</span><span class="fm">__init__</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The name <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is a special name which is used to make objects of the <code class="docutils literal notranslate"><span class="pre">Building</span></code> type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">eiffel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see that the type of <code class="docutils literal notranslate"><span class="pre">eiffel</span></code> is <code class="docutils literal notranslate"><span class="pre">__main__.Building</span></code>, because it was created from the class <code class="docutils literal notranslate"><span class="pre">Building</span></code> which lives in the <code class="docutils literal notranslate"><span class="pre">__main__</span></code> namespace. Since the type of <code class="docutils literal notranslate"><span class="pre">eiffel</span></code> is <code class="docutils literal notranslate"><span class="pre">Building</span></code>, we would say that <code class="docutils literal notranslate"><span class="pre">eiffel</span></code> is an <strong>instance</strong> of <code class="docutils literal notranslate"><span class="pre">Building</span></code>.</p>
+<p>We can already see one benefit of making our own class: we can specify only the information needed to come up with it. We didn’t need to compute the <code class="docutils literal notranslate"><span class="pre">bmi</span></code> attribute ourselves; the function <code class="docutils literal notranslate"><span class="pre">__init__</span></code> handled it. This helps to ensure that <code class="docutils literal notranslate"><span class="pre">bmi</span></code> is computed the same way every time, and it saves us from having to remember the formula whenever we want to declare a new <code class="docutils literal notranslate"><span class="pre">Building</span></code>.</p>
+<p>Let’s get a bit more fancy. Instead of defining a function in the global namespace to describe a building, let’s make a method for the Building class which does the same description as before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">weight</span><span class="o">/</span><span class="n">height</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"The </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> meters tall and weighs </span><span class="si">{}</span><span class="s2"> kilograms. "</span>
+                   <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+                  <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mf">18.5</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its low BMI of </span><span class="si">{:.1f}</span><span class="s2"> indicates that it is underweight."</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its BMI is </span><span class="si">{:.1f}</span><span class="s2"> which is typical for a person, but strange for a building."</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its BMI is </span><span class="si">{:.1f}</span><span class="s2">, so according to the World Health organization, it's overweight."</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Oh no! Its BMI is </span><span class="si">{:.1f}</span><span class="s2">, so the World Health Organization says it's obese!"</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bmi</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        
+<span class="n">turbine</span> <span class="o">=</span> <span class="n">Building</span><span class="p">(</span><span class="s2">"GE 1.5 Megawatt Wind Turbine"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150_000</span><span class="p">)</span>
+<span class="n">turbine</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We should comment on the special word <code class="docutils literal notranslate"><span class="pre">self</span></code>; actually it’s not special at all, it’s just the position of it that’s special. It’s traditional to use the parameter name <code class="docutils literal notranslate"><span class="pre">self</span></code> there. The first parameter of any method in Python refers to the object that called it. In our example, we called <code class="docutils literal notranslate"><span class="pre">turbine.describe()</span></code>. We could have just as easily done it like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Building</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">turbine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So you see, the class methods will always have a parameter <code class="docutils literal notranslate"><span class="pre">self</span></code> which Python automatically fills in with the <em>instance</em> of the class.</p>
+<p>There is one more thing I would like to change about our class: it doesn’t look good when printed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">turbine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By telling Python how to make it into a string, we will get a much nicer print message.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">weight</span><span class="o">/</span><span class="n">height</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"The </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> meters tall and weighs </span><span class="si">{}</span><span class="s2"> kilograms. "</span>
+                   <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+                  <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mf">18.5</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its low BMI of </span><span class="si">{:.1f}</span><span class="s2"> indicates that it is underweight."</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its BMI is </span><span class="si">{:.1f}</span><span class="s2"> which is typical for a person, but strange for a building."</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bmi</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Its BMI is </span><span class="si">{:.1f}</span><span class="s2">, so according to the World Health organization, it's overweight."</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">"Oh no! Its BMI is </span><span class="si">{:.1f}</span><span class="s2">, so the World Health Organization says it's obese!"</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bmi</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">'Building("</span><span class="si">{}</span><span class="s1">", </span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+        
+<span class="n">turbine</span> <span class="o">=</span> <span class="n">Building</span><span class="p">(</span><span class="s2">"GE 1.5 Megawatt Wind Turbine"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150_000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">turbine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is usually the only way programmers interact with the dunder methods; by defining them yourself, you can make your classes interact better with the rest of Python.</p>
+</section>
+<section id="exercise-7-15-pts">
+<h3><span style="color:red"> Exercise 7 </span> (15 pts)<a class="headerlink" href="#exercise-7-15-pts" title="Link to this heading">#</a></h3>
+<p>Make a new class called <code class="docutils literal notranslate"><span class="pre">Monomial</span></code> to represent the monomial <span class="math notranslate nohighlight">\(a x^b\)</span> which takes two parameters, <code class="docutils literal notranslate"><span class="pre">coefficient</span></code> and <code class="docutils literal notranslate"><span class="pre">exponent</span></code>. It should have a single method <code class="docutils literal notranslate"><span class="pre">derivative</span></code> which returns a new <code class="docutils literal notranslate"><span class="pre">Monomial</span></code>, representing the derivative of <span class="math notranslate nohighlight">\(a x^b\)</span>. When printed it should display nicely, like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Monomial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">2*x**3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Monomial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">derivative</span><span class="p">())</span>
+<span class="go">6*x**2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Monomial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">derivative</span><span class="p">()</span><span class="o">.</span><span class="n">derivative</span><span class="p">())</span>
+<span class="go">12*x**1</span>
+</pre></div>
+</div>
+<p>You can use the function <code class="docutils literal notranslate"><span class="pre">lab4a_check.exercise_7</span></code> to check your work.</p>
+<h3 style="background-color:#6994a2"> Write Answers for Exercise 7 Below </h3><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lab4a_check</span><span class="o">.</span><span class="n">exercise_7</span><span class="p">(</span><span class="n">Monomial</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inheritance">
+<h2><span style="color:#d97f00;"> 4. Inheritance </span><a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
+<p>It is fairly common to have a class which does almost everything you need; you just wish it did one more thing, or did something differently. For those times there is a clever system called inheritance; you can make a new class which “inherits” most of its behavior from the old one. Suppose I really wish I could make my strings print out in a more sarcastic way. Here’s how I might do that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">meme_str</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sarcastically</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> else c.lower() for i, c in enumerate(self))
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">clapping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">'👏'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">definition</span> <span class="o">=</span> <span class="n">meme_str</span><span class="p">(</span><span class="s2">"the derivative is the slope of the tangent line"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">clapping</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">sarcastically</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t use inheritance very much. Twenty to thirty years ago, when object-oriented programming was still something new, many people were impressed with how easy it was to do inheritance and so they built big, elaborate systems of inheritance. Mostly, the code that came out of that style was a tangled mess, where you could never be entirely sure where all the attributes came from. As a result, inheritance has become much less popular lately. For small things inheritance can still be useful, and many people still use inheritance so it’s good to know about it.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs/Online_4_measure_tall_things/a_prepare_for_building_inclinometer"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content"><span style="color:#d97f00;"> 00. Content </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-hardware"><span style="color:#d97f00;"> 0. Required Hardware </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces"><span style="color:#d97f00;"> 1. Namespaces </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advantages-of-namespaces">More advantages of namespaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-10-pts"><span style="color:red"> Exercise 1 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-of-poetry">A bit of poetry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules"><span style="color:#d97f00;"> 2. Modules </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-5-pts"><span style="color:red"> Exercise 2 </span> (5 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-20-pts"><span style="color:red"> Exercise 3 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-20-pts"><span style="color:red"> Exercise 4 </span> (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-20-pts"><span style="color:red"> Exercise 5 </span> (20 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects"><span style="color:#d97f00;"> 3. Objects </span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-object-methods">Using object methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-10-pts"><span style="color:red"> Exercise 6 </span> (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-our-own-classes">Writing our own classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-15-pts"><span style="color:red"> Exercise 7 </span> (15 pts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance"><span style="color:#d97f00;"> 4. Inheritance </span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mireille Boutin, Alden Bradford
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
